@@ -185,16 +185,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ----------------------------------------
-    // Profile photo lightbox
+    // Profile photo lightbox (sidebar + modal)
     // ----------------------------------------
-    const profilePhoto = document.getElementById('profile-photo');
-    if (profilePhoto) {
-        profilePhoto.addEventListener('click', () => {
+    document.querySelectorAll('#sidebar-photo, #profile-photo').forEach(photo => {
+        photo.addEventListener('click', () => {
             const content = lightbox.querySelector('.lightbox-content');
-            content.innerHTML = '<img src="' + profilePhoto.src + '" alt="James Vickers" style="max-width:90vw;max-height:85vh;border-radius:12px;">';
+            content.innerHTML = '<img src="assets/Main Pic/James Vickers Main Pic.jpg" alt="James Vickers" style="max-width:90vw;max-height:85vh;border-radius:12px;">';
             lightbox.classList.add('active');
         });
-    }
+    });
 
     // ----------------------------------------
     // Download PDF
