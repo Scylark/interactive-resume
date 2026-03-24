@@ -210,14 +210,14 @@ const RESUME_DATA = {
             content: `
                 <div class="profile-card">
                     <div class="profile-header">
-                        <img class="profile-avatar-img" src="assets/Main Pic/James Vickers Main Pic.jpg" alt="James Vickers" />
+                        <img class="profile-avatar-img" src="assets/Main Pic/James Vickers Main Pic.jpg" alt="James Vickers" id="profile-photo" style="cursor:pointer" />
                         <div class="profile-info">
                             <h2>James Vickers</h2>
                             <p class="profile-title">Senior Marketing Professional</p>
                             <p class="profile-creds">MCIM · MCPR</p>
                         </div>
                     </div>
-                    <p class="profile-bio">10+ years driving growth through high-impact marketing strategies across cycling, fitness tech, fintech and Web3. Proven track record in team leadership, complex campaigns, and delivering innovative solutions.</p>
+                    <p class="profile-bio">10+ years driving growth through high-impact marketing strategies across cycling, fitness tech and fintech. Proven track record in team leadership, complex campaigns, and delivering innovative solutions.</p>
                     <div class="profile-tags">
                         <span class="tag">Strategy</span>
                         <span class="tag">Brand</span>
@@ -226,7 +226,7 @@ const RESUME_DATA = {
                         <span class="tag">Leadership</span>
                     </div>
                     <div class="profile-meta">
-                        <span>Sheffield / Lincoln, UK</span>
+                        <span>Sheffield / Lincoln, UK · 1.5hrs from London</span>
                         <span>james@manual-focus.co.uk</span>
                     </div>
                     <a href="assets/James-Vickers-CV.pdf" download class="cv-download-btn">Download CV</a>
@@ -543,7 +543,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Fractional CMO</h2>
                     <h3>motif · AI-Powered Wealth Advisory · 2024 – Present</h3>
-                    <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. Includes monthly travel to Zurich. motif is being built using Claude Code - I am actively involved in the development of various features within the app.</p>
+                    <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. motif is being built using Claude Code - I am actively involved in the development of various features within the app.</p>
                     <div class="achievements">
                         <h4>Marketing</h4>
                         <ul>
@@ -572,6 +572,21 @@ const RESUME_DATA = {
                         <div class="stat">
                             <span class="stat-value">7</span>
                             <span class="stat-label">Entities in Negotiation</span>
+                        </div>
+                    </div>
+
+                    <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
+                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">Campaign Work</h3>
+
+                    <div class="media-gallery">
+                        <h4>Superteam Accelerator</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">As part of our acceptance to the Solana SuperTeam Singapore Accelerator Fund, we worked with the creative team on a video explaining our product.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/motif/motif - Superteam explainer.mp4">
+                                <video src="assets/motif/motif - Superteam explainer.mp4" muted preload="metadata"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Superteam Explainer</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -662,6 +677,23 @@ const RESUME_DATA = {
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/Eurobike6.jpeg">
                                 <img src="assets/Classified/Eurobike6.jpeg" alt="Eurobike 2024" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
+                        <h4>High Def Render Project</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Working with the world-class animation studio Propeller in Denmark, we created a suite of high-quality renders for various campaigns and award applications.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/Classified/Drive Train Animation Render.mp4">
+                                <video src="assets/Classified/Drive Train Animation Render.mp4" muted preload="metadata"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Drive Train Render</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Classified/Hub Animation Render.mp4">
+                                <video src="assets/Classified/Hub Animation Render.mp4" muted preload="metadata"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Hub Render</div>
                             </div>
                         </div>
                     </div>
@@ -765,6 +797,67 @@ const RESUME_DATA = {
                         <div class="stat">
                             <span class="stat-value">3,000%</span>
                             <span class="stat-label">MOU/WAU Growth</span>
+                        </div>
+                    </div>
+
+                    <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
+                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">Campaign Work</h3>
+
+                    <div class="media-gallery">
+                        <h4>SYSTM X Rebrand</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">When Wahoo acquired RGT Cycling, we went through a rebrand for both the SYSTM and RGT products. The two separate products came together as a single product, WahooX.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="youtube" data-src="lKKbsJTf7_c">
+                                <img src="https://img.youtube.com/vi/lKKbsJTf7_c/hqdefault.jpg" alt="SYSTM X Rebrand" loading="lazy">
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">SYSTM X Rebrand</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
+                        <h4>Wahoo ELEMNT ROAM Launch</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">While managing marketing for subscription services at Wahoo, I also undertook additional roles supporting the delivery of creatives and planning for hardware launches.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="youtube" data-src="MKNoP4vOAL0">
+                                <img src="https://img.youtube.com/vi/MKNoP4vOAL0/hqdefault.jpg" alt="ELEMNT ROAM Launch" loading="lazy">
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">ELEMNT ROAM Launch</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
+                        <h4>SYSTM On Location Series</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">I led on various campaign launches at Wahoo, including the On Location Series for SYSTM.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="youtube" data-src="A_MKzV8rjTA">
+                                <img src="https://img.youtube.com/vi/A_MKzV8rjTA/hqdefault.jpg" alt="World Cycling Centre" loading="lazy">
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">World Cycling Centre</div>
+                            </div>
+                            <div class="gallery-item" data-type="youtube" data-src="XO2jF7O5aB4">
+                                <img src="https://img.youtube.com/vi/XO2jF7O5aB4/hqdefault.jpg" alt="Catalunya" loading="lazy">
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Catalunya</div>
+                            </div>
+                            <div class="gallery-item" data-type="youtube" data-src="I8sDkjYOLk8">
+                                <img src="https://img.youtube.com/vi/I8sDkjYOLk8/hqdefault.jpg" alt="Portugal" loading="lazy">
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Portugal</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
+                        <h4>GCN Partnership</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">We worked with GCN on a series of partnership videos to support the launch of the platform.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="youtube" data-src="D29q_wssy0k">
+                                <img src="https://img.youtube.com/vi/D29q_wssy0k/hqdefault.jpg" alt="GCN Partnership" loading="lazy">
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">GCN Partnership</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1107,7 +1200,7 @@ const RESUME_DATA = {
                         </div>
                         <div class="about-section">
                             <h4>Travel</h4>
-                            <p>30% travel possible. I currently do regular monthly trips to Zurich for motif and am comfortable with UK and European travel for events, retail, wholesale partners, and activations.</p>
+                            <p>30% travel possible. Comfortable with UK and European travel for events, retail, wholesale partners, and activations.</p>
                         </div>
                         <div class="about-section">
                             <h4>Technology</h4>
@@ -1153,12 +1246,12 @@ const RESUME_DATA = {
                         <div class="contact-item">
                             <span class="contact-icon">L</span>
                             <span class="contact-label">Location</span>
-                            <span class="contact-value">Sheffield / Lincoln, UK · Remote</span>
+                            <span class="contact-value">Sheffield / Lincoln, UK · 1.5hrs from London</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">+</span>
                             <span class="contact-label">Travel</span>
-                            <span class="contact-value">30% travel possible - UK, Europe, Zurich monthly</span>
+                            <span class="contact-value">30% travel possible - UK, Europe</span>
                         </div>
                     </div>
                 </div>

@@ -154,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.remove('active');
         const vid = lightbox.querySelector('video');
         if (vid) vid.pause();
+        const iframe = lightbox.querySelector('iframe');
+        if (iframe) iframe.src = '';
         lightbox.querySelector('.lightbox-content').innerHTML = '';
     }
 
@@ -166,7 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const src = item.dataset.src;
         const content = lightbox.querySelector('.lightbox-content');
 
-        if (type === 'video') {
+        if (type === 'youtube') {
+            content.innerHTML = '<iframe src="https://www.youtube.com/embed/' + src + '?autoplay=1" style="width:min(90vw,960px);aspect-ratio:16/9;border:none;border-radius:12px;" allow="autoplay;encrypted-media" allowfullscreen></iframe>';
+        } else if (type === 'video') {
             content.innerHTML = '<video src="' + src + '" controls autoplay style="max-width:90vw;max-height:85vh;border-radius:12px;"></video>';
         } else {
             content.innerHTML = '<img src="' + src + '" alt="" style="max-width:90vw;max-height:85vh;border-radius:12px;">';
@@ -179,6 +183,18 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
         }
     });
+
+    // ----------------------------------------
+    // Profile photo lightbox
+    // ----------------------------------------
+    const profilePhoto = document.getElementById('profile-photo');
+    if (profilePhoto) {
+        profilePhoto.addEventListener('click', () => {
+            const content = lightbox.querySelector('.lightbox-content');
+            content.innerHTML = '<img src="' + profilePhoto.src + '" alt="James Vickers" style="max-width:90vw;max-height:85vh;border-radius:12px;">';
+            lightbox.classList.add('active');
+        });
+    }
 
     // ----------------------------------------
     // Download PDF
