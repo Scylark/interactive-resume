@@ -198,6 +198,11 @@ class iPodPlayer {
                             <span id="ipod-time-total">${track && track.duration ? track.duration : '0:00'}</span>
                         </div>
                     </div>
+                    <div class="ipod-volume">
+                        <span class="ipod-volume-icon">🔈</span>
+                        <input type="range" class="ipod-volume-slider" id="ipod-volume" min="0" max="1" step="0.01" value="${this.audio.volume}">
+                        <span class="ipod-volume-icon">🔊</span>
+                    </div>
                 </div>
             `;
         }
@@ -274,10 +279,16 @@ class iPodPlayer {
                             <span id="ipod-time-total">${track && track.duration ? track.duration : this.formatTime(this.audio.duration || 0)}</span>
                         </div>
                     </div>
+                    <div class="ipod-volume">
+                        <span class="ipod-volume-icon">🔈</span>
+                        <input type="range" class="ipod-volume-slider" id="ipod-volume" min="0" max="1" step="0.01" value="${this.audio.volume}">
+                        <span class="ipod-volume-icon">🔊</span>
+                    </div>
                 </div>
             `;
 
             this.bindProgressBar();
+            this.bindVolume();
         }
     }
 
@@ -298,6 +309,7 @@ class iPodPlayer {
         // Track list clicks
         this.bindTrackList();
         this.bindProgressBar();
+        this.bindVolume();
 
         // Disable right-click on the whole player
         const ipod = document.querySelector('.ipod');
@@ -316,7 +328,7 @@ class iPodPlayer {
                 this.view = 'nowplaying';
                 this.render();
                 // Re-bind after render
-                setTimeout(() => this.bindProgressBar(), 50);
+                setTimeout(() => { this.bindProgressBar(); this.bindVolume(); }, 50);
             });
         });
     }
@@ -327,6 +339,16 @@ class iPodPlayer {
             bar.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.seek(e);
+            });
+        }
+    }
+
+    bindVolume() {
+        const slider = document.getElementById('ipod-volume');
+        if (slider) {
+            slider.addEventListener('input', (e) => {
+                e.stopPropagation();
+                this.audio.volume = parseFloat(e.target.value);
             });
         }
     }
@@ -368,12 +390,12 @@ class iPodPlayer {
             if (this.currentIndex >= 0) {
                 this.view = 'nowplaying';
                 this.render();
-                setTimeout(() => this.bindProgressBar(), 50);
+                setTimeout(() => { this.bindProgressBar(); this.bindVolume(); }, 50);
             } else {
                 this.play(0);
                 this.view = 'nowplaying';
                 this.render();
-                setTimeout(() => this.bindProgressBar(), 50);
+                setTimeout(() => { this.bindProgressBar(); this.bindVolume(); }, 50);
             }
         } else if (this.view === 'nowplaying') {
             this.togglePlay();

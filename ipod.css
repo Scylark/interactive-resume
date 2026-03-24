@@ -186,6 +186,53 @@
     font-family: 'JetBrains Mono', monospace;
 }
 
+/* Volume control */
+.ipod-volume {
+    width: 100%;
+    padding: 4px 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.ipod-volume-icon {
+    font-size: 9px;
+    color: #64748b;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.ipod-volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3px;
+    background: #334155;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.ipod-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #60a5fa;
+    cursor: pointer;
+}
+
+.ipod-volume-slider::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #60a5fa;
+    border: none;
+    cursor: pointer;
+}
+
 /* Track list view */
 .ipod-tracklist {
     flex: 1;

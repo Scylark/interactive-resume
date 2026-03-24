@@ -308,7 +308,7 @@ const RESUME_DATA = {
                 <div class="role-card">
                     <div class="role-header">
                         <div class="role-badge" style="background: #059669">Cycling</div>
-                        <span class="role-status active">Current — Advisory (3 days/week)</span>
+                        <span class="role-status active">Current - Advisory (3 days/week)</span>
                     </div>
                     <h2>Marketing Consultant</h2>
                     <h3>Ribble Cycles · Nov 2024 – Present</h3>
@@ -316,44 +316,44 @@ const RESUME_DATA = {
                     <p class="role-context" style="margin-top: 6px;">Budget responsibility for all marketing activities. £1.2M, landed 2024/2025 under budget at £920K.</p>
 
                     <div class="achievements">
-                        <h4>Team & Structure</h4>
+                        <h4>Leadership</h4>
                         <ul>
-                            <li><strong>Reshaped the marketing team</strong> — reorganised roles and responsibilities to ensure the right people were in the right positions.</li>
-                            <li><strong>Built organisational structure</strong> — established processes, planning, and implemented a new task management platform.</li>
-                            <li><strong>Onboarded key agencies</strong> — Shift Active Media (PR) and Commute Films (creative video production).</li>
-                            <li><strong>Board-level impact</strong> — delivered strategic presentations to the board, representing the business under PE ownership by SMT.</li>
+                            <li><strong>Reshaped the marketing team</strong> - reorganised roles and responsibilities to ensure the right people were in the right positions.</li>
+                            <li><strong>Built organisational structure</strong> - established processes, planning, and implemented a new task management platform.</li>
+                            <li><strong>Onboarded key agencies</strong> - Shift Active Media (PR) and Commute Films (creative video production).</li>
+                            <li><strong>Board-level impact</strong> - delivered strategic presentations to the board, representing the business under PE ownership by SMT.</li>
                         </ul>
                     </div>
 
                     <div class="achievements">
                         <h4>PR & Media Relations</h4>
                         <ul>
-                            <li><strong>Developed strategic PR process</strong> — managed media relations ensuring correct products delivered to journalists on schedule.</li>
-                            <li><strong>Non-endemic placement</strong> — secured athlete coverage on BBC, ITV TV and local newspapers in 2025.</li>
-                            <li><strong>Coverage growth</strong> — articles up from 135 (2024) to 196 (2025). Estimated views from 1.89M to 4.42M. Potential audience from 117M to 327M.</li>
-                            <li><strong>Strategic brand repositioning</strong> — shifted brand perception from "budget-friendly heritage brand" to "high-performance technical admiration" — ULTRA-RACE compared to Colnago in Cycling Weekly rather than Planet X or Dolan.</li>
-                            <li><strong>Review placements</strong> — 17 (2024) to 19 (2025), amplifying the brand transition through well-placed product reviews.</li>
+                            <li><strong>Developed strategic PR process</strong> - managed media relations ensuring correct products delivered to journalists on schedule.</li>
+                            <li><strong>Non-endemic placement</strong> - secured athlete coverage on BBC, ITV TV and local newspapers in 2025.</li>
+                            <li><strong>Coverage growth</strong> - articles up from 135 (2024) to 196 (2025). Estimated views from 1.89M to 4.42M. Potential audience from 117M to 327M.</li>
+                            <li><strong>Strategic brand repositioning</strong> - shifted brand perception from "budget-friendly heritage brand" to "high-performance technical admiration" - ULTRA-RACE compared to Colnago in Cycling Weekly rather than Planet X or Dolan.</li>
+                            <li><strong>Review placements</strong> - 17 (2024) to 19 (2025), amplifying the brand transition through well-placed product reviews.</li>
                         </ul>
                     </div>
 
                     <div class="achievements">
                         <h4>Pro Team Activation</h4>
                         <ul>
-                            <li><strong>Ribble Outliers activation</strong> — utilised main channels and Outlier-only channels, creating thought leadership on LinkedIn alongside B2C content.</li>
-                            <li><strong>Partnership marketing</strong> — collaborations with Precision and Restrap added 8,000+ users to the email subscriber list.</li>
-                            <li><strong>Strategic event planning</strong> — British Gravel National Championships sponsorship amplified pro sports positioning.</li>
-                            <li><strong>Creative direction</strong> — tongue-in-cheek, contemporary design focusing on alternative elements rather than traditional pro cycling aesthetics.</li>
-                            <li><strong>Gravel category growth</strong> — Ribble's fastest-growing category, outperforming market growth by 2 percentage points and taking competitor share.</li>
-                            <li><strong>Smurfit Westrock Pro Cycling & Cyclist magazine</strong> — partnered with the women's professional continental team. Delivered "Welcome to Hell" mini-documentary about their Rutland-Melton CiCLE Classic win.</li>
-                            <li><strong>Showroom activation</strong> — used Pro Team for in-store video content and live rides/meet-and-greets.</li>
+                            <li><strong>Ribble Outliers activation</strong> - utilised main channels and Outlier-only channels, creating thought leadership on LinkedIn alongside B2C content.</li>
+                            <li><strong>Partnership marketing</strong> - collaborations with Precision and Restrap added 8,000+ users to the email subscriber list.</li>
+                            <li><strong>Strategic event planning</strong> - British Gravel National Championships sponsorship amplified pro sports positioning.</li>
+                            <li><strong>Creative direction</strong> - tongue-in-cheek, contemporary design focusing on alternative elements rather than traditional pro cycling aesthetics.</li>
+                            <li><strong>Gravel category growth</strong> - Ribble's fastest-growing category, outperforming market growth by 2 percentage points and taking competitor share.</li>
+                            <li><strong>Smurfit Westrock Pro Cycling & Cyclist magazine</strong> - partnered with the women's professional continental team. Delivered "Welcome to Hell" mini-documentary about their Rutland-Melton CiCLE Classic win.</li>
+                            <li><strong>Showroom activation</strong> - used Pro Team for in-store video content and live rides/meet-and-greets.</li>
                         </ul>
                     </div>
 
                     <div class="achievements">
                         <h4>NPD & Content</h4>
                         <ul>
-                            <li><strong>Led NPD marketing</strong> — created pre-design sign-off documents and comprehensive go-to-market strategies covering positioning, messaging, and channel planning.</li>
-                            <li><strong>Hands-on delivery</strong> — tactical SEO content and leadership blogs when required.</li>
+                            <li><strong>Led NPD marketing</strong> - created pre-design sign-off documents and comprehensive go-to-market strategies covering positioning, messaging, and channel planning.</li>
+                            <li><strong>Hands-on delivery</strong> - tactical SEO content and leadership blogs when required.</li>
                         </ul>
                     </div>
 
@@ -423,8 +423,8 @@ const RESUME_DATA = {
                     </div>
 
                     <div class="media-gallery">
-                        <h4>Welcome to Hell — Rutland-Melton CiCLE Classic</h4>
-                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Partnered with Smurfit Westrock Pro Cycling and Cyclist magazine to produce this mini-documentary following the women's professional continental team's win at the Rutland-Melton CiCLE Classic — arguably the biggest one-day race in the UK women's calendar.</p>
+                        <h4>Welcome to Hell - Rutland-Melton CiCLE Classic</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Partnered with Smurfit Westrock Pro Cycling and Cyclist magazine to produce this mini-documentary following the women's professional continental team's win at the Rutland-Melton CiCLE Classic - arguably the biggest one-day race in the UK women's calendar.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 - Welcome to Hell Smurfity WestRock Video/YTDown.com_YouTube_WELCOME-TO-HELL-The-Story-Behind-Britain_Media_BH1ehifowbs_001_1080p.mp4">
                                 <video src="assets/Ribble 2025 - Welcome to Hell Smurfity WestRock Video/YTDown.com_YouTube_WELCOME-TO-HELL-The-Story-Behind-Britain_Media_BH1ehifowbs_001_1080p.mp4" muted preload="metadata"></video>
@@ -462,7 +462,7 @@ const RESUME_DATA = {
 
                     <div class="media-gallery">
                         <h4>ALLGRIT & ULTRA-GRIT Launch 2025</h4>
-                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Ribble completely relaunched its gravel range in 2025 with the ALLGRIT and ULTRA-GRIT. The campaign landed distinct positioning for both bikes — race performance for the ULTRA-GRIT, adventure versatility for the ALLGRIT — targeting two clearly defined rider profiles.</p>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Ribble completely relaunched its gravel range in 2025 with the ALLGRIT and ULTRA-GRIT. The campaign landed distinct positioning for both bikes - race performance for the ULTRA-GRIT, adventure versatility for the ALLGRIT - targeting two clearly defined rider profiles.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/All-Grit Range 40s 16-9.mp4">
                                 <video src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/All-Grit Range 40s 16-9.mp4" muted preload="metadata"></video>
@@ -480,7 +480,7 @@ const RESUME_DATA = {
 
                     <div class="media-gallery">
                         <h4>CGR Relaunch 2025</h4>
-                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The CGR is Ribble's do-it-all bike — designed to handle commutes, gravel, and road with equal composure. This launch film was a key asset in the 2025 relaunch, positioning it as the most versatile bike in the range.</p>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The CGR is Ribble's do-it-all bike - designed to handle commutes, gravel, and road with equal composure. This launch film was a key asset in the 2025 relaunch, positioning it as the most versatile bike in the range.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 CGR Launch/Ribble CGR 1920x1080 No Logo.mp4">
                                 <video src="assets/Ribble 2025 CGR Launch/Ribble CGR 1920x1080 No Logo.mp4" muted preload="metadata"></video>
@@ -515,8 +515,8 @@ const RESUME_DATA = {
                     </div>
 
                     <div class="media-gallery">
-                        <h4>The Bike That Gets Me — Campaign 2026</h4>
-                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">This campaign was designed to show prospects that the best bike is the right bike for them — not necessarily the most expensive or the fastest. All creative assets for this project were developed using AI.</p>
+                        <h4>The Bike That Gets Me - Campaign 2026</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">This campaign was designed to show prospects that the best bike is the right bike for them - not necessarily the most expensive or the fastest. All creative assets for this project were developed using AI.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2026 - The Bike That Gets Me Campaign/TBTGM-Campaign_Homepage-Banner-Film-1080x1350_2026-03-02-160340_bngt.mp4">
                                 <video src="assets/Ribble 2026 - The Bike That Gets Me Campaign/TBTGM-Campaign_Homepage-Banner-Film-1080x1350_2026-03-02-160340_bngt.mp4" muted preload="metadata"></video>
@@ -539,25 +539,25 @@ const RESUME_DATA = {
                 <div class="role-card">
                     <div class="role-header">
                         <div class="role-badge" style="background: #7c3aed">Fintech / AI</div>
-                        <span class="role-status active">Current — ESOP Holder</span>
+                        <span class="role-status active">Current - ESOP Holder</span>
                     </div>
                     <h2>Fractional CMO</h2>
                     <h3>motif · AI-Powered Wealth Advisory · 2024 – Present</h3>
-                    <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. Includes monthly travel to Zurich. motif is being built using Claude Code — I am actively involved in the development of various features within the app.</p>
+                    <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. Includes monthly travel to Zurich. motif is being built using Claude Code - I am actively involved in the development of various features within the app.</p>
                     <div class="achievements">
                         <h4>Marketing</h4>
                         <ul>
-                            <li><strong>Full marketing ownership</strong> — brand development, website build, hosting, updates, and social media management.</li>
-                            <li><strong>Pivoted to B2B outreach</strong> — contacted 1,000+ fintech organisations to develop the sales pipeline.</li>
-                            <li><strong>£150M+ AUM pipeline</strong> — generated a qualified "under-negotiation" phase of over 150 million in assets under management across seven entities.</li>
-                            <li><strong>30 active prospects</strong> — built pipeline now at ~30 prospects in varying stages.</li>
+                            <li><strong>Full marketing ownership</strong> - brand development, website build, hosting, updates, and social media management.</li>
+                            <li><strong>Pivoted to B2B outreach</strong> - contacted 1,000+ fintech organisations to develop the sales pipeline.</li>
+                            <li><strong>£150M+ AUM pipeline</strong> - generated a qualified "under-negotiation" phase of over 150 million in assets under management across seven entities.</li>
+                            <li><strong>30 active prospects</strong> - built pipeline now at ~30 prospects in varying stages.</li>
                         </ul>
                     </div>
                     <div class="achievements">
                         <h4>Product Development</h4>
                         <ul>
-                            <li><strong>AI product development</strong> — actively involved in building features within the motif app using Claude Code.</li>
-                            <li><strong>Cross-functional role</strong> — bridging marketing strategy with hands-on product development in an AI-native fintech.</li>
+                            <li><strong>AI product development</strong> - actively involved in building features within the motif app using Claude Code.</li>
+                            <li><strong>Cross-functional role</strong> - bridging marketing strategy with hands-on product development in an AI-native fintech.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
@@ -594,15 +594,15 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>Brand & product positioning</strong> — led the process of researching, validating, documenting and integrating brand and product positions.</li>
-                            <li><strong>Strategic alignment</strong> — collaborated with executives to implement marketing initiatives aligned with business goals and global expansion, boosting brand visibility.</li>
-                            <li><strong>Team leadership</strong> — led the marketing team, fostering creativity and performance, and worked with agencies to deliver cohesive digital, PR, and social campaigns.</li>
-                            <li><strong>160+ media placements</strong> — spearheaded global product launches, including the Vistar // Powershift drivetrain at Eurobike.</li>
-                            <li><strong>AI/ML adoption</strong> — led the adoption of AI and machine learning technology into the business to support cross-department improvements.</li>
-                            <li><strong>Global events</strong> — managed Eurobike, Sea Otter, and Taichung Bike Week to create brand impact, strengthen partnerships, and drive growth.</li>
-                            <li><strong>Content strategy</strong> — developed high-impact content strategies that significantly increased web traffic and engagement.</li>
-                            <li><strong>IBD & distributor support</strong> — supported the development of the business's offer to IBDs and distributors, enhancing education and process.</li>
-                            <li><strong>Data-driven engagement</strong> — used data analysis to drive strong audience engagement and improve lead generation, positioning Classified as a leader in cycling innovation.</li>
+                            <li><strong>Brand & product positioning</strong> - led the process of researching, validating, documenting and integrating brand and product positions.</li>
+                            <li><strong>Strategic alignment</strong> - collaborated with executives to implement marketing initiatives aligned with business goals and global expansion, boosting brand visibility.</li>
+                            <li><strong>Team leadership</strong> - led the marketing team, fostering creativity and performance, and worked with agencies to deliver cohesive digital, PR, and social campaigns.</li>
+                            <li><strong>160+ media placements</strong> - spearheaded global product launches, including the Vistar // Powershift drivetrain at Eurobike.</li>
+                            <li><strong>AI/ML adoption</strong> - led the adoption of AI and machine learning technology into the business to support cross-department improvements.</li>
+                            <li><strong>Global events</strong> - managed Eurobike, Sea Otter, and Taichung Bike Week to create brand impact, strengthen partnerships, and drive growth.</li>
+                            <li><strong>Content strategy</strong> - developed high-impact content strategies that significantly increased web traffic and engagement.</li>
+                            <li><strong>IBD & distributor support</strong> - supported the development of the business's offer to IBDs and distributors, enhancing education and process.</li>
+                            <li><strong>Data-driven engagement</strong> - used data analysis to drive strong audience engagement and improve lead generation, positioning Classified as a leader in cycling innovation.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
@@ -616,7 +616,7 @@ const RESUME_DATA = {
 
                     <div class="media-gallery">
                         <h4>Vistar Groupset Launch</h4>
-                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">In partnership with TRP, I led the launch of the VISTAR Classified Groupset. This was the standout media news story at Eurobike 2024 across all categories — and arguably one of my best pieces of work.</p>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">In partnership with TRP, I led the launch of the VISTAR Classified Groupset. This was the standout media news story at Eurobike 2024 across all categories - and arguably one of my best pieces of work.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Classified/Vistar Classified Render.mp4">
                                 <video src="assets/Classified/Vistar Classified Render.mp4" muted preload="metadata"></video>
@@ -633,7 +633,7 @@ const RESUME_DATA = {
                             <div class="gallery-item" data-type="video" data-src="assets/Classified/Classified - Ineos - Giro d'Italia.mp4">
                                 <video src="assets/Classified/Classified - Ineos - Giro d'Italia.mp4" muted preload="metadata"></video>
                                 <div class="gallery-play"></div>
-                                <div class="gallery-label">INEOS — Giro d'Italia</div>
+                                <div class="gallery-label">INEOS - Giro d'Italia</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/INEOS_2_1024x1024.webp">
                                 <img src="assets/Classified/INEOS_2_1024x1024.webp" alt="INEOS Partnership" loading="lazy">
@@ -685,17 +685,17 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>Brand development</strong> — led and developed Muuvr's brand and visual identity, aligning with core values and market positioning.</li>
-                            <li><strong>Market analysis</strong> — conducted research to identify trends, opportunities, and challenges in the fitness and technology sectors.</li>
-                            <li><strong>AI strategy</strong> — designed and implemented AI strategies to support product, marketing, and financial decision-making and business activities.</li>
-                            <li><strong>User persona analysis</strong> — led persona work to tailor product and communication strategies to diverse user needs.</li>
-                            <li><strong>Brand partnerships</strong> — played a crucial role in acquiring and nurturing partnerships, boosting market presence.</li>
-                            <li><strong>GTM execution</strong> — oversaw go-to-market strategy for product launches, driving user base growth and market share.</li>
-                            <li><strong>Agency management</strong> — procured and managed agency partnerships in creative, performance marketing, and PR.</li>
-                            <li><strong>Team culture</strong> — fostered innovation and collaboration within the marketing team, driving growth and personal development.</li>
-                            <li><strong>$4.5M fundraise</strong> — contributed to a successful fundraising effort securing $4.5M in investment.</li>
-                            <li><strong>Gamification</strong> — led the development of key gamification strategies.</li>
-                            <li><strong>Channel management</strong> — managed the channel plan, ensuring cohesive brand messaging across all channels.</li>
+                            <li><strong>Brand development</strong> - led and developed Muuvr's brand and visual identity, aligning with core values and market positioning.</li>
+                            <li><strong>Market analysis</strong> - conducted research to identify trends, opportunities, and challenges in the fitness and technology sectors.</li>
+                            <li><strong>AI strategy</strong> - designed and implemented AI strategies to support product, marketing, and financial decision-making and business activities.</li>
+                            <li><strong>User persona analysis</strong> - led persona work to tailor product and communication strategies to diverse user needs.</li>
+                            <li><strong>Brand partnerships</strong> - played a crucial role in acquiring and nurturing partnerships, boosting market presence.</li>
+                            <li><strong>GTM execution</strong> - oversaw go-to-market strategy for product launches, driving user base growth and market share.</li>
+                            <li><strong>Agency management</strong> - procured and managed agency partnerships in creative, performance marketing, and PR.</li>
+                            <li><strong>Team culture</strong> - fostered innovation and collaboration within the marketing team, driving growth and personal development.</li>
+                            <li><strong>$4.5M fundraise</strong> - contributed to a successful fundraising effort securing $4.5M in investment.</li>
+                            <li><strong>Gamification</strong> - led the development of key gamification strategies.</li>
+                            <li><strong>Channel management</strong> - managed the channel plan, ensuring cohesive brand messaging across all channels.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
@@ -723,30 +723,30 @@ const RESUME_DATA = {
                     <h3>RGT Cycling (Co-Founded) → Acquired by Wahoo Fitness · 2019 – Jan 2023</h3>
                     <p class="role-context">Co-founded RGT Cycling as Head of Brand & Marketing (2019), promoted to CMO (2021), then transitioned to Head of Marketing (Subscription Services) at Wahoo Fitness following acquisition (April 2022).</p>
                     <div class="achievements">
-                        <h4>RGT Cycling — Co-Founded (2019 – 2022)</h4>
+                        <h4>RGT Cycling - Co-Founded (2019 – 2022)</h4>
                         <ul>
-                            <li><strong>0 → 450K users</strong> — grew registered users from 100 to 450K and subscribers from 0 to 10K.</li>
-                            <li><strong>Conversion optimisation</strong> — drove a funnel optimisation project improving register-to-ride conversions from 20% to 45% within 12 months.</li>
-                            <li><strong>2.2M sessions</strong> — directed platform content strategy generating over 2.2M sessions from approximately 1M users.</li>
-                            <li><strong>MOU & WAU growth</strong> — approximately 3,000% increase in monthly and weekly active users.</li>
-                            <li><strong>Brand recall</strong> — improved prompted brand recall from 2 to 95 and unprompted from 0 to 75.</li>
-                            <li><strong>NPS turnaround</strong> — elevated site-based NPS from -65 to +45.</li>
-                            <li><strong>GTM flywheel</strong> — defined the GTM flywheel, utilising partnerships with over 100 brands to provide attention at the top of the funnel and support conversion.</li>
-                            <li><strong>Community</strong> — curated and hosted the RGT Breakaway Podcast and AMA sessions, fostering strong community engagement and brand advocacy.</li>
-                            <li><strong>Led creative direction</strong> — integrated brand messaging and performance marketing while managing agency partnerships and budgets.</li>
-                            <li><strong>Acquisition</strong> — played a critical role in corporate strategy and due diligence during RGT Cycling's acquisition by Wahoo Fitness.</li>
+                            <li><strong>0 → 450K users</strong> - grew registered users from 100 to 450K and subscribers from 0 to 10K.</li>
+                            <li><strong>Conversion optimisation</strong> - drove a funnel optimisation project improving register-to-ride conversions from 20% to 45% within 12 months.</li>
+                            <li><strong>2.2M sessions</strong> - directed platform content strategy generating over 2.2M sessions from approximately 1M users.</li>
+                            <li><strong>MOU & WAU growth</strong> - approximately 3,000% increase in monthly and weekly active users.</li>
+                            <li><strong>Brand recall</strong> - improved prompted brand recall from 2 to 95 and unprompted from 0 to 75.</li>
+                            <li><strong>NPS turnaround</strong> - elevated site-based NPS from -65 to +45.</li>
+                            <li><strong>GTM flywheel</strong> - defined the GTM flywheel, utilising partnerships with over 100 brands to provide attention at the top of the funnel and support conversion.</li>
+                            <li><strong>Community</strong> - curated and hosted the RGT Breakaway Podcast and AMA sessions, fostering strong community engagement and brand advocacy.</li>
+                            <li><strong>Led creative direction</strong> - integrated brand messaging and performance marketing while managing agency partnerships and budgets.</li>
+                            <li><strong>Acquisition</strong> - played a critical role in corporate strategy and due diligence during RGT Cycling's acquisition by Wahoo Fitness.</li>
                         </ul>
                     </div>
                     <div class="achievements">
-                        <h4>Wahoo Fitness — Post-Acquisition (2022 – 2023)</h4>
+                        <h4>Wahoo Fitness - Post-Acquisition (2022 – 2023)</h4>
                         <ul>
-                            <li><strong>Integrated marketing strategy</strong> — led the strategic development and execution of Wahoo X's integrated marketing strategy, driving growth and brand positioning.</li>
-                            <li><strong>Go-to-market</strong> — directed GTM, PR, partnerships, product innovation, and multi-channel marketing efforts.</li>
-                            <li><strong>Market insights</strong> — delivered vital market insights to inform strategic decisions and maximise ROI.</li>
-                            <li><strong>Cross-functional support</strong> — provided high-level strategic support across Retail and Sales, defining vision, mission, and performance metrics.</li>
-                            <li><strong>IBD & distributor relations</strong> — worked closely with local offices, IBDs, and distributors to ensure accurate and favourable product positioning.</li>
-                            <li><strong>500+ retailers</strong> — managed global product launches and expanded RGT retail presence.</li>
-                            <li><strong>Wahoo X GTM Fall 2022</strong> — led the campaign achieving major improvements in brand KPIs and securing coverage in 20 top publications.</li>
+                            <li><strong>Integrated marketing strategy</strong> - led the strategic development and execution of Wahoo X's integrated marketing strategy, driving growth and brand positioning.</li>
+                            <li><strong>Go-to-market</strong> - directed GTM, PR, partnerships, product innovation, and multi-channel marketing efforts.</li>
+                            <li><strong>Market insights</strong> - delivered vital market insights to inform strategic decisions and maximise ROI.</li>
+                            <li><strong>Cross-functional support</strong> - provided high-level strategic support across Retail and Sales, defining vision, mission, and performance metrics.</li>
+                            <li><strong>IBD & distributor relations</strong> - worked closely with local offices, IBDs, and distributors to ensure accurate and favourable product positioning.</li>
+                            <li><strong>500+ retailers</strong> - managed global product launches and expanded RGT retail presence.</li>
+                            <li><strong>Wahoo X GTM Fall 2022</strong> - led the campaign achieving major improvements in brand KPIs and securing coverage in 20 top publications.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
@@ -787,13 +787,13 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>PR & marketing strategy</strong> — spearheaded the development and execution of comprehensive PR and marketing strategies, driving brand and commercial growth.</li>
-                            <li><strong>Global events</strong> — delivered significant growth through a highly effective events strategy, executing experiences across the UK, Europe, and Africa.</li>
-                            <li><strong>Ambassador marketing</strong> — boosted social awareness and site traffic by leading impactful ambassador initiatives, including creating a framework for selecting and engaging ambassadors, negotiating contracts, and collaborating with high-profile talent.</li>
-                            <li><strong>International support</strong> — supported international distributors and dealers by providing tailored marketing materials, training resources, and content to drive sales and strengthen relationships.</li>
-                            <li><strong>Media perception shift</strong> — successfully shifted media perceptions of the Wattbike Atom, improving mid-funnel customer retention and driving increased conversions after addressing early negative reviews.</li>
-                            <li><strong>Media purchasing</strong> — directed media purchasing activities and tracked performance to ensure effective ROI.</li>
-                            <li><strong>Content strategy</strong> — supported content strategy by curating the content pipeline and overseeing content production projects.</li>
+                            <li><strong>PR & marketing strategy</strong> - spearheaded the development and execution of comprehensive PR and marketing strategies, driving brand and commercial growth.</li>
+                            <li><strong>Global events</strong> - delivered significant growth through a highly effective events strategy, executing experiences across the UK, Europe, and Africa.</li>
+                            <li><strong>Ambassador marketing</strong> - boosted social awareness and site traffic by leading impactful ambassador initiatives, including creating a framework for selecting and engaging ambassadors, negotiating contracts, and collaborating with high-profile talent.</li>
+                            <li><strong>International support</strong> - supported international distributors and dealers by providing tailored marketing materials, training resources, and content to drive sales and strengthen relationships.</li>
+                            <li><strong>Media perception shift</strong> - successfully shifted media perceptions of the Wattbike Atom, improving mid-funnel customer retention and driving increased conversions after addressing early negative reviews.</li>
+                            <li><strong>Media purchasing</strong> - directed media purchasing activities and tracked performance to ensure effective ROI.</li>
+                            <li><strong>Content strategy</strong> - supported content strategy by curating the content pipeline and overseeing content production projects.</li>
                         </ul>
                     </div>
                 </div>
@@ -834,12 +834,12 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>Brand & marketing strategy</strong> — developed and executed brand and marketing strategies to drive growth and visibility.</li>
-                            <li><strong>Digital marketing</strong> — led SEO, performance, and email efforts to boost engagement.</li>
-                            <li><strong>Brand messaging</strong> — managed consistent brand messaging across all channels.</li>
-                            <li><strong>Content & influencer</strong> — directed content creation and oversaw influencer partnerships.</li>
-                            <li><strong>Data-driven optimisation</strong> — analysed data to optimise campaigns and improve ROI.</li>
-                            <li><strong>Cross-functional collaboration</strong> — worked with teams to align brand strategy with product development and customer experience.</li>
+                            <li><strong>Brand & marketing strategy</strong> - developed and executed brand and marketing strategies to drive growth and visibility.</li>
+                            <li><strong>Digital marketing</strong> - led SEO, performance, and email efforts to boost engagement.</li>
+                            <li><strong>Brand messaging</strong> - managed consistent brand messaging across all channels.</li>
+                            <li><strong>Content & influencer</strong> - directed content creation and oversaw influencer partnerships.</li>
+                            <li><strong>Data-driven optimisation</strong> - analysed data to optimise campaigns and improve ROI.</li>
+                            <li><strong>Cross-functional collaboration</strong> - worked with teams to align brand strategy with product development and customer experience.</li>
                         </ul>
                     </div>
                 </div>
@@ -862,11 +862,11 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>Revenue growth</strong> — developed and executed sales and marketing strategies that drove revenue growth and market expansion.</li>
-                            <li><strong>Digital marketing</strong> — led SEO, PPC, email, and social media initiatives.</li>
-                            <li><strong>eCommerce optimisation</strong> — optimised the eCommerce platform and implemented customer segmentation to boost conversions and retention.</li>
-                            <li><strong>Team leadership</strong> — led the sales team to exceed targets through training and mentorship.</li>
-                            <li><strong>Supplier relationships</strong> — built key supplier partnerships to optimise inventory and pricing.</li>
+                            <li><strong>Revenue growth</strong> - developed and executed sales and marketing strategies that drove revenue growth and market expansion.</li>
+                            <li><strong>Digital marketing</strong> - led SEO, PPC, email, and social media initiatives.</li>
+                            <li><strong>eCommerce optimisation</strong> - optimised the eCommerce platform and implemented customer segmentation to boost conversions and retention.</li>
+                            <li><strong>Team leadership</strong> - led the sales team to exceed targets through training and mentorship.</li>
+                            <li><strong>Supplier relationships</strong> - built key supplier partnerships to optimise inventory and pricing.</li>
                         </ul>
                     </div>
                 </div>
@@ -894,9 +894,9 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>AI Integration Across Career</h4>
                         <ul>
-                            <li><strong>Classified Cycling</strong> — led adoption of AI/ML across departments.</li>
-                            <li><strong>Muuvr</strong> — designed AI strategies for product, marketing, and finance.</li>
-                            <li><strong>Wattplan</strong> — built with only AI as an experiment into AI readiness.</li>
+                            <li><strong>Classified Cycling</strong> - led adoption of AI/ML across departments.</li>
+                            <li><strong>Muuvr</strong> - designed AI strategies for product, marketing, and finance.</li>
+                            <li><strong>Wattplan</strong> - built with only AI as an experiment into AI readiness.</li>
                         </ul>
                     </div>
                     <a href="https://wattplan.cc" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;color:#6366f1;font-weight:600;">wattplan.cc</a>
@@ -1012,7 +1012,7 @@ const RESUME_DATA = {
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
                             <h4>Wattplan</h4>
-                            <p>AI-powered endurance sports training app built entirely with AI — concept, development and launch. A side project to test what's possible when AI handles the full stack.</p>
+                            <p>AI-powered endurance sports training app built entirely with AI - concept, development and launch. A side project to test what's possible when AI handles the full stack.</p>
                             <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
                         </div>
                         <div class="ai-item">
@@ -1023,7 +1023,7 @@ const RESUME_DATA = {
                         <div class="ai-item">
                             <div class="ai-item-icon">R</div>
                             <h4>This Resume</h4>
-                            <p>Built with AI assistance — an interactive knowledge-graph resume demonstrating the intersection of marketing and technology.</p>
+                            <p>Built with AI assistance - an interactive knowledge-graph resume demonstrating the intersection of marketing and technology.</p>
                         </div>
                     </div>
                 </div>
@@ -1055,7 +1055,7 @@ const RESUME_DATA = {
                         <div class="edu-item">
                             <div class="edu-badge">HD</div>
                             <div class="edu-detail">
-                                <h4>Higher Diploma — Fishing & Fishery Sciences & Management</h4>
+                                <h4>Higher Diploma - Fishing & Fishery Sciences & Management</h4>
                                 <p>Distinction</p>
                             </div>
                         </div>
@@ -1094,8 +1094,8 @@ const RESUME_DATA = {
                     <h2>About James</h2>
                     <div class="about-sections">
                         <div class="about-section">
-                            <h4>Cycling — It's Part of My Fabric</h4>
-                            <p>I am a lifestyle cyclist. Cycling isn't just an interest — it runs through everything I do. My father was a mountain biking instructor, and I grew up on bikes. I rode the juniors competitively before heading off to college. Today I ride road and gravel seriously — I raced the National Championships in 2025 and placed 15th. I'm equally at home on a gravel bike in the Peak District or on the road in the Yorkshire Dales. Cycling culture, community and progression are values I live, not just market.</p>
+                            <h4>Cycling - It's Part of My Fabric</h4>
+                            <p>I am a lifestyle cyclist. Cycling isn't just an interest - it runs through everything I do. My father was a mountain biking instructor, and I grew up on bikes. I rode the juniors competitively before heading off to college. Today I ride road and gravel seriously - I raced the National Championships in 2025 and placed 15th. I'm equally at home on a gravel bike in the Peak District or on the road in the Yorkshire Dales. Cycling culture, community and progression are values I live, not just market.</p>
                         </div>
                         <div class="about-section">
                             <h4>Industry Network</h4>
@@ -1158,7 +1158,7 @@ const RESUME_DATA = {
                         <div class="contact-item">
                             <span class="contact-icon">+</span>
                             <span class="contact-label">Travel</span>
-                            <span class="contact-value">30% travel possible — UK, Europe, Zurich monthly</span>
+                            <span class="contact-value">30% travel possible - UK, Europe, Zurich monthly</span>
                         </div>
                     </div>
                 </div>
