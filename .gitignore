@@ -1,0 +1,11 @@
+.DS_Store
+**/.DS_Store
+
+# Video files (host externally)
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.mkv
+*.webm
