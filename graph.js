@@ -32,6 +32,8 @@ class GraphEngine {
         this.lastPinchDist = 0;
         this.lastPanX = 0;
         this.lastPanY = 0;
+        this.isPinching = false;
+        this.wasPinching = false;
 
         // Unified pointer events on the canvas area (parent of container)
         const area = this.container.parentElement;
@@ -72,7 +74,8 @@ class GraphEngine {
 
         // Category nodes — place at defined angles
         const categories = data.nodes.filter(n => n.type === 'category');
-        const catDist = Math.min(this.width, this.height) * 0.22;
+        const isMobile = this.width < 768;
+        const catDist = Math.min(this.width, this.height) * (isMobile ? 0.16 : 0.22);
 
         categories.forEach(n => {
             const angle = (n.angle || 0) * Math.PI / 180;
@@ -88,9 +91,10 @@ class GraphEngine {
         const roles = data.nodes.filter(n => n.type === 'role').sort((a, b) => (a.order || 0) - (b.order || 0));
         const expNode = this.nodeData.find(n => n.id === 'experience');
 
-        const roleStartX = expNode ? expNode.x + 130 : cx + 170;
-        const roleStartY = cy - (roles.length - 1) * 26;
-        const roleSpacingY = 52;
+        const roleOffset = isMobile ? 90 : 130;
+        const roleStartX = expNode ? expNode.x + roleOffset : cx + 170;
+        const roleStartY = cy - (roles.length - 1) * (isMobile ? 18 : 26);
+        const roleSpacingY = isMobile ? 38 : 52;
 
         roles.forEach((n, i) => {
             // Stagger X slightly for visual interest (alternate offset)
@@ -139,17 +143,19 @@ class GraphEngine {
             .force('center', d3.forceCenter(cx, cy).strength(0.02))
             .force('collision', d3.forceCollide()
                 .radius(d => {
-                    if (d.type === 'role') return d.radius + 38;
-                    return d.radius + 20;
+                    const mob = this.width < 768;
+                    if (d.type === 'role') return d.radius + (mob ? 24 : 38);
+                    return d.radius + (mob ? 14 : 20);
                 })
                 .strength(1)
             )
             // Pull experience + roles right, categories left
             .force('x', d3.forceX(d => {
                 if (d.type === 'center') return centerX;
-                if (d.id === 'experience') return cx + this.width * 0.12;
-                if (d.type === 'role') return cx + this.width * 0.24;
-                if (d.type === 'category') return cx - this.width * 0.12;
+                const mob = this.width < 768;
+                if (d.id === 'experience') return cx + this.width * (mob ? 0.08 : 0.12);
+                if (d.type === 'role') return cx + this.width * (mob ? 0.18 : 0.24);
+                if (d.type === 'category') return cx - this.width * (mob ? 0.08 : 0.12);
                 return cx;
             }).strength(d => {
                 if (d.type === 'role') return 0.12;
@@ -182,7 +188,7 @@ class GraphEngine {
             if (!expNode) return;
 
             // Desired vertical span centered on experience node
-            const spacing = 50;
+            const spacing = this.width < 768 ? 36 : 50;
             const totalHeight = (roleNodes.length - 1) * spacing;
             const topY = expNode.y - totalHeight / 2;
 
@@ -198,7 +204,7 @@ class GraphEngine {
                 node.vy += (targetY - node.y) * strength;
 
                 // Keep roles to the right of experience
-                const targetX = expNode.x + 130;
+                const targetX = expNode.x + (this.width < 768 ? 90 : 130);
                 node.vx += (targetX - node.x) * strength * 0.4;
             });
         };
@@ -414,10 +420,12 @@ class GraphEngine {
     }
 
     onTouchEnd(e) {
-        if (e.touches.length < 2) {
+        if (e.touches.length < 2 && this.isPinching) {
             this.isPinching = false;
+            this.wasPinching = true;
+            setTimeout(() => { this.wasPinching = false; }, 300);
         }
-        if (e.touches.length === 0) {
+        if (e.touches.length === 0 && !this.wasPinching) {
             this.onPointerUp(e);
         }
     }

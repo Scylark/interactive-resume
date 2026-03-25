@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Touch tap support
     container.addEventListener('touchend', (e) => {
-        if (graph.isDragging) return;
+        if (graph.isDragging || graph.wasPinching) return;
 
         const nodeEl = e.target.closest('.node');
         if (nodeEl) {

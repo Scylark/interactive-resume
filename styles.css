@@ -1271,6 +1271,35 @@ a.contact-item:hover {
     .stat-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .node-label {
+        font-size: 9px;
+    }
+    .node.center .node-label {
+        font-size: 11px;
+    }
+    .node.role .node-label {
+        font-size: 9px;
+    }
+    .node-sublabel {
+        font-size: 8px;
+    }
+    .node.role .node-sublabel {
+        font-size: 9px;
+    }
+    .node.category .node-shape {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .node.role .node-shape {
+        width: 28px;
+        height: 28px;
+    }
+    .node.center .node-shape {
+        width: 56px;
+        height: 56px;
+    }
 }
 
 /* Scrollbar styling */
