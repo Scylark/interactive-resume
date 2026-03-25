@@ -72,7 +72,7 @@ class GraphEngine {
 
         // Category nodes — place at defined angles
         const categories = data.nodes.filter(n => n.type === 'category');
-        const catDist = Math.min(this.width, this.height) * 0.26;
+        const catDist = Math.min(this.width, this.height) * 0.22;
 
         categories.forEach(n => {
             const angle = (n.angle || 0) * Math.PI / 180;
@@ -88,9 +88,9 @@ class GraphEngine {
         const roles = data.nodes.filter(n => n.type === 'role').sort((a, b) => (a.order || 0) - (b.order || 0));
         const expNode = this.nodeData.find(n => n.id === 'experience');
 
-        const roleStartX = expNode ? expNode.x + 160 : cx + 200;
-        const roleStartY = cy - (roles.length - 1) * 32; // center the stack vertically
-        const roleSpacingY = 64; // vertical gap between roles
+        const roleStartX = expNode ? expNode.x + 130 : cx + 170;
+        const roleStartY = cy - (roles.length - 1) * 26;
+        const roleSpacingY = 52;
 
         roles.forEach((n, i) => {
             // Stagger X slightly for visual interest (alternate offset)
@@ -148,7 +148,7 @@ class GraphEngine {
             .force('x', d3.forceX(d => {
                 if (d.type === 'center') return centerX;
                 if (d.id === 'experience') return cx + this.width * 0.12;
-                if (d.type === 'role') return cx + this.width * 0.28;
+                if (d.type === 'role') return cx + this.width * 0.24;
                 if (d.type === 'category') return cx - this.width * 0.12;
                 return cx;
             }).strength(d => {
@@ -182,7 +182,7 @@ class GraphEngine {
             if (!expNode) return;
 
             // Desired vertical span centered on experience node
-            const spacing = 60;
+            const spacing = 50;
             const totalHeight = (roleNodes.length - 1) * spacing;
             const topY = expNode.y - totalHeight / 2;
 
@@ -198,7 +198,7 @@ class GraphEngine {
                 node.vy += (targetY - node.y) * strength;
 
                 // Keep roles to the right of experience
-                const targetX = expNode.x + 160;
+                const targetX = expNode.x + 130;
                 node.vx += (targetX - node.x) * strength * 0.4;
             });
         };
@@ -398,7 +398,7 @@ class GraphEngine {
             e.preventDefault();
             const dist = this.getPinchDist(e.touches);
             const scaleChange = dist / this.lastPinchDist;
-            this.scale = Math.min(3, Math.max(0.5, this.scale * scaleChange));
+            this.scale = Math.min(2.5, Math.max(0.85, this.scale * scaleChange));
             this.lastPinchDist = dist;
 
             const c = this.getPinchCenter(e.touches);

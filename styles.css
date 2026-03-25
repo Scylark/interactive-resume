@@ -263,7 +263,7 @@ body {
     flex: 1;
     height: 100vh;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     cursor: grab;
     background: var(--bg);
 }
