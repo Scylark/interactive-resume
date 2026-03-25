@@ -236,7 +236,7 @@ const RESUME_DATA = {
 
         experience: {
             title: "Experience",
-            subtitle: "10+ years across cycling, fitness tech, fintech & AI",
+            subtitle: "10+ years across cycling, fitness tech, fintech and AI",
             type: "overview",
             content: `
                 <div class="overview-card">
@@ -318,42 +318,59 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Leadership</h4>
                         <ul>
-                            <li><strong>Reshaped the marketing team</strong> - reorganised roles and responsibilities to ensure the right people were in the right positions.</li>
-                            <li><strong>Built organisational structure</strong> - established processes, planning, and implemented a new task management platform.</li>
+                            <li><strong>Reshaped the marketing team</strong> - reorganised roles and responsibilities across the department.</li>
+                            <li><strong>Built organisational structure</strong> - processes, planning, and a new task management platform.</li>
+                            <li><strong>Day-to-day management</strong> - marketing team, retail stakeholders, and agencies.</li>
                             <li><strong>Onboarded key agencies</strong> - Shift Active Media (PR) and Commute Films (creative video production).</li>
-                            <li><strong>Board-level impact</strong> - delivered strategic presentations to the board, representing the business under PE ownership by SMT.</li>
+                            <li><strong>Board-level impact</strong> - delivered strategic presentations to the board, representing the business as part of the SMT to PE Owners.</li>
                         </ul>
                     </div>
 
                     <div class="achievements">
                         <h4>PR & Media Relations</h4>
                         <ul>
-                            <li><strong>Developed strategic PR process</strong> - managed media relations ensuring correct products delivered to journalists on schedule.</li>
-                            <li><strong>Non-endemic placement</strong> - secured athlete coverage on BBC, ITV TV and local newspapers in 2025.</li>
-                            <li><strong>Coverage growth</strong> - articles up from 135 (2024) to 196 (2025). Estimated views from 1.89M to 4.42M. Potential audience from 117M to 327M.</li>
-                            <li><strong>Strategic brand repositioning</strong> - shifted brand perception from "budget-friendly heritage brand" to "high-performance technical admiration" - ULTRA-RACE compared to Colnago in Cycling Weekly rather than Planet X or Dolan.</li>
-                            <li><strong>Review placements</strong> - 17 (2024) to 19 (2025), amplifying the brand transition through well-placed product reviews.</li>
+                            <li><strong>Built strategic PR process</strong> - managed product-to-journalist pipeline on schedule.</li>
+                            <li><strong>Non-endemic placement</strong> - secured BBC and ITV TV coverage in 2025.</li>
+                            <li><strong>Coverage growth</strong> - articles 135 to 196, est. views 1.89M to 4.42M, potential audience 117M to 327M.</li>
+                            <li><strong>Brand repositioning</strong> - shifted perception from "budget heritage" to "high-performance technical" - ULTRA-RACE compared to Colnago rather than Planet X or Dolan.</li>
+                            <li><strong>Review placements</strong> - 17 to 19, reinforcing the brand transition.</li>
                         </ul>
                     </div>
 
                     <div class="achievements">
-                        <h4>Pro Team Activation</h4>
+                        <h4>Pro Sports & Ambassadors</h4>
                         <ul>
-                            <li><strong>Ribble Outliers activation</strong> - utilised main channels and Outlier-only channels, creating thought leadership on LinkedIn alongside B2C content.</li>
-                            <li><strong>Partnership marketing</strong> - collaborations with Precision and Restrap added 8,000+ users to the email subscriber list.</li>
-                            <li><strong>Strategic event planning</strong> - British Gravel National Championships sponsorship amplified pro sports positioning.</li>
-                            <li><strong>Creative direction</strong> - tongue-in-cheek, contemporary design focusing on alternative elements rather than traditional pro cycling aesthetics.</li>
-                            <li><strong>Gravel category growth</strong> - Ribble's fastest-growing category, outperforming market growth by 2 percentage points and taking competitor share.</li>
-                            <li><strong>Smurfit Westrock Pro Cycling & Cyclist magazine</strong> - partnered with the women's professional continental team. Delivered "Welcome to Hell" mini-documentary about their Rutland-Melton CiCLE Classic win.</li>
-                            <li><strong>Showroom activation</strong> - used Pro Team for in-store video content and live rides/meet-and-greets.</li>
+                            <li><strong>Ribble Outliers</strong> - thought leadership on LinkedIn alongside B2C content via team-specific channels.</li>
+                            <li><strong>Partnership marketing</strong> - Precision and Restrap collaborations added 8,000+ email subscribers.</li>
+                            <li><strong>Creative direction</strong> - contemporary, outlier-personality design vs traditional cycling aesthetics.</li>
+                            <li><strong>Smurfit Westrock & Cyclist magazine</strong> - "Welcome to Hell" mini-documentary on the CiCLE Classic win.</li>
                         </ul>
                     </div>
 
                     <div class="achievements">
-                        <h4>NPD & Content</h4>
+                        <h4>Events</h4>
                         <ul>
-                            <li><strong>Led NPD marketing</strong> - created pre-design sign-off documents and comprehensive go-to-market strategies covering positioning, messaging, and channel planning.</li>
-                            <li><strong>Hands-on delivery</strong> - tactical SEO content and leadership blogs when required.</li>
+                            <li><strong>Presenting Partner, British Gravel Championships</strong> - digital and physical rights negotiation, planning, and execution.</li>
+                            <li><strong>Showroom activations</strong> - Pro Team in-store content and live rides/meet-and-greets.</li>
+                            <li><strong>Cyclist Track Days and minor expos</strong> - planning for broader event involvement.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h4>Brand & Strategy</h4>
+                        <ul>
+                            <li><strong>The Original Outliers rebrand</strong> - worked with FreshBritain on repositioning Ribble's tone of voice and visual language.</li>
+                            <li><strong>2025 strategic objectives</strong> - grow gravel market share, increase regional penetration (North East and South), launch four new bikes.</li>
+                            <li><strong>Gravel category growth</strong> - Ribble's fastest-growing segment, +2pp above market, taking competitor share.</li>
+                            <li><strong>Led NPD marketing</strong> - market gap analysis, sign-off documents, and GTM strategies covering positioning, messaging, and channels.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><strong>Shoot planning</strong> - briefs for internal and external creatives to deliver campaign assets across all channels.</li>
+                            <li><strong>Hands-on delivery</strong> - tactical SEO content and leadership blogs.</li>
                         </ul>
                     </div>
 
@@ -609,15 +626,12 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>Brand & product positioning</strong> - led the process of researching, validating, documenting and integrating brand and product positions.</li>
-                            <li><strong>Strategic alignment</strong> - collaborated with executives to implement marketing initiatives aligned with business goals and global expansion, boosting brand visibility.</li>
-                            <li><strong>Team leadership</strong> - led the marketing team, fostering creativity and performance, and worked with agencies to deliver cohesive digital, PR, and social campaigns.</li>
+                            <li><strong>Brand & product positioning</strong> - led the research, validation, and integration of brand and product positions.</li>
                             <li><strong>160+ media placements</strong> - spearheaded global product launches, including the Vistar // Powershift drivetrain at Eurobike.</li>
-                            <li><strong>AI/ML adoption</strong> - led the adoption of AI and machine learning technology into the business to support cross-department improvements.</li>
-                            <li><strong>Global events</strong> - managed Eurobike, Sea Otter, and Taichung Bike Week to create brand impact, strengthen partnerships, and drive growth.</li>
-                            <li><strong>Content strategy</strong> - developed high-impact content strategies that significantly increased web traffic and engagement.</li>
-                            <li><strong>IBD & distributor support</strong> - supported the development of the business's offer to IBDs and distributors, enhancing education and process.</li>
-                            <li><strong>Data-driven engagement</strong> - used data analysis to drive strong audience engagement and improve lead generation, positioning Classified as a leader in cycling innovation.</li>
+                            <li><strong>Global events</strong> - managed Eurobike, Sea Otter, and Taichung Bike Week to strengthen partnerships and drive growth.</li>
+                            <li><strong>AI/ML adoption</strong> - led adoption of AI and machine learning across departments.</li>
+                            <li><strong>Team leadership</strong> - led the marketing team and agencies to deliver cohesive digital, PR, and social campaigns.</li>
+                            <li><strong>IBD & distributor support</strong> - enhanced education and process for IBDs and distributors.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
@@ -717,17 +731,11 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>Brand development</strong> - led and developed Muuvr's brand and visual identity, aligning with core values and market positioning.</li>
-                            <li><strong>Market analysis</strong> - conducted research to identify trends, opportunities, and challenges in the fitness and technology sectors.</li>
-                            <li><strong>AI strategy</strong> - designed and implemented AI strategies to support product, marketing, and financial decision-making and business activities.</li>
-                            <li><strong>User persona analysis</strong> - led persona work to tailor product and communication strategies to diverse user needs.</li>
-                            <li><strong>Brand partnerships</strong> - played a crucial role in acquiring and nurturing partnerships, boosting market presence.</li>
-                            <li><strong>GTM execution</strong> - oversaw go-to-market strategy for product launches, driving user base growth and market share.</li>
-                            <li><strong>Agency management</strong> - procured and managed agency partnerships in creative, performance marketing, and PR.</li>
-                            <li><strong>Team culture</strong> - fostered innovation and collaboration within the marketing team, driving growth and personal development.</li>
+                            <li><strong>Brand development</strong> - led Muuvr's brand and visual identity from scratch, including persona work to tailor product and communications.</li>
+                            <li><strong>AI strategy</strong> - designed and implemented AI strategies across product, marketing, and financial decision-making.</li>
                             <li><strong>$4.5M fundraise</strong> - contributed to a successful fundraising effort securing $4.5M in investment.</li>
-                            <li><strong>Gamification</strong> - led the development of key gamification strategies.</li>
-                            <li><strong>Channel management</strong> - managed the channel plan, ensuring cohesive brand messaging across all channels.</li>
+                            <li><strong>GTM execution</strong> - oversaw go-to-market strategy for product launches, procured and managed agencies across creative, performance, and PR.</li>
+                            <li><strong>Gamification</strong> - led the development of key gamification strategies driving user engagement.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
@@ -880,13 +888,10 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
-                            <li><strong>PR & marketing strategy</strong> - spearheaded the development and execution of comprehensive PR and marketing strategies, driving brand and commercial growth.</li>
-                            <li><strong>Global events</strong> - delivered significant growth through a highly effective events strategy, executing experiences across the UK, Europe, and Africa.</li>
-                            <li><strong>Ambassador marketing</strong> - boosted social awareness and site traffic by leading impactful ambassador initiatives, including creating a framework for selecting and engaging ambassadors, negotiating contracts, and collaborating with high-profile talent.</li>
-                            <li><strong>International support</strong> - supported international distributors and dealers by providing tailored marketing materials, training resources, and content to drive sales and strengthen relationships.</li>
-                            <li><strong>Media perception shift</strong> - successfully shifted media perceptions of the Wattbike Atom, improving mid-funnel customer retention and driving increased conversions after addressing early negative reviews.</li>
-                            <li><strong>Media purchasing</strong> - directed media purchasing activities and tracked performance to ensure effective ROI.</li>
-                            <li><strong>Content strategy</strong> - supported content strategy by curating the content pipeline and overseeing content production projects.</li>
+                            <li><strong>Media perception shift</strong> - shifted media perceptions of the Wattbike Atom, improving mid-funnel retention and driving conversions after addressing early negative reviews.</li>
+                            <li><strong>Global events</strong> - delivered growth through events across the UK, Europe, and Africa.</li>
+                            <li><strong>Ambassador marketing</strong> - built the framework for selecting and engaging ambassadors, negotiating contracts, and collaborating with high-profile talent.</li>
+                            <li><strong>International support</strong> - provided tailored marketing materials and training resources for international distributors and dealers.</li>
                         </ul>
                     </div>
                 </div>
