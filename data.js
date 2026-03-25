@@ -986,18 +986,52 @@ const RESUME_DATA = {
                     <h3>AI-Powered Endurance Sports Training App · 2025 – Present</h3>
                     <p class="role-context">An AI-powered endurance sports training app built entirely using Claude Code. Wattplan is a personal experiment into AI readiness and the practical application of AI in product development.</p>
                     <div class="achievements">
-                        <h4>Experiment: Brand to Platform Evolution</h4>
-                        <p>We are exploring the opportunities AI provides for brands to transition from a brand to a platform. This experiment investigates how app production can serve as a strategic means of creating a competitive moat and building sustainable audiences.</p>
-                    </div>
-                    <div class="achievements">
-                        <h4>AI Integration Across Career</h4>
+                        <h4>My Role</h4>
                         <ul>
-                            <li><strong>Classified Cycling</strong> - led adoption of AI/ML across departments.</li>
-                            <li><strong>Muuvr</strong> - designed AI strategies for product, marketing, and finance.</li>
-                            <li><strong>Wattplan</strong> - built with only AI as an experiment into AI readiness.</li>
+                            <li><strong>Founder</strong> - concept, vision, and strategic direction.</li>
+                            <li><strong>Marketing</strong> - brand development, positioning, website, and launch strategy.</li>
+                            <li><strong>Development</strong> - built the full app using Claude Code - front-end, back-end, and AI integrations.</li>
+                            <li><strong>GTM</strong> - go-to-market planning, user acquisition strategy, and early traction.</li>
+                            <li><strong>Product</strong> - feature design, user flows, and data architecture.</li>
                         </ul>
                     </div>
+                    <div class="achievements">
+                        <h4>Brand to Platform Evolution</h4>
+                        <p>Exploring how AI enables brands to transition from brand to platform. This experiment investigates how app production can create a competitive moat and build sustainable audiences.</p>
+                    </div>
                     <a href="https://wattplan.cc" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;color:#6366f1;font-weight:600;">wattplan.cc</a>
+
+                    <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
+                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">App Screenshots</h3>
+
+                    <div class="media-gallery">
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Dashboards.png">
+                                <img src="assets/Wattplan/Wattplan Dashboards.png" alt="Wattplan Dashboards" loading="lazy" decoding="async">
+                                <div class="gallery-label">Dashboards</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan AI Coach.png">
+                                <img src="assets/Wattplan/Wattplan AI Coach.png" alt="Wattplan AI Coach" loading="lazy" decoding="async">
+                                <div class="gallery-label">AI Coach</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan AI Strategy.png">
+                                <img src="assets/Wattplan/Wattplan AI Strategy.png" alt="Wattplan AI Strategy" loading="lazy" decoding="async">
+                                <div class="gallery-label">AI Strategy</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Route Analysis.png">
+                                <img src="assets/Wattplan/Wattplan Route Analysis.png" alt="Wattplan Route Analysis" loading="lazy" decoding="async">
+                                <div class="gallery-label">Route Analysis</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Ride Review Screen.png">
+                                <img src="assets/Wattplan/Wattplan Ride Review Screen.png" alt="Wattplan Ride Review" loading="lazy" decoding="async">
+                                <div class="gallery-label">Ride Review</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Ride wPrime Review.png">
+                                <img src="assets/Wattplan/Wattplan Ride wPrime Review.png" alt="Wattplan wPrime Review" loading="lazy" decoding="async">
+                                <div class="gallery-label">wPrime Review</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `
         },
@@ -1110,13 +1144,18 @@ const RESUME_DATA = {
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
                             <h4>Wattplan</h4>
-                            <p>AI-powered endurance sports training app built entirely with AI - concept, development and launch. A side project to test what's possible when AI handles the full stack.</p>
+                            <p>AI-powered endurance sports training app built entirely with Claude Code - founder, marketing, development, GTM, and product. A side project testing what's possible when AI handles the full stack.</p>
                             <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">B</div>
                             <h4>Brand to Platform Evolution</h4>
                             <p>Exploring the opportunities AI provides for brands to transition from a brand to a platform. This experiment investigates how app production can serve as a strategic means of creating a competitive moat and building sustainable audiences.</p>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">T</div>
+                            <h4>The Bike That Gets Me</h4>
+                            <p>Ribble Cycles 2026 campaign where all creative assets were developed using AI - demonstrating how AI tools can produce production-ready marketing content.</p>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">R</div>

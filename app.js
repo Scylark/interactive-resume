@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!detail) return;
 
         modalContent.innerHTML = detail.content;
+        modal.classList.toggle('wide', id === 'experience');
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 

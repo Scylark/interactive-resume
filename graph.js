@@ -25,14 +25,22 @@ class GraphEngine {
             }
         });
 
+        // Transform state for pinch-zoom and two-finger pan
+        this.scale = 1;
+        this.panX = 0;
+        this.panY = 0;
+        this.lastPinchDist = 0;
+        this.lastPanX = 0;
+        this.lastPanY = 0;
+
         // Unified pointer events on the canvas area (parent of container)
         const area = this.container.parentElement;
         area.addEventListener('mousedown', (e) => this.onPointerDown(e));
         window.addEventListener('mousemove', (e) => this.onPointerMove(e));
         window.addEventListener('mouseup', (e) => this.onPointerUp(e));
-        area.addEventListener('touchstart', (e) => this.onPointerDown(e), { passive: false });
-        window.addEventListener('touchmove', (e) => this.onPointerMove(e), { passive: false });
-        window.addEventListener('touchend', (e) => this.onPointerUp(e));
+        area.addEventListener('touchstart', (e) => this.onTouchStart(e), { passive: false });
+        window.addEventListener('touchmove', (e) => this.onTouchMove(e), { passive: false });
+        window.addEventListener('touchend', (e) => this.onTouchEnd(e));
     }
 
     resize() {
@@ -348,5 +356,69 @@ class GraphEngine {
         // isDragging is read by app.js to distinguish click from drag
         // Reset after a short delay so the mouseup/click in app.js can read it
         setTimeout(() => { this.isDragging = false; }, 50);
+    }
+
+    // ---- Multi-touch: pinch zoom + two-finger pan ----
+
+    applyTransform() {
+        const area = this.container.parentElement;
+        area.style.transformOrigin = '50% 50%';
+        area.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.scale})`;
+    }
+
+    getPinchDist(touches) {
+        const dx = touches[0].clientX - touches[1].clientX;
+        const dy = touches[0].clientY - touches[1].clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    getPinchCenter(touches) {
+        return {
+            x: (touches[0].clientX + touches[1].clientX) / 2,
+            y: (touches[0].clientY + touches[1].clientY) / 2
+        };
+    }
+
+    onTouchStart(e) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            this.isPinching = true;
+            this.lastPinchDist = this.getPinchDist(e.touches);
+            const c = this.getPinchCenter(e.touches);
+            this.lastPanX = c.x;
+            this.lastPanY = c.y;
+        } else if (e.touches.length === 1) {
+            this.isPinching = false;
+            this.onPointerDown(e);
+        }
+    }
+
+    onTouchMove(e) {
+        if (this.isPinching && e.touches.length === 2) {
+            e.preventDefault();
+            const dist = this.getPinchDist(e.touches);
+            const scaleChange = dist / this.lastPinchDist;
+            this.scale = Math.min(3, Math.max(0.5, this.scale * scaleChange));
+            this.lastPinchDist = dist;
+
+            const c = this.getPinchCenter(e.touches);
+            this.panX += c.x - this.lastPanX;
+            this.panY += c.y - this.lastPanY;
+            this.lastPanX = c.x;
+            this.lastPanY = c.y;
+
+            this.applyTransform();
+        } else if (!this.isPinching && e.touches.length === 1) {
+            this.onPointerMove(e);
+        }
+    }
+
+    onTouchEnd(e) {
+        if (e.touches.length < 2) {
+            this.isPinching = false;
+        }
+        if (e.touches.length === 0) {
+            this.onPointerUp(e);
+        }
     }
 }
