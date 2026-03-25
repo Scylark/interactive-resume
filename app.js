@@ -41,6 +41,29 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', checkOrientation);
     window.addEventListener('orientationchange', () => setTimeout(checkOrientation, 100));
 
+    // ----------------------------------------
+    // Two-finger tooltip (shows once on mobile)
+    // ----------------------------------------
+    const touchTooltip = document.getElementById('touchTooltip');
+    let tooltipShown = false;
+
+    if ('ontouchstart' in window) {
+        const canvasArea = document.getElementById('canvasArea');
+        canvasArea.addEventListener('touchstart', (e) => {
+            if (!tooltipShown && e.touches.length === 1) {
+                tooltipShown = true;
+                touchTooltip.classList.add('visible');
+                setTimeout(() => touchTooltip.classList.remove('visible'), 3000);
+            }
+        }, { passive: true });
+    }
+
+    // ----------------------------------------
+    // Prevent overscroll/back-navigation gesture
+    // ----------------------------------------
+    document.body.style.overscrollBehavior = 'none';
+    document.documentElement.style.overscrollBehavior = 'none';
+
     // Init graph
     const graph = new GraphEngine(canvas, container);
     graph.buildGraph(RESUME_DATA);

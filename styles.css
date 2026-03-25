@@ -67,6 +67,7 @@ body {
     transition: transform var(--transition);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .sidebar-header {
@@ -262,7 +263,7 @@ body {
     flex: 1;
     height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     cursor: grab;
     background: var(--bg);
 }
@@ -1205,6 +1206,30 @@ a.contact-item:hover {
     background: rgba(255,255,255,0.25);
 }
 
+/* Two-finger tooltip */
+.touch-tooltip {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 980px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 200;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.touch-tooltip.visible {
+    display: block;
+    opacity: 1;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;
@@ -1216,6 +1241,18 @@ a.contact-item:hover {
 
     .sidebar.open {
         transform: translateX(0);
+    }
+
+    /* Visible scrollbar on mobile sidebar */
+    .sidebar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.2);
+        border-radius: 4px;
     }
 
     .mobile-menu-toggle {
