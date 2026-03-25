@@ -243,6 +243,41 @@ const RESUME_DATA = {
                     <h2>Career Timeline</h2>
                     <p class="overview-intro">Click on individual role nodes to explore each position in detail.</p>
                     <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-role">Head of Sales</span>
+                            <span class="timeline-company">Planet X</span>
+                            <span class="timeline-date">2015 – 17</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-role">Head of Brand</span>
+                            <span class="timeline-company">Ribble</span>
+                            <span class="timeline-date">2017 – 18</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-role">Marketing Director</span>
+                            <span class="timeline-company">Pelotan</span>
+                            <span class="timeline-date">2018 – 20</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-role">PR & Marketing</span>
+                            <span class="timeline-company">Wattbike</span>
+                            <span class="timeline-date">2018 – 19</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-role">CMO</span>
+                            <span class="timeline-company">RGT → Wahoo</span>
+                            <span class="timeline-date">2019 – 23</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-role">CMO</span>
+                            <span class="timeline-company">Muuvr</span>
+                            <span class="timeline-date">2023 – 24</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-role">Head of Marketing</span>
+                            <span class="timeline-company">Classified</span>
+                            <span class="timeline-date">2024</span>
+                        </div>
                         <div class="timeline-item current">
                             <span class="timeline-role">Marketing Consultant</span>
                             <span class="timeline-company">Ribble Cycles</span>
@@ -257,41 +292,6 @@ const RESUME_DATA = {
                             <span class="timeline-role">Founder / AI Side Project</span>
                             <span class="timeline-company">Wattplan</span>
                             <span class="timeline-date">2025 – Present</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">Head of Marketing</span>
-                            <span class="timeline-company">Classified</span>
-                            <span class="timeline-date">2024</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">CMO</span>
-                            <span class="timeline-company">Muuvr</span>
-                            <span class="timeline-date">2023 – 24</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">CMO</span>
-                            <span class="timeline-company">RGT → Wahoo</span>
-                            <span class="timeline-date">2019 – 23</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">PR & Marketing</span>
-                            <span class="timeline-company">Wattbike</span>
-                            <span class="timeline-date">2018 – 19</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">Marketing Director</span>
-                            <span class="timeline-company">Pelotan</span>
-                            <span class="timeline-date">2018 – 20</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">Head of Brand</span>
-                            <span class="timeline-company">Ribble</span>
-                            <span class="timeline-date">2017 – 18</span>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="timeline-role">Head of Sales</span>
-                            <span class="timeline-company">Planet X</span>
-                            <span class="timeline-date">2015 – 17</span>
                         </div>
                     </div>
                 </div>

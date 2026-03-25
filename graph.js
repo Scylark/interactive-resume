@@ -395,12 +395,20 @@ class GraphEngine {
         if (e.touches.length === 2) {
             e.preventDefault();
             this.isPinching = true;
+            this.wasPinching = true; // Set immediately so touchend won't open node
+            // Cancel any in-progress single-finger drag
+            if (this.draggedNode) {
+                this.draggedNode.fx = null;
+                this.draggedNode.fy = null;
+                this.draggedNode = null;
+                this.simulation.alphaTarget(0);
+            }
+            this.isDragging = false;
             this.lastPinchDist = this.getPinchDist(e.touches);
             const c = this.getPinchCenter(e.touches);
             this.lastPanX = c.x;
             this.lastPanY = c.y;
-        } else if (e.touches.length === 1) {
-            this.isPinching = false;
+        } else if (e.touches.length === 1 && !this.isPinching) {
             this.onPointerDown(e);
         }
     }
