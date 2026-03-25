@@ -560,7 +560,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Fractional CMO</h2>
                     <h3>motif · AI-Powered Wealth Advisory · 2024 – Present</h3>
-                    <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. motif is being built using Claude Code - I am actively involved in the development of various features within the app.</p>
+                    <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. Much of the work we do is supported by Claude, Claude Code, and other AI tools.</p>
                     <div class="achievements">
                         <h4>Marketing</h4>
                         <ul>
@@ -573,7 +573,7 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Product Development</h4>
                         <ul>
-                            <li><strong>AI product development</strong> - actively involved in building features within the motif app using Claude Code.</li>
+                            <li><strong>AI-supported workflow</strong> - much of the work is supported by Claude, Claude Code, and other AI tools across marketing and product.</li>
                             <li><strong>Cross-functional role</strong> - bridging marketing strategy with hands-on product development in an AI-native fintech.</li>
                         </ul>
                     </div>
