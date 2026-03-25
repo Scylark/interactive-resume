@@ -12,6 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     const mobileToggle = document.getElementById('mobileToggle');
 
+    // ----------------------------------------
+    // Rotate device prompt (portrait mobile only)
+    // ----------------------------------------
+    const rotatePrompt = document.getElementById('rotatePrompt');
+    const rotateDismiss = document.getElementById('rotateDismiss');
+    let rotateDismissed = false;
+
+    function checkOrientation() {
+        if (rotateDismissed) return;
+        const isMobile = window.innerWidth <= 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches && window.innerWidth <= 1024);
+        const isPortrait = window.innerHeight > window.innerWidth;
+        if (isMobile && isPortrait) {
+            rotatePrompt.classList.add('visible');
+        } else {
+            rotatePrompt.classList.remove('visible');
+        }
+    }
+
+    if (rotateDismiss) {
+        rotateDismiss.addEventListener('click', () => {
+            rotateDismissed = true;
+            rotatePrompt.classList.remove('visible');
+        });
+    }
+
+    checkOrientation();
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', () => setTimeout(checkOrientation, 100));
+
     // Init graph
     const graph = new GraphEngine(canvas, container);
     graph.buildGraph(RESUME_DATA);
@@ -194,6 +223,29 @@ document.addEventListener('DOMContentLoaded', () => {
             lightbox.classList.add('active');
         });
     });
+
+    // ----------------------------------------
+    // Swipe-right to go back (close modal/lightbox)
+    // ----------------------------------------
+    let swipeStartX = 0;
+    let swipeStartY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+        swipeStartX = e.touches[0].clientX;
+        swipeStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - swipeStartX;
+        const dy = e.changedTouches[0].clientY - swipeStartY;
+        if (dx > 80 && Math.abs(dy) < Math.abs(dx) * 0.5) {
+            if (lightbox.classList.contains('active')) {
+                closeLightbox();
+            } else if (modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        }
+    }, { passive: true });
 
     // ----------------------------------------
     // Download PDF

@@ -1152,6 +1152,53 @@ a.contact-item:hover {
    Responsive
    ============================================ */
 
+/* Rotate device prompt */
+.rotate-prompt {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate-prompt.visible {
+    display: flex;
+}
+
+.rotate-prompt-content {
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+}
+
+.rotate-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.rotate-prompt-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.rotate-dismiss {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.rotate-dismiss:hover {
+    background: rgba(255,255,255,0.25);
+}
+
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;

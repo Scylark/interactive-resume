@@ -402,18 +402,18 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">2026 saw the return of the Ribble Outliers and the return of our launch party at the headquarters of our owners. A key opportunity for partner brands to brief the athletes on their messaging and for sponsors to align on product and marketing partnerships.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2026 Team Launch/RO 16x9 V2.mp4">
-                                <video src="assets/Ribble 2026 Team Launch/RO 16x9 V2.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2026 Team Launch/RO 16x9 V2.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Team Launch Film</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Team Launch/0Q5A8854.jpg">
-                                <img src="assets/Ribble 2026 Team Launch/0Q5A8854.jpg" alt="Team Launch" loading="lazy">
+                                <img src="assets/Ribble 2026 Team Launch/0Q5A8854.jpg" alt="Team Launch" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Team Launch/0Q5A8746.jpg">
-                                <img src="assets/Ribble 2026 Team Launch/0Q5A8746.jpg" alt="Team Launch" loading="lazy">
+                                <img src="assets/Ribble 2026 Team Launch/0Q5A8746.jpg" alt="Team Launch" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Team Launch/0Q5A8793.jpg">
-                                <img src="assets/Ribble 2026 Team Launch/0Q5A8793.jpg" alt="Team Launch" loading="lazy">
+                                <img src="assets/Ribble 2026 Team Launch/0Q5A8793.jpg" alt="Team Launch" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -423,18 +423,18 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Our biggest event activation of 2025. We took full ownership of the site including the start and finish lines, gantries, entry, scrimmage, barriers, and flags, alongside a large stretch fabric tent in the centre of the event village. Partners were on-site and the Ribble Outliers warmed up in the fan zone.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble Gravel National Champinships Sponsorship 2025/Weekend Highlights Widescreen V2.mp4">
-                                <video src="assets/Ribble Gravel National Champinships Sponsorship 2025/Weekend Highlights Widescreen V2.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble Gravel National Champinships Sponsorship 2025/Weekend Highlights Widescreen V2.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Weekend Highlights</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9898.jpg">
-                                <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9898.jpg" alt="Gravel Nationals" loading="lazy">
+                                <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9898.jpg" alt="Gravel Nationals" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9331.jpg">
-                                <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9331.jpg" alt="Gravel Nationals" loading="lazy">
+                                <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9331.jpg" alt="Gravel Nationals" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble Gravel National Champinships Sponsorship 2025/_DSC0976.jpg">
-                                <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/_DSC0976.jpg" alt="Gravel Nationals" loading="lazy">
+                                <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/_DSC0976.jpg" alt="Gravel Nationals" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -444,7 +444,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Partnered with Smurfit Westrock Pro Cycling and Cyclist magazine to produce this mini-documentary following the women's professional continental team's win at the Rutland-Melton CiCLE Classic - arguably the biggest one-day race in the UK women's calendar.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 - Welcome to Hell Smurfity WestRock Video/YTDown.com_YouTube_WELCOME-TO-HELL-The-Story-Behind-Britain_Media_BH1ehifowbs_001_1080p.mp4">
-                                <video src="assets/Ribble 2025 - Welcome to Hell Smurfity WestRock Video/YTDown.com_YouTube_WELCOME-TO-HELL-The-Story-Behind-Britain_Media_BH1ehifowbs_001_1080p.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2025 - Welcome to Hell Smurfity WestRock Video/YTDown.com_YouTube_WELCOME-TO-HELL-The-Story-Behind-Britain_Media_BH1ehifowbs_001_1080p.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Welcome to Hell Mini-Doc</div>
                             </div>
@@ -456,23 +456,23 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Launched in 2025 as Ribble's no-compromise race bike. The campaign was built around the tagline "Out Climb. Out Corner. Out Sprint. No Compromise" and included a 3D technology film to communicate the engineering detail behind the frame.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 ULTRA-RACE Launch /4KULTRARACE _TVv4.mp4">
-                                <video src="assets/Ribble 2025 ULTRA-RACE Launch /4KULTRARACE _TVv4.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2025 ULTRA-RACE Launch /4KULTRARACE _TVv4.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">ULTRA-RACE TV Spot</div>
                             </div>
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 ULTRA-RACE Launch /New Ribble Ultra-Race ｜ No Compromise Engineering ｜ Ribble Cycles 3d technology video.mp4">
-                                <video src="assets/Ribble 2025 ULTRA-RACE Launch /New Ribble Ultra-Race ｜ No Compromise Engineering ｜ Ribble Cycles 3d technology video.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2025 ULTRA-RACE Launch /New Ribble Ultra-Race ｜ No Compromise Engineering ｜ Ribble Cycles 3d technology video.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">3D Technology Film</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2025 ULTRA-RACE Launch /Climb-New-Crop.webp">
-                                <img src="assets/Ribble 2025 ULTRA-RACE Launch /Climb-New-Crop.webp" alt="ULTRA-RACE Climb" loading="lazy">
+                                <img src="assets/Ribble 2025 ULTRA-RACE Launch /Climb-New-Crop.webp" alt="ULTRA-RACE Climb" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2025 ULTRA-RACE Launch /Corner-New-Crop.webp">
-                                <img src="assets/Ribble 2025 ULTRA-RACE Launch /Corner-New-Crop.webp" alt="ULTRA-RACE Corner" loading="lazy">
+                                <img src="assets/Ribble 2025 ULTRA-RACE Launch /Corner-New-Crop.webp" alt="ULTRA-RACE Corner" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2025 ULTRA-RACE Launch /Sprint-New-Crop.webp">
-                                <img src="assets/Ribble 2025 ULTRA-RACE Launch /Sprint-New-Crop.webp" alt="ULTRA-RACE Sprint" loading="lazy">
+                                <img src="assets/Ribble 2025 ULTRA-RACE Launch /Sprint-New-Crop.webp" alt="ULTRA-RACE Sprint" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -482,15 +482,15 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Ribble completely relaunched its gravel range in 2025 with the ALLGRIT and ULTRA-GRIT. The campaign landed distinct positioning for both bikes - race performance for the ULTRA-GRIT, adventure versatility for the ALLGRIT - targeting two clearly defined rider profiles.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/All-Grit Range 40s 16-9.mp4">
-                                <video src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/All-Grit Range 40s 16-9.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/All-Grit Range 40s 16-9.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">ALL-GRIT Range Film</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/0002_ADVENTURE-VERSATILITY.webp">
-                                <img src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/0002_ADVENTURE-VERSATILITY.webp" alt="ALLGRIT Adventure" loading="lazy">
+                                <img src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/0002_ADVENTURE-VERSATILITY.webp" alt="ALLGRIT Adventure" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/0011_Composed_handling.webp">
-                                <img src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/0011_Composed_handling.webp" alt="ALLGRIT Handling" loading="lazy">
+                                <img src="assets/Ribble 2025 ALLGRIT and ULTRA-GRIT launch/0011_Composed_handling.webp" alt="ALLGRIT Handling" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -500,7 +500,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The CGR is Ribble's do-it-all bike - designed to handle commutes, gravel, and road with equal composure. This launch film was a key asset in the 2025 relaunch, positioning it as the most versatile bike in the range.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2025 CGR Launch/Ribble CGR 1920x1080 No Logo.mp4">
-                                <video src="assets/Ribble 2025 CGR Launch/Ribble CGR 1920x1080 No Logo.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2025 CGR Launch/Ribble CGR 1920x1080 No Logo.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">CGR Launch Film</div>
                             </div>
@@ -512,21 +512,21 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The production of an ASMR-style video was a central asset in the launch of the Ti Custom Colour product, designed to communicate the craft and tactility of the titanium finishing process.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2026 Ti Custom Colour Launch/Ribble Bike Paint V2 no intro logo.mp4">
-                                <video src="assets/Ribble 2026 Ti Custom Colour Launch/Ribble Bike Paint V2 no intro logo.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2026 Ti Custom Colour Launch/Ribble Bike Paint V2 no intro logo.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">ASMR Paint Film</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8348.jpg">
-                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8348.jpg" alt="Ti Custom Colour" loading="lazy">
+                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8348.jpg" alt="Ti Custom Colour" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8233.jpg">
-                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8233.jpg" alt="Ti Custom Colour" loading="lazy">
+                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8233.jpg" alt="Ti Custom Colour" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8378-2.jpg">
-                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8378-2.jpg" alt="Ti Custom Colour" loading="lazy">
+                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8378-2.jpg" alt="Ti Custom Colour" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8082.jpg">
-                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8082.jpg" alt="Ti Custom Colour" loading="lazy">
+                                <img src="assets/Ribble 2026 Ti Custom Colour Launch/0Q5A8082.jpg" alt="Ti Custom Colour" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -536,7 +536,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">This campaign was designed to show prospects that the best bike is the right bike for them - not necessarily the most expensive or the fastest. All creative assets for this project were developed using AI.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble 2026 - The Bike That Gets Me Campaign/TBTGM-Campaign_Homepage-Banner-Film-1080x1350_2026-03-02-160340_bngt.mp4">
-                                <video src="assets/Ribble 2026 - The Bike That Gets Me Campaign/TBTGM-Campaign_Homepage-Banner-Film-1080x1350_2026-03-02-160340_bngt.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble 2026 - The Bike That Gets Me Campaign/TBTGM-Campaign_Homepage-Banner-Film-1080x1350_2026-03-02-160340_bngt.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Campaign Film</div>
                             </div>
@@ -600,7 +600,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">As part of our acceptance to the Solana SuperTeam Singapore Accelerator Fund, we worked with the creative team on a video explaining our product.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/motif/motif - Superteam explainer.mp4">
-                                <video src="assets/motif/motif - Superteam explainer.mp4" muted preload="metadata"></video>
+                                <video src="assets/motif/motif - Superteam explainer.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Superteam Explainer</div>
                             </div>
@@ -648,7 +648,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">In partnership with TRP, I led the launch of the VISTAR Classified Groupset. This was the standout media news story at Eurobike 2024 across all categories - and arguably one of my best pieces of work.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Classified/Vistar Classified Render.mp4">
-                                <video src="assets/Classified/Vistar Classified Render.mp4" muted preload="metadata"></video>
+                                <video src="assets/Classified/Vistar Classified Render.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Vistar Render</div>
                             </div>
@@ -660,12 +660,12 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">We worked with the World Tour team INEOS in 2024 at both the Giro d'Italia and the Tour de France as part of the team's time trial setup. I worked on all of the commercials and partnership details, as well as activation.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Classified/Classified - Ineos - Giro d'Italia.mp4">
-                                <video src="assets/Classified/Classified - Ineos - Giro d'Italia.mp4" muted preload="metadata"></video>
+                                <video src="assets/Classified/Classified - Ineos - Giro d'Italia.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">INEOS - Giro d'Italia</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/INEOS_2_1024x1024.webp">
-                                <img src="assets/Classified/INEOS_2_1024x1024.webp" alt="INEOS Partnership" loading="lazy">
+                                <img src="assets/Classified/INEOS_2_1024x1024.webp" alt="INEOS Partnership" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -675,22 +675,22 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">I led the organisation of our attendance at Eurobike in 2024. Our stand had the largest LED screen at the event, creating intrigue and interest with our unique layout and event experience.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/Eurobike1.jpeg">
-                                <img src="assets/Classified/Eurobike1.jpeg" alt="Eurobike 2024" loading="lazy">
+                                <img src="assets/Classified/Eurobike1.jpeg" alt="Eurobike 2024" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/EUrobike 2.jpeg">
-                                <img src="assets/Classified/EUrobike 2.jpeg" alt="Eurobike 2024" loading="lazy">
+                                <img src="assets/Classified/EUrobike 2.jpeg" alt="Eurobike 2024" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/Eurobike 3.jpeg">
-                                <img src="assets/Classified/Eurobike 3.jpeg" alt="Eurobike 2024" loading="lazy">
+                                <img src="assets/Classified/Eurobike 3.jpeg" alt="Eurobike 2024" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/Eurobike 4.jpeg">
-                                <img src="assets/Classified/Eurobike 4.jpeg" alt="Eurobike 2024" loading="lazy">
+                                <img src="assets/Classified/Eurobike 4.jpeg" alt="Eurobike 2024" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/Eurobike 5.jpeg">
-                                <img src="assets/Classified/Eurobike 5.jpeg" alt="Eurobike 2024" loading="lazy">
+                                <img src="assets/Classified/Eurobike 5.jpeg" alt="Eurobike 2024" loading="lazy" decoding="async">
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Classified/Eurobike6.jpeg">
-                                <img src="assets/Classified/Eurobike6.jpeg" alt="Eurobike 2024" loading="lazy">
+                                <img src="assets/Classified/Eurobike6.jpeg" alt="Eurobike 2024" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -700,12 +700,12 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Working with the world-class animation studio Propeller in Denmark, we created a suite of high-quality renders for various campaigns and award applications.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Classified/Drive Train Animation Render.mp4">
-                                <video src="assets/Classified/Drive Train Animation Render.mp4" muted preload="metadata"></video>
+                                <video src="assets/Classified/Drive Train Animation Render.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Drive Train Render</div>
                             </div>
                             <div class="gallery-item" data-type="video" data-src="assets/Classified/Hub Animation Render.mp4">
-                                <video src="assets/Classified/Hub Animation Render.mp4" muted preload="metadata"></video>
+                                <video src="assets/Classified/Hub Animation Render.mp4" muted preload="none" poster=""></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Hub Render</div>
                             </div>
@@ -816,7 +816,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">When Wahoo acquired RGT Cycling, we went through a rebrand for both the SYSTM and RGT products. The two separate products came together as a single product, WahooX.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="youtube" data-src="lKKbsJTf7_c">
-                                <img src="https://img.youtube.com/vi/lKKbsJTf7_c/hqdefault.jpg" alt="SYSTM X Rebrand" loading="lazy">
+                                <img src="https://img.youtube.com/vi/lKKbsJTf7_c/hqdefault.jpg" alt="SYSTM X Rebrand" loading="lazy" decoding="async">
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">SYSTM X Rebrand</div>
                             </div>
@@ -828,7 +828,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">While managing marketing for subscription services at Wahoo, I also undertook additional roles supporting the delivery of creatives and planning for hardware launches.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="youtube" data-src="MKNoP4vOAL0">
-                                <img src="https://img.youtube.com/vi/MKNoP4vOAL0/hqdefault.jpg" alt="ELEMNT ROAM Launch" loading="lazy">
+                                <img src="https://img.youtube.com/vi/MKNoP4vOAL0/hqdefault.jpg" alt="ELEMNT ROAM Launch" loading="lazy" decoding="async">
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">ELEMNT ROAM Launch</div>
                             </div>
@@ -840,17 +840,17 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">I led on various campaign launches at Wahoo, including the On Location Series for SYSTM.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="youtube" data-src="A_MKzV8rjTA">
-                                <img src="https://img.youtube.com/vi/A_MKzV8rjTA/hqdefault.jpg" alt="World Cycling Centre" loading="lazy">
+                                <img src="https://img.youtube.com/vi/A_MKzV8rjTA/hqdefault.jpg" alt="World Cycling Centre" loading="lazy" decoding="async">
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">World Cycling Centre</div>
                             </div>
                             <div class="gallery-item" data-type="youtube" data-src="XO2jF7O5aB4">
-                                <img src="https://img.youtube.com/vi/XO2jF7O5aB4/hqdefault.jpg" alt="Catalunya" loading="lazy">
+                                <img src="https://img.youtube.com/vi/XO2jF7O5aB4/hqdefault.jpg" alt="Catalunya" loading="lazy" decoding="async">
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Catalunya</div>
                             </div>
                             <div class="gallery-item" data-type="youtube" data-src="I8sDkjYOLk8">
-                                <img src="https://img.youtube.com/vi/I8sDkjYOLk8/hqdefault.jpg" alt="Portugal" loading="lazy">
+                                <img src="https://img.youtube.com/vi/I8sDkjYOLk8/hqdefault.jpg" alt="Portugal" loading="lazy" decoding="async">
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Portugal</div>
                             </div>
@@ -862,7 +862,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">We worked with GCN on a series of partnership videos to support the launch of the platform.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="youtube" data-src="D29q_wssy0k">
-                                <img src="https://img.youtube.com/vi/D29q_wssy0k/hqdefault.jpg" alt="GCN Partnership" loading="lazy">
+                                <img src="https://img.youtube.com/vi/D29q_wssy0k/hqdefault.jpg" alt="GCN Partnership" loading="lazy" decoding="async">
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">GCN Partnership</div>
                             </div>
