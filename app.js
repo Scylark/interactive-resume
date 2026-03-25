@@ -65,7 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.overscrollBehavior = 'none';
 
     // Browser back gesture closes modal/lightbox instead of navigating away
+    let ignoreNextPopstate = false;
     window.addEventListener('popstate', () => {
+        if (ignoreNextPopstate) {
+            ignoreNextPopstate = false;
+            return;
+        }
         if (document.querySelector('.lightbox.active')) {
             closeLightbox(true);
         } else if (modalOverlay.classList.contains('active')) {
@@ -233,6 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.querySelector('.lightbox-content').innerHTML = '';
 
         if (!fromPopstate && history.state && history.state.lightbox) {
+            // Prevent the popstate from cascading to close the modal too
+            ignoreNextPopstate = true;
             history.back();
         }
     }
