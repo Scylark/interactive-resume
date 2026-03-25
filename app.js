@@ -64,6 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overscrollBehavior = 'none';
     document.documentElement.style.overscrollBehavior = 'none';
 
+    // Browser back gesture closes modal/lightbox instead of navigating away
+    window.addEventListener('popstate', () => {
+        if (document.querySelector('.lightbox.active')) {
+            closeLightbox(true);
+        } else if (modalOverlay.classList.contains('active')) {
+            closeModal(true);
+        }
+    });
+
+    // Push initial state so first back gesture doesn't leave the page
+    history.replaceState({ base: true }, '');
+
     // Init graph
     const graph = new GraphEngine(canvas, container);
     graph.buildGraph(RESUME_DATA);
@@ -123,6 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        // Push history state so browser back gesture closes modal instead of leaving page
+        history.pushState({ modal: id }, '');
+
         // Hide mini-player when opening any modal
         ipod.hideMiniPlayer();
 
@@ -150,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     }
 
-    function closeModal() {
+    function closeModal(fromPopstate) {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -158,6 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show mini-player if music is playing
         if (ipod.isPlaying) {
             ipod.showMiniPlayer();
+        }
+
+        // Pop the history state we pushed (unless this was triggered by popstate)
+        if (!fromPopstate && history.state && history.state.modal) {
+            history.back();
         }
     }
 
@@ -204,13 +224,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    function closeLightbox() {
+    function closeLightbox(fromPopstate) {
         lightbox.classList.remove('active');
         const vid = lightbox.querySelector('video');
         if (vid) vid.pause();
         const iframe = lightbox.querySelector('iframe');
         if (iframe) iframe.src = '';
         lightbox.querySelector('.lightbox-content').innerHTML = '';
+
+        if (!fromPopstate && history.state && history.state.lightbox) {
+            history.back();
+        }
     }
 
     // Delegate gallery clicks from modal content
@@ -230,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             content.innerHTML = '<img src="' + src + '" alt="" style="max-width:90vw;max-height:85vh;border-radius:12px;">';
         }
         lightbox.classList.add('active');
+        history.pushState({ lightbox: true }, '');
     });
 
     document.addEventListener('keydown', (e) => {
@@ -246,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = lightbox.querySelector('.lightbox-content');
             content.innerHTML = '<img src="assets/Main Pic/James Vickers Main Pic.jpg" alt="James Vickers" style="max-width:90vw;max-height:85vh;border-radius:12px;">';
             lightbox.classList.add('active');
+            history.pushState({ lightbox: true }, '');
         });
     });
 
