@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Init graph
     const graph = new GraphEngine(canvas, container);
     graph.buildGraph(RESUME_DATA);
+    graph.applyTransform(); // Apply initial scale (0.75 on mobile)
 
     // ----------------------------------------
     // Node click → open modal (uses graph.isDragging to ignore drags)

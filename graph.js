@@ -26,7 +26,8 @@ class GraphEngine {
         });
 
         // Transform state for pinch-zoom and two-finger pan
-        this.scale = 1;
+        const isMobileInit = window.innerWidth < 768;
+        this.scale = isMobileInit ? 0.75 : 1;
         this.panX = 0;
         this.panY = 0;
         this.lastPinchDist = 0;
@@ -367,9 +368,14 @@ class GraphEngine {
     // ---- Multi-touch: pinch zoom + two-finger pan ----
 
     applyTransform() {
-        const area = this.container.parentElement;
-        area.style.transformOrigin = '50% 50%';
-        area.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.scale})`;
+        // Apply transform to the inner container + canvas, NOT the parent area
+        // This way overflow:hidden on the area just clips the viewport edge
+        // but doesn't shrink with the scale
+        const t = `translate(${this.panX}px, ${this.panY}px) scale(${this.scale})`;
+        this.container.style.transformOrigin = '50% 50%';
+        this.container.style.transform = t;
+        this.canvas.style.transformOrigin = '50% 50%';
+        this.canvas.style.transform = t;
     }
 
     getPinchDist(touches) {
