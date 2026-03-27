@@ -506,6 +506,55 @@ body {
    ============================================ */
 
 /* Profile Card */
+/* Profile hero card (center node about) */
+.profile-hero-card {
+    margin: -20px -20px 0 -20px;
+}
+
+.profile-hero-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.profile-hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.profile-hero-body {
+    padding: 0 20px 20px;
+    position: relative;
+}
+
+.profile-hero-avatar {
+    margin-top: -36px;
+    margin-bottom: 12px;
+}
+
+.profile-hero-avatar img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--surface);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.profile-hero-info {
+    margin-bottom: 12px;
+}
+
+.profile-hero-info h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: 2px;
+}
+
 .profile-header {
     display: flex;
     gap: 14px;

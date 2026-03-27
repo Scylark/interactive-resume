@@ -208,28 +208,33 @@ const RESUME_DATA = {
             subtitle: "MCIM · MCPR",
             type: "profile",
             content: `
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <img class="profile-avatar-img" src="assets/Main Pic/James Vickers Main Pic.jpg" alt="James Vickers" id="profile-photo" style="cursor:pointer" />
-                        <div class="profile-info">
+                <div class="profile-hero-card">
+                    <div class="profile-hero-img">
+                        <img src="assets/Ribble Gravel National Champinships Sponsorship 2025/0Q5A9331.jpg" alt="James Vickers racing" />
+                    </div>
+                    <div class="profile-hero-body">
+                        <div class="profile-hero-avatar">
+                            <img src="assets/Main Pic/James Vickers Main Pic.jpg" alt="James Vickers" id="profile-photo" style="cursor:pointer" />
+                        </div>
+                        <div class="profile-hero-info">
                             <h2>James Vickers</h2>
                             <p class="profile-title">Senior Marketing Professional</p>
                             <p class="profile-creds">MCIM · MCPR</p>
                         </div>
+                        <p class="profile-bio">10+ years driving growth through high-impact marketing strategies across cycling, fitness tech and fintech. Proven track record in team leadership, complex campaigns, and delivering innovative solutions.</p>
+                        <div class="profile-tags">
+                            <span class="tag">Strategy</span>
+                            <span class="tag">Brand</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Cycling</span>
+                            <span class="tag">Leadership</span>
+                        </div>
+                        <div class="profile-meta">
+                            <span>Sheffield / Lincoln, UK · 1.5hrs from London</span>
+                            <span>james@manual-focus.co.uk</span>
+                        </div>
+                        <a href="assets/James-Vickers-CV.pdf" download class="cv-download-btn">Download CV</a>
                     </div>
-                    <p class="profile-bio">10+ years driving growth through high-impact marketing strategies across cycling, fitness tech and fintech. Proven track record in team leadership, complex campaigns, and delivering innovative solutions.</p>
-                    <div class="profile-tags">
-                        <span class="tag">Strategy</span>
-                        <span class="tag">Brand</span>
-                        <span class="tag">AI</span>
-                        <span class="tag">Cycling</span>
-                        <span class="tag">Leadership</span>
-                    </div>
-                    <div class="profile-meta">
-                        <span>Sheffield / Lincoln, UK · 1.5hrs from London</span>
-                        <span>james@manual-focus.co.uk</span>
-                    </div>
-                    <a href="assets/James-Vickers-CV.pdf" download class="cv-download-btn">Download CV</a>
                 </div>
             `
         },
