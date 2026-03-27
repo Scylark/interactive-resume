@@ -340,10 +340,10 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Pro Sports & Ambassadors</h4>
                         <ul>
-                            <li><strong>Ribble Outliers</strong> - thought leadership on LinkedIn alongside B2C content via team-specific channels.</li>
-                            <li><strong>Partnership marketing</strong> - Precision and Restrap collaborations added 8,000+ email subscribers.</li>
-                            <li><strong>Creative direction</strong> - contemporary, outlier-personality design vs traditional cycling aesthetics.</li>
-                            <li><strong>Smurfit Westrock & Cyclist magazine</strong> - "Welcome to Hell" mini-documentary on the CiCLE Classic win.</li>
+                            <li>Led the development of the Ribble Outliers pro gravel team. In its first season, the most successful British gravel team with multiple golds and podiums at UCI and Gravel Earth Series events.</li>
+                            <li>Gravel category growth: Ribble's fastest-growing segment, outperforming market growth by 2 percentage points and taking competitor share.</li>
+                            <li>Developed marketing activation and product collaboration opportunities between Ribble and its brand partners, including Precision and Restrap.</li>
+                            <li>Managed the relationship and marketing activation of the Smurfit Westrock Pro Cycling professional continental women's team, including the "Welcome to Hell" mini-documentary covering their Rutland-Melton CiCLE Classic win.</li>
                         </ul>
                     </div>
 
@@ -361,7 +361,6 @@ const RESUME_DATA = {
                         <ul>
                             <li><strong>The Original Outliers rebrand</strong> - worked with FreshBritain on repositioning Ribble's tone of voice and visual language.</li>
                             <li><strong>2025 strategic objectives</strong> - grow gravel market share, increase regional penetration (North East and South), launch four new bikes.</li>
-                            <li><strong>Gravel category growth</strong> - Ribble's fastest-growing segment, +2pp above market, taking competitor share.</li>
                             <li><strong>Led NPD marketing</strong> - market gap analysis, sign-off documents, and GTM strategies covering positioning, messaging, and channels.</li>
                         </ul>
                     </div>
