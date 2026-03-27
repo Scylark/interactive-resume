@@ -321,7 +321,7 @@ const RESUME_DATA = {
                             <li><strong>Reshaped the marketing team</strong> - reorganised roles and responsibilities across the department.</li>
                             <li><strong>Built organisational structure</strong> - processes, planning, and a new task management platform.</li>
                             <li><strong>Day-to-day management</strong> - marketing team, retail stakeholders, and agencies.</li>
-                            <li><strong>Onboarded key agencies</strong> - Shift Active Media (PR) and Commute Films (creative video production).</li>
+                            <li><strong>Onboarded key agencies</strong> - Shift Active Media (PR) and Commuter Films (creative video production).</li>
                             <li><strong>Board-level impact</strong> - delivered strategic presentations to the board, representing the business as part of the SMT to PE Owners.</li>
                         </ul>
                     </div>
