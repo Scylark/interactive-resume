@@ -748,7 +748,7 @@ const RESUME_DATA = {
                         <h4>Events & Partnerships</h4>
                         <ul>
                             <li>Represented Muuvr at events including the Frankfurt Digital Assets Conference and live endurance sports events such as the Blenheim Triathlon and Oxford Half Marathon.</li>
-                            <li>Attended Relay Live and held a series of investor workshops and biannual investor events.</li>
+                            <li>Attended Rouleur Live and held a series of investor workshops and biannual investor events.</li>
                             <li>Led the development of the Muuvr Marketplace partnerships: commercial arrangements between event organisers and endurance sports brands enabling users to redeem moves for equipment.</li>
                         </ul>
                     </div>
