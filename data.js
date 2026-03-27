@@ -329,7 +329,7 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>PR & Media Relations</h4>
                         <ul>
-                            <li><strong>Built strategic PR process</strong> - managed product-to-journalist pipeline on schedule.</li>
+                            <li><strong>Built strategic PR process</strong> - working with Shift Active Media, managed media relations ensuring correct products delivered to journalists on schedule.</li>
                             <li><strong>Non-endemic placement</strong> - secured BBC and ITV TV coverage in 2025.</li>
                             <li><strong>Coverage growth</strong> - articles 135 to 196, est. views 1.89M to 4.42M, potential audience 117M to 327M.</li>
                             <li><strong>Brand repositioning</strong> - shifted perception from "budget heritage" to "high-performance technical" - ULTRA-RACE compared to Colnago rather than Planet X or Dolan.</li>
