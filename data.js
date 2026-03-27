@@ -728,13 +728,28 @@ const RESUME_DATA = {
                     <h2>Chief Marketing Officer</h2>
                     <h3>Muuvr · Move-to-Earn Application · Jan 2023 – May 2024</h3>
                     <div class="achievements">
-                        <h4>Key Achievements</h4>
+                        <h4>Brand & GTM</h4>
                         <ul>
-                            <li><strong>Brand development</strong> - led Muuvr's brand and visual identity from scratch, including persona work to tailor product and communications.</li>
-                            <li><strong>AI strategy</strong> - designed and implemented AI strategies across product, marketing, and financial decision-making.</li>
-                            <li><strong>$4.5M fundraise</strong> - contributed to a successful fundraising effort securing $4.5M in investment.</li>
-                            <li><strong>GTM execution</strong> - oversaw go-to-market strategy for product launches, procured and managed agencies across creative, performance, and PR.</li>
-                            <li><strong>Gamification</strong> - led the development of key gamification strategies driving user engagement.</li>
+                            <li>Led Muuvr's brand and visual identity from scratch, including persona development to shape product and communications.</li>
+                            <li>Oversaw go-to-market strategy for product launches. Procured and managed agencies across creative, performance, and PR.</li>
+                            <li>Built the entire social presence and led the technical development of the website, built on WooCommerce/WordPress with custom elements.</li>
+                            <li>Contributed to a successful fundraising effort securing $4.5M in investment.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>Product Development</h4>
+                        <ul>
+                            <li>Extensively involved in product development, hosting product development sessions and creating requirements documents and technical plans.</li>
+                            <li>Led on gamification strategy, designing sequences from onboarding through to the full user journey.</li>
+                            <li>Designed and implemented AI strategies across product, marketing, and financial decision-making.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>Events & Partnerships</h4>
+                        <ul>
+                            <li>Represented Muuvr at events including the Frankfurt Digital Assets Conference and live endurance sports events such as the Blenheim Triathlon and Oxford Half Marathon.</li>
+                            <li>Attended Relay Live and held a series of investor workshops and biannual investor events.</li>
+                            <li>Led the development of the Muuvr Marketplace partnerships: commercial arrangements between event organisers and endurance sports brands enabling users to redeem moves for equipment.</li>
                         </ul>
                     </div>
                     <div class="stat-grid">
