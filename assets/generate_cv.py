@@ -10,7 +10,8 @@ from reportlab.platypus import (
 )
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 
-OUTPUT = "/Users/jamesvickers/Desktop/Claude/Manual Focus/James Vickers/interactive-resume/assets/James-Vickers-CV.pdf"
+import os
+OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "James-Vickers-CV.pdf")
 
 doc = SimpleDocTemplate(
     OUTPUT,
@@ -104,11 +105,12 @@ def small(text):
 story.append(Paragraph('James Vickers MCIM MCPR', styles['CVName']))
 story.append(Paragraph('Sheffield / Lincoln, UK - 1.5hrs from London - 07897714630 - james@manual-focus.co.uk', styles['CVContact']))
 story.append(Paragraph(
-    'Senior Marketing Professional with 10+ years of experience driving growth through high-impact '
-    'marketing strategies across cycling, fitness tech and fintech. Proven track record in team leadership, '
-    'complex campaigns, and delivering innovative solutions. A proactive, analytical, and results-driven '
-    'leader known for building strong relationships with stakeholders and providing clear, actionable '
-    'insights to senior decision-makers.',
+    'Senior Marketing Professional and operator of an autonomous AI business. 10+ years driving growth '
+    'across cycling, fitness tech, fintech and Web3 - now founder of Aster (live GPS tracking, shipped '
+    'iOS and Android) and Wattplan (AI training app), both built and run by orchestrated AI agents with '
+    'me as the human in the loop. A working answer to "how much business can one operator run when AI '
+    'handles the stack?" Track record in brand repositioning, complex campaigns, team leadership and '
+    'embedding AI/ML across marketing, product and finance.',
     styles['CVSummary']
 ))
 
@@ -118,12 +120,33 @@ story.append(Paragraph(
     'Leadership - Business Development - Strategy - Funding - Investor Relations - Budgeting - '
     'Brand Development - Campaign Management - PR and Editorial - Digital Planning and Purchasing - '
     'Event Management - Sponsorships &amp; Partnerships - Ambassador &amp; Influencer Marketing - '
-    'CRM and Email Marketing - AI &amp; Machine Learning',
+    'CRM and Email Marketing - AI &amp; Machine Learning - AI Agent Orchestration - '
+    'Autonomous Business Operations',
     styles['CVSkills']
 ))
 
 # -- Career --
 section('CAREER HIGHLIGHTS')
+
+# Aster - autonomous AI business
+role('Aster - Watch the Dot - Live GPS Tracking Platform', 'Founder / Operator (Autonomous AI Business)', '2025 - Present')
+context('A vibe-created, fully autonomous AI business shipped to iOS and Android. Orchestrated AI agents (Hermes, Paperclip and supporting models) run the back office - business analysis, product, engineering requirements, market research, development, testing, marketing and content. I am the human in the loop for an otherwise self-running operation.')
+bullet('Founder, brand, strategy and operator of a live GPS-tracking platform for ultra-endurance cycling.')
+bullet('Designed AI agent workflows that handle BA, product, engineering, QA, marketing and content end-to-end.')
+bullet('Native iOS and Android apps via Capacitor; React PWA, Node/Fastify API, Postgres, Mapbox live maps and real-time leaderboard.')
+bullet('Four non-negotiable rider-safety rules driving product design: offline start/finish, never auto-logout, tracking persists, never lose a ping.')
+bullet('A working proof of the Brand-to-Platform thesis - a cycling brand operating as a software platform, run by a single operator with AI handling the rest.')
+
+story.append(Spacer(1, 4))
+
+# Wattplan
+role('Wattplan - AI-Powered Endurance Training App', 'Founder', '2025 - Present')
+context('A personal experiment in AI readiness - concept, brand, full-stack development and launch all delivered with AI throughout the stack.')
+bullet('Full-stack solo build using Claude Code: front-end, back-end and AI integrations.')
+bullet('Owned marketing, GTM, brand and product design end-to-end.')
+bullet('Live at wattplan.cc.')
+
+story.append(Spacer(1, 4))
 
 # Ribble 2
 role('Ribble Cycles - High-Performance D2C Bike Brand', 'Marketing Consultant (currently 3 days/week advisory)', 'Nov 2024 - Present')
