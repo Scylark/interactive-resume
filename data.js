@@ -1037,25 +1037,26 @@ const RESUME_DATA = {
                     <span class="ai-coming" style="display:inline-block;margin-top:16px;">iOS & Android · public launch in progress</span>
 
                     <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
-                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">App Screenshots</h3>
+                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">Inside the Autonomous Business</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Brand, design system, operations and team comms — all running with AI agents in the loop.</p>
 
                     <div class="media-gallery">
                         <div class="gallery-grid">
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Home.png">
-                                <img src="assets/Aster/Aster Home.png" alt="Aster Home" loading="lazy" decoding="async">
-                                <div class="gallery-label">Home Feed</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Brand Book - Logo & Mark.png">
+                                <img src="assets/Aster/Aster Brand Book - Logo & Mark.png" alt="Aster brand book — Logo & Mark" loading="lazy" decoding="async">
+                                <div class="gallery-label">Brand Book — Logo & Mark</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Tracking.png">
-                                <img src="assets/Aster/Aster Tracking.png" alt="Aster live tracking" loading="lazy" decoding="async">
-                                <div class="gallery-label">Live Tracking</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Brand Book - Components.png">
+                                <img src="assets/Aster/Aster Brand Book - Components.png" alt="Aster brand book — Components" loading="lazy" decoding="async">
+                                <div class="gallery-label">Brand Book — Components</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Event Detail.png">
-                                <img src="assets/Aster/Aster Event Detail.png" alt="Aster Event Detail" loading="lazy" decoding="async">
-                                <div class="gallery-label">Event Detail</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Notion - Source of Truth.png">
+                                <img src="assets/Aster/Aster Notion - Source of Truth.png" alt="Aster Notion workspace — source of truth" loading="lazy" decoding="async">
+                                <div class="gallery-label">Operations Hub (Notion)</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Profile.png">
-                                <img src="assets/Aster/Aster Profile.png" alt="Aster Profile" loading="lazy" decoding="async">
-                                <div class="gallery-label">Profile</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Slack - Feature Suggestions.jpg">
+                                <img src="assets/Aster/Aster Slack - Feature Suggestions.jpg" alt="Aster Slack — feature suggestions with Claude" loading="lazy" decoding="async">
+                                <div class="gallery-label">Team Slack (with Claude)</div>
                             </div>
                         </div>
                     </div>
