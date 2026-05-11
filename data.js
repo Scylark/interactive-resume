@@ -175,6 +175,16 @@ const RESUME_DATA = {
             order: 3,
             icon: "◆",
             color: "#6366f1"
+        },
+        {
+            id: "aster",
+            label: "Aster",
+            sublabel: "2025–Present",
+            type: "role",
+            parent: "experience",
+            order: 4,
+            icon: "◆",
+            color: "#ef4444"
         }
     ],
 
@@ -198,7 +208,8 @@ const RESUME_DATA = {
         { from: "experience", to: "pelotan" },
         { from: "experience", to: "ribble-1" },
         { from: "experience", to: "planetx" },
-        { from: "experience", to: "wattplan" }
+        { from: "experience", to: "wattplan" },
+        { from: "experience", to: "aster" }
     ],
 
     // Detail content for modals
@@ -296,6 +307,11 @@ const RESUME_DATA = {
                         <div class="timeline-item current">
                             <span class="timeline-role">Founder / AI Side Project</span>
                             <span class="timeline-company">Wattplan</span>
+                            <span class="timeline-date">2025 – Present</span>
+                        </div>
+                        <div class="timeline-item current">
+                            <span class="timeline-role">Founder / Autonomous AI Business</span>
+                            <span class="timeline-company">Aster</span>
                             <span class="timeline-date">2025 – Present</span>
                         </div>
                     </div>
@@ -985,6 +1001,79 @@ const RESUME_DATA = {
                             <li><strong>Team leadership</strong> - led the sales team to exceed targets through training and mentorship.</li>
                             <li><strong>Supplier relationships</strong> - built key supplier partnerships to optimise inventory and pricing.</li>
                         </ul>
+                    </div>
+                </div>
+            `
+        },
+
+        aster: {
+            title: "Aster — Watch the Dot",
+            subtitle: "Founder / Autonomous AI Business · 2025 – Present",
+            type: "role",
+            color: "#ef4444",
+            industry: "AI / Endurance Sports",
+            content: `
+                <div class="role-card">
+                    <div class="role-header">
+                        <div class="role-badge" style="background: #ef4444">Autonomous AI Business</div>
+                    </div>
+                    <h2>Aster — Watch the Dot</h2>
+                    <h3>Live GPS Tracking Platform for Ultra-Endurance Cycling · 2025 – Present</h3>
+                    <p class="role-context">A vibe-created, fully autonomous business — not just an app. Aster is live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. The point isn't the app: it's that the entire back office runs itself. Orchestrated AI agents (Hermes, Paperclip and various models) handle business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy — with little or no input from me. A live proof of how much of a business one operator can run when AI handles the stack.</p>
+                    <div class="achievements">
+                        <h4>My Role</h4>
+                        <ul>
+                            <li><strong>Founder & Operator</strong> - concept, brand, strategy and the human in the loop for an otherwise autonomous business.</li>
+                            <li><strong>Agent Orchestration</strong> - designed the AI agent workflows (Hermes, Paperclip and supporting models) that run BA, product, engineering, QA, marketing and content end-to-end.</li>
+                            <li><strong>Product</strong> - core proposition, four non-negotiable rider-safety rules (offline start/finish, never auto-logout, tracking persists, never lose a ping).</li>
+                            <li><strong>GTM</strong> - positioning ("for the rides that don't end on TV"), brand, channel strategy and launch plan.</li>
+                            <li><strong>Shipping</strong> - native iOS and Android via Capacitor, with background geolocation, live race maps and a real-time leaderboard.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>Why It Matters</h4>
+                        <p>Aster is the live proof of the Brand-to-Platform thesis: a cycling brand operating as a software platform, run by a single operator with AI handling the rest. It's a working answer to the question "how much business can one person run?" when the org chart is mostly agents.</p>
+                    </div>
+                    <span class="ai-coming" style="display:inline-block;margin-top:16px;">iOS & Android · public launch in progress</span>
+
+                    <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
+                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">App Screenshots</h3>
+
+                    <div class="media-gallery">
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Home.png">
+                                <img src="assets/Aster/Aster Home.png" alt="Aster Home" loading="lazy" decoding="async">
+                                <div class="gallery-label">Home</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Track.png">
+                                <img src="assets/Aster/Aster Track.png" alt="Aster Track" loading="lazy" decoding="async">
+                                <div class="gallery-label">Track</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Events.png">
+                                <img src="assets/Aster/Aster Events.png" alt="Aster Events" loading="lazy" decoding="async">
+                                <div class="gallery-label">Events</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Event Detail.png">
+                                <img src="assets/Aster/Aster Event Detail.png" alt="Aster Event Detail" loading="lazy" decoding="async">
+                                <div class="gallery-label">Event Detail</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Free Ride.png">
+                                <img src="assets/Aster/Aster Free Ride.png" alt="Aster Free Ride" loading="lazy" decoding="async">
+                                <div class="gallery-label">Free Ride</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Discover.png">
+                                <img src="assets/Aster/Aster Discover.png" alt="Aster Discover" loading="lazy" decoding="async">
+                                <div class="gallery-label">Discover</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Alerts.png">
+                                <img src="assets/Aster/Aster Alerts.png" alt="Aster Alerts" loading="lazy" decoding="async">
+                                <div class="gallery-label">Alerts</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Profile.png">
+                                <img src="assets/Aster/Aster Profile.png" alt="Aster Profile" loading="lazy" decoding="async">
+                                <div class="gallery-label">Profile</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `
