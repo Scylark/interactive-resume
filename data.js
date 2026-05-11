@@ -1043,31 +1043,15 @@ const RESUME_DATA = {
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Home.png">
                                 <img src="assets/Aster/Aster Home.png" alt="Aster Home" loading="lazy" decoding="async">
-                                <div class="gallery-label">Home</div>
+                                <div class="gallery-label">Home Feed</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Track.png">
-                                <img src="assets/Aster/Aster Track.png" alt="Aster Track" loading="lazy" decoding="async">
-                                <div class="gallery-label">Track</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Events.png">
-                                <img src="assets/Aster/Aster Events.png" alt="Aster Events" loading="lazy" decoding="async">
-                                <div class="gallery-label">Events</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Tracking.png">
+                                <img src="assets/Aster/Aster Tracking.png" alt="Aster live tracking" loading="lazy" decoding="async">
+                                <div class="gallery-label">Live Tracking</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Event Detail.png">
                                 <img src="assets/Aster/Aster Event Detail.png" alt="Aster Event Detail" loading="lazy" decoding="async">
                                 <div class="gallery-label">Event Detail</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Free Ride.png">
-                                <img src="assets/Aster/Aster Free Ride.png" alt="Aster Free Ride" loading="lazy" decoding="async">
-                                <div class="gallery-label">Free Ride</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Discover.png">
-                                <img src="assets/Aster/Aster Discover.png" alt="Aster Discover" loading="lazy" decoding="async">
-                                <div class="gallery-label">Discover</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Alerts.png">
-                                <img src="assets/Aster/Aster Alerts.png" alt="Aster Alerts" loading="lazy" decoding="async">
-                                <div class="gallery-label">Alerts</div>
                             </div>
                             <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Profile.png">
                                 <img src="assets/Aster/Aster Profile.png" alt="Aster Profile" loading="lazy" decoding="async">
