@@ -182,7 +182,7 @@ const RESUME_DATA = {
             sublabel: "2025–Present",
             type: "role",
             parent: "experience",
-            order: 4,
+            order: 0,
             icon: "◆",
             color: "#ef4444"
         }
