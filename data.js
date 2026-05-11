@@ -1162,42 +1162,78 @@ const RESUME_DATA = {
                     <h2>Skills & Expertise</h2>
                     <div class="skills-grid">
                         <div class="skill-group">
-                            <h4>Leadership & Strategy</h4>
+                            <h4>Marketing Strategy</h4>
                             <div class="skill-tags">
-                                <span class="skill-tag">Leadership</span>
-                                <span class="skill-tag">Business Development</span>
-                                <span class="skill-tag">Strategy</span>
-                                <span class="skill-tag">Investor Relations</span>
-                                <span class="skill-tag">Budgeting</span>
-                                <span class="skill-tag">Funding</span>
+                                <span class="skill-tag highlight">Marketing Strategy</span>
+                                <span class="skill-tag highlight">Brand Strategy</span>
+                                <span class="skill-tag">Go-to-Market Strategy</span>
+                                <span class="skill-tag">Positioning & Messaging</span>
+                                <span class="skill-tag">Customer Acquisition Strategy</span>
+                                <span class="skill-tag">Retention & Lifecycle</span>
+                                <span class="skill-tag">Multi-Channel Planning</span>
+                                <span class="skill-tag">Audience & Segmentation</span>
                             </div>
                         </div>
                         <div class="skill-group">
-                            <h4>Brand & Creative</h4>
+                            <h4>Brand & Creative Direction</h4>
                             <div class="skill-tags">
+                                <span class="skill-tag highlight">Brand Creative Direction</span>
                                 <span class="skill-tag">Brand Development</span>
+                                <span class="skill-tag">Brand Repositioning</span>
+                                <span class="skill-tag">Visual Identity</span>
                                 <span class="skill-tag">Campaign Management</span>
-                                <span class="skill-tag">PR & Editorial</span>
                                 <span class="skill-tag">Content Strategy</span>
+                                <span class="skill-tag">Editorial Direction</span>
                             </div>
                         </div>
                         <div class="skill-group">
-                            <h4>Digital & Data</h4>
+                            <h4>PR & Owned Media</h4>
                             <div class="skill-tags">
-                                <span class="skill-tag">Digital Planning & Purchasing</span>
-                                <span class="skill-tag">SEO / PPC</span>
-                                <span class="skill-tag">CRM & Email Marketing</span>
-                                <span class="skill-tag">Data Analysis</span>
+                                <span class="skill-tag highlight">PR Strategy</span>
+                                <span class="skill-tag highlight">Owned Media Strategy</span>
+                                <span class="skill-tag">Media Relations</span>
+                                <span class="skill-tag">Earned Media</span>
+                                <span class="skill-tag">Press Office</span>
+                                <span class="skill-tag">Non-Endemic Coverage (BBC / ITV)</span>
+                                <span class="skill-tag">Thought Leadership</span>
+                                <span class="skill-tag">Crisis Communications</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4>Digital & Performance</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag highlight">Paid Performance Marketing</span>
+                                <span class="skill-tag highlight">SEO</span>
+                                <span class="skill-tag">SEM / PPC</span>
+                                <span class="skill-tag">Programmatic & Paid Social</span>
+                                <span class="skill-tag">CRM & Lifecycle Email</span>
+                                <span class="skill-tag">Conversion Optimisation</span>
                                 <span class="skill-tag">eCommerce</span>
+                                <span class="skill-tag">Analytics & Attribution</span>
                             </div>
                         </div>
                         <div class="skill-group">
                             <h4>Partnerships & Events</h4>
                             <div class="skill-tags">
-                                <span class="skill-tag">Event Management</span>
                                 <span class="skill-tag">Sponsorships & Partnerships</span>
                                 <span class="skill-tag">Ambassador & Influencer Marketing</span>
+                                <span class="skill-tag">Event Management</span>
+                                <span class="skill-tag">Pro Team Activation</span>
+                                <span class="skill-tag">Sponsorship Negotiation</span>
                                 <span class="skill-tag">Agency Management</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4>Leadership & Commercial</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Senior Marketing Leadership</span>
+                                <span class="skill-tag">Team Building</span>
+                                <span class="skill-tag">Business Development</span>
+                                <span class="skill-tag">Budget Ownership (£1.2M+)</span>
+                                <span class="skill-tag">P&L</span>
+                                <span class="skill-tag">Investor Relations</span>
+                                <span class="skill-tag">Funding & Fundraising</span>
+                                <span class="skill-tag">Board-Level Reporting</span>
                             </div>
                         </div>
                         <div class="skill-group">
