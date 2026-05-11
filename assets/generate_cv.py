@@ -105,23 +105,31 @@ def small(text):
 story.append(Paragraph('James Vickers MCIM MCPR', styles['CVName']))
 story.append(Paragraph('Sheffield / Lincoln, UK - 1.5hrs from London - 07897714630 - james@manual-focus.co.uk', styles['CVContact']))
 story.append(Paragraph(
-    'Senior Marketing Professional and operator of an autonomous AI business. 10+ years driving growth '
-    'across cycling, fitness tech, fintech and Web3 - now founder of Aster (live GPS tracking, shipped '
-    'iOS and Android) and Wattplan (AI training app), both built and run by orchestrated AI agents with '
-    'me as the human in the loop. A working answer to "how much business can one operator run when AI '
-    'handles the stack?" Track record in brand repositioning, complex campaigns, team leadership and '
-    'embedding AI/ML across marketing, product and finance.',
+    'Senior marketing leader with ten years in CMO, Head of Marketing and senior PR/brand roles across '
+    'endurance, fitness tech, fintech and Web3. Currently a Marketing Consultant across several brands, '
+    'with a Fractional CMO role at AI wealth-advisory platform chatwithmotif.com. In 2025 I founded '
+    'Aster, a real-time event tracking platform now shipping on iOS and Android, where I run the whole '
+    'business solo with AI agents (Hermes, Paperclip and supporting models) handling business analysis, '
+    'product, engineering, market research, marketing and content. Track record in brand repositioning, '
+    'growth, team leadership and AI-native operations.',
     styles['CVSummary']
 ))
 
 # -- Skills --
 section('KEY SKILLS &amp; EXPERTISE')
 story.append(Paragraph(
-    'Leadership - Business Development - Strategy - Funding - Investor Relations - Budgeting - '
-    'Brand Development - Campaign Management - PR and Editorial - Digital Planning and Purchasing - '
-    'Event Management - Sponsorships &amp; Partnerships - Ambassador &amp; Influencer Marketing - '
-    'CRM and Email Marketing - AI &amp; Machine Learning - AI Agent Orchestration - '
-    'Autonomous Business Operations',
+    '<b>Marketing Strategy</b> - Brand Strategy - Brand Creative Direction - Campaign Management - '
+    'Content Strategy - GTM Strategy - Positioning &amp; Messaging - '
+    '<b>PR Strategy</b> - Owned Media Strategy - Media Relations - Press Office - Thought Leadership - '
+    '<b>Paid Performance Marketing</b> - SEO - SEM / PPC - CRM &amp; Lifecycle Email - eCommerce - '
+    'Analytics &amp; Attribution - '
+    'Sponsorships &amp; Partnerships - Ambassador &amp; Influencer Marketing - Event Management - '
+    'Pro Team Activation - Agency Management - '
+    'Senior Marketing Leadership - Team Building - Business Development - Budget Ownership (£1.2M+) - '
+    'Investor Relations - Funding - Board-Level Reporting - '
+    '<b>Vibe Coding</b> - <b>Vibe Marketing</b> - <b>Organisational Automation</b> - '
+    '<b>AI Agent Orchestration</b> - <b>Autonomous Business Operations</b> - Multi-Agent Workflows - '
+    'Prompt &amp; Context Engineering - AI &amp; Machine Learning - Claude Code',
     styles['CVSkills']
 ))
 
