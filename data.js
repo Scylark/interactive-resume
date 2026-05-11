@@ -1201,13 +1201,24 @@ const RESUME_DATA = {
                             </div>
                         </div>
                         <div class="skill-group">
-                            <h4>Technology</h4>
+                            <h4>AI & Autonomous Operations</h4>
                             <div class="skill-tags">
-                                <span class="skill-tag highlight">AI & Machine Learning</span>
-                                <span class="skill-tag highlight">Claude Code</span>
-                                <span class="skill-tag highlight">Claude Co Work</span>
-                                <span class="skill-tag">AI Creative Tools</span>
-                                <span class="skill-tag">Midjourney / DALL-E</span>
+                                <span class="skill-tag highlight">Vibe Coding</span>
+                                <span class="skill-tag highlight">Vibe Marketing</span>
+                                <span class="skill-tag highlight">Organisational Automation</span>
+                                <span class="skill-tag highlight">AI Agent Orchestration</span>
+                                <span class="skill-tag highlight">Autonomous Business Operations</span>
+                                <span class="skill-tag">Multi-Agent Workflows</span>
+                                <span class="skill-tag">Prompt & Context Engineering</span>
+                                <span class="skill-tag">Model Routing (Opus / Sonnet / Haiku)</span>
+                                <span class="skill-tag">AI Content Pipelines</span>
+                                <span class="skill-tag">AI-Native GTM</span>
+                                <span class="skill-tag">AI & Machine Learning</span>
+                                <span class="skill-tag">Claude Code</span>
+                                <span class="skill-tag">Claude Co Work</span>
+                                <span class="skill-tag">Hermes & Paperclip</span>
+                                <span class="skill-tag">MCP (Model Context Protocol)</span>
+                                <span class="skill-tag">AI Creative (Midjourney / DALL·E / Sora)</span>
                             </div>
                         </div>
                         <div class="skill-group">
