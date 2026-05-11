@@ -1082,10 +1082,6 @@ const RESUME_DATA = {
                                 <img src="assets/Aster/Aster Profile.png" alt="Aster Profile" loading="lazy" decoding="async">
                                 <div class="gallery-label">Profile</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Live on Android.jpg">
-                                <img src="assets/Aster/Aster Live on Android.jpg" alt="Aster live on Android — in the wild" loading="lazy" decoding="async">
-                                <div class="gallery-label">Live on Android (in the wild)</div>
-                            </div>
                         </div>
                     </div>
                 </div>
