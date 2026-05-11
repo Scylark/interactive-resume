@@ -1141,8 +1141,40 @@ const RESUME_DATA = {
             content: `
                 <div class="ai-work-card">
                     <h2>AI Work</h2>
-                    <p class="ai-intro">Tech evangelist and early adopter with 2+ years of hands-on AI experience. Integrated AI/ML technology across multiple organisations for marketing, product, and business decision-making.</p>
+                    <p class="ai-intro">Tech evangelist and early adopter with 2+ years of hands-on AI experience — from embedding AI/ML across marketing, product and decision-making in established businesses, to running an autonomous, AI-operated business end-to-end as a solo operator.</p>
                     <div class="ai-grid">
+                        <div class="ai-item">
+                            <div class="ai-item-icon">A</div>
+                            <h4>Aster — Watch the Dot</h4>
+                            <p>A vibe-created, fully autonomous business — not just an app. Live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. Built and run by orchestrated AI agents (Hermes, Paperclip and various models) across the full back office: business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy. A live proof of how much of a business one operator can run when AI handles the stack.</p>
+                            <span class="ai-coming">iOS & Android · public launch in progress</span>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">W</div>
+                            <h4>Wattplan</h4>
+                            <p>AI-powered endurance sports training app built entirely with Claude Code - founder, marketing, development, GTM, and product. A side project testing what's possible when AI handles the full stack.</p>
+                            <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">T</div>
+                            <h4>The Bike That Gets Me</h4>
+                            <p>Ribble Cycles 2026 campaign where all creative assets were developed using AI - demonstrating how AI tools can produce production-ready marketing content.</p>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">I</div>
+                            <h4>AI Integration</h4>
+                            <p>Led adoption of AI/ML at Classified Cycling across departments. Designed AI strategies at Muuvr for product, marketing and finance. Built wattplan.cc using only AI as an experiment in AI readiness.</p>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">B</div>
+                            <h4>Brand to Platform Evolution</h4>
+                            <p>Exploring how AI lets brands graduate from brand to platform — using autonomous product creation as a moat and an audience-building engine. Aster is the live proof: a cycling brand operating as a software platform, run by a single operator with AI handling the rest.</p>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">R</div>
+                            <h4>This Resume</h4>
+                            <p>Built with AI assistance - an interactive knowledge-graph resume demonstrating the intersection of marketing and technology.</p>
+                        </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">C</div>
                             <h4>AI Creatives</h4>
@@ -1154,32 +1186,6 @@ const RESUME_DATA = {
                             <h4>Strategy Documents</h4>
                             <p>AI-assisted market analysis, positioning frameworks, and GTM strategies.</p>
                             <span class="ai-coming">Portfolio coming soon</span>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">I</div>
-                            <h4>AI Integration</h4>
-                            <p>Led adoption of AI/ML at Classified Cycling across departments. Designed AI strategies at Muuvr for product, marketing and finance. Built wattplan.cc using only AI as an experiment in AI readiness.</p>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">W</div>
-                            <h4>Wattplan</h4>
-                            <p>AI-powered endurance sports training app built entirely with Claude Code - founder, marketing, development, GTM, and product. A side project testing what's possible when AI handles the full stack.</p>
-                            <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">B</div>
-                            <h4>Brand to Platform Evolution</h4>
-                            <p>Exploring the opportunities AI provides for brands to transition from a brand to a platform. This experiment investigates how app production can serve as a strategic means of creating a competitive moat and building sustainable audiences.</p>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">T</div>
-                            <h4>The Bike That Gets Me</h4>
-                            <p>Ribble Cycles 2026 campaign where all creative assets were developed using AI - demonstrating how AI tools can produce production-ready marketing content.</p>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">R</div>
-                            <h4>This Resume</h4>
-                            <p>Built with AI assistance - an interactive knowledge-graph resume demonstrating the intersection of marketing and technology.</p>
                         </div>
                     </div>
                 </div>
