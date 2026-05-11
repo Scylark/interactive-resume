@@ -1060,6 +1060,34 @@ const RESUME_DATA = {
                             </div>
                         </div>
                     </div>
+
+                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-top: 24px; margin-bottom: 4px;">The Shipped Product</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Live on iOS and Android — feed, live tracking, events and profile.</p>
+
+                    <div class="media-gallery">
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Home.png">
+                                <img src="assets/Aster/Aster Home.png" alt="Aster Home Feed" loading="lazy" decoding="async">
+                                <div class="gallery-label">Home Feed</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Tracking.png">
+                                <img src="assets/Aster/Aster Tracking.png" alt="Aster live tracking" loading="lazy" decoding="async">
+                                <div class="gallery-label">Live Tracking</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Event Detail.png">
+                                <img src="assets/Aster/Aster Event Detail.png" alt="Aster Event Detail" loading="lazy" decoding="async">
+                                <div class="gallery-label">Event Detail</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Profile.png">
+                                <img src="assets/Aster/Aster Profile.png" alt="Aster Profile" loading="lazy" decoding="async">
+                                <div class="gallery-label">Profile</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Live on Android.jpg">
+                                <img src="assets/Aster/Aster Live on Android.jpg" alt="Aster live on Android — in the wild" loading="lazy" decoding="async">
+                                <div class="gallery-label">Live on Android (in the wild)</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `
         },
