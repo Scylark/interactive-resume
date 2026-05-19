@@ -1029,6 +1029,7 @@ const RESUME_DATA = {
                             <h4>Aster — Watch the Dot</h4>
                             <p>Real-time event tracking platform shipped to iOS and Android. Founder/operator, running the business solo with AI agents (Hermes, Paperclip and supporting models) handling business analysis, product, engineering, market research, marketing and content.</p>
                             <span class="ai-coming">iOS &amp; Android · public launch in progress</span>
+                            <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link">preview at watch-the-dot-frontend.vercel.app</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
@@ -1070,6 +1071,7 @@ const RESUME_DATA = {
                         <p>Aster is the live proof of the Brand-to-Platform thesis: a cycling brand operating as a software platform, run by a single operator with AI handling the rest. It's a working answer to the question "how much business can one person run?" when the org chart is mostly agents.</p>
                     </div>
                     <span class="ai-coming" style="display:inline-block;margin-top:16px;">iOS & Android · public launch in progress</span>
+                    <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;margin-left:12px;color:#ef4444;font-weight:600;">preview at watch-the-dot-frontend.vercel.app →</a>
 
                     <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
                     <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">Inside the Autonomous Business</h3>
@@ -1328,6 +1330,7 @@ const RESUME_DATA = {
                             <h4>Aster — Watch the Dot</h4>
                             <p>A vibe-created, fully autonomous business — not just an app. Live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. Built and run by orchestrated AI agents (Hermes, Paperclip and various models) across the full back office: business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy. A live proof of how much of a business one operator can run when AI handles the stack.</p>
                             <span class="ai-coming">iOS & Android · public launch in progress</span>
+                            <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link">preview at watch-the-dot-frontend.vercel.app</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
