@@ -107,11 +107,18 @@ class GraphEngine {
             const parentRoles = rolesByParent[parentId];
             const baseX = parentNode ? parentNode.x : cx;
             const baseY = parentNode ? parentNode.y : cy;
-            const startX = baseX + roleOffset;
-            const startY = baseY - (parentRoles.length - 1) * (isMobile ? 18 : 26);
+
+            // Layout direction: parents to the right of the centre tail their
+            // roles further right in a vertical column. Parents elsewhere drop
+            // their roles straight down in a vertical column.
+            const parentRight = baseX > centerX + 10;
+            const startX = parentRight ? baseX + roleOffset : baseX;
+            const startY = parentRight
+                ? baseY - (parentRoles.length - 1) * (isMobile ? 18 : 26)
+                : baseY + roleOffset;
 
             parentRoles.forEach((n, i) => {
-                const xOffset = (i % 2) * 20;
+                const xOffset = parentRight ? (i % 2) * 20 : 0;
                 this.nodeData.push({
                     ...n,
                     x: startX + xOffset,
@@ -169,9 +176,13 @@ class GraphEngine {
                 const mob = this.width < 768;
                 if (d.id === 'experience') return cx + this.width * (mob ? 0.08 : 0.12);
                 if (d.type === 'role') {
-                    // Pull role toward (parent.x + offset)
                     const parentNode = this.nodeData.find(n => n.id === d.parent);
-                    if (parentNode) return parentNode.x + (mob ? 80 : 120);
+                    if (parentNode) {
+                        // If parent is to the right of centre, tail role right of parent.
+                        // Otherwise sit role directly under parent (same x).
+                        const parentRight = parentNode.x > centerX + 10;
+                        return parentRight ? parentNode.x + (mob ? 80 : 120) : parentNode.x;
+                    }
                     return cx + this.width * (mob ? 0.18 : 0.24);
                 }
                 if (d.type === 'category') return cx - this.width * (mob ? 0.08 : 0.12);
@@ -181,11 +192,30 @@ class GraphEngine {
                 if (d.type === 'center') return 0.08;
                 return 0.05;
             }))
-            // Vertical centering
+            // Vertical pull: roles whose parent sits left/below centre get
+            // pulled below the parent. Everything else centres vertically.
             .force('y', d3.forceY(d => {
                 if (d.type === 'center') return cy;
+                if (d.type === 'role') {
+                    const parentNode = this.nodeData.find(n => n.id === d.parent);
+                    if (parentNode) {
+                        const parentRight = parentNode.x > centerX + 10;
+                        if (!parentRight) {
+                            return parentNode.y + (this.width < 768 ? 90 : 130);
+                        }
+                    }
+                }
                 return cy;
-            }).strength(0.02))
+            }).strength(d => {
+                if (d.type === 'role') {
+                    const parentNode = this.nodeData.find(n => n.id === d.parent);
+                    if (parentNode) {
+                        const parentRight = parentNode.x > centerX + 10;
+                        if (!parentRight) return 0.1; // stronger downward pull for below-parent roles
+                    }
+                }
+                return 0.02;
+            }))
             // Custom force: keep roles in chronological vertical order
             .force('roleOrder', this.roleOrderForce(roles))
             .alphaDecay(0.025)
@@ -195,7 +225,10 @@ class GraphEngine {
         this.renderNodes();
     }
 
-    // Custom force: strict vertical ordering for roles, grouped per parent
+    // Custom force: strict vertical ordering for roles, grouped per parent.
+    // Parents to the right of centre stack their roles in a vertical column
+    // offset to the right; parents elsewhere stack their roles in a vertical
+    // column descending directly below them.
     roleOrderForce(rolesConfig) {
         // Group role ids by parent
         const rolesByParent = {};
@@ -208,7 +241,10 @@ class GraphEngine {
         return (alpha) => {
             const strength = 0.2 * alpha;
             const spacing = this.width < 768 ? 36 : 50;
-            const xOff = this.width < 768 ? 90 : 130;
+            const off = this.width < 768 ? 90 : 130;
+
+            const centerNode = this.nodeData.find(n => n.type === 'center');
+            const cnX = centerNode ? centerNode.x : this.width / 2;
 
             Object.keys(rolesByParent).forEach(parentId => {
                 const roleIds = rolesByParent[parentId];
@@ -220,9 +256,19 @@ class GraphEngine {
 
                 roleNodes.sort((a, b) => roleIds.indexOf(a.id) - roleIds.indexOf(b.id));
 
-                const totalHeight = (roleNodes.length - 1) * spacing;
-                const topY = parentNode.y - totalHeight / 2;
-                const targetX = parentNode.x + xOff;
+                const parentRight = parentNode.x > cnX + 10;
+                let topY, targetX;
+
+                if (parentRight) {
+                    // Vertical column centred on parent, offset to the right
+                    const totalHeight = (roleNodes.length - 1) * spacing;
+                    topY = parentNode.y - totalHeight / 2;
+                    targetX = parentNode.x + off;
+                } else {
+                    // Vertical column descending directly below parent
+                    topY = parentNode.y + off;
+                    targetX = parentNode.x;
+                }
 
                 roleNodes.forEach((node, i) => {
                     const targetY = topY + i * spacing;
