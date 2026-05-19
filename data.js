@@ -73,6 +73,15 @@ const RESUME_DATA = {
             angle: 295,
             distance: 1
         },
+        {
+            id: "ai-exploration",
+            label: "AI Exploration",
+            type: "category",
+            icon: "⬢",
+            color: "#6366f1",
+            angle: 60,
+            distance: 1
+        },
 
         // Experience sub-nodes (ordered newest → oldest)
         {
@@ -171,8 +180,8 @@ const RESUME_DATA = {
             label: "Wattplan",
             sublabel: "2025–Present",
             type: "role",
-            parent: "experience",
-            order: 3,
+            parent: "ai-exploration",
+            order: 2,
             icon: "◆",
             color: "#6366f1"
         },
@@ -181,8 +190,8 @@ const RESUME_DATA = {
             label: "Aster",
             sublabel: "2025–Present",
             type: "role",
-            parent: "experience",
-            order: 0,
+            parent: "ai-exploration",
+            order: 1,
             icon: "◆",
             color: "#ef4444"
         }
@@ -194,6 +203,7 @@ const RESUME_DATA = {
         { from: "james", to: "experience" },
         { from: "james", to: "skills" },
         { from: "james", to: "ai-work" },
+        { from: "james", to: "ai-exploration" },
         { from: "james", to: "education" },
         { from: "james", to: "about" },
         { from: "james", to: "contact" },
@@ -208,8 +218,9 @@ const RESUME_DATA = {
         { from: "experience", to: "pelotan" },
         { from: "experience", to: "ribble-1" },
         { from: "experience", to: "planetx" },
-        { from: "experience", to: "wattplan" },
-        { from: "experience", to: "aster" }
+        // AI Exploration to side projects
+        { from: "ai-exploration", to: "aster" },
+        { from: "ai-exploration", to: "wattplan" }
     ],
 
     // Detail content for modals
@@ -304,16 +315,6 @@ const RESUME_DATA = {
                             <span class="timeline-company">motif</span>
                             <span class="timeline-date">2024 – Present</span>
                         </div>
-                        <div class="timeline-item current">
-                            <span class="timeline-role">Founder / AI Side Project</span>
-                            <span class="timeline-company">Wattplan</span>
-                            <span class="timeline-date">2025 – Present</span>
-                        </div>
-                        <div class="timeline-item current">
-                            <span class="timeline-role">Founder / Autonomous AI Business</span>
-                            <span class="timeline-company">Aster</span>
-                            <span class="timeline-date">2025 – Present</span>
-                        </div>
                     </div>
                 </div>
             `
@@ -333,6 +334,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Marketing Consultant</h2>
                     <h3>Ribble Cycles · Nov 2024 – Present</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.ribblecycles.co.uk/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">ribblecycles.co.uk →</a></p>
                     <p class="role-context">Brought in on a 5-day contractor role under PE ownership by SMT. Delivered objectives and now transitioned to a 3-day advisory role in Feb 2026.</p>
                     <p class="role-context" style="margin-top: 6px;">Budget responsibility for all marketing activities. £1.2M, landed 2024/2025 under budget at £920K.</p>
 
@@ -643,6 +645,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Head of Marketing & Communications</h2>
                     <h3>Classified Cycling · Component Manufacturer · Jun – Nov 2024</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.classified-cycling.cc/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">classified-cycling.cc →</a></p>
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
@@ -748,6 +751,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Chief Marketing Officer</h2>
                     <h3>Muuvr · Move-to-Earn Application · Jan 2023 – May 2024</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.muuvr.io/en/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">muuvr.io →</a></p>
                     <div class="achievements">
                         <h4>Brand & GTM</h4>
                         <ul>
@@ -796,6 +800,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>CMO → Head of Marketing (Subscription Services)</h2>
                     <h3>RGT Cycling (Co-Founded) → Acquired by Wahoo Fitness · 2019 – Jan 2023</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://uk.wahoofitness.com/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">wahoofitness.com →</a></p>
                     <p class="role-context">Co-founded RGT Cycling as Head of Brand & Marketing (2019), promoted to CMO (2021), then transitioned to Head of Marketing (Subscription Services) at Wahoo Fitness following acquisition (April 2022).</p>
                     <div class="achievements">
                         <h4>RGT Cycling - Co-Founded (2019 – 2022)</h4>
@@ -920,6 +925,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>PR & Marketing Manager</h2>
                     <h3>Wattbike · Indoor Training Bike · 2018 – 2019</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://wattbike.com/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">wattbike.com →</a></p>
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
@@ -946,6 +952,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Consultant Marketing Director</h2>
                     <h3>Pelotan · Cycling-Specific Sun Protection · 2018 – 2020</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://pelotan.cc/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">pelotan.cc →</a></p>
                     <p class="role-context">Consultancy role providing marketing direction for this niche cycling sun protection brand.</p>
                 </div>
             `
@@ -964,6 +971,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Head of Brand & Marketing</h2>
                     <h3>Ribble · High-End D2C Bike Brand · 2017 – 2018</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.ribblecycles.co.uk/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">ribblecycles.co.uk →</a></p>
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
@@ -992,6 +1000,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Head of Sales & Marketing</h2>
                     <h3>Planet X Bikes · D2C Bike Brand · 2015 – 2017</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://planetx.co.uk/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">planetx.co.uk →</a></p>
                     <div class="achievements">
                         <h4>Key Achievements</h4>
                         <ul>
@@ -1001,6 +1010,32 @@ const RESUME_DATA = {
                             <li><strong>Team leadership</strong> - led the sales team to exceed targets through training and mentorship.</li>
                             <li><strong>Supplier relationships</strong> - built key supplier partnerships to optimise inventory and pricing.</li>
                         </ul>
+                    </div>
+                </div>
+            `
+        },
+
+        "ai-exploration": {
+            title: "AI Exploration",
+            subtitle: "Side projects exploring AI in product and operations",
+            type: "ai-exploration",
+            content: `
+                <div class="ai-work-card">
+                    <h2>AI Exploration</h2>
+                    <p class="ai-intro">Side projects where I explore AI as an operator rather than as a vendor — supplementary to the day jobs, not a replacement for them. Click each project for the detail.</p>
+                    <div class="ai-grid">
+                        <div class="ai-item">
+                            <div class="ai-item-icon">A</div>
+                            <h4>Aster — Watch the Dot</h4>
+                            <p>Real-time event tracking platform shipped to iOS and Android. Founder/operator, running the business solo with AI agents (Hermes, Paperclip and supporting models) handling business analysis, product, engineering, market research, marketing and content.</p>
+                            <span class="ai-coming">iOS &amp; Android · public launch in progress</span>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">W</div>
+                            <h4>Wattplan</h4>
+                            <p>AI-powered endurance training app built end-to-end with Claude Code as a readiness experiment. Concept, full-stack development, brand and launch all delivered with AI throughout the stack.</p>
+                            <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
+                        </div>
                     </div>
                 </div>
             `

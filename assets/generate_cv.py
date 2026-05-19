@@ -106,55 +106,34 @@ story.append(Paragraph('James Vickers MCIM MCPR', styles['CVName']))
 story.append(Paragraph('Sheffield / Lincoln, UK - 1.5hrs from London - 07897714630 - james@manual-focus.co.uk', styles['CVContact']))
 story.append(Paragraph(
     'Senior marketing leader with ten years in CMO, Head of Marketing and senior PR/brand roles across '
-    'endurance, fitness tech, fintech and Web3. Currently a Marketing Consultant across several brands, '
-    'with a Fractional CMO role at AI wealth-advisory platform chatwithmotif.com. In 2025 I founded '
-    'Aster, a real-time event tracking platform now shipping on iOS and Android, where I run the whole '
-    'business solo with AI agents (Hermes, Paperclip and supporting models) handling business analysis, '
-    'product, engineering, market research, marketing and content. Track record in brand repositioning, '
-    'growth, team leadership and AI-native operations.',
+    'cycling, fitness tech, fintech and Web3. Currently Marketing Consultant at Ribble Cycles and '
+    'Fractional CMO at AI wealth-advisory platform chatwithmotif.com. Track record in brand '
+    'repositioning, complex multi-channel campaigns, team leadership, PR and owned-media, paid '
+    'performance, and embedding AI/ML across marketing, product and finance. Proven ability to scale '
+    'subscription, D2C and brand-led businesses across the UK, Europe and globally.',
     styles['CVSummary']
 ))
 
 # -- Skills --
 section('KEY SKILLS &amp; EXPERTISE')
 story.append(Paragraph(
-    '<b>Marketing Strategy</b> - Brand Strategy - Brand Creative Direction - Campaign Management - '
-    'Content Strategy - GTM Strategy - Positioning &amp; Messaging - '
-    '<b>PR Strategy</b> - Owned Media Strategy - Media Relations - Press Office - Thought Leadership - '
-    '<b>Paid Performance Marketing</b> - SEO - SEM / PPC - CRM &amp; Lifecycle Email - eCommerce - '
-    'Analytics &amp; Attribution - '
+    '<b>Marketing Strategy</b> - <b>Brand Strategy</b> - <b>Brand Creative Direction</b> - '
+    'Campaign Management - Content Strategy - GTM Strategy - Positioning &amp; Messaging - '
+    '<b>PR Strategy</b> - <b>Owned Media Strategy</b> - Media Relations - Press Office - '
+    'Thought Leadership - '
+    '<b>Paid Performance Marketing</b> - <b>SEO</b> - SEM / PPC - CRM &amp; Lifecycle Email - '
+    'eCommerce - Analytics &amp; Attribution - '
     'Sponsorships &amp; Partnerships - Ambassador &amp; Influencer Marketing - Event Management - '
     'Pro Team Activation - Agency Management - '
     'Senior Marketing Leadership - Team Building - Business Development - Budget Ownership (£1.2M+) - '
     'Investor Relations - Funding - Board-Level Reporting - '
-    '<b>Vibe Coding</b> - <b>Vibe Marketing</b> - <b>Organisational Automation</b> - '
-    '<b>AI Agent Orchestration</b> - <b>Autonomous Business Operations</b> - Multi-Agent Workflows - '
-    'Prompt &amp; Context Engineering - AI &amp; Machine Learning - Claude Code',
+    'AI &amp; Machine Learning - AI Agent Orchestration - Vibe Coding - Vibe Marketing - '
+    'Organisational Automation - Claude Code',
     styles['CVSkills']
 ))
 
 # -- Career --
 section('CAREER HIGHLIGHTS')
-
-# Aster - autonomous AI business
-role('Aster - Watch the Dot - Live GPS Tracking Platform', 'Founder / Operator (Autonomous AI Business)', '2025 - Present')
-context('A vibe-created, fully autonomous AI business shipped to iOS and Android. Orchestrated AI agents (Hermes, Paperclip and supporting models) run the back office - business analysis, product, engineering requirements, market research, development, testing, marketing and content. I am the human in the loop for an otherwise self-running operation.')
-bullet('Founder, brand, strategy and operator of a live GPS-tracking platform for ultra-endurance cycling.')
-bullet('Designed AI agent workflows that handle BA, product, engineering, QA, marketing and content end-to-end.')
-bullet('Native iOS and Android apps via Capacitor; React PWA, Node/Fastify API, Postgres, Mapbox live maps and real-time leaderboard.')
-bullet('Four non-negotiable rider-safety rules driving product design: offline start/finish, never auto-logout, tracking persists, never lose a ping.')
-bullet('A working proof of the Brand-to-Platform thesis - a cycling brand operating as a software platform, run by a single operator with AI handling the rest.')
-
-story.append(Spacer(1, 4))
-
-# Wattplan
-role('Wattplan - AI-Powered Endurance Training App', 'Founder', '2025 - Present')
-context('A personal experiment in AI readiness - concept, brand, full-stack development and launch all delivered with AI throughout the stack.')
-bullet('Full-stack solo build using Claude Code: front-end, back-end and AI integrations.')
-bullet('Owned marketing, GTM, brand and product design end-to-end.')
-bullet('Live at wattplan.cc.')
-
-story.append(Spacer(1, 4))
 
 # Ribble 2
 role('Ribble Cycles - High-Performance D2C Bike Brand', 'Marketing Consultant (currently 3 days/week advisory)', 'Nov 2024 - Present')
@@ -261,7 +240,7 @@ story.append(Paragraph(
     styles['CVSmall']
 ))
 story.append(Paragraph(
-    '<b>AI Side Project:</b> Wattplan (wattplan.cc) - AI-powered endurance sports training app. Concept, development and launch.',
+    '<b>AI Exploration / Side Projects:</b> Aster (2025, Founder) - real-time event tracking platform shipped to iOS and Android, built and operated solo with orchestrated AI agents. Wattplan (2025, Founder) - AI-powered endurance training app built end-to-end with Claude Code (wattplan.cc).',
     styles['CVSmall']
 ))
 story.append(Paragraph(
