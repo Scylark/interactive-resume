@@ -88,23 +88,36 @@ class GraphEngine {
             });
         });
 
-        // Role nodes — strict vertical stack to the right of experience node
+        // Role nodes — stack near their actual parent (Experience or AI Exploration)
         const roles = data.nodes.filter(n => n.type === 'role').sort((a, b) => (a.order || 0) - (b.order || 0));
-        const expNode = this.nodeData.find(n => n.id === 'experience');
 
         const roleOffset = isMobile ? 90 : 130;
-        const roleStartX = expNode ? expNode.x + roleOffset : cx + 170;
-        const roleStartY = cy - (roles.length - 1) * (isMobile ? 18 : 26);
         const roleSpacingY = isMobile ? 38 : 52;
 
-        roles.forEach((n, i) => {
-            // Stagger X slightly for visual interest (alternate offset)
-            const xOffset = (i % 2) * 20;
-            this.nodeData.push({
-                ...n,
-                x: roleStartX + xOffset,
-                y: roleStartY + i * roleSpacingY,
-                radius: 18
+        // Group roles by their parent id
+        const rolesByParent = {};
+        roles.forEach(r => {
+            const parentId = r.parent || 'experience';
+            if (!rolesByParent[parentId]) rolesByParent[parentId] = [];
+            rolesByParent[parentId].push(r);
+        });
+
+        Object.keys(rolesByParent).forEach(parentId => {
+            const parentNode = this.nodeData.find(n => n.id === parentId);
+            const parentRoles = rolesByParent[parentId];
+            const baseX = parentNode ? parentNode.x : cx;
+            const baseY = parentNode ? parentNode.y : cy;
+            const startX = baseX + roleOffset;
+            const startY = baseY - (parentRoles.length - 1) * (isMobile ? 18 : 26);
+
+            parentRoles.forEach((n, i) => {
+                const xOffset = (i % 2) * 20;
+                this.nodeData.push({
+                    ...n,
+                    x: startX + xOffset,
+                    y: startY + i * roleSpacingY,
+                    radius: 18
+                });
             });
         });
 
@@ -150,12 +163,17 @@ class GraphEngine {
                 })
                 .strength(1)
             )
-            // Pull experience + roles right, categories left
+            // Pull experience + experience roles right, categories left, other-parent roles toward their parent
             .force('x', d3.forceX(d => {
                 if (d.type === 'center') return centerX;
                 const mob = this.width < 768;
                 if (d.id === 'experience') return cx + this.width * (mob ? 0.08 : 0.12);
-                if (d.type === 'role') return cx + this.width * (mob ? 0.18 : 0.24);
+                if (d.type === 'role') {
+                    // Pull role toward (parent.x + offset)
+                    const parentNode = this.nodeData.find(n => n.id === d.parent);
+                    if (parentNode) return parentNode.x + (mob ? 80 : 120);
+                    return cx + this.width * (mob ? 0.18 : 0.24);
+                }
                 if (d.type === 'category') return cx - this.width * (mob ? 0.08 : 0.12);
                 return cx;
             }).strength(d => {
@@ -177,36 +195,40 @@ class GraphEngine {
         this.renderNodes();
     }
 
-    // Custom force: strict vertical ordering for roles
+    // Custom force: strict vertical ordering for roles, grouped per parent
     roleOrderForce(rolesConfig) {
-        const roleIds = rolesConfig.map(r => r.id);
+        // Group role ids by parent
+        const rolesByParent = {};
+        rolesConfig.forEach(r => {
+            const parentId = r.parent || 'experience';
+            if (!rolesByParent[parentId]) rolesByParent[parentId] = [];
+            rolesByParent[parentId].push(r.id);
+        });
 
         return (alpha) => {
-            const roleNodes = this.nodeData.filter(n => roleIds.includes(n.id));
-            if (roleNodes.length < 2) return;
-
-            const expNode = this.nodeData.find(n => n.id === 'experience');
-            if (!expNode) return;
-
-            // Desired vertical span centered on experience node
-            const spacing = this.width < 768 ? 36 : 50;
-            const totalHeight = (roleNodes.length - 1) * spacing;
-            const topY = expNode.y - totalHeight / 2;
-
-            // Sort role nodes by their defined order
-            roleNodes.sort((a, b) => {
-                return roleIds.indexOf(a.id) - roleIds.indexOf(b.id);
-            });
-
             const strength = 0.2 * alpha;
+            const spacing = this.width < 768 ? 36 : 50;
+            const xOff = this.width < 768 ? 90 : 130;
 
-            roleNodes.forEach((node, i) => {
-                const targetY = topY + i * spacing;
-                node.vy += (targetY - node.y) * strength;
+            Object.keys(rolesByParent).forEach(parentId => {
+                const roleIds = rolesByParent[parentId];
+                const roleNodes = this.nodeData.filter(n => roleIds.includes(n.id));
+                if (roleNodes.length < 1) return;
 
-                // Keep roles to the right of experience
-                const targetX = expNode.x + (this.width < 768 ? 90 : 130);
-                node.vx += (targetX - node.x) * strength * 0.4;
+                const parentNode = this.nodeData.find(n => n.id === parentId);
+                if (!parentNode) return;
+
+                roleNodes.sort((a, b) => roleIds.indexOf(a.id) - roleIds.indexOf(b.id));
+
+                const totalHeight = (roleNodes.length - 1) * spacing;
+                const topY = parentNode.y - totalHeight / 2;
+                const targetX = parentNode.x + xOff;
+
+                roleNodes.forEach((node, i) => {
+                    const targetY = topY + i * spacing;
+                    node.vy += (targetY - node.y) * strength;
+                    node.vx += (targetX - node.x) * strength * 0.4;
+                });
             });
         };
     }
