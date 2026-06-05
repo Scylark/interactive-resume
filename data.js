@@ -462,6 +462,27 @@ const RESUME_DATA = {
                     </div>
 
                     <div class="media-gallery">
+                        <h4>UCI Gralloch 2026 - Jenson Young 2nd Place</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Jenson Young of the Ribble Outliers took second at the UCI Gralloch in May 2026, a marquee result in one of the UK's most-watched gravel races and a clear proof point for the Outliers programme on the racing side as well as in the brand and comms work it generates.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Jenson Young Gralloch 2026.mp4">
+                                <video src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Jenson Young Gralloch 2026.mp4" muted preload="metadata"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Jenson Young Race Reel</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Gralloch 01.jpg">
+                                <img src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Gralloch 01.jpg" alt="UCI Gralloch - Jenson Young" loading="lazy" decoding="async">
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Gralloch 25.jpg">
+                                <img src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Gralloch 25.jpg" alt="UCI Gralloch - Jenson Young" loading="lazy" decoding="async">
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Gralloch 50.jpg">
+                                <img src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Gralloch 50.jpg" alt="UCI Gralloch - Jenson Young" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
                         <h4>Welcome to Hell - Rutland-Melton CiCLE Classic</h4>
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Partnered with Smurfit Westrock Pro Cycling and Cyclist magazine to produce this mini-documentary following the women's professional continental team's win at the Rutland-Melton CiCLE Classic - arguably the biggest one-day race in the UK women's calendar.</p>
                         <div class="gallery-grid">
