@@ -466,7 +466,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Jenson Young of the Ribble Outliers took second at the UCI Gralloch in May 2026, a marquee result in one of the UK's most-watched gravel races and a clear proof point for the Outliers programme on the racing side as well as in the brand and comms work it generates.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Jenson Young Gralloch 2026.mp4">
-                                <video src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Jenson Young Gralloch 2026.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble Gralloch 2026 - Jenson Young 2nd Place/Jenson Young Gralloch 2026.mp4" muted preload="metadata" poster="assets/thumbs/gralloch-jenson.jpg"></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Jenson Young Race Reel</div>
                             </div>
@@ -487,7 +487,7 @@ const RESUME_DATA = {
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The Ribble Outliers raced The Traka in Girona in April 2026, one of the biggest gravel events in the world, and the resulting film is the team's own content piece on the trip, the riders and the race. Cyclist magazine ran an in-depth gallery from the same weekend.</p>
                         <div class="gallery-grid">
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble Outliers Traka 2026/Ribble Outliers Traka 2026.mp4">
-                                <video src="assets/Ribble Outliers Traka 2026/Ribble Outliers Traka 2026.mp4" muted preload="metadata"></video>
+                                <video src="assets/Ribble Outliers Traka 2026/Ribble Outliers Traka 2026.mp4" muted preload="metadata" poster="assets/thumbs/outliers-traka.jpg"></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Ribble Outliers x Traka Film</div>
                             </div>
