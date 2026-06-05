@@ -483,6 +483,30 @@ const RESUME_DATA = {
                     </div>
 
                     <div class="media-gallery">
+                        <h4>Ribble Outliers at The Traka 2026</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The Ribble Outliers raced The Traka in Girona in April 2026, one of the biggest gravel events in the world, and the resulting film is the team's own content piece on the trip, the riders and the race. Cyclist magazine ran an in-depth gallery from the same weekend.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/Ribble Outliers Traka 2026/Ribble Outliers Traka 2026.mp4">
+                                <video src="assets/Ribble Outliers Traka 2026/Ribble Outliers Traka 2026.mp4" muted preload="metadata"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Ribble Outliers x Traka Film</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Outliers Traka 2026/Traka - Harry Medal.jpg">
+                                <img src="assets/Ribble Outliers Traka 2026/Traka - Harry Medal.jpg" alt="Ribble Outliers Traka - Harry" loading="lazy" decoding="async">
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Outliers Traka 2026/Traka - Jenson Young 1.jpg">
+                                <img src="assets/Ribble Outliers Traka 2026/Traka - Jenson Young 1.jpg" alt="Ribble Outliers Traka - Jenson Young" loading="lazy" decoding="async">
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Outliers Traka 2026/Traka - Meth 3.jpg">
+                                <img src="assets/Ribble Outliers Traka 2026/Traka - Meth 3.jpg" alt="Ribble Outliers Traka - Meth" loading="lazy" decoding="async">
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Outliers Traka 2026/Traka - Sophie 2.jpg">
+                                <img src="assets/Ribble Outliers Traka 2026/Traka - Sophie 2.jpg" alt="Ribble Outliers Traka - Sophie" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
                         <h4>Welcome to Hell - Rutland-Melton CiCLE Classic</h4>
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Partnered with Smurfit Westrock Pro Cycling and Cyclist magazine to produce this mini-documentary following the women's professional continental team's win at the Rutland-Melton CiCLE Classic - arguably the biggest one-day race in the UK women's calendar.</p>
                         <div class="gallery-grid">
