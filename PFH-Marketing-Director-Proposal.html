@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precision Fuel & Hydration — Marketing Director Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* PF&H brand: band colours extracted from supplied assets */
+    --purple:#8A1A9D;  /* PH 1500 */
+    --coral:#FC5000;   /* PH 1000 — primary accent */
+    --yellow:#FCDD03;  /* PH 500 */
+    --lime:#C2D503;    /* PH 250 */
+    --coral-dark:#D64300; --coral-soft:#FFE9DE;
+    --purple-soft:#F4E4F8;
+    --blue:var(--purple); --blue-soft:var(--purple-soft);
+    --green:#6F7D02; --green-soft:#F2F6CF;
+    --gold:#8A7A00; --gold-soft:#FFF8CC;
+    --ink:#0E0E10; --ink-2:#2b3440; --muted:#66707c;
+    --bg:#ffffff; --panel:#f6f6f7; --line:#e8e8ea;
+    --shadow:0 1px 2px rgba(14,14,16,.04),0 10px 30px rgba(14,14,16,.06);
+    --disp:'Baloo 2',system-ui,sans-serif;
+    --band:linear-gradient(90deg,var(--purple) 0 25%,var(--coral) 25% 50%,var(--yellow) 50% 75%,var(--lime) 75% 100%);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Nunito',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.68;font-size:17px;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:var(--disp);font-weight:700;}
+  .bignum{font-family:var(--disp);font-weight:800;letter-spacing:-.01em;}
+  .pfh-logo{height:30px;width:auto;display:block;border-radius:6px;}
+  a{color:var(--coral);text-decoration:none;} a:hover{text-decoration:underline;}
+  .wrap{max-width:1010px;margin:0 auto;padding:0 28px;}
+
+  .progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:90;background:transparent;}
+  .progress .fill{height:100%;width:0;background:var(--band);}
+
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.top .wrap{display:flex;gap:2px;align-items:center;min-height:60px;flex-wrap:wrap;padding:6px 0;}
+  @media(max-width:900px){nav.top .wrap{flex-wrap:nowrap;height:60px;min-height:0;overflow-x:auto;padding:0;}}
+  html{scroll-padding-top:72px;}
+  nav.top .brand{font-weight:800;color:var(--ink);margin-right:10px;white-space:nowrap;font-size:14.5px;}
+  nav.top a{color:var(--ink-2);font-size:13px;font-weight:700;padding:7px 10px;border-radius:8px;white-space:nowrap;}
+  nav.top a:hover,nav.top a.on{background:var(--coral-soft);color:var(--coral-dark);text-decoration:none;}
+
+  header.hero{background:#fff;border-top:10px solid;border-image:var(--band) 1;padding:76px 0 64px;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(252,80,0,.10),transparent 65%);}
+  .kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:20px;}
+  header.hero h1{font-size:58px;line-height:1.02;margin:0 0 20px;font-weight:800;}
+  header.hero h1 .u{color:var(--coral);}
+  header.hero p.lead{font-size:20px;max-width:740px;color:var(--ink-2);margin:0 0 28px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;}
+  .hero-meta span{font-size:13px;font-weight:700;color:var(--ink-2);background:var(--panel);border:1px solid var(--line);padding:8px 14px;border-radius:999px;}
+  .hero-meta span b{color:var(--coral);}
+
+  section{padding:76px 0 24px;border-top:1px solid var(--line);}
+  .eyebrow2{font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--coral-dark);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .eyebrow2::before{content:"";display:inline-block;width:32px;height:12px;background:var(--band);border-radius:3px;flex:none;}
+  h2.title{font-size:40px;line-height:1.08;margin:0 0 14px;}
+  .sub{color:var(--muted);font-size:17px;margin:0 0 30px;max-width:760px;}
+  h3{font-size:23px;margin:40px 0 12px;}
+  p{margin:0 0 16px;}
+  @media(max-width:760px){header.hero h1{font-size:38px;} h2.title{font-size:30px;} h3{font-size:20px;} section{padding:56px 0 18px;}}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:20px;}
+  .card.tint{background:var(--panel);box-shadow:none;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+  /* Big Clear Number tiles, cycling the four pack-strength colours */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin:10px 0 30px;}
+  .fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;box-shadow:var(--shadow);border-top:7px solid var(--coral);}
+  .facts .fact:nth-child(4n+1){border-top-color:var(--purple);}
+  .facts .fact:nth-child(4n+2){border-top-color:var(--coral);}
+  .facts .fact:nth-child(4n+3){border-top-color:var(--yellow);}
+  .facts .fact:nth-child(4n+4){border-top-color:var(--lime);}
+  .fact .n{font-family:var(--disp);font-size:36px;font-weight:800;color:var(--ink);line-height:1.05;letter-spacing:-.01em;}
+  .fact .l{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.4;font-weight:600;}
+
+  /* Packaging-style strength chips */
+  .packrow{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0 8px;}
+  .pack{border-radius:14px;padding:14px 20px 11px;min-width:96px;text-align:center;color:#fff;box-shadow:var(--shadow);}
+  .pack .pn{font-family:var(--disp);font-weight:800;font-size:32px;line-height:1;}
+  .pack .pl{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.92;margin-top:4px;}
+  .pack.p1500{background:var(--purple);} .pack.p1000{background:var(--coral);}
+  .pack.p500{background:var(--yellow);color:var(--ink);} .pack.p250{background:var(--lime);color:var(--ink);}
+  .pack.pf{background:var(--ink);}
+
+  .label{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+  .l-good{color:var(--green);} .l-gap{color:var(--coral-dark);} .l-op{color:var(--purple);}
+  ul.t{margin:0;padding-left:19px;} ul.t li{margin-bottom:9px;} ul.clean{padding-left:21px;} ul.clean li{margin-bottom:9px;}
+
+  .tag{display:inline-block;font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:999px;margin:0 6px 6px 0;}
+  .tag.hyd{background:var(--purple-soft);color:var(--purple);} .tag.fuel{background:var(--coral-soft);color:var(--coral-dark);} .tag.tool{background:var(--green-soft);color:var(--green);}
+
+  .flag{border-left:5px solid var(--yellow);background:var(--gold-soft);border-radius:0 14px 14px 0;padding:16px 20px;margin:20px 0;font-size:15px;color:#5c5200;}
+  .flag b{color:#7a6c00;}
+  .win{border-left:5px solid var(--coral);background:var(--coral-soft);border-radius:0 14px 14px 0;padding:16px 20px;margin:20px 0;font-size:15px;color:#7a2c17;}
+  .win b{color:var(--coral-dark);}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);background:#fff;margin:12px 0 10px;}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px;}
+  th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--panel);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  tr:last-child td{border-bottom:none;} td.b{font-weight:700;color:var(--ink);white-space:nowrap;}
+
+  /* Tabs */
+  .tablabel{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;}
+  .tabs{display:inline-flex;gap:4px;flex-wrap:wrap;margin:0 0 24px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:var(--shadow);}
+  .tabs button{font-family:var(--disp);font-size:16px;font-weight:700;padding:11px 26px;border-radius:999px;border:none;background:transparent;color:var(--ink-2);cursor:pointer;transition:.15s;}
+  .tabs button:hover{background:#fff;color:var(--coral-dark);box-shadow:0 1px 4px rgba(14,14,16,.12);}
+  .tabs button.on{background:var(--ink);color:#fff;box-shadow:0 2px 8px rgba(14,14,16,.25);}
+  .tabs button.on::before{content:"✓ ";color:var(--lime);}
+  .tabpane{display:none;} .tabpane.on{display:block;animation:fadein .25s ease;}
+  @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  /* Accordion */
+  details.acc{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden;}
+  details.acc summary{cursor:pointer;font-family:var(--disp);font-weight:700;font-size:19px;padding:20px 24px;list-style:none;display:flex;align-items:center;gap:14px;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary .chev{margin-left:auto;color:var(--coral-dark);font-weight:800;transition:transform .2s;flex:none;
+    width:32px;height:32px;border-radius:50%;background:var(--coral-soft);display:inline-flex;align-items:center;justify-content:center;font-size:17px;}
+  details.acc:not([open]) summary .chev{animation:chevpulse 1.6s ease-in-out infinite;}
+  @keyframes chevpulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(252,80,0,.35);}50%{transform:scale(1.18);box-shadow:0 0 0 7px rgba(252,80,0,0);}}
+  details.acc[open] summary .chev{transform:rotate(90deg);animation:none;}
+  @media(prefers-reduced-motion:reduce){details.acc summary .chev{animation:none!important;}}
+  details.acc summary .dim{font-family:var(--disp);font-size:15px;font-weight:800;color:#fff;background:var(--coral);width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:none;}
+  details.acc:nth-of-type(1) summary .dim{background:var(--purple);}
+  details.acc:nth-of-type(2) summary .dim{background:var(--coral);}
+  details.acc:nth-of-type(3) summary .dim{background:var(--yellow);color:var(--ink);}
+  details.acc:nth-of-type(4) summary .dim{background:var(--lime);color:var(--ink);}
+  details.acc:nth-of-type(5) summary .dim{background:var(--ink);}
+  details.acc .accbody{padding:0 24px 22px;font-size:16px;}
+
+  /* Filter pills */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 16px;}
+  .filters button{font-family:inherit;font-size:13.5px;font-weight:800;padding:8px 18px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;}
+  .filters button.on{background:var(--coral);border-color:var(--coral);color:#fff;}
+  tr.hiderow{display:none;}
+  #kwtable{width:100%;min-width:820px;table-layout:fixed;}
+  #kwtable th,#kwtable td{padding:12px 11px;}
+  #kwtable th:nth-child(1){width:22%;}
+  #kwtable th:nth-child(2),#kwtable th:nth-child(5){width:10%;}
+  #kwtable th:nth-child(3),#kwtable th:nth-child(6){width:9.5%;}
+  #kwtable th:nth-child(4),#kwtable th:nth-child(7){width:9%;}
+  #kwtable th:nth-child(8){width:12%;}
+  #kwtable td.b{white-space:normal;}
+  #kwtable td.num{white-space:nowrap;}
+  #kwtable td.rank{font-weight:800;}
+  tr.mainrow{cursor:pointer;}
+  tr.mainrow:hover td{background:#fbfbfc;}
+  .rowchev{display:inline-block;color:var(--coral);font-weight:800;margin-right:8px;transition:.15s;}
+  tr.mainrow.open .rowchev{transform:rotate(90deg);}
+  tr.playrow{display:none;}
+  tr.playrow.open{display:table-row;}
+  tr.playrow.hiderow,tr.mainrow.hiderow{display:none;}
+  tr.playrow td{background:var(--panel);font-size:14px;line-height:1.55;padding:14px 18px 14px 40px;}
+  tr.playrow td b{color:var(--coral-dark);}
+  th.sort{cursor:pointer;user-select:none;white-space:nowrap;}
+  th.sort:hover{color:var(--coral-dark);}
+  th.sort::after{content:"↕";margin-left:6px;opacity:.45;font-size:11px;}
+  th.sort.asc::after{content:"↑";opacity:1;color:var(--coral);}
+  th.sort.desc::after{content:"↓";opacity:1;color:var(--coral);}
+
+  .tier{font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:7px;margin-right:6px;white-space:nowrap;}
+  .t1{background:var(--green-soft);color:var(--green);} .t2{background:var(--gold-soft);color:var(--gold);} .t3{background:#f0f0f2;color:var(--muted);}
+  .chip{display:inline-block;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;}
+  .v-open{background:var(--green-soft);color:var(--green);} .v-cont{background:var(--gold-soft);color:var(--gold);} .v-taken{background:#fde8e8;color:#b42318;}
+
+  .jd{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin-bottom:18px;}
+  .jd .q{font-style:italic;color:var(--ink-2);font-size:15.5px;} .jd .q::before{content:"“";} .jd .q::after{content:"”";}
+  .jd .m{font-size:16px;margin-top:10px;} .jd .m b{color:var(--coral-dark);}
+
+  .phase{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow);border-top:7px solid var(--coral);}
+  .phase.p2{border-top-color:var(--purple);} .phase.p3{border-top-color:var(--lime);}
+  .phase .days{font-family:var(--disp);font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--coral);margin-bottom:4px;}
+  .phase.p2 .days{color:var(--purple);} .phase.p3 .days{color:var(--green);}
+  .phase h4{font-size:19px;margin:0 0 4px;}
+
+  .node{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 17px;box-shadow:var(--shadow);}
+  .node .role{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  .node .name{font-family:var(--disp);font-size:17px;font-weight:700;color:var(--ink);}
+  .node.mkt{border:2px solid var(--coral);background:var(--coral-soft);} .node.mkt .role{color:var(--coral-dark);}
+  .orgrow{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;} .orgrow .node{flex:1;min-width:160px;}
+
+  details.src{background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 24px;box-shadow:var(--shadow);}
+  details.src summary{cursor:pointer;font-weight:800;padding:16px 0;font-size:16px;}
+  details.src ul{columns:2;column-gap:32px;font-size:13px;margin:8px 0 18px;padding-left:16px;}
+  @media(max-width:640px){details.src ul{columns:1;}}
+  details.src li{margin-bottom:7px;break-inside:avoid;}
+  /* PF&H-style team card */
+  .teamcard{background:#0B0B0C;border-radius:22px;display:flex;align-items:center;gap:44px;padding:44px 52px 44px 60px;position:relative;overflow:hidden;margin:30px 0 6px;box-shadow:var(--shadow);}
+  .teamcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:16px;background:linear-gradient(180deg,var(--purple) 0 25%,var(--coral) 25% 50%,var(--yellow) 50% 75%,var(--lime) 75% 100%);}
+  .tc-photo{flex:none;width:172px;height:172px;border-radius:50%;overflow:hidden;border:7px solid #fff;background:#ddd;}
+  .tc-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .tc-text{font-family:'Permanent Marker',cursive;line-height:1.25;}
+  .tc-name{font-size:40px;color:#fff;letter-spacing:.01em;}
+  .tc-role{font-size:27px;color:var(--lime);margin:2px 0 18px;}
+  .tc-bullets{list-style:none;margin:0;padding:0;}
+  .tc-bullets li{font-size:20px;color:#fff;margin-bottom:6px;}
+  .tc-bullets li::before{content:"· ";}
+  @media(max-width:700px){.teamcard{flex-direction:column;text-align:center;gap:22px;padding:36px 26px;}.tc-name{font-size:30px;}.tc-role{font-size:22px;}.tc-bullets li{font-size:16px;}}
+  footer{padding:44px 0 64px;color:var(--muted);font-size:13.5px;text-align:center;border-top:1px solid var(--line);margin-top:44px;}
+  .method{font-size:14px;color:var(--muted);max-width:820px;}
+</style>
+</head>
+<body>
+
+<div class="progress"><div class="fill" id="pfill"></div></div>
+
+<nav class="top">
+  <div class="wrap">
+    <img class="pfh-logo" alt="Precision Fuel &amp; Hydration" style="height:26px;margin-right:10px;">
+    <span class="brand" style="margin-right:8px;">Proposal</span>
+    <a href="#summary">Summary</a>
+    <a href="#brief">The brief</a>
+    <a href="#company">Company</a>
+    <a href="#market">Market</a>
+    <a href="#audit">Audit</a>
+    <a href="#channels">Channels</a>
+    <a href="#search-plan">Search plan</a>
+    <a href="#growth">Growth bets</a>
+    <a href="#retail">Retail</a>
+    <a href="#activation">Activation &amp; GTM</a>
+    <a href="#plan">100 days</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#tools">Tools</a>
+    <a href="#team">Team</a>
+    <a href="#questions">Questions</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="pfh-logo" alt="Precision Fuel &amp; Hydration" style="height:48px;margin-bottom:26px;">
+    <span class="kicker" style="display:block;">Marketing Director · Strategic Proposal</span>
+    <h1>Precision Fuel <span class="u">&amp;</span> Hydration</h1>
+    <p class="lead">This document brings together everything I could learn about your business from the outside, the research, a live-data audit, a channel review and a plan for a first hundred days, because the best way I can show you how I would approach the role is to start doing it.</p>
+    <div class="hero-meta">
+      <span>Prepared by <b>James Vickers</b></span>
+      <span>July 2026</span>
+      
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 1 SUMMARY -->
+<section id="summary">
+  <div class="eyebrow2">01 · Executive summary</div>
+  <h2 class="title">You've already done the hard part. Here's where I'd focus.</h2>
+  <p style="max-width:820px;">Precision Fuel &amp; Hydration is an independent, athlete-founded brand with an advantage rivals cannot easily copy, because the free planner, the sweat test and the expert consultations capture athletes, personalise their fuelling and turn them into loyal customers, and in the last two years you have added the most visible branding asset in the sport on top, the global IRONMAN and 70.3 hydration partnership. That means the awareness job is largely done, which is a rare position for a bootstrapped brand to be in, and it moves the biggest opportunities closer to home, into conversion and focus. I see three of them, and the rest of this document works through the evidence behind each.</p>
+  <div class="grid3" style="margin-top:26px;">
+    <div class="card"><div class="label l-op">1 · Extend the funnel</div><p style="margin:0;font-size:15px;color:var(--ink-2);">I walked the planner end to end and the journey to a first purchase is excellent, value before capture, then a personalised taster pack with one-click add to cart. The opportunity starts after that first order, where subscription, referral and race-date-driven flows would compound everything the funnel already earns.</p></div>
+    <div class="card"><div class="label l-op">2 · Tell the fuel story</div><p style="margin:0;font-size:15px;color:var(--ink-2);">You lead the hydration science conversation by some distance. The fuel range deserves the same named, defensible story, and the clever PH and PF system deserves to be instantly clear to a first-time buyer.</p></div>
+    <div class="card"><div class="label l-op">3 · Open the next audiences</div><p style="margin:0;font-size:15px;color:var(--ink-2);">Your triathlon heartland is deep and loyal, and right next to it sit fast-growing audiences, gravel, Hyrox, women's fuelling and whole search categories, that are ready for exactly what you make.</p></div>
+  </div>
+  <div class="win"><b>The opportunity in one line:</b> finish the funnel, tell the fuel story, and repeat what worked with IRONMAN in the next categories and channels, all measured on acquisition, retention and lifetime value.</div>
+</section>
+
+<!-- 2 BRIEF -->
+<section id="brief">
+  <div class="eyebrow2">02 · Reviewing the brief</div>
+  <h2 class="title">What you asked for, and how this document answers it</h2>
+  <p class="sub">Before any of my analysis, your own words, because the job description is unusually clear about where growth is expected to come from, and it deserves to be answered point by point rather than talked around. Each answer below points to the section where the evidence lives.</p>
+  <div class="jd">
+    <div class="q">A strong preference for direct-to-consumer e-commerce... drive customer acquisition, retention and lifetime value across every channel we run.</div>
+    <div class="m"><b>DTC first.</b> The fastest payback usually sits in the funnel you already have, because the traffic and the customers exist and nothing new needs buying. I completed the planner myself in July 2026 and the journey to a first purchase is a strong one, so the headroom sits after it, in subscription, referral and the post-purchase flows your race-date data makes possible. The detail is in the audit and the channel review.</div>
+  </div>
+  <div class="jd">
+    <div class="q">No stranger to scaling brands internationally and across multiple markets... oversee all marketing operations and activations across the PF&amp;H group.</div>
+    <div class="m"><b>International scaling.</b> The US is already your biggest organic market, and the sequencing case for the UAE, DACH, Australia and Japan is set out in the growth bets.</div>
+  </div>
+  <div class="jd">
+    <div class="q">Spot and chase new market and growth opportunities before anyone else gets there.</div>
+    <div class="m"><b>New categories.</b> Gravel leads, because the event-hydration lane you took in triathlon is still open there. Hyrox, women's fuelling and the full radar sit in the market section and the growth bets.</div>
+  </div>
+  <div class="jd">
+    <div class="q">Design and roll out annual and multi-year marketing roadmaps with clear KPIs to support our growth targets.</div>
+    <div class="m"><b>Structure and measurement.</b> The 100-day plan, the KPI framework and the tools stack at the end of this document are the machinery for exactly that.</div>
+  </div>
+</section>
+
+<!-- 3 COMPANY -->
+<section id="company">
+  <div class="eyebrow2">03 · The company</div>
+  <h2 class="title">Who Precision Fuel &amp; Hydration is</h2>
+  <p class="sub">The brief only makes sense against what you have actually built, so before the findings, here is my understanding of the business, condensed from the research.</p>
+  <p style="max-width:820px;">Andy Blow founded the business in 2011 after cramp and a bout of hyponatremia wrecked his own racing, and his work with heart surgeon Professor Raj Jutley revealed why, because sodium losses vary enormously between athletes. That insight, that hydration is individual, is still the whole brand. The company rebranded from Precision Hydration to Precision Fuel &amp; Hydration in February 2022 as it expanded from electrolytes into carbohydrate fuelling, and today it is bootstrapped, founder-led and selling into more than 90 countries with operations on three continents.</p>
+  <div class="grid2" style="margin-top:26px;">
+    <div class="card"><h3 style="margin-top:0;">The two-axis system</h3>
+      <p style="font-size:15.5px;margin-bottom:4px;">One transparent naming convention runs through everything, and the big, clear number on the pack <b>is</b> the product.</p>
+      <div class="packrow">
+        <div class="pack p250"><div class="pn">250</div><div class="pl">PH · mg/L</div></div>
+        <div class="pack p500"><div class="pn">500</div><div class="pl">PH · mg/L</div></div>
+        <div class="pack p1000"><div class="pn">1000</div><div class="pl">PH · mg/L</div></div>
+        <div class="pack p1500"><div class="pn">1500</div><div class="pl">PH · mg/L</div></div>
+        <div class="pack pf"><div class="pn">30</div><div class="pl">PF · g carb</div></div>
+        <div class="pack pf"><div class="pn">90</div><div class="pl">PF · g carb</div></div>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin:10px 0 0;"><span class="tag hyd">PH = mg sodium per litre</span> <span class="tag fuel">PF = grams of carb</span> The four strength colours are the brand's own band palette, used throughout this document.</p></div>
+    <div class="card"><h3 style="margin-top:0;">The advantage</h3>
+      <p style="font-size:15.5px;margin:0;">The free Sweat Test and Fuel &amp; Hydration Planner, plus free one-to-one consultations, form an education-led funnel that captures first-party data and matches athletes to the right product, so the tools <b>are</b> the product marketing rather than something bolted on beside it.</p></div>
+  </div>
+</section>
+
+<!-- 4 MARKET -->
+<section id="market">
+  <div class="eyebrow2">04 · The market</div>
+  <h2 class="title">A growing category, and where the next athletes are coming from</h2>
+  <p class="sub">That system operates in a market that is moving quickly, and mostly in your favour, because the categories growing fastest are the ones your products and your science fit best.</p>
+  <div class="facts">
+    <div class="fact"><div class="n">~$71B</div><div class="l">Global sports nutrition, 2025 (est.)</div></div>
+    <div class="fact"><div class="n">~8.7%</div><div class="l">Forecast CAGR to ~$138B by 2033</div></div>
+    <div class="fact"><div class="n">90–120g</div><div class="l">The carbs-per-hour shift driving product</div></div>
+    <div class="fact"><div class="n">1.1M</div><div class="l">Ballot entries for the 2026 London Marathon</div></div>
+  </div>
+  <p style="max-width:820px;">The category splits into three lanes, carbohydrate science (Maurten, Neversecond), hydration and electrolytes (LMNT, the lifestyle giant), and personalisation, the lane PF&amp;H created. You are rare in credibly spanning all three, though your defensible edge is personalised strategy and service rather than a single hero product, and the watch-out is that Maurten (backed by a roughly €20M raise) and Science in Sport (now private under bd Capital) are investing around you on carb science.</p>
+
+  <h3>The emerging-categories radar</h3>
+  <p class="sub" style="margin-bottom:14px;">Where endurance participation is growing, and whether the fuelling lane in each is open, contested or taken.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Category</th><th>Scale signal, 2025–26</th><th>Fuel lane</th><th>The read for PF&amp;H</th></tr></thead>
+    <tbody>
+      <tr><td class="b">Gravel</td><td>Traka 4,000+ riders from 74 countries, UCI series at a record 45 events, Gralloch ~3,000 in year three, UNBOUND lottery oversubscribed</td><td><span class="chip v-open">OPEN at event level</span></td><td>No brand holds a series-wide hydration position. Elite rosters are contested (Neversecond, GU at UNBOUND) but the event-infrastructure lane you took in triathlon is unclaimed. Your strongest next bet.</td></tr>
+      <tr><td class="b">Hyrox / functional</td><td>~1.5M participants 2025/26, six to eight times IRONMAN, younger and gym-adjacent</td><td><span class="chip v-taken">HEADLINE TAKEN</span></td><td>You have already dipped a toe here, with a published Hyrox fuelling guide and Hyrox London case studies from your own team. Myprotein holds the nutrition slot and Red Bull the hydration stations, so the open lane is grassroots gyms, village sampling and the sweat-science angle a protein brand cannot own.</td></tr>
+      <tr><td class="b">Trail / ultra</td><td>UTMB World Series at 146,933 runners across 55 events, Western States lottery at 11,328 applicants for 254 places</td><td><span class="chip v-cont">CONTESTED</span></td><td>You already field a deep trail roster, so defend and deepen. Sparse-aid, long-duration racing is your heaviest-usage occasion.</td></tr>
+      <tr><td class="b">Marathon &amp; run clubs</td><td>London's record 1.1M ballot, Strava clubs at 1M with running clubs up 3.5x year on year</td><td><span class="chip v-cont">CONTESTED</span></td><td>Maurten owns the elite story, but the mass and run-club layer is unconsolidated. Win it with the planner and first-marathon education rather than sponsorship spend.</td></tr>
+      <tr><td class="b">Women's endurance</td><td>Women now 30% of UTMB participation and rising, gravel skews more female than road, female sports nutrition growing ~8.8% CAGR</td><td><span class="chip v-open">OPEN</span></td><td>A cross-cutting science angle, female-specific sweat and sodium physiology, rather than a category. Maurten is funding research here, so move first.</td></tr>
+      <tr><td class="b">Indoor / Zwift</td><td>~1M subscribers, concurrency recovering in 2026</td><td><span class="chip v-open">OPEN, weak occasion</span></td><td>Short sessions mean low volume, so treat it as content partnership territory.</td></tr>
+      <tr><td class="b">Swimrun</td><td>ÖTILLÖ world series, niche scale</td><td><span class="chip v-open">OPEN, tiny</span></td><td>You already sponsor teams. Keep as low-cost credibility.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 5 AUDIT -->
+<section id="audit">
+  <div class="eyebrow2">05 · The audit</div>
+  <h2 class="title">What I found, and where I think I can help</h2>
+  <p class="sub">With the brief and the context in place, this is what I found when I went through your marketing the way a new customer, a journalist and a competitor would. It all comes from the outside, I have not seen your analytics, CRM or margins, so read each finding as an informed hypothesis offered with respect for what you have already built.</p>
+
+  <details class="acc" open>
+    <summary><span class="dim">1</span> Brand &amp; positioning <span class="chev">›</span></summary>
+    <div class="accbody"><p style="margin:0;">The hydration story is yours and nobody credibly challenges it, and the clarity work on the range is visibly underway, the shop's category tabs give buyers a clean decision layer and renaming the PF 60 Drink Mix to Carb &amp; Electrolyte Drink Mix shows you are already moving the naming toward plain English. The gap now sits between your own pages, because the fuel pages set a standard the hydration pages have not caught up with yet. </p>
+    <div class="label l-op" style="margin-top:14px;">Where I would help</div>
+    <ul class="t" style="font-size:15px;">
+      <li><b>Finish the job on the hydration pages.</b> The fuel pages lead with their numbers, "60g of carb and 1,000mg of sodium per litre, the simplest way to get a decent amount of fuel and electrolytes in from your bottles," and the PH 1500 page already tells a heavy, salty sweater it is for them. What the page never says is what 1500 means, the sodium per litre logic that is your whole naming system, or how it compares to a typical sports drink, a line that currently sits in the page metadata rather than the copy. And the strength toggle lets a shopper switch between 500, 1000 and 1500 without anything helping them choose, so a small "not sure which strength you are?" link beneath it, pointing to the planner, would close that loop with the tool you already own.</li>
+      <li><b>A named carb story.</b> Maurten has "hydrogel," one word that carries its science into every review. Your fuel range is described generically, "hydrolysed carbohydrate." Work with the sports science team to name and codify your carb system, the ratio, the gut-training protocol, the PF numbering, so athletes and reviewers have a word for why your fuel is different, the way "start with your sweat" already does that job for hydration.</li>
+      <li><b>A wider bench of expert voices.</b> Andy's voice built the brand's authority, and the pull he has with press and podcasts proves the expert-led model works. The opportunity is to multiply it by developing Dr Shepherd, Dr Hunt and the athlete-support scientists into named public voices of their own, with bylines, video and press availability, so more of the demand for PF&amp;H expertise gets met and Andy's time is saved for the moments only a founder can carry.</li>
+    </ul></div>
+  </details>
+  <details class="acc">
+    <summary><span class="dim">2</span> Website, funnel &amp; retention <span class="chev">›</span></summary>
+    <div class="accbody"><p style="margin:0;">Having completed the planner end to end, I can't name a stronger lead magnet in the category, and the execution matches the idea, roughly a dozen light steps, the email ask held back until the plan is earned, opt-in consent done properly, and a personalised taster pack with one-click add to cart waiting at the end, backed by the Fuel Skool email series. The opportunity begins after that first order. The taster pack lands at £37.49 with the £49.99 free-shipping threshold printed just below it, yet nothing suggests the £12.50 top-up that would earn it, no subscription or referral moment appears anywhere in the plan, pack or emails, the "Share your numbers" feature carries no referral mechanic, and the race date you collect is not yet visibly driving countdown or post-race restock flows. </p>
+    <div class="label l-op" style="margin-top:14px;">Where I would help</div>
+    <ul class="t" style="font-size:15px;">
+      <li><b>Turn the shipping line into a nudge.</b> The taster pack page already states free shipping over £49.99 just under the £37.49 price, so the information is there but the invitation is not. A simple "you are £12.50 from free shipping, athletes usually add a box of gels" prompt, with the add-on one click away, lifts order value with no discounting at all.</li>
+      <li><b>A subscription moment after the taster pack.</b> Subscribe &amp; Save sits on every product page, but the planner journey, the taster pack and the Fuel Skool emails never mention it. Once an athlete has trained on their taster pack, a timed prompt moves the products their plan proved onto subscription, and because you hold their race date, the timing is predictable rather than guessed.</li>
+      <li><b>Referral built into "Share your numbers."</b> The share feature already exists with no mechanic attached. Attach a give-get, share your plan, your friend gets a taster-pack offer and you get credit, and the sharing that already happens becomes measurable acquisition.</li>
+      <li><b>Lifecycle flows driven by the race date.</b> The planner captures each athlete's event date and nothing visibly uses it. Build the obvious flows against it, a taper-week checklist, a race-week restock reminder, a day-after "how did it go" with a review ask and a prompt to plan the next race, so the journey continues after Fuel Skool's five emails end.</li>
+    </ul></div>
+  </details>
+  <details class="acc">
+    <summary><span class="dim">3</span> Search &amp; owned content <span class="chev">›</span></summary>
+    <div class="accbody"><p style="margin:0;">You have won an enormous amount of search real estate, more than a thousand questions athletes actually ask. The next wins are the product searches themselves, which are surprisingly open to you, and a refresh of an estate that has earned its rankings but needs tending. Video and an owned podcast are natural extensions of content this good, and worth building while Maurten works on its copy of the planner. The live numbers sit in the channel review below, with the keyword plan after it. </p>
+    <div class="label l-op" style="margin-top:14px;">Where I would help</div>
+    <ul class="t" style="font-size:15px;">
+      <li><b>Build the category pages that win the buying terms.</b> Dedicated landing pages for electrolyte tablets, running gels and the other terms in the action plan below, several of which are near-zero difficulty and currently carried, where they rank at all, by a single product page.</li>
+      <li><b>Upgrade the problem-aware pages you already own.</b> Your hyponatremia article already ranks #25 in the US on a 135,000-a-month term. Rebuilding it, and the cramp content, into medically reviewed, scientist-bylined pillars is a push on an open door, and these are the moments an athlete first meets the brand mid-problem.</li>
+      <li><b>Refresh the estate before it slips further.</b> The UK estate went backwards by a net 385 keywords last period. Restamping and updating the top 50 pages protects rankings you have already earned.</li>
+      <li><b>Turn the science into owned video and audio.</b> The research is already written. Presenting it as a flagship YouTube series and an owned podcast converts the guest appearances Andy already does into an audience you keep.</li>
+    </ul></div>
+  </details>
+  <details class="acc">
+    <summary><span class="dim">4</span> Social &amp; paid <span class="chev">›</span></summary>
+    <div class="accbody"><p style="margin:0;">You have already done the hard part of social, building a 500-strong ambassador community and a YouTube channel that out-performs bigger rivals. The mechanics to convert that into measurable growth are the missing piece, and search advertising looks uncontested, in DataForSEO's tracked UK and US results neither you, Maurten nor SiS show a single search ad, evidence and caveats in the channel review below.</p>
+    <div class="label l-op" style="margin-top:14px;">Where I would help</div>
+    <ul class="t" style="font-size:15px;">
+      <li><b>Give the 500+ ambassadors codes and tracking.</b> Each ambassador gets a unique code or link with a modest give-get. For the first time you see which advocacy actually drives sales, top advocates can be rewarded properly, and the programme becomes a measurable channel rather than a goodwill exercise.</li>
+      <li><b>Take the myth-busting science to TikTok.</b> The account exists at 1,500 followers while LMNT sits at 40,800 with far weaker science. Sixty-second verticals on cramp, sodium and carbs per hour, fronted by the scientists, are the natural format for content you already produce in long form.</li>
+      <li><b>Open a disciplined paid programme on the two warmest audiences.</b> Retarget planner completers with the exact products their own plan recommended, and run search ads on the transactional terms in the action plan while nobody else is bidding, verified first in the Google Ads Transparency Center. Both are measured against one number, the cost of a planner completion.</li>
+    </ul></div>
+  </details>
+  <details class="acc">
+    <summary><span class="dim">5</span> Partnerships &amp; activation <span class="chev">›</span></summary>
+    <div class="accbody"><p style="margin:0;">The IRONMAN partnership is a landmark, the strongest brand real estate in endurance sport, and it sets up a wonderful next step, turning that reach into named athletes. An athlete drinking PH1000 on course is a warm introduction, and a small capture layer would turn those introductions into relationships. </p>
+    <div class="label l-op" style="margin-top:14px;">Where I would help</div>
+    <ul class="t" style="font-size:15px;">
+      <li><b>A unique QR at every race.</b> Cups, bottles, arch banners and expo stands carry a QR straight to a planner preset for that exact course, so the athlete who just drank PH1000 on course becomes a named athlete in your funnel rather than an anonymous impression.</li>
+      <li><b>Sweat testing at every expo.</b> Registration day is the highest-intent moment in the sport, and the sweat test is your signature. A test station plus a plan on the spot is capture, education and sampling in one.</li>
+      <li><b>A measured sampled-to-repeat cohort.</b> Tag the athletes acquired at each race and track their 90-day repeat rate against organically acquired customers. That one number tells you which events deserve deeper investment and turns the sponsorship conversation from reach into revenue.</li>
+      <li><b>The same approach carried into gravel and Hyrox.</b> The six steps in the go-to-market section, run first at a UK gravel flagship where the hydration lane is still open.</li>
+    </ul></div>
+  </details>
+</section>
+
+<!-- 6 CHANNELS -->
+<section id="channels">
+  <div class="eyebrow2">06 · The channel review</div>
+  <h2 class="title">Owned, earned and paid, with the live numbers</h2>
+  <p class="sub">Those findings organise naturally under the three headings you already plan by, so here is the full channel picture, traditional and emerging, with the live data behind each and where I believe the next wins are. The three buttons below switch the view.</p>
+  <div class="tablabel">Choose a channel group ↓</div>
+  <div class="tabs" id="chtabs">
+    <button class="on" data-t="owned">Owned</button>
+    <button data-t="earned">Earned</button>
+    <button data-t="paid">Paid</button>
+  </div>
+
+  <div class="tabpane on" data-p="owned">
+    <h3 style="margin-top:6px;">Search and site</h3>
+    <div class="facts">
+      <div class="fact"><div class="n">1,664</div><div class="l">UK organic keywords (7,833 US)</div></div>
+      <div class="fact"><div class="n">~61k</div><div class="l">est. US organic clicks/mo (~19.5k UK)</div></div>
+      <div class="fact"><div class="n">165</div><div class="l">UK keywords in the top 3</div></div>
+      <div class="fact"><div class="n">−385</div><div class="l">net UK keywords last period</div></div>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="label l-op" style="margin-bottom:8px;">US organic traffic, the field</div>
+        <div class="tablewrap"><table style="min-width:380px;">
+          <thead><tr><th>Brand</th><th>Clicks/mo</th><th>Top 3</th></tr></thead>
+          <tbody>
+            <tr><td class="b">LMNT</td><td>360,190</td><td>1,489</td></tr>
+            <tr><td class="b">Precision F&amp;H</td><td>61,006</td><td>519</td></tr>
+            <tr><td class="b">Science in Sport</td><td>59,600</td><td>397</td></tr>
+            <tr><td class="b">Maurten</td><td>33,764</td><td>207</td></tr>
+          </tbody>
+        </table></div>
+        <p style="font-size:13.5px;color:var(--muted);margin:8px 0 0;">You lead the performance brands on US organic, and only the lifestyle giant LMNT is bigger, which is a better position than most of your rivals could claim. The next opportunity is that your rankings skew to broad questions (taper, bonking, "does coffee dehydrate you") rather than the buying terms, and the search plan in the next section is designed to add those.</p>
+      </div>
+      <div class="card" style="margin:0;"><div class="label l-op">The next wins in owned</div><ul class="t" style="font-size:15px;">
+        <li><b>No competitor's owned assets match the tools and the Knowledge Hub</b>, and YouTube (~11k subscribers) sits ahead of LMNT and Maurten.</li>
+        <li><b>Lifecycle CRM has a strong start and an open end.</b> Fuel Skool, the five-email plan series, is a real welcome programme, and the race date you capture makes countdown, post-race and restock flows the natural next build.</li>
+        <li><b>An owned podcast</b> would let the guest pull Andy has already proven start compounding for you rather than for other people's shows.</li>
+        <li><b>The community is ready for loops</b>, because the Strava club and 500+ ambassadors are assets most brands would love to have, waiting to be activated.</li>
+        <li><b>Emerging plays:</b> planner presets inside TrainingPeaks, Garmin and Zwift, plus structured, citeable content so ChatGPT and Perplexity quote you on fuelling questions. Nobody in the category is optimising for AI answers yet.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="tabpane" data-p="earned">
+    <h3 style="margin-top:6px;">Media, reviews and advocacy</h3>
+    <div class="grid2">
+      <div class="card" style="margin:0;"><div class="label l-good">Working today</div><ul class="t" style="font-size:15px;">
+        <li><b>Cycling reviews:</b> Cycling Weekly ranks the PF90 its number one energy gel.</li>
+        <li><b>Trade press:</b> no competitor matches your cadence in Endurance.biz.</li>
+        <li><b>US triathlon:</b> strong Slowtwitch and Triathlete coverage, plus founder features.</li>
+        <li><b>Podcast guesting:</b> Andy Blow has proven pull across dozens of endurance shows.</li>
+      </ul></div>
+      <div class="card" style="margin:0;"><div class="label l-op">The next wins in earned</div><ul class="t" style="font-size:15px;">
+        <li><b>The buyer guides that convert:</b> a place in 220 Triathlon's best electrolyte tablets and Cycling Weekly's best energy drinks is there to be won, and it is your own category.</li>
+        <li><b>US running media</b> is open ground, with Runner's World, LetsRun and iRunFar barely covering you yet while your marathon partnerships give you the perfect way in.</li>
+        <li><b>An expert-source programme</b> would put your scientists in every "how much sodium" article, and journalists would thank you for it.</li>
+        <li><b>Creator seeding and UGC:</b> your 500 ambassadors are a ready-made engine, and giving them the mechanics LMNT gives its micro-creators would show up quickly.</li>
+        <li><b>Emerging:</b> Reddit and the Slowtwitch and TrainerRoad forums shape buying decisions and feed AI answers, and your athlete data stories (Onweller's 867g of carbs at UNBOUND) are earned-media bait no rival can match.</li>
+      </ul></div>
+    </div>
+    <div class="grid2" style="margin-top:22px;">
+      <div>
+        <div class="label l-op" style="margin-bottom:8px;">Authority earned so far (domain rank / referring domains)</div>
+        <div class="tablewrap"><table style="min-width:380px;">
+          <thead><tr><th>Domain</th><th>Rank</th><th>Ref. domains</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Precision F&amp;H</td><td>356</td><td>2,443</td></tr>
+            <tr><td class="b">Science in Sport</td><td>353</td><td>4,609</td></tr>
+            <tr><td class="b">Maurten</td><td>374</td><td>2,353</td></tr>
+            <tr><td class="b">LMNT</td><td>393</td><td>4,228</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <p style="font-size:14.5px;margin:0;align-self:center;">You already match SiS and Maurten on domain strength, and growing the referring-domain base toward theirs, through the tools, the data stories and the buyer guides, is the clearest lever available.</p>
+    </div>
+  </div>
+
+  <div class="tabpane" data-p="paid">
+    <h3 style="margin-top:6px;">Sponsorship, search and social</h3>
+    <div class="grid2">
+      <div class="card" style="margin:0;"><div class="label l-good">Working today</div><ul class="t" style="font-size:15px;">
+        <li><b>The sponsorship estate is world class:</b> the global IRONMAN deal, Honolulu, GCN, Leadville and Classified.</li>
+        <li><b>Paid capability exists in-house</b>, with a Marketing Analytics and Paid Advertising Manager on the team.</li>
+      </ul></div>
+      <div class="card" style="margin:0;"><div class="label l-op">The next wins in paid</div><ul class="t" style="font-size:15px;">
+        <li><b>Paid search looks uncontested.</b> The evidence and its limits are below.</li>
+        <li><b>Paid social:</b> the obvious start is retargeting the planner and sweat-test audiences you uniquely own.</li>
+        <li><b>Retail media:</b> Amazon ads to defend your own branded search on-platform.</li>
+        <li><b>Podcast and newsletter sponsorship:</b> the shows you already guest on sell mid-roll, cheap and on-audience.</li>
+        <li><b>Emerging:</b> TikTok and YouTube ads feeding the planner, TikTok Shop as a commerce test, and Strava sponsored challenges against race goals.</li>
+      </ul></div>
+    </div>
+    <div class="win" style="margin-top:22px;"><b>The paid-search evidence, stated carefully.</b> In DataForSEO's tracked UK and US Google results (July 2026), no ads from PF&amp;H, Maurten or Science in Sport appear against any keyword, and LMNT shows just eleven. That dataset only sees ads that surfaced on the results pages it crawls, so tightly targeted campaigns, Shopping and Performance Max can be missed, and it says nothing about Meta or TikTok spend. Read it as a strong signal that search ads are barely contested in this category, verify it in the Google Ads Transparency Center, and if it holds, the transactional terms you do not rank for organically are buyable while nobody else is bidding.</div>
+  </div>
+
+  <div class="win" style="margin-top:26px;"><b>The channel principle:</b> every channel, old or new, gets judged the same way. Does it feed the planner, and what does a planner completion from it cost? One number keeps a bootstrapped budget honest and makes the whole map comparable.</div>
+</section>
+
+<!-- 7 SEARCH PLAN -->
+<section id="search-plan">
+  <div class="eyebrow2">07 · The search action plan</div>
+  <h2 class="title">The keywords waiting to be won</h2>
+  <p class="sub">Of everything in the channel review, search is the most immediately actionable, because the data shows exactly which terms are open and they sit right next to the authority you have already built. Volumes are average monthly Google searches per market (a rolling 12-month average) and difficulty is scored 0 to 100, both live from DataForSEO, July 2026, and current positions are your best organic ranking per market from the same source. "Now" columns show your current best organic position (a dash means outside the top 100). Filter by wave, where Now is the first 100 days, Next is quarters two and three, and Horizon is the strategic bets that are small today, and click any row for the play to win it.</p>
+  <div class="filters" id="kwfilters">
+    <button class="on" data-f="all">All</button>
+    <button data-f="now">Now</button>
+    <button data-f="next">Next</button>
+    <button data-f="horizon">Horizon</button>
+  </div>
+  <div class="tablewrap"><table id="kwtable">
+    <thead><tr><th class="sort" data-c="0" data-t="text">Keyword</th><th class="sort" data-c="1" data-t="num">UK / mo</th><th class="sort" data-c="2" data-t="rank">UK now</th><th class="sort" data-c="3" data-t="num">UK diff</th><th class="sort" data-c="4" data-t="num">US / mo</th><th class="sort" data-c="5" data-t="rank">US now</th><th class="sort" data-c="6" data-t="num">US diff</th><th class="sort" data-c="7" data-t="wave">Wave</th></tr></thead>
+    <tbody>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>electrolyte tablets</td><td class="num">18,100</td><td class="num rank">—</td><td class="num">0</td><td class="num">12,100</td><td class="num rank">#8</td><td class="num">4</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> The US capsules product page already ranks #8 here, proof the term is winnable. A dedicated PH tablets category page with review schema and a "which strength" selector pushes the US into the top 3 and launches the UK, where difficulty is zero and you are currently outside the top 100.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>running gels</td><td class="num">8,100</td><td class="num rank">—</td><td class="num">1</td><td class="num">27,100</td><td class="num rank">#35</td><td class="num">10</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> Right intent, wrong page: a generic products page ranks #35 in the US. A dedicated running-gels category page wins the UK at difficulty 1 on 8,100 searches a month and gives the US ranking a proper home.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>hydration tablets</td><td class="num">6,600</td><td class="num rank">—</td><td class="num">39</td><td class="num">1,900</td><td class="num rank">#9</td><td class="num">2</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> The capsules page sits #9 in the US at difficulty 2, one small push from the top 3. In the UK, fold the term into the electrolyte-tablets architecture rather than building a separate page.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>salt tablets</td><td class="num">2,400</td><td class="num rank">#35</td><td class="num">0</td><td class="num">8,100</td><td class="num rank">#19</td><td class="num">1</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> Ranking #35 UK and #19 US from the capsules page at near-zero difficulty. Strengthening that page's copy, headings and schema moves both markets into the top 10 without new content.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>salt tablets for runners</td><td class="num">1,000</td><td class="num rank">#4</td><td class="num">0</td><td class="num">—</td><td class="num rank">—</td><td class="num">—</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> Already #4 in the UK. Protect it, add runner-specific FAQ content, and push for the top 3.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>hyponatremia</td><td class="num">27,100</td><td class="num rank">—</td><td class="num">32</td><td class="num">135,000</td><td class="num rank">#25</td><td class="num">33</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> Your existing article already ranks #25 in the US on a 135,000-a-month term, striking distance. Upgrade it into the definitive, medically reviewed pillar, scientist-bylined with peer-reviewed citations and FAQ schema, and bring the UK with it. Nobody has more right to this page.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>electrolyte drink</td><td class="num">40,500</td><td class="num rank">—</td><td class="num">6</td><td class="num">135,000</td><td class="num rank">—</td><td class="num">28</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> Absent in both markets on the category's biggest term. A pillar and product hub covering what an electrolyte drink does, the sodium-strength logic and an honest comparison chart. Low UK difficulty makes the UK the beachhead.</td></tr>
+      <tr class="mainrow" data-w="now"><td class="b"><span class="rowchev">▸</span>best energy gels</td><td class="num">2,400</td><td class="num rank">—</td><td class="num">1</td><td class="num">5,400</td><td class="num rank">—</td><td class="num">6</td><td><span class="tier t1">NOW</span></td></tr>
+      <tr class="playrow" data-w="now"><td colspan="8"><b>The play:</b> An honest, test-based buyer guide. You already win Cycling Weekly's version, so publish your own.</td></tr>
+      <tr class="mainrow" data-w="next"><td class="b"><span class="rowchev">▸</span>electrolyte powder</td><td class="num">18,100</td><td class="num rank">—</td><td class="num">18</td><td class="num">60,500</td><td class="num rank">—</td><td class="num">19</td><td><span class="tier t2">NEXT</span></td></tr>
+      <tr class="playrow" data-w="next"><td colspan="8"><b>The play:</b> A collection page for the drink-mix formats plus a powder-versus-tablet decision guide.</td></tr>
+      <tr class="mainrow" data-w="next"><td class="b"><span class="rowchev">▸</span>energy gels</td><td class="num">6,600</td><td class="num rank">—</td><td class="num">11</td><td class="num">9,900</td><td class="num rank">—</td><td class="num">10</td><td><span class="tier t2">NEXT</span></td></tr>
+      <tr class="playrow" data-w="next"><td colspan="8"><b>The play:</b> A category page per sport, built around carbs per hour and cross-linked from the Cycling Weekly win and the running-gels page.</td></tr>
+      <tr class="mainrow" data-w="next"><td class="b"><span class="rowchev">▸</span>best electrolytes</td><td class="num">9,900</td><td class="num rank">—</td><td class="num">11</td><td class="num">9,900</td><td class="num rank">—</td><td class="num">34</td><td><span class="tier t2">NEXT</span></td></tr>
+      <tr class="playrow" data-w="next"><td colspan="8"><b>The play:</b> A comparison guide leading on transparency, exact sodium per litre against rivals' proprietary blends.</td></tr>
+      <tr class="mainrow" data-w="next"><td class="b"><span class="rowchev">▸</span>muscle cramps</td><td class="num">2,900</td><td class="num rank">—</td><td class="num">45</td><td class="num">14,800</td><td class="num rank">—</td><td class="num">46</td><td><span class="tier t2">NEXT</span></td></tr>
+      <tr class="playrow" data-w="next"><td colspan="8"><b>The play:</b> A science pillar on your contrarian cramp position, tied to the sweat test. Harder to win, but a natural authority page and a media expert-source asset.</td></tr>
+      <tr class="mainrow" data-w="horizon"><td class="b"><span class="rowchev">▸</span>hyrox nutrition</td><td class="num">30</td><td class="num rank">—</td><td class="num">0</td><td class="num">40</td><td class="num rank">—</td><td class="num">0</td><td><span class="tier t3">HORIZON</span></td></tr>
+      <tr class="playrow" data-w="horizon"><td colspan="8"><b>The play:</b> Own it before it grows. You already have the how-to-fuel-Hyrox article, so build the hub and planner preset now, cheaply.</td></tr>
+      <tr class="mainrow" data-w="horizon"><td class="b"><span class="rowchev">▸</span>gravel fuelling / unbound nutrition</td><td class="num">low</td><td class="num rank">—</td><td class="num">low</td><td class="num">low</td><td class="num rank">—</td><td class="num">low</td><td><span class="tier t3">HORIZON</span></td></tr>
+      <tr class="playrow" data-w="horizon"><td colspan="8"><b>The play:</b> The gravel fuelling database, built from athlete case studies with real intake data, becomes the category's definitive resource as demand grows.</td></tr>
+      <tr class="mainrow" data-w="horizon"><td class="b"><span class="rowchev">▸</span>female-specific fuelling terms</td><td class="num">growing</td><td class="num rank">—</td><td class="num">low</td><td class="num">growing</td><td class="num rank">—</td><td class="num">low</td><td><span class="tier t3">HORIZON</span></td></tr>
+      <tr class="playrow" data-w="horizon"><td colspan="8"><b>The play:</b> Scientist-led content on female sweat and sodium physiology, ahead of Maurten's funded research going public.</td></tr>
+      </tbody>
+  </table></div>
+  <p style="font-size:14px;color:var(--muted);margin:14px 0 0;max-width:840px;"><b>The pattern in the "now" columns.</b> Where you already rank commercially in the US, one page is doing nearly all the work, the electrolyte capsules product page holds #8, #9 and #19 across three different terms. That single page proves the authority is there, and dedicated category pages would multiply it. Two rankings are already striking distance, hyponatremia at #25 in the US on a 135,000-a-month term, and salt tablets for runners already #4 in the UK.</p>
+  <p style="font-size:14px;color:var(--muted);margin:14px 0 0;max-width:840px;"><b>What difficulty means.</b> Each market gets its own 0 to 100 score, because the same term can be easy in the UK and contested in the US or the reverse. The score estimates how hard it is to break into the organic top 10 for that term, based on the backlink strength of the pages currently ranking there. A low score means the current top 10 is held by pages with little authority behind them, so a dedicated, well-built page on a domain of your strength should rank quickly. A high score means the top 10 is dominated by strongly linked pages and winning it is a longer content-and-links project. It is a link-strength proxy rather than a guarantee, which is why each play is matched to the score.</p>
+  <div class="grid2" style="margin-top:20px;">
+    <div class="card tint"><div class="label l-op">The supporting work underneath</div><ul class="t" style="font-size:14.5px;"><li>Refresh and restamp the top 50 pages, protecting rankings the estate has already earned (it moved back a net 385 UK keywords last period).</li><li>Fix international targeting (hreflang across UK and US) so the right market ranks the right page.</li><li>Consolidate reviews onto one platform for star-rich snippets.</li><li>Internal links so every hub article funnels to its category page and the planner.</li></ul></div>
+    <div class="card tint"><div class="label l-op">The measure</div><ul class="t" style="font-size:14.5px;"><li>Weekly rank tracking on the 13 terms above in both markets.</li><li>Organic clicks to category and PDP pages, not just the hub.</li><li>Planner starts sourced from organic landing pages.</li><li>Net keyword growth turned positive within two quarters.</li></ul></div>
+  </div>
+</section>
+
+<!-- 8 GROWTH BETS -->
+<section id="growth">
+  <div class="eyebrow2">08 · The growth bets</div>
+  <h2 class="title">Gravel first, then the map</h2>
+  <p class="sub">Channels compound fastest when they have somewhere new to point, and your brief asks for opportunities spotted before anyone else gets there, so these are the bets the evidence supports, starting with the clearest one.</p>
+  <h3 style="margin-top:10px;">Gravel is the obvious place to start</h3>
+  <div class="facts">
+    <div class="fact"><div class="n">4,000+</div><div class="l">Riders at The Traka, from 74 countries</div></div>
+    <div class="fact"><div class="n">45</div><div class="l">UCI Gravel World Series events in 2026, a record</div></div>
+    <div class="fact"><div class="n">10–20hr</div><div class="l">UNBOUND 200 finish times, four checkpoints in 200 miles</div></div>
+    <div class="fact"><div class="n">867g</div><div class="l">Carbs Paige Onweller logged at UNBOUND 2025, your own case study</div></div>
+  </div>
+  <p style="max-width:820px;">Gravel races are long, hot and mostly unsupported, so per-athlete fuelling volume can exceed an IRONMAN, and while the elite rosters are contested (Neversecond has bought the top of the Life Time Grand Prix and GU holds the UNBOUND slot), <b>no brand holds a series-wide hydration position</b>. You built that in triathlon before anyone else, and in gravel it is still open, especially on home turf, with the Gralloch and The Traka as the natural first partnerships and Gravel Worlds as the US analogue. You already hold the proof assets, a 12-rider gravel roster and published athlete case studies with real intake data. The window is the 2027 sponsorship cycle.</p>
+  <h3>Beyond gravel, the rest of the map</h3>
+  <ul class="clean" style="font-size:16px;max-width:820px;">
+    <li><b>Hyrox, entered sideways.</b> You have already published the Hyrox fuelling guide and run case studies on your own people racing Hyrox London, so the content beachhead exists. The headline sponsorship slots are taken, which points the play at grassroots gym and box stocking, village sampling and the hydration-science story, measured as R&amp;D until it converts.</li>
+    <li><b>Women's fuelling.</b> The under-served, faster-growing segment your personalisation DNA fits best, and worth moving on before Maurten's funded research reaches market.</li>
+  </ul>
+
+  <h3>Internationalisation, the machinery as well as the map</h3>
+  <p style="max-width:840px;">Your warehouses already reach four continents and the storefronts follow your customers around the English-speaking world, with country sites live for the UK, the US and Australia. The store is even built to carry local-language editions, but every market trades in English, I went looking for German, French and Japanese storefronts and none exist. So the planner, the Knowledge Hub and the category pages that win you athletes in Britain and America cannot yet win one in Berlin, and Germany shows what that costs.</p>
+  <div class="facts">
+    <div class="fact"><div class="n">110,000</div><div class="l">German searches a month for "elektrolyte"</div></div>
+    <div class="fact"><div class="n">0</div><div class="l">Difficulty on "elektrolyte pulver", 14,800 searches a month</div></div>
+    <div class="fact"><div class="n">~827</div><div class="l">Your monthly clicks from German search today</div></div>
+    <div class="fact"><div class="n">19x</div><div class="l">SiS's German organic traffic versus yours</div></div>
+  </div>
+  <div class="grid2">
+    <div>
+      <div class="label l-op" style="margin-bottom:8px;">German organic footprint, the field</div>
+      <div class="tablewrap"><table style="min-width:380px;">
+        <thead><tr><th>Brand</th><th>Clicks/mo</th><th>Keywords</th><th>Top 3</th></tr></thead>
+        <tbody>
+          <tr><td class="b">Science in Sport</td><td>15,874</td><td>1,525</td><td>100</td></tr>
+          <tr><td class="b">Maurten</td><td>5,462</td><td>153</td><td>27</td></tr>
+          <tr><td class="b">Precision F&amp;H</td><td>827</td><td>101</td><td>12</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:13px;color:var(--muted);margin:8px 0 0;">German-language demand sits wide open too, "energy gel" and "salztabletten" both carry 3,600 searches a month at zero difficulty, and "elektrolyt tabletten" 1,900, also at zero.</p>
+    </div>
+    <div class="card" style="margin:0;"><div class="label l-op">The machinery that makes a market</div><ul class="t" style="font-size:14.5px;">
+      <li><b>Localise the planner first.</b> Language, units and that market's flagship races preloaded, because the planner is the funnel, and when it travels the whole engine travels with it, which matters most in DACH, Maurten's home ground.</li>
+      <li><b>The support has to speak the language too.</b> The free consultations are as much of the advantage as the planner, so a German launch needs German-speaking athlete support from day one, hired for the market or surfaced from the existing team, and that headcount cost is the real reason to enter markets in sequence rather than all at once.</li>
+      <li><b>Native-language category pages</b> on the open terms above, alongside the international targeting fix already in the search plan, so Google serves each market its own page rather than a British one.</li>
+      <li><b>Local proof.</b> Per-market ambassadors, local endurance media, and the events you already touch mapped to markets, Challenge Roth anchoring DACH, The Traka for southern Europe, UTMB for France, Honolulu's largely Japanese field for Japan.</li>
+      <li><b>Flip the calendar below the equator.</b> An Australian summer is a British winter, so content, campaigns and stock planning run on opposite cycles, and your AU warehouse means operations are already ahead of marketing there.</li>
+      <li><b>Let marketing catch up with logistics.</b> The localised social handles hold a few thousand followers between them, so each market needs a deliberate decision, invest properly or fold back into the global brand.</li>
+    </ul></div>
+  </div>
+  <p style="max-width:840px;margin-top:16px;">The sequencing follows from the machinery. Deepen the US, where you already lead the performance brands. Build the German-language engine for DACH, where the demand above is proven and unclaimed. Take the UAE on the heat story and the IRONMAN 70.3 presence, ride the warehouse into Australia and New Zealand, and let the Honolulu partnership open Japan.</p>
+  <p class="note" style="max-width:840px;">German figures are live from DataForSEO, German-language Google in Germany, 1 August 2026, the same method as the UK and US data. The language check looked for German, French and Japanese storefronts at the store's own country addresses, and every one came back page-not-found on 1 August 2026, so a translated presence elsewhere, if one exists, is not linked from the main store. Local-language demand for France and Japan should be sized the same way before committing either market.</p>
+</section>
+
+<!-- 9 RETAIL -->
+<section id="retail">
+  <div class="eyebrow2">09 · Retail expansion</div>
+  <h2 class="title">Retail as paid-for trial</h2>
+  <p class="sub">One channel from the review deserves its own section, because retail is where a DTC brand can most easily buy new trial or most easily lose margin, and the difference between the two is discipline. My governing test for every retail decision is simple. Does it put product in the hands of an athlete you cannot reach on Meta or Google, and does it route them back to the planner?</p>
+  <p style="max-width:820px;">You are already in retail through Sigma Sports, Healf, The Feed, Amazon and Fuel Goods, so the question is which channels to lean into and how to instrument them so they feed DTC. The reference set makes the choice clear. Maurten runs selective specialty plus owned events as a credibility placement, Science in Sport went mass and ended up commoditised and promotion-driven, and LMNT only entered grocery after six years of DTC scale and a purpose-built everyday SKU. Maurten's discipline is the model here, and SiS's route is the warning.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Priority</th><th>Channel</th><th>Why it fits</th><th>Trade-off</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tier t1">DO FIRST</span></td><td class="b">Specialty endurance retail</td><td>Fleet Feet, REI and Road Runner in the US, Sigma, Tri UK and Sportsshoes in the UK. Where the committed athlete discovers serious fuel, next to Maurten and SiS.</td><td>Wholesale margin, low brand risk. The clearest way to buy trial cheaper than Meta.</td></tr>
+      <tr><td><span class="tier t1">DO FIRST</span></td><td class="b">Event &amp; expo retail</td><td>IRONMAN and marathon expos you already sponsor, plus Hyrox village and gravel-race pop-ups. The highest-intent trial in the sport.</td><td>Operationally heavy and low volume, but the best data capture per contact, with the fixed cost largely sunk.</td></tr>
+      <tr><td><span class="tier t1">DO FIRST</span></td><td class="b">Digital marketplaces</td><td>Discipline on Amazon, more depth with The Feed, a TikTok Shop test for the younger audience, Zwift tie-ins.</td><td>The least brand-dilutive retail. Manage Amazon cannibalisation with price parity and keep the best bundles for DTC.</td></tr>
+      <tr><td><span class="tier t2">TEST</span></td><td class="b">Gym / Hyrox / functional</td><td>Grassroots box and gym stocking, coach networks, sampling at gym-level meetups.</td><td>Fragmented and costly to serve, with entrenched sponsors. Scale only what converts to planner sign-ups.</td></tr>
+      <tr><td><span class="tier t2">TEST</span></td><td class="b">International distributors</td><td>UAE first on the heat story, then DACH, AU/NZ and Japan. Low capital for a bootstrapped brand.</td><td>Margin compresses most here and the distributor owns the customer, so keep the planner under global control.</td></tr>
+      <tr><td><span class="tier t3">DEFER</span></td><td class="b">Mass grocery / pharmacy</td><td>Boots, Whole Foods, Target and GNC, and only ever with a distinct everyday SKU separated from the performance line.</td><td>Listing fees, promo depth and own-label pressure. Going now would repeat the SiS mistake.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="win"><b>How retail feeds DTC instead of cannibalising it.</b> A unique QR per retailer in every pack drives to the free planner, so the core KPI becomes planner completions sourced from retail rather than units shifted. Measure trial-to-DTC conversion and an effective retail CAC (margin sacrificed plus trade cost, divided by DTC customers acquired) against blended paid CAC, and cut any channel that misses the hurdle within two to three quarters.</div>
+</section>
+
+<!-- 10 ACTIVATION & GTM -->
+<section id="activation">
+  <div class="eyebrow2">10 · Activation, content &amp; go-to-market</div>
+  <h2 class="title">What worked with IRONMAN, repeated</h2>
+  <p class="sub">Everything above only compounds if it runs as one way of working rather than a list of initiatives, and the encouraging thing is that you have already done it once, with IRONMAN. This section looks at how you activate and publish today, where the headroom is, and how the IRONMAN formula becomes repeatable for every new category and market.</p>
+
+  <div class="grid2">
+    <div class="card"><div class="label l-good">What is working</div><ul class="t" style="font-size:15px;">
+      <li><b>Race activation is best-in-class trial</b>, with on-course product, expo presence and courses loaded into the planner. Few brands fuse sponsorship and product this well.</li>
+      <li><b>The content engine has real depth</b>, hundreds of cited, scientist-bylined pieces plus athlete case studies with intake data no competitor publishes.</li>
+      <li><b>The tone is right</b>, evidence-led but unintimidating, athlete to athlete.</li>
+    </ul></div>
+    <div class="card"><div class="label l-op">Where there is headroom</div><ul class="t" style="font-size:15px;">
+      <li><b>Activation could capture more of what it earns</b>, because the impressions made on course deserve a QR, code or sweat-test loop to turn them into named athletes.</li>
+      <li><b>The case-study gold deserves more formats</b>, short-form video, carousels and data graphics, so it reaches the younger audience where they live.</li>
+      <li><b>A race-week routine</b> would let the evergreen library ride each IRONMAN's attention spike as well.</li>
+      <li><b>More voices could share the platform</b>, because the scientist bench is a media asset in its own right alongside Andy.</li>
+    </ul></div>
+  </div>
+
+  <h3>What I would change first</h3>
+  <ul class="clean" style="font-size:16px;max-width:840px;">
+    <li><b>Capture-first activation.</b> Every event gets a unique QR and planner preset, sweat-test stations at expo, and a measured sampled-to-repeat cohort, because the sponsorship already paid for the audience and capture is the cheap part.</li>
+    <li><b>Atomise the science.</b> Each case study and pillar becomes a stack, a 60-second vertical video, a data graphic, a carousel, a newsletter item and a podcast segment, so the same research cost buys five times the surface area.</li>
+    <li><b>A race-week editorial calendar.</b> For every major race on the partnership calendar, a course-specific fuelling guide, an athlete preview with real numbers, live race-day content and a post-race analysis.</li>
+    <li><b>Build the bench.</b> Make Shepherd, Hunt and the sports-science team named, followable voices, and the default expert sources offered to press.</li>
+  </ul>
+
+  <h3>The go-to-market sequence that ties it together</h3>
+  <div class="card tint">
+    <p style="margin:0 0 12px;font-size:15.5px;">The IRONMAN formula, written down and reusable. For any new category or market, run the same six steps.</p>
+    <div class="tablewrap"><table style="min-width:520px;">
+      <thead><tr><th>Step</th><th>Motion</th><th>Gravel example</th></tr></thead>
+      <tbody>
+        <tr><td class="b">1 · Science first</td><td>Publish the definitive fuelling content for the category</td><td>The gravel fuelling database, built from the case studies you already publish</td></tr>
+        <tr><td class="b">2 · Tool localised</td><td>Planner presets for the category's flagship events</td><td>Traka, Gralloch and UNBOUND distances with checkpoint spacing and heat</td></tr>
+        <tr><td class="b">3 · Official presence</td><td>Hydration partnership at the flagship, product on course</td><td>The Gralloch or The Traka, with Gravel Worlds as the US analogue</td></tr>
+        <tr><td class="b">4 · Athlete proof</td><td>Roster case studies with real intake data</td><td>The existing 12-rider gravel roster, systematised</td></tr>
+        <tr><td class="b">5 · Trial &amp; retail</td><td>Expo sampling, event retail, specialty stockists</td><td>A checkpoint-portioned unsupported-200 fuel pack sold at registration</td></tr>
+        <tr><td class="b">6 · CRM nurture</td><td>Category-specific lifecycle flows from every capture</td><td>Gravel-race countdown emails driven by planner data</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="win"><b>Product GTM runs through the same six steps.</b> The named carb story, your answer to Maurten's hydrogel, launches this way, and the everyday-SKU decision waits until the lifestyle audience is proven through TikTok Shop and premium health retail tests rather than defaulting into grocery.</div>
+</section>
+
+<!-- 11 PLAN -->
+<section id="plan">
+  <div class="eyebrow2">11 · The plan</div>
+  <h2 class="title">The first 100 days</h2>
+  <p class="sub">All of which comes down to a practical question, what I would actually do first. The answer is to listen and instrument before touching anything, then take the quick wins that compound, then set the longer direction with you.</p>
+  <div class="grid3">
+    <div class="phase"><div class="days">Days 1–30</div><h4>Listen &amp; instrument</h4>
+      <ul class="t" style="margin-top:10px;font-size:15px;">
+        <li>Deep dives with the team, founders and science bench</li>
+        <li>Audit analytics, CRM, attribution and the real funnel</li>
+        <li>Baseline CAC, LTV, repeat rate and channel mix</li>
+        <li>Stand up one marketing dashboard and the KPI framework</li>
+      </ul></div>
+    <div class="phase p2"><div class="days">Days 31–60</div><h4>Quick wins</h4>
+      <ul class="t" style="margin-top:10px;font-size:15px;">
+        <li>Fix PH/PF clarity and the plan-to-cart handoff</li>
+        <li>Launch referral, merchandise subscription, ship lifecycle email</li>
+        <li>Ship the Now wave of the search plan and open a tight paid-search test</li>
+        <li>Activate TikTok and coded ambassador affiliate links</li>
+      </ul></div>
+    <div class="phase p3"><div class="days">Days 61–100</div><h4>Set direction</h4>
+      <ul class="t" style="margin-top:10px;font-size:15px;">
+        <li>Multi-year roadmap and KPI targets, signed off with founders</li>
+        <li>Scope the gravel event play and the Hyrox grassroots entry</li>
+        <li>Race activation plan with on-course capture, live at one event</li>
+        <li>Specialty and expo retail trials, instrumented to feed DTC</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- 12 KPIS -->
+<section id="kpis">
+  <div class="eyebrow2">12 · How we keep score</div>
+  <h2 class="title">The KPI framework</h2>
+  <p class="sub">A plan only counts if we can watch it working, so this is the scoreboard I would put up in month one, with one number at the top that everything else serves.</p>
+  <div class="card tint" style="text-align:center;padding:20px;">
+    <div class="label l-op" style="margin:0 0 4px;">North star</div>
+    <div class="bignum" style="font-size:24px;color:var(--ink);">Personalised plans completed, then activated and retained as customers</div>
+  </div>
+  <div class="grid2" style="margin-top:14px;">
+    <div class="card"><h4 style="margin-top:0;color:var(--coral-dark);font-size:18px;">Acquisition</h4><ul class="t" style="font-size:15px;"><li>Blended and per-channel CAC, including retail effective CAC</li><li>Planner completions and email capture rate</li><li>Event and retail-sourced qualified leads</li></ul></div>
+    <div class="card"><h4 style="margin-top:0;color:var(--coral-dark);font-size:18px;">Conversion</h4><ul class="t" style="font-size:15px;"><li>Plan-to-purchase rate</li><li>PDP conversion rate</li><li>New-customer AOV</li></ul></div>
+    <div class="card"><h4 style="margin-top:0;color:var(--coral-dark);font-size:18px;">Retention &amp; LTV</h4><ul class="t" style="font-size:15px;"><li>90-day repeat rate</li><li>Subscription take-up and churn</li><li>LTV to CAC ratio</li></ul></div>
+    <div class="card"><h4 style="margin-top:0;color:var(--coral-dark);font-size:18px;">Brand &amp; market</h4><ul class="t" style="font-size:15px;"><li>Branded search volume</li><li>Share of voice against Maurten, SiS and LMNT</li><li>Aided awareness in priority markets</li></ul></div>
+  </div>
+</section>
+
+<!-- 13 TOOLS -->
+<section id="tools">
+  <div class="eyebrow2">13 · The research &amp; measurement stack</div>
+  <h2 class="title">Keeping this evidence-led</h2>
+  <p class="sub">And to keep that scoreboard honest, the stack behind it, part of which produced this document and the rest of which I would add in-seat so decisions stay on live data rather than opinion.</p>
+  <div class="grid2">
+    <div class="card"><h4 style="margin-top:0;font-size:18px;">Search &amp; content</h4><ul class="t" style="font-size:14.5px;">
+      <li><b>DataForSEO</b> (used here) or <b>Ahrefs</b> for rankings, gaps and backlinks, with <b>Google Search Console</b> and a <b>Screaming Frog</b> crawl for the technical layer.</li>
+      <li><b>AI-visibility tracking</b> (Profound, Otterly or DataForSEO's LLM-mentions data) to measure whether ChatGPT and Perplexity cite you on fuelling questions, which nobody in the category watches yet.</li>
+    </ul></div>
+    <div class="card"><h4 style="margin-top:0;font-size:18px;">Audience &amp; community</h4><ul class="t" style="font-size:14.5px;">
+      <li><b>SparkToro</b> for where endurance athletes spend attention, and <b>post-purchase surveys</b> (Fairing or KnoCommerce) for real how-did-you-hear attribution.</li>
+      <li><b>Reddit, Slowtwitch and TrainerRoad forum mining</b> for language, objections and sentiment, free and unfiltered.</li>
+    </ul></div>
+    <div class="card"><h4 style="margin-top:0;font-size:18px;">Competitor &amp; paid intelligence</h4><ul class="t" style="font-size:14.5px;">
+      <li><b>Meta Ad Library, Google Ads Transparency Center and TikTok Creative Center</b>, all free, for every rival's live creative and offers.</li>
+      <li><b>HypeAuditor or Modash</b> for creator and follower benchmarking (used here), and <b>SimilarWeb</b> for traffic-mix estimates.</li>
+    </ul></div>
+    <div class="card"><h4 style="margin-top:0;font-size:18px;">Media, CX &amp; measurement</h4><ul class="t" style="font-size:14.5px;">
+      <li><b>Muck Rack or Meltwater</b> to turn the directional media read into a real clip count and share of voice.</li>
+      <li><b>Microsoft Clarity or Hotjar</b> for session recordings on the planner funnel, <b>GA4 with strict UTM discipline</b> before any attribution platform, and <b>incrementality holdouts</b> as the honest test.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 14 TEAM -->
+<section id="team">
+  <div class="eyebrow2">14 · The team</div>
+  <h2 class="title">The team, as I see it from outside</h2>
+  <p class="sub">None of this happens without the people, and from the outside the foundations look strong. This reading comes from your public team directory, and I would expect to be corrected on the detail.</p>
+  <div class="orgrow">
+    <div class="node"><div class="role">Founder</div><div class="name">Andy Blow</div></div>
+    <div class="node"><div class="role">CEO</div><div class="name">Jonny Tye</div></div>
+    <div class="node"><div class="role">Creative Director</div><div class="name">Dave Colley</div></div>
+    <div class="node mkt"><div class="role">Creative &amp; Marketing</div><div class="name">This role's remit</div></div>
+  </div>
+  <p style="font-size:15.5px;max-width:820px;">The Creative &amp; Marketing function already has real capability across analytics and paid (Catherine Cull), social (Raff Hussey), content (Chris Knight, Dave Blow, Ant Gritton), the ambassador programme (Brad Williams) and the Sweat Test Center. That matches the brief's description of a talented team that already exists, and it shapes how I have approached this whole document, because the job as I read it is to sharpen and scale what is working rather than rebuild it.</p>
+</section>
+
+<!-- 15 QUESTIONS -->
+<section id="questions">
+  <div class="eyebrow2">15 · The first conversation</div>
+  <h2 class="title">Questions I would ask you</h2>
+  <p class="sub">Which leaves the things I cannot know from out here, and they are the questions I would most want to explore with you, because the answers are what turn this document from hypotheses into a costed plan.</p>
+  <div class="grid2">
+    <div class="card tint"><ul class="clean" style="margin:0;font-size:15.5px;"><li>What do plan completions convert to taster-pack orders at, and what happens in the journey after Fuel Skool ends?</li><li>What is the repeat rate and LTV of a race-sourced customer against an organic one?</li><li>What share of revenue is hydration against fuel, and where is the growth?</li></ul></div>
+    <div class="card tint"><ul class="clean" style="margin:0;font-size:15.5px;"><li>What is blended CAC today, and which channel carries acquisition?</li><li>How mature is the CRM on top of the planner and sweat data?</li><li>Is anything already in flight on gravel, Hyrox, women's fuelling or retail?</li><li>How does this role's remit sit alongside the marketing leadership and creative structure in place today?</li></ul></div>
+  </div>
+
+  <div class="teamcard">
+    <div class="tc-photo"><img src="data:image/jpeg;base64,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" alt="James Vickers"></div>
+    <div class="tc-text">
+      <div class="tc-name">James Vickers (JV)</div>
+      <div class="tc-role">Excited Applicant</div>
+      <ul class="tc-bullets">
+        <li>13th at The Gralloch UCI</li>
+        <li>Bucket list race: Challenge Roth</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 16 METHOD/SOURCES -->
+<section id="sources">
+  <div class="eyebrow2">16 · Method &amp; sources</div>
+  <h2 class="title">How this was built</h2>
+  <p class="sub">Finally, the workings, because a document that asks you to trust its numbers should show where every one of them came from.</p>
+  <p class="method">Design note. The logo and the four-band strength palette are the brand's own supplied assets, and the display typography is Baloo 2, the closest web-available match to PF&amp;H's rounded brand type, because the production fonts are bundled and not publicly extractable. Swap in the licensed brand font before any external use.</p>
+  <p class="method">This proposal is an outside-in analysis built on public information, live third-party data, and a complete first-hand walkthrough of the Fuel &amp; Hydration Planner (a gravel plan, completed July 2026) including the resulting plan, taster pack and follow-up email. Organic and paid search figures come from DataForSEO (UK and US Google, July 2026, with German-market figures pulled 1 August 2026), and the paid-search read reflects only what that dataset observes, so it needs verifying in the Google Ads Transparency Center before being quoted. Social follower counts are third-party estimates (HypeAuditor for Instagram and TikTok, YouTube's own public counts). Media share of voice is a directional read from title-scoped search rather than a monitoring-tool clip count. Participation figures come from event organisers and industry press and are flagged where directional. Anything depending on internal analytics, conversion, AOV, LTV, CAC or margin, should be validated before external use. Prepared by James Vickers.</p>
+  <details class="src">
+    <summary>Show key sources</summary>
+    <ul>
+      <li><a href="https://www.precisionhydration.com/about/our-story/">PF&amp;H — Our Story</a></li>
+      <li><a href="https://www.precisionhydration.com/about/our-team/">PF&amp;H — Our Team</a></li>
+      <li><a href="https://www.precisionhydration.com/wholesale/">PF&amp;H — Wholesale programme</a></li>
+      <li><a href="https://www.precisionhydration.com/planner/">PF&amp;H — Fuel &amp; Hydration Planner</a></li>
+      <li><a href="https://www.precisionhydration.com/athletes/case-studies/cycling/paige-onweller/31-05-2025/">PF&amp;H — Paige Onweller UNBOUND case study</a></li>
+      <li><a href="https://endurance.biz/2025/industry-news/precision-fuel-hydration-going-global-as-official-hydration-partner-of-ironman-and-ironman-70-3-global-series/">endurance.biz — IRONMAN global partnership</a></li>
+      <li><a href="https://slowtwitch.com/news/ironman-expands-precision-fuel-hydration-partnership-with-ph1000-the-official-hydration-drink-globally/">Slowtwitch — PH1000 global</a></li>
+      <li><a href="https://ucigravelworldseries.com/en/gravelking-uci-gravel-world-series-2026-a-record-45-events-worldwide/">UCI Gravel World Series — record 45 events</a></li>
+      <li><a href="https://gravelearthseries.com/2025/05/05/the-traka-moves-the-whole-world-from-girona-with-the-best-gravel-week-of-the-year/">The Traka — 4,000+ riders, 74 countries</a></li>
+      <li><a href="https://www.granfondoguide.com/Contents/Index/8526/">The Gralloch — ~3,000 riders</a></li>
+      <li><a href="https://run247.com/running-news/trail/utmb-world-series-2025-facts-and-figures">UTMB World Series 2025 — 146,933 runners</a></li>
+      <li><a href="https://www.londonmarathonevents.co.uk/london-marathon/article/new-ballot-world-record-2026-tcs-london-marathon">London Marathon — 1.1M ballot record</a></li>
+      <li><a href="https://press.strava.com/articles/strava-releases-12th-annual-year-in-sport-trend-report-2025">Strava Year in Sport 2025</a></li>
+      <li><a href="https://www.roxradar.com/news/hyrox-sponsors-2025">RoxRadar — Hyrox 2025 sponsors</a></li>
+      <li><a href="https://www.myprotein.com/c/hyrox/">Myprotein x Hyrox</a></li>
+      <li><a href="https://www.rei.com/b/maurten">Maurten at REI</a></li>
+      <li><a href="https://www.fleetfeet.com/browse/maurten">Maurten at Fleet Feet</a></li>
+      <li><a href="https://science.drinklmnt.com/lmnt-at-work/reaching-more-people-with-retail">LMNT — retail expansion</a></li>
+      <li><a href="https://www.endurancesportswire.com/science-in-sport-sis-announce-exclusive-us-retail-partnership-with-the-feed/">SiS — The Feed partnership</a></li>
+      <li><a href="https://www.endurancesportswire.com/belgian-waffle-ride-renews-partnership-with-neversecond-as-official-performance-nutrition-partner/">Neversecond x Belgian Waffle Ride</a></li>
+      <li><a href="https://news.lifetime.life/2025-10-23-Life-Time-Unveils-2026-Grand-Prix-Series">Life Time — 2026 Grand Prix</a></li>
+      <li><a href="https://www.crunchbase.com/organization/precision-hydration">Crunchbase — PF&amp;H</a></li>
+      <li><a href="https://tri-today.com/2026/07/hyrox-is-growing-rapidly-already-six-to-eight-times-larger-than-ironman/">Tri-Today — Hyrox vs IRONMAN</a></li>
+      <li><a href="https://www.grandviewresearch.com/industry-analysis/sports-nutrition-market">Grand View — sports nutrition market</a></li>
+      <li><a href="https://www.factmr.com/report/female-athlete-sports-nutrition-market">Fact.MR — female athlete nutrition</a></li>
+      <li><a href="https://www.wser.org/2025/12/03/2026-lottery-statistics/">Western States — 2026 lottery</a></li>
+    </ul>
+  </details>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <img class="pfh-logo" alt="Precision Fuel &amp; Hydration" style="height:30px;">
+    <div style="height:6px;width:130px;background:var(--band);border-radius:3px;"></div>
+    <div>Precision Fuel &amp; Hydration · Marketing Director Proposal · Prepared by James Vickers · July 2026. Outside-in analysis on public and live third-party data, with internal figures to be validated before external use.</div>
+  </div>
+</footer>
+
+<script>
+  // PF&H logo (embedded once, applied to all placements)
+  const PFH_LOGO="data:image/png;base64,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";
+  document.querySelectorAll('.pfh-logo').forEach(i=>i.src=PFH_LOGO);
+
+  // Scroll progress
+  const pfill=document.getElementById('pfill');
+  addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    pfill.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+
+  // Tabs
+  const tabs=document.querySelectorAll('#chtabs button');
+  const panes=document.querySelectorAll('.tabpane');
+  tabs.forEach(b=>b.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    panes.forEach(p=>p.classList.toggle('on',p.dataset.p===b.dataset.t));
+  }));
+
+  // Keyword filters
+  const fbtns=document.querySelectorAll('#kwfilters button');
+  const rows=document.querySelectorAll('#kwtable tbody tr');
+  fbtns.forEach(b=>b.addEventListener('click',()=>{
+    fbtns.forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    rows.forEach(r=>r.classList.toggle('hiderow',b.dataset.f!=='all'&&r.dataset.w!==b.dataset.f));
+    document.querySelectorAll('#kwtable tr.playrow.open').forEach(r=>{if(r.classList.contains('hiderow')){r.classList.remove('open');r.previousElementSibling.classList.remove('open');}});
+  }));
+
+  // Sortable keyword table with expandable play rows
+  const kt=document.getElementById('kwtable');
+  if(kt){
+    const tb=kt.querySelector('tbody');
+    const waveOrder={'NOW':0,'NEXT':1,'HORIZON':2};
+    const mains=()=>[...tb.querySelectorAll('tr.mainrow')];
+    // expand/collapse
+    mains().forEach(tr=>tr.addEventListener('click',()=>{
+      tr.classList.toggle('open');
+      tr.nextElementSibling.classList.toggle('open');
+    }));
+    const parseCell=(tr,c,t)=>{
+      const txt=tr.cells[c].textContent.replace('▸','').trim();
+      if(t==='text')return txt.toLowerCase();
+      if(t==='wave')return waveOrder[txt.toUpperCase()]??9;
+      const m=txt.replace(/,/g,'').match(/\d+(\.\d+)?/);
+      if(t==='rank')return m?parseFloat(m[0]):999; // dash = outside top 100, sorts last ascending
+      return m?parseFloat(m[0]):-1;
+    };
+    kt.querySelectorAll('th.sort').forEach(th=>th.addEventListener('click',()=>{
+      const c=+th.dataset.c, t=th.dataset.t;
+      const dir=th.classList.contains('asc')?-1:1;
+      kt.querySelectorAll('th.sort').forEach(x=>x.classList.remove('asc','desc'));
+      th.classList.add(dir===1?'asc':'desc');
+      mains().sort((a,b)=>{
+        const va=parseCell(a,c,t), vb=parseCell(b,c,t);
+        return (va<vb?-1:va>vb?1:0)*dir;
+      }).forEach(r=>{const p=r.nextElementSibling;tb.appendChild(r);tb.appendChild(p);});
+    }));
+  }
+
+  // Nav highlight
+  const secs=[...document.querySelectorAll('section[id]')];
+  const links=[...document.querySelectorAll('nav.top a')];
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
