@@ -1,6 +1,19 @@
 // Precision Fuel & Hydration tailoring layer.
 // Loads after data.js and adjusts RESUME_DATA for this application copy.
 (function () {
+    // Make the Precision node unmissable, and style the proposal button
+    const pfhStyle = document.createElement("style");
+    pfhStyle.textContent = [
+        "#node-precision .node-shape{width:60px;height:60px;font-size:20px;border:3px solid #FC5000;color:#FC5000;background:#FFF3ED;box-shadow:0 0 0 6px rgba(252,80,0,.14),0 4px 16px rgba(252,80,0,.35);animation:pfhpulse 1.8s ease-in-out infinite;}",
+        "#node-precision .node-label{color:#FC5000;font-weight:700;font-size:12px;}",
+        "#node-precision .node-sublabel{color:#FC5000;}",
+        "@keyframes pfhpulse{0%,100%{box-shadow:0 0 0 5px rgba(252,80,0,.16),0 4px 14px rgba(252,80,0,.30);}50%{box-shadow:0 0 0 14px rgba(252,80,0,.04),0 4px 22px rgba(252,80,0,.45);}}",
+        "@media (prefers-reduced-motion: reduce){#node-precision .node-shape{animation:none;}}",
+        ".pfh-proposal-btn{display:inline-block;margin-top:6px;background:#FC5000;color:#fff !important;font-weight:700;padding:10px 20px;border-radius:10px;text-decoration:none !important;}",
+        ".pfh-proposal-btn:hover{background:#D64300;}"
+    ].join("\n");
+    document.head.appendChild(pfhStyle);
+
     // Credentials: MCIM · MCIPR everywhere
     RESUME_DATA.center.sublabel = "MCIM · MCIPR";
     if (RESUME_DATA.details.james) {
@@ -55,6 +68,7 @@
                     <ul>
                         <li>Alongside this resume I've submitted a strategic proposal built on live UK, US and German search data, a first-hand walkthrough of the Fuel & Hydration Planner and a plan for a first hundred days.</li>
                     </ul>
+                    <a class="pfh-proposal-btn" href="https://scylark.github.io/interactive-resume/proposal/" target="_blank" rel="noopener">Read the proposal →</a>
                 </div>
                 <div class="stat-grid">
                     <div class="stat">
