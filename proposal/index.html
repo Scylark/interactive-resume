@@ -2,11 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Precision Fuel &amp; Hydration — Marketing Director Proposal</title>
-<meta http-equiv="refresh" content="0;url=../PFH-Marketing-Director-Proposal.html">
-<link rel="canonical" href="../PFH-Marketing-Director-Proposal.html">
 </head>
 <body>
-<p>Opening the proposal… <a href="../PFH-Marketing-Director-Proposal.html">Continue</a></p>
+<script>
+(async () => {
+  try {
+    const res = await fetch('../PFH-Marketing-Director-Proposal.html', { cache: 'reload' });
+    if (!res.ok) throw new Error('fetch failed');
+    let t = await res.text();
+    const swaps = [
+      ["finish the funnel, tell the fuel story, and repeat what worked with IRONMAN in the next categories and channels, all measured on acquisition, retention and lifetime value.",
+       "finish the funnel, tell the fuel story, and take the IRONMAN strategy into the next categories and channels once it has proven itself, all measured on acquisition, retention and lifetime value."],
+      ["<h2 class=\"title\">What worked with IRONMAN, repeated</h2>",
+       "<h2 class=\"title\">The IRONMAN strategy, and when to repeat it</h2>"],
+      ["Everything above only compounds if it runs as one way of working rather than a list of initiatives, and the encouraging thing is that you have already done it once, with IRONMAN. This section looks at how you activate and publish today, where the headroom is, and how the IRONMAN formula becomes repeatable for every new category and market.",
+       "Everything above only compounds if it runs as one way of working rather than a list of initiatives, and you have already built that way of working once, with IRONMAN. Whether that partnership is hitting its objectives is something only your numbers can answer, and it is one of the first questions I would ask, because the strategy only deserves repeating once it has. This section looks at how you activate and publish today, where the headroom is, and what would make the IRONMAN strategy repeatable for the next category and market."],
+      ["The IRONMAN formula, written down and reusable. For any new category or market, run the same six steps.",
+       "The IRONMAN strategy, written down. Once the partnership has hit its objectives, a new category or market runs the same six steps."],
+      ["<li><b>The same approach carried into gravel and Hyrox.</b> The six steps in the go-to-market section, run first at a UK gravel flagship where the hydration lane is still open.</li>",
+       "<li><b>The same approach carried into gravel and Hyrox, once IRONMAN has earned it.</b> The six steps in the go-to-market section, run first at a UK gravel flagship where the hydration lane is still open, and only once the IRONMAN activation is proving its numbers.</li>"],
+      ["<li>What do plan completions convert to taster-pack orders at, and what happens in the journey after Fuel Skool ends?</li>",
+       "<li>What did the IRONMAN partnership set out to achieve, and how is it tracking against those objectives?</li><li>What do plan completions convert to taster-pack orders at, and what happens in the journey after Fuel Skool ends?</li>"],
+      ["<span>July 2026</span>",
+       "<span>July 2026</span>\n      <span><a href=\"https://scylark.github.io/interactive-resume/precision/\" target=\"_blank\" rel=\"noopener\">My interactive resume →</a></span>"]
+    ];
+    for (const [a, b] of swaps) t = t.split(a).join(b);
+    const doc = new DOMParser().parseFromString(t, 'text/html');
+    document.replaceChild(document.adoptNode(doc.documentElement), document.documentElement);
+    document.querySelectorAll('script').forEach(o => {
+      const s = document.createElement('script');
+      for (const a of o.attributes) s.setAttribute(a.name, a.value);
+      s.textContent = o.textContent;
+      o.replaceWith(s);
+    });
+  } catch (e) {
+    location.replace('../PFH-Marketing-Director-Proposal.html');
+  }
+})();
+</script>
+<noscript>
+<a href="../PFH-Marketing-Director-Proposal.html">Open the proposal</a>
+</noscript>
 </body>
 </html>
