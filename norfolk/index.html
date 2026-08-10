@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Norfolk · 10–17 August</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --chalk:#F1F4EF;
+  --chalk-2:#E6EAE2;
+  --flint:#4B6068;
+  --ink:#16262C;
+  --marram:#B8862B;
+  --line:rgba(22,38,44,.16);
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Public Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--chalk);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--flint);margin:0;
+}
+
+/* hero */
+.hero{padding:52px 0 34px;border-bottom:1px solid var(--line)}
+.hero h1{
+  font-family:var(--display);font-optical-sizing:auto;font-weight:800;
+  font-size:clamp(38px,9vw,68px);line-height:.98;letter-spacing:-.02em;
+  margin:16px 0 0;max-width:11ch;
+}
+.hero h1 em{font-style:normal;color:var(--flint)}
+.standfirst{margin:20px 0 0;font-size:clamp(16px,2.4vw,18.5px);max-width:46ch;color:#2B3F46}
+.facts{
+  display:flex;flex-wrap:wrap;gap:0 28px;margin:26px 0 0;padding:0;list-style:none;
+  font-family:var(--mono);font-size:12.5px;color:var(--flint);
+}
+.facts li strong{display:block;font-weight:600;color:var(--ink);font-size:15px;letter-spacing:-.01em}
+
+/* tide drift */
+.drift{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+.drift h2{font-family:var(--display);font-weight:600;font-size:clamp(22px,4.4vw,28px);letter-spacing:-.015em;margin:12px 0 6px}
+.drift .note{margin:0 0 26px;font-size:14.5px;color:var(--flint);max-width:52ch}
+.rows{display:grid;gap:9px}
+.row{display:grid;grid-template-columns:44px 1fr 58px;align-items:center;gap:12px}
+.row-day{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--flint);letter-spacing:.04em}
+.row-time{font-family:var(--mono);font-size:12.5px;font-weight:600;text-align:right}
+.track{position:relative;height:22px;background:linear-gradient(var(--chalk-2),var(--chalk-2)) center/100% 2px no-repeat}
+.window{
+  position:absolute;top:3px;bottom:3px;background:rgba(184,134,43,.22);border-radius:2px;
+  transform:scaleX(.02);transform-origin:50% 50%;opacity:0;
+  animation:grow .75s cubic-bezier(.2,.7,.25,1) forwards;animation-delay:var(--d,0s);
+}
+.notch{
+  position:absolute;top:0;bottom:0;width:2px;background:var(--marram);opacity:0;
+  animation:fade .5s ease forwards;animation-delay:calc(var(--d,0s) + .2s);
+}
+@keyframes grow{to{transform:scaleX(1);opacity:1}}
+@keyframes fade{to{opacity:1}}
+.scale{display:grid;grid-template-columns:44px 1fr 58px;gap:12px;margin-top:10px}
+.scale-inner{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--flint)}
+.caveat{
+  margin:22px 0 0;padding:12px 14px;border-left:2px solid var(--marram);
+  background:rgba(184,134,43,.08);font-size:13.5px;color:#2B3F46;
+}
+
+/* days */
+.days{padding-top:10px}
+.day{padding:34px 0;border-bottom:1px solid var(--line)}
+.day-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.day-date{font-family:var(--display);font-weight:800;font-size:clamp(26px,5.2vw,34px);letter-spacing:-.02em;margin:0}
+.day-date span{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--flint);display:block;margin-bottom:4px;text-transform:uppercase}
+.day-tide{font-family:var(--mono);font-size:12.5px;color:var(--flint);text-align:right;line-height:1.4}
+.day-tide b{display:block;font-size:20px;font-weight:600;color:var(--marram);letter-spacing:-.01em}
+.day-lede{margin:16px 0 0;font-size:16.5px;max-width:54ch}
+.slots{margin:20px 0 0;display:grid;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slot{display:grid;grid-template-columns:88px 1fr;gap:14px;background:var(--chalk);padding:11px 0}
+.slot dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--flint);padding-top:3px;margin:0}
+.slot dd{margin:0;font-size:15.5px}
+.tag{
+  display:inline-block;margin-top:14px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;
+  border:1px solid var(--marram);color:#8A6415;border-radius:2px;
+}
+.tag.out{border-color:var(--flint);color:var(--flint)}
+
+/* shopping */
+.shops{padding:44px 0 0}
+.shops h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,6vw,40px);letter-spacing:-.02em;margin:14px 0 8px}
+.shops .note{margin:0 0 10px;font-size:15px;color:var(--flint);max-width:52ch}
+.listbar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin:22px 0 28px;padding-bottom:14px;border-bottom:1px solid var(--line);flex-wrap:wrap;
+}
+.listbar .status{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--flint)}
+.reset{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:none;border:1px solid var(--line);color:var(--flint);
+  padding:6px 11px;border-radius:2px;cursor:pointer;
+}
+.reset:hover{border-color:var(--flint);color:var(--ink)}
+.shop{margin:0 0 26px;padding:20px 20px 18px;background:var(--chalk-2);border-radius:3px}
+.shop.essentials{background:none;border:1px solid var(--marram);border-radius:3px}
+.shop-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.shop h3{font-family:var(--display);font-weight:600;font-size:19px;margin:6px 0 4px;letter-spacing:-.01em}
+.shop .blurb{margin:0 0 14px;font-size:14px;color:var(--flint);max-width:46ch}
+.count{font-family:var(--mono);font-size:11.5px;color:var(--flint);letter-spacing:.06em;white-space:nowrap}
+.items{list-style:none;margin:0;padding:0;columns:2;column-gap:26px}
+.items li{margin:0 0 2px;break-inside:avoid}
+.check{
+  display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  padding:5px 6px 5px 0;font-size:15px;line-height:1.4;border-radius:2px;
+}
+.check input{position:absolute;opacity:0;width:0;height:0}
+.box{
+  flex:0 0 auto;width:17px;height:17px;margin-top:2px;border:1.5px solid var(--flint);
+  border-radius:2px;background:transparent;position:relative;transition:background .12s,border-color .12s;
+}
+.box::after{
+  content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;
+  border:solid var(--chalk);border-width:0 2px 2px 0;transform:rotate(42deg) scale(0);
+  transition:transform .14s cubic-bezier(.2,.8,.3,1.4);
+}
+.check input:checked + .box{background:var(--marram);border-color:var(--marram)}
+.check input:checked + .box::after{transform:rotate(42deg) scale(1)}
+.check input:focus-visible + .box{outline:2px solid var(--marram);outline-offset:2px}
+.check .txt{transition:opacity .15s}
+.check input:checked ~ .txt{opacity:.42;text-decoration:line-through;text-decoration-thickness:1px}
+.crab{margin-top:30px;padding:22px;border:1px solid var(--line);border-radius:3px}
+.crab h3{font-family:var(--display);font-weight:600;font-size:19px;margin:6px 0 8px}
+.crab p{margin:0;font-size:15px;max-width:50ch}
+
+footer{padding:46px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--flint);letter-spacing:.04em}
+
+@media (max-width:560px){
+  .items{columns:1}
+  .slot{grid-template-columns:1fr;gap:2px}
+  .slot dt{padding-top:0}
+  .day-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .day-tide{text-align:left}
+  .row,.scale{grid-template-columns:38px 1fr 50px;gap:8px}
+  .check{padding:7px 6px 7px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .window,.notch{animation:none;opacity:1;transform:none}
+  .box::after,.check .txt{transition:none}
+}
+:focus-visible{outline:2px solid var(--marram);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">North Norfolk · Mon 10 – Mon 17 August</p>
+    <h1>Seven days on the <em>chalk reef</em></h1>
+    <p class="standfirst">Three of us, one four-year-old, and a low tide that runs fifty minutes later every single day. The week is built around that drift: fossils when the reef is out, food when it isn't.</p>
+    <ul class="facts">
+      <li>Check in<strong>Mon, 16:00</strong></li>
+      <li>Check out<strong>Mon, 10:00</strong></li>
+      <li>Nights<strong>Seven</strong></li>
+      <li>Eating out<strong>Two</strong></li>
+    </ul>
+  </header>
+
+  <section class="drift">
+    <p class="eyebrow">The one thing that governs the week</p>
+    <h2>Low tide marches right</h2>
+    <p class="note">Each bar is one afternoon, 06:00 to 21:00. The gold band is the workable window either side of low water, when the reef at West Runton is exposed and the fossils are findable.</p>
+    <div class="rows" id="rows"></div>
+    <div class="scale" aria-hidden="true">
+      <div></div>
+      <div class="scale-inner"><span>06:00</span><span>11:00</span><span>16:00</span><span>21:00</span></div>
+      <div></div>
+    </div>
+    <p class="caveat"><strong>These are extrapolated, not looked up.</strong> Worked forward from Sunday's low water at Cromer, so treat them as give or take twenty minutes and confirm on the day. There's a second low each morning too, drifting from about 01:40 on Monday to 07:30 by the last day, which is too early to be useful until the weekend.</p>
+  </section>
+
+  <section class="days" id="days"></section>
+
+  <section class="shops">
+    <p class="eyebrow">Provisions</p>
+    <h2>The shopping</h2>
+    <p class="note">Essentials first, then one big shop on the way in, a barbecue run mid-week, and a weekend top-up. Crab and bread sit outside all of this and get bought fresh as you pass.</p>
+
+    <div class="listbar">
+      <span class="status" id="status">Loading your list…</span>
+      <button class="reset" id="reset" type="button">Clear all ticks</button>
+    </div>
+
+    <div id="shops"></div>
+
+    <div class="crab">
+      <p class="eyebrow">Bought fresh, not on a list</p>
+      <h3>Crab and bread</h3>
+      <p>Picked up as you pass through Sheringham or Cromer, usually the morning of the day you eat it. Dressed crab, a decent loaf, mayonnaise, lemon, and something green. That's lunch most days and it doesn't need planning beyond remembering to stop.</p>
+    </div>
+  </section>
+
+  <footer>Built for the week of 10 August · ticks save automatically · tide times estimated, confirm locally</footer>
+
+</div>
+
+<script>
+/* ---------------- itinerary data ---------------- */
+const DAYS = [
+  {dow:"Monday",date:"10 Aug",label:"Arrival",low:"14:05",lowMin:845,morningLow:"01:40",
+   lede:"Leave home around noon, big shop on the way, keys at four. Low tide falls while you're still on the road, so today is unpacking and an easy dinner.",
+   slots:[["Morning","Pack up, leave around 12:00"],["En route","Essentials plus the big shop"],["16:00","Into the Airbnb, unpack, garden recce"],["Dinner","Spaghetti bolognese, made in one pan"],["Tonight","Overnight oats in jars for tomorrow"]],
+   tag:"Shop one"},
+  {dow:"Tuesday",date:"11 Aug",label:"First reef",low:"14:55",lowMin:895,morningLow:"02:30",
+   lede:"A slow morning, then the first proper fossil hunt as the reef opens up mid-afternoon. Steam train first if he's up early and full of it.",
+   slots:[["Breakfast","Overnight oats"],["Morning","North Norfolk Railway, Sheringham to Holt and back"],["Lunch","Crab and fresh bread, picked up in Sheringham"],["13:30","Down to West Runton before the water's fully out"],["Afternoon","Fossil hunt on the exposed platform"],["Dinner","Sausages and pasta, or first barbecue if the evening holds"]]},
+  {dow:"Wednesday",date:"12 Aug",label:"The big one",low:"15:45",lowMin:945,morningLow:"03:20",
+   lede:"Best day of the week and the tide cooperates. A long build-up on the pier, then the whole afternoon on the beach into the fossil window.",
+   slots:[["Breakfast","Porridge"],["Morning","Crabbing off Cromer Pier, then the pirate playground on the prom"],["Lunch","Crab rolls on the beach"],["Afternoon","West Runton — swim, dig, then fossils as the reef comes out"],["On the way back","Barbecue shop"],["Dinner","Barbecue. Marshmallows if he lasts"]],
+   tag:"Shop two"},
+  {dow:"Thursday",date:"13 Aug",label:"Big sky",low:"16:35",lowMin:995,morningLow:"04:10",
+   lede:"Second of the good days. Change of scene — Wells for the dunes, the pinewoods and a beach big enough to lose an afternoon in.",
+   slots:[["Breakfast","Overnight oats"],["Morning","Drive to Wells-next-the-Sea, beach huts and dunes"],["Lunch","Picnic in the pines, or the beach café"],["Afternoon","Long stretch on the sand, shallow water at the top of the tide"],["Back by","Late afternoon, showers all round"],["Dinner","Out in Cromer — book something"]],
+   tag:"Eating out",tagKind:"out"},
+  {dow:"Friday",date:"14 Aug",label:"Mammoth day",low:"17:25",lowMin:1045,morningLow:"05:00",
+   lede:"Low water is late now, so the beach shifts to a short evening session. Morning belongs to the museum, which is where the West Runton mammoth actually lives.",
+   slots:[["Breakfast","Porridge"],["Morning","Cromer Museum — fossil gallery and the mammoth"],["Lunch","Crab again, no apologies"],["Afternoon","Weekend top-up shop"],["Late afternoon","Short beach stint into the low-tide window"],["Dinner","In, and easy. Pasta or something from the freezer"]],
+   tag:"Shop three"},
+  {dow:"Saturday",date:"15 Aug",label:"Rock pools",low:"18:15",lowMin:1095,morningLow:"05:50",
+   lede:"Mornings are better for water play now that low tide has drifted into the evening. Sheringham for the pools, and the ice cream that comes with it.",
+   slots:[["Breakfast","Overnight oats"],["Morning","Sheringham — rock pools, nets, buckets"],["Lunch","Ronaldo's, and something more substantial after"],["Afternoon","Home, quiet hour, garden"],["Dinner","Out for the second night, or final barbecue if you'd rather stay put"]],
+   tag:"Eating out",tagKind:"out"},
+  {dow:"Sunday",date:"16 Aug",label:"Last full day",low:"19:05",lowMin:1145,morningLow:"06:40",
+   lede:"Gentle. Nothing that needs an early start or a long drive. Whatever's left in the fridge becomes dinner.",
+   slots:[["Breakfast","Porridge"],["Morning","Blakeney Quay — crabbing, or a seal trip if he'd love it"],["Lunch","Out and about"],["Afternoon","Start the quiet pack-up while he naps or doesn't"],["Dinner","Fridge clear-out. Last of the barbecue, or pasta"]]},
+  {dow:"Monday",date:"17 Aug",label:"Home",low:"19:55",lowMin:1195,morningLow:"07:30",
+   lede:"Out by ten, so everything that can be packed on Sunday night should be.",
+   slots:[["Breakfast","Porridge, last of the milk"],["09:00","Strip beds, load car, sweep for small plastic things"],["10:00","Keys back"],["Road","Snacks in the front, not the boot"]]}
+];
+
+/* ---------------- shopping data ---------------- */
+const SHOPS = [
+  {id:"ess",cls:"essentials",eyebrow:"Always in the basket",title:"Essentials",
+   blurb:"The non-negotiables. Buy on Monday, then top these up on every shop after.",
+   items:["Bread","Butter","Milk","Smoothies","Crisps","Yoghurt","Chocolate","Fruit"]},
+  {id:"one",eyebrow:"Shop one · Monday, en route",title:"The big one",
+   blurb:"Done before check-in so the fridge is full the moment you walk in.",
+   items:["Porridge oats","Berries and bananas","Honey or maple syrup","Spaghetti and pasta shapes","Beef mince","Passata and tomato purée","Onions, garlic, carrots","Parmesan","Cheese and ham","Mayonnaise (for the crab)","Lemons","Salad and cucumber","Juice or squash","Tea and coffee","Olive oil, salt, pepper","Stock cubes","Ice lollies","Beer or wine","Bin bags and foil","Washing-up liquid","Loo roll","Suncream top-up"]},
+  {id:"two",eyebrow:"Shop two · Wednesday, on the way back",title:"Barbecue run",
+   blurb:"Wednesday and Thursday are the good days. Buy for both.",
+   items:["Charcoal and firelighters","Burgers and buns","Sausages","Chicken thighs","Halloumi","Corn on the cob","Tomatoes and salad","Coleslaw or potato salad","Marshmallows","Essentials top-up"]},
+  {id:"three",eyebrow:"Shop three · Friday",title:"Weekend top-up",
+   blurb:"Small. You're eating down the fridge from here.",
+   items:["Something easy for Friday night","Beach snacks","More lollies","Essentials top-up"]}
+];
+
+/* ---------------- tide strip ---------------- */
+const START=360,END=1260,SPAN=END-START,PAD=90;
+const rows=document.getElementById("rows");
+DAYS.forEach((d,i)=>{
+  const c=(d.lowMin-START)/SPAN*100, h=PAD/SPAN*100;
+  const r=document.createElement("div");
+  r.className="row";
+  r.innerHTML=`<div class="row-day">${d.dow.slice(0,3).toUpperCase()} ${d.date.split(" ")[0]}</div>
+    <div class="track"><div class="window" style="left:${c-h}%;width:${h*2}%;--d:${i*0.09}s"></div>
+    <div class="notch" style="left:${c}%;--d:${i*0.09}s"></div></div>
+    <div class="row-time">${d.low}</div>`;
+  rows.appendChild(r);
+});
+
+/* ---------------- days ---------------- */
+const daysEl=document.getElementById("days");
+DAYS.forEach(d=>{
+  const el=document.createElement("article");
+  el.className="day";
+  const slots=d.slots.map(([k,v])=>`<div class="slot"><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  const tag=d.tag?`<span class="tag ${d.tagKind==="out"?"out":""}">${d.tag}</span>`:"";
+  el.innerHTML=`<div class="day-head">
+      <h2 class="day-date"><span>${d.dow} ${d.date}</span>${d.label}</h2>
+      <div class="day-tide">Low water<b>${d.low}</b>also ${d.morningLow}</div>
+    </div>
+    <p class="day-lede">${d.lede}</p>
+    <dl class="slots">${slots}</dl>${tag}`;
+  daysEl.appendChild(el);
+});
+
+/* ---------------- shopping checklist ---------------- */
+const KEY="norfolk:shopping";
+const shopsEl=document.getElementById("shops");
+const statusEl=document.getElementById("status");
+let ticked={};
+
+function render(){
+  shopsEl.innerHTML="";
+  SHOPS.forEach(s=>{
+    const done=s.items.filter((_,i)=>ticked[s.id+":"+i]).length;
+    const sec=document.createElement("div");
+    sec.className="shop "+(s.cls||"");
+    sec.innerHTML=`<div class="shop-head">
+        <div><p class="eyebrow">${s.eyebrow}</p><h3>${s.title}</h3></div>
+        <span class="count" data-count="${s.id}">${done} of ${s.items.length}</span>
+      </div>
+      <p class="blurb">${s.blurb}</p>
+      <ul class="items">${s.items.map((t,i)=>{
+        const id=s.id+":"+i;
+        return `<li><label class="check">
+          <input type="checkbox" data-id="${id}" ${ticked[id]?"checked":""}>
+          <span class="box" aria-hidden="true"></span>
+          <span class="txt">${t}</span></label></li>`;
+      }).join("")}</ul>`;
+    shopsEl.appendChild(sec);
+  });
+  updateStatus();
+}
+
+function updateStatus(){
+  const total=SHOPS.reduce((n,s)=>n+s.items.length,0);
+  const done=Object.values(ticked).filter(Boolean).length;
+  statusEl.textContent=done===0?`${total} items to buy`
+    : done===total?"All done — nice work"
+    : `${done} of ${total} ticked off`;
+  SHOPS.forEach(s=>{
+    const n=s.items.filter((_,i)=>ticked[s.id+":"+i]).length;
+    const el=shopsEl.querySelector(`[data-count="${s.id}"]`);
+    if(el) el.textContent=`${n} of ${s.items.length}`;
+  });
+}
+
+const hasHostStorage = typeof window.storage !== "undefined" && window.storage;
+
+async function save(){
+  const payload = JSON.stringify(ticked);
+  try{
+    if(hasHostStorage){ await window.storage.set(KEY, payload); }
+    else { window.localStorage.setItem(KEY, payload); }
+  }catch(e){ console.warn("Could not save list:",e); }
+}
+
+async function load(){
+  if(hasHostStorage){
+    const res = await window.storage.get(KEY);
+    return res && res.value ? JSON.parse(res.value) : {};
+  }
+  const raw = window.localStorage.getItem(KEY);
+  return raw ? JSON.parse(raw) : {};
+}
+
+shopsEl.addEventListener("change",e=>{
+  const cb=e.target.closest("input[type=checkbox]");
+  if(!cb) return;
+  ticked[cb.dataset.id]=cb.checked;
+  updateStatus();
+  save();
+});
+
+document.getElementById("reset").addEventListener("click",()=>{
+  ticked={};
+  render();
+  save();
+});
+
+(async function init(){
+  try{
+    ticked = await load() || {};
+  }catch(e){
+    ticked={};
+  }
+  render();
+})();
+</script>
+</body>
+</html>
