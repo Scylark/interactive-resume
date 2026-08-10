@@ -33,19 +33,67 @@ body{
 }
 
 /* hero */
-.hero{padding:52px 0 34px;border-bottom:1px solid var(--line)}
+.hero{
+  position:relative;overflow:hidden;
+  min-height:clamp(440px,76vh,700px);
+  display:flex;align-items:flex-start;
+  background:linear-gradient(180deg,#C9DCDD 0%,#DEE7DC 30%,#F4E6C8 58%,#EFCE96 76%,#E7BB72 100%);
+  margin-bottom:8px;
+}
+.hero-inner{
+  position:relative;z-index:3;
+  max-width:760px;margin:0 auto;width:100%;
+  padding:clamp(44px,9vh,86px) 20px 0;
+}
+.sun{
+  position:absolute;left:50%;top:44%;
+  width:clamp(140px,30vw,260px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,#FCE7B6 0%,#F3C468 52%,#E7A33C 100%);
+  box-shadow:0 0 100px 46px rgba(240,192,112,.42);
+  transform:translate(-50%,40px);opacity:0;
+  animation:rise 1.7s cubic-bezier(.2,.8,.2,1) .15s forwards;
+  z-index:1;
+}
+@keyframes rise{to{transform:translate(-50%,0);opacity:1}}
+.sea{position:absolute;left:0;right:0;bottom:0;height:27%;z-index:2;display:block}
+.wv{animation:drift linear infinite}
+.wv1{animation-duration:26s}
+.wv2{animation-duration:19s}
+.wv3{animation-duration:14s}
+@keyframes drift{to{transform:translateX(-1200px)}}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:64px;z-index:3;
+  background:linear-gradient(180deg,rgba(241,244,239,0),var(--chalk));
+  pointer-events:none;
+}
 .hero h1{
   font-family:var(--display);font-optical-sizing:auto;font-weight:800;
-  font-size:clamp(38px,9vw,68px);line-height:.98;letter-spacing:-.02em;
-  margin:16px 0 0;max-width:11ch;
+  font-size:clamp(42px,10.5vw,82px);line-height:.94;letter-spacing:-.03em;
+  margin:14px 0 0;max-width:10ch;
+  text-shadow:0 1px 0 rgba(255,255,255,.35);
 }
-.hero h1 em{font-style:normal;color:var(--flint)}
-.standfirst{margin:20px 0 0;font-size:clamp(16px,2.4vw,18.5px);max-width:46ch;color:#2B3F46}
+.hero h1 em{font-style:normal;color:#2E5A5F}
+.standfirst{margin:20px 0 0;font-size:clamp(16px,2.4vw,18.5px);max-width:40ch;color:#22383C}
+.countdown{
+  display:inline-block;margin:24px 0 0;padding:7px 13px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(255,255,255,.5);border:1px solid rgba(22,38,44,.14);
+  border-radius:2px;color:#22383C;
+}
 .facts{
-  display:flex;flex-wrap:wrap;gap:0 28px;margin:26px 0 0;padding:0;list-style:none;
+  display:flex;flex-wrap:wrap;gap:0 28px;margin:0;padding:22px 0 30px;list-style:none;
   font-family:var(--mono);font-size:12.5px;color:var(--flint);
+  border-bottom:1px solid var(--line);
 }
 .facts li strong{display:block;font-weight:600;color:var(--ink);font-size:15px;letter-spacing:-.01em}
+@media (max-width:560px){
+  .hero{min-height:66vh}
+  .sun{top:47%}
+}
+@media (prefers-reduced-motion:reduce){
+  .sun{animation:none;opacity:1;transform:translate(-50%,0)}
+  .wv{animation:none}
+}
 
 /* tide drift */
 .drift{padding:38px 0 34px;border-bottom:1px solid var(--line)}
@@ -159,19 +207,36 @@ footer{padding:46px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--fli
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <header class="hero">
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <svg class="sea" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#5A8A8E"/>
+        <stop offset="1" stop-color="#2A4A54"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="200" fill="url(#seaG)"/>
+    <g class="wv wv1"><path id="w1" fill="none" stroke="rgba(255,255,255,.20)" stroke-width="2.5"/></g>
+    <g class="wv wv2"><path id="w2" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/></g>
+    <g class="wv wv3"><path id="w3" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/></g>
+  </svg>
+  <div class="hero-inner">
     <p class="eyebrow">North Norfolk · Mon 10 – Mon 17 August</p>
     <h1>Seven days on the <em>chalk reef</em></h1>
-    <p class="standfirst">Three of us, one four-year-old, and a low tide that runs fifty minutes later every single day. The week is built around that drift: fossils when the reef is out, food when it isn't.</p>
-    <ul class="facts">
-      <li>Check in<strong>Mon, 16:00</strong></li>
-      <li>Check out<strong>Mon, 10:00</strong></li>
-      <li>Nights<strong>Seven</strong></li>
-      <li>Eating out<strong>Two</strong></li>
-    </ul>
-  </header>
+    <p class="standfirst">Three of us, one four-year-old, and a low tide that runs fifty minutes later every single day.</p>
+    <p class="countdown" id="countdown">&nbsp;</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <ul class="facts">
+    <li>Check in<strong>Mon, 16:00</strong></li>
+    <li>Check out<strong>Mon, 10:00</strong></li>
+    <li>Nights<strong>Seven</strong></li>
+    <li>Eating out<strong>Two</strong></li>
+  </ul>
 
   <section class="drift">
     <p class="eyebrow">The one thing that governs the week</p>
@@ -212,6 +277,32 @@ footer{padding:46px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--fli
 </div>
 
 <script>
+/* ---------------- hero: waves + countdown ---------------- */
+function wavePath(y,amp,period,width){
+  let d=`M0 ${y} Q${period/4} ${y-amp} ${period/2} ${y}`;
+  for(let x=period/2;x<width;x+=period/2) d+=` T${x+period/2} ${y}`;
+  return d;
+}
+document.getElementById("w1").setAttribute("d",wavePath(46,11,300,2400));
+document.getElementById("w2").setAttribute("d",wavePath(92,9,220,2400));
+document.getElementById("w3").setAttribute("d",wavePath(142,7,170,2400));
+
+(function tick(){
+  const el=document.getElementById("countdown");
+  const arrive=new Date(2026,7,10,16,0,0);
+  const leave=new Date(2026,7,17,10,0,0);
+  const now=new Date();
+  if(now>=leave){ el.textContent="That was a good one"; return; }
+  if(now>=arrive){
+    const left=Math.ceil((leave-now)/86400000);
+    el.textContent=left>1?`You're there · ${left} days left`:"Last day";
+    return;
+  }
+  const ms=arrive-now, d=Math.floor(ms/86400000), h=Math.floor(ms%86400000/3600000);
+  el.textContent = d>0 ? `Keys in the door in ${d}d ${h}h` : `Keys in the door in ${h} hours`;
+  setTimeout(tick,60000);
+})();
+
 /* ---------------- itinerary data ---------------- */
 const DAYS = [
   {dow:"Monday",date:"10 Aug",label:"Arrival",low:"14:05",lowMin:845,morningLow:"01:40",
