@@ -623,7 +623,7 @@ if(sessionStorage.getItem('spatz-auth')==='1'){document.getElementById('auth-gat
   <div class="chart-container">
     <div class="chart-title">Category breadth vs price positioning</div>
     <canvas id="perceptualChart"></canvas>
-    <p class="chart-note">Positioning is indicative, based on published UK RRPs and observed range breadth. The vertical axis runs from entry-level to premium price positioning and the horizontal axis from narrow specialist to full-range apparel.</p>
+    <p class="chart-note">Positioning is indicative, based on published UK RRPs and observed range breadth. The vertical axis runs from entry-level to premium price positioning and the horizontal axis from narrow specialist to full-range apparel. SPATZ is the larger black point.</p>
   </div>
 
   <p>The map shows the problem plainly. SPATZ sits high on price and mid on breadth, moving right from the specialist corner it owns toward a crowded premium centre held by Le Col, Castelli and Rapha, all with far greater reach, while the specialist corner it is vacating goes to GripGrab, which is growing quickly, and is defended at the value end by veloToze.</p>
@@ -1224,6 +1224,38 @@ if(sessionStorage.getItem('spatz-auth')==='1'){document.getElementById('auth-gat
 
 <script>
 const T = { ink:'#232323', inkSoft:'#454545', purple:'#7000FF', grey:'#D6D6D6', greyMid:'#ABABAB', greyDark:'#7A7A7A', text:'#232323' };
+// Brand colours, used only where a chart separates brands by colour alone.
+const B = {
+  spatz:'#232323', velotoze:'#E9514B', gripgrab:'#0F8B7E', sealskinz:'#2D6CDF',
+  endura:'#E28C1B', lecol:'#7000FF', castelli:'#C2185B', rapha:'#3F7F31'
+};
+
+// Draws each brand name next to its point so the chart does not rely on colour alone.
+const pointLabels = {
+  id: 'pointLabels',
+  afterDatasetsDraw(chart) {
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.font = '700 10px "Space Mono", ui-monospace, monospace';
+    ctx.textBaseline = 'middle';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 3;
+    chart.data.datasets.forEach((ds, i) => {
+      const meta = chart.getDatasetMeta(i);
+      if (meta.hidden) return;
+      ctx.textAlign = ds.labelAlign || 'center';
+      meta.data.forEach(pt => {
+        const x = pt.x + (ds.labelDx || 0);
+        const y = pt.y + (ds.labelDy || -16);
+        ctx.strokeStyle = 'rgba(246,246,246,0.95)';
+        ctx.strokeText(ds.label, x, y);
+        ctx.fillStyle = '#232323';
+        ctx.fillText(ds.label, x, y);
+      });
+    });
+    ctx.restore();
+  }
+};
 Chart.defaults.font.family = "'Space Mono', ui-monospace, monospace";
 Chart.defaults.font.size = 10;
 Chart.defaults.color = '#6B6B6B';
@@ -1263,13 +1295,13 @@ new Chart(document.getElementById('euKeywordsChart'), {
   data: {
     labels: ['Germany','France','Netherlands','Italy'],
     datasets: [
-      { label:'SPATZ', data:[16,11,6,6], backgroundColor:T.ink },
-      { label:'GripGrab', data:[59,6,29,6], backgroundColor:'#8E8E8E' },
-      { label:'veloToze', data:[70,76,9,14], backgroundColor:'#BFBFBF' },
-      { label:'Le Col', data:[221,467,48,23], backgroundColor:'#D6D6D6' },
-      { label:'Castelli', data:[854,430,166,597], backgroundColor:'#E4E4E4' },
-      { label:'Rapha', data:[880,164,84,19], backgroundColor:'#A0A0A0' },
-      { label:'Endura', data:[889,28,23,16], backgroundColor:'#6B6B6B' }
+      { label:'SPATZ', data:[16,11,6,6], backgroundColor:B.spatz },
+      { label:'GripGrab', data:[59,6,29,6], backgroundColor:B.gripgrab },
+      { label:'veloToze', data:[70,76,9,14], backgroundColor:B.velotoze },
+      { label:'Le Col', data:[221,467,48,23], backgroundColor:B.lecol },
+      { label:'Castelli', data:[854,430,166,597], backgroundColor:B.castelli },
+      { label:'Rapha', data:[880,164,84,19], backgroundColor:B.rapha },
+      { label:'Endura', data:[889,28,23,16], backgroundColor:B.endura }
     ]
   },
   options: { responsive:true, plugins:{ legend:{ position:'bottom', labels:{ boxWidth:10, padding:12 } } }, scales:{ y:{ beginAtZero:true, title:{ display:true, text:'Keywords ranked' } } } }
@@ -1290,27 +1322,30 @@ new Chart(document.getElementById('gapChart'), {
 
 new Chart(document.getElementById('perceptualChart'), {
   type: 'scatter',
+  plugins: [pointLabels],
   data: {
     datasets: [
-      { label:'SPATZ', data:[{x:4.0,y:8.2}], backgroundColor:T.ink, pointRadius:11, pointHoverRadius:13 },
-      { label:'veloToze', data:[{x:1.5,y:2.5}], backgroundColor:'#BFBFBF', pointRadius:8 },
-      { label:'GripGrab', data:[{x:3.2,y:5.0}], backgroundColor:'#8E8E8E', pointRadius:8 },
-      { label:'Sealskinz', data:[{x:2.8,y:4.5}], backgroundColor:'#D6D6D6', pointRadius:8 },
-      { label:'Endura', data:[{x:9.0,y:5.5}], backgroundColor:'#6B6B6B', pointRadius:9 },
-      { label:'Le Col', data:[{x:7.8,y:8.0}], backgroundColor:'#D6D6D6', pointRadius:9 },
-      { label:'Castelli', data:[{x:8.8,y:7.8}], backgroundColor:'#E4E4E4', pointRadius:9 },
-      { label:'Rapha', data:[{x:8.5,y:9.0}], backgroundColor:'#A0A0A0', pointRadius:9 }
+      { label:'SPATZ', data:[{x:4.0,y:8.2}], backgroundColor:B.spatz, borderColor:'#fff', borderWidth:2, pointRadius:13, pointHoverRadius:15, labelDy:-24 },
+      { label:'veloToze', data:[{x:1.5,y:2.5}], backgroundColor:B.velotoze, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:-18 },
+      { label:'GripGrab', data:[{x:3.2,y:5.0}], backgroundColor:B.gripgrab, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:-18 },
+      { label:'Sealskinz', data:[{x:2.8,y:4.5}], backgroundColor:B.sealskinz, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:20 },
+      { label:'Endura', data:[{x:9.0,y:5.5}], backgroundColor:B.endura, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:0, labelDx:-14, labelAlign:'right' },
+      { label:'Le Col', data:[{x:7.8,y:8.0}], backgroundColor:B.lecol, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:0, labelDx:-14, labelAlign:'right' },
+      { label:'Castelli', data:[{x:8.8,y:7.8}], backgroundColor:B.castelli, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:22 },
+      { label:'Rapha', data:[{x:8.5,y:9.0}], backgroundColor:B.rapha, borderColor:'#fff', borderWidth:1.5, pointRadius:9, labelDy:-18 }
     ]
   },
   options: {
     responsive:true,
+    aspectRatio:1.5,
+    layout:{ padding:{ top:14, right:18, left:6, bottom:4 } },
     plugins:{
       legend:{ position:'bottom', labels:{ boxWidth:10, padding:12 } },
       tooltip:{ callbacks:{ label: c => c.dataset.label } }
     },
     scales:{
-      x:{ min:0, max:10, title:{ display:true, text:'Narrow specialist  →  Full-range apparel' }, ticks:{ display:false }, grid:{ color:'#DDDDDD' } },
-      y:{ min:0, max:10, title:{ display:true, text:'Entry-level  →  Premium' }, ticks:{ display:false }, grid:{ color:'#DDDDDD' } }
+      x:{ min:-0.8, max:10.8, title:{ display:true, text:'Narrow specialist  to  Full-range apparel' }, ticks:{ display:false }, grid:{ color:'#DDDDDD' } },
+      y:{ min:-0.5, max:10.5, title:{ display:true, text:'Entry-level  to  Premium' }, ticks:{ display:false }, grid:{ color:'#DDDDDD' } }
     }
   }
 });
