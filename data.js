@@ -363,6 +363,7 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Pro Sports & Ambassadors</h4>
                         <ul>
+                            <li><strong>Four national titles</strong> - the Ribble Outliers won all four titles at the 2026 UK Gravel National Championships.</li>
                             <li>Led the development of the Ribble Outliers pro gravel team. In its first season, the most successful British gravel team with multiple golds and podiums at UCI and Gravel Earth Series events.</li>
                             <li>Gravel category growth: Ribble's fastest-growing segment, outperforming market growth by 2 percentage points and taking competitor share.</li>
                             <li>Developed marketing activation and product collaboration opportunities between Ribble and its brand partners, including Precision and Restrap.</li>
@@ -1485,7 +1486,7 @@ const RESUME_DATA = {
                     <div class="about-sections">
                         <div class="about-section">
                             <h4>Cycling - It's Part of My Fabric</h4>
-                            <p>I am a lifestyle cyclist. Cycling isn't just an interest - it runs through everything I do. My father was a mountain biking instructor, and I grew up on bikes. I rode the juniors competitively before heading off to college. Today I ride road and gravel seriously - I raced the National Championships in 2025 and placed 15th. I'm equally at home on a gravel bike in the Peak District or on the road in the Yorkshire Dales. Cycling culture, community and progression are values I live, not just market.</p>
+                            <p>I am a lifestyle cyclist. Cycling isn't just an interest - it runs through everything I do. My father was a mountain biking instructor, and I grew up on bikes. I rode the juniors competitively before heading off to college. Today I ride and race road and gravel. In August 2026 I finished 9th in the 40-44 category at the UK National Gravel Championships, a year after placing 15th at the Nationals in 2025. I'm equally at home on a gravel bike in the Peak District or on the road in the Yorkshire Dales. Cycling culture, community and progression are values I live, not just market.</p>
                         </div>
                         <div class="about-section">
                             <h4>Industry Network</h4>

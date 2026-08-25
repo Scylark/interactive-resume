@@ -149,6 +149,7 @@ bullet('Brand repositioning - shifted perception from "budget heritage" to "high
 bullet('Ribble Outliers - thought leadership on LinkedIn alongside B2C content. Partnership marketing with Precision and Restrap added 8,000+ email subscribers.')
 bullet('Presenting Partner, British Gravel Championships - digital and physical rights negotiation, planning, and execution.')
 bullet('Gravel category growth - Ribble\'s fastest-growing segment, +2pp above market, taking competitor share.')
+bullet('Ribble Outliers race programme - all four national titles at the 2026 UK Gravel National Championships, 2nd at the UCI Gralloch with Jenson Young, and a team film from The Traka in Girona.')
 bullet('The Original Outliers rebrand - worked with FreshBritain on repositioning tone of voice and visual language.')
 bullet('2025 strategic objectives - grow gravel market share, increase regional penetration (NE and South), launch four new bikes.')
 bullet('Led NPD marketing - market gap analysis, sign-off documents, and GTM strategies.')
