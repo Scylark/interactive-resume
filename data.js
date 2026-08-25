@@ -421,6 +421,21 @@ const RESUME_DATA = {
                     <p class="gallery-intro" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;">The below shows a selection of the creative assets produced in the delivery of the brand's key campaigns during my time at Ribble.</p>
 
                     <div class="media-gallery">
+                        <h4>UK Gravel National Championships 2026 - Four National Titles</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The Ribble Outliers won all four national titles at the 2026 UK Gravel National Championships. The race day reel and podium photography came out of the same weekend.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/Ribble Gravel Nationals 2026 - Four Titles/RACE DAY REEL.mp4">
+                                <video src="assets/Ribble Gravel Nationals 2026 - Four Titles/RACE DAY REEL.mp4" muted preload="metadata" poster="assets/Ribble Gravel Nationals 2026 - Four Titles/4SC.RIBBLE.NATCHAMP.-209.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Race Day Reel</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Ribble Gravel Nationals 2026 - Four Titles/4SC.RIBBLE.NATCHAMP.-209.jpg">
+                                <img src="assets/Ribble Gravel Nationals 2026 - Four Titles/4SC.RIBBLE.NATCHAMP.-209.jpg" alt="Ribble Outliers - 2026 UK Gravel National Championships" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
                         <h4>2026 Team Launch</h4>
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">2026 saw the return of the Ribble Outliers and the return of our launch party at the headquarters of our owners. A key opportunity for partner brands to brief the athletes on their messaging and for sponsors to align on product and marketing partnerships.</p>
                         <div class="gallery-grid">
