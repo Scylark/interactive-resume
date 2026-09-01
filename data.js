@@ -1097,7 +1097,7 @@ const RESUME_DATA = {
             content: `
                 <div class="ai-work-card">
                     <h2>AI Exploration</h2>
-                    <p class="ai-intro">Side projects where I explore AI as an operator rather than as a vendor — supplementary to the day jobs, not a replacement for them. Click each project for the detail.</p>
+                    <p class="ai-intro">Side projects where I explore AI as an operator rather than as a vendor. They run alongside the day jobs and supplement them. Click each project for the detail.</p>
                     <div class="ai-grid">
                         <div class="ai-item">
                             <div class="ai-item-icon">A</div>
@@ -1130,7 +1130,7 @@ const RESUME_DATA = {
                     </div>
                     <h2>Aster — Watch the Dot</h2>
                     <h3>Live GPS Tracking Platform for Ultra-Endurance Cycling · 2025 – Present</h3>
-                    <p class="role-context">A vibe-created, fully autonomous business — not just an app. Aster is live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. The point isn't the app: it's that the entire back office runs itself. Orchestrated AI agents (Hermes, Paperclip and various models) handle business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy — with little or no input from me. A live proof of how much of a business one operator can run when AI handles the stack.</p>
+                    <p class="role-context">A vibe-created and fully autonomous business, with the app as its front end. Aster is live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. The point isn't the app: it's that the entire back office runs itself. Orchestrated AI agents (Hermes, Paperclip and various models) handle business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy, with little or no input from me. A live proof of how much of a business one operator can run when AI handles the stack.</p>
                     <div class="achievements">
                         <h4>My Role</h4>
                         <ul>
@@ -1150,7 +1150,7 @@ const RESUME_DATA = {
 
                     <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
                     <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">Inside the Autonomous Business</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Brand, design system, operations and team comms — all running with AI agents in the loop.</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Brand, design system, operations and team comms, all running with AI agents in the loop.</p>
 
                     <div class="media-gallery">
                         <div class="gallery-grid">
@@ -1174,7 +1174,7 @@ const RESUME_DATA = {
                     </div>
 
                     <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-top: 24px; margin-bottom: 4px;">The Shipped Product</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Live on iOS and Android — feed, live tracking, events and profile.</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Live on iOS and Android with feed, live tracking, events and profile.</p>
 
                     <div class="media-gallery">
                         <div class="gallery-grid">
@@ -1398,12 +1398,12 @@ const RESUME_DATA = {
             content: `
                 <div class="ai-work-card">
                     <h2>AI Work</h2>
-                    <p class="ai-intro">Tech evangelist and early adopter with 2+ years of hands-on AI experience — from embedding AI/ML across marketing, product and decision-making in established businesses, to running an autonomous, AI-operated business end-to-end as a solo operator.</p>
+                    <p class="ai-intro">Tech evangelist and early adopter with 2+ years of hands-on AI experience, from embedding AI/ML across marketing, product and decision-making in established businesses to running an autonomous, AI-operated business end-to-end as a solo operator.</p>
                     <div class="ai-grid">
                         <div class="ai-item">
                             <div class="ai-item-icon">A</div>
                             <h4>Aster — Watch the Dot</h4>
-                            <p>A vibe-created, fully autonomous business — not just an app. Live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. Built and run by orchestrated AI agents (Hermes, Paperclip and various models) across the full back office: business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy. A live proof of how much of a business one operator can run when AI handles the stack.</p>
+                            <p>A vibe-created and fully autonomous business, with the app as its front end. Live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. Built and run by orchestrated AI agents (Hermes, Paperclip and various models) across the full back office: business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy. A live proof of how much of a business one operator can run when AI handles the stack.</p>
                             <span class="ai-coming">iOS & Android · public launch in progress</span>
                             <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link">preview at watch-the-dot-frontend.vercel.app</a>
                         </div>
@@ -1426,7 +1426,7 @@ const RESUME_DATA = {
                         <div class="ai-item">
                             <div class="ai-item-icon">B</div>
                             <h4>Brand to Platform Evolution</h4>
-                            <p>Exploring how AI lets brands graduate from brand to platform — using autonomous product creation as a moat and an audience-building engine. Aster is the live proof: a cycling brand operating as a software platform, run by a single operator with AI handling the rest.</p>
+                            <p>Exploring how AI lets brands graduate from brand to platform, using autonomous product creation as a moat and an audience-building engine. Aster is the live proof: a cycling brand operating as a software platform, run by a single operator with AI handling the rest.</p>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">R</div>
