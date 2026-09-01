@@ -726,6 +726,7 @@ const RESUME_DATA = {
                             <li><strong>Brand & product positioning</strong> - led the research, validation, and integration of brand and product positions.</li>
                             <li><strong>160+ media placements</strong> - spearheaded global product launches, including the Vistar // Powershift drivetrain at Eurobike.</li>
                             <li><strong>Global events</strong> - managed Eurobike, Sea Otter, and Taichung Bike Week to strengthen partnerships and drive growth.</li>
+                            <li><strong>Gravel factory team</strong> - the Classified Ridley Factory Team sat in my remit, with a pro sports manager running it into me. Piotr Havik finished 4th at Unbound Gravel and Annabel Fisher won the British National Gravel Championships, both in 2024.</li>
                             <li><strong>AI/ML adoption</strong> - led adoption of AI and machine learning across departments.</li>
                             <li><strong>Team leadership</strong> - led the marketing team and agencies to deliver cohesive digital, PR, and social campaigns.</li>
                             <li><strong>IBD & distributor support</strong> - enhanced education and process for IBDs and distributors.</li>
