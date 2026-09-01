@@ -338,6 +338,13 @@ const RESUME_DATA = {
                     <p class="role-context">Brought in on a 5-day contractor role under PE ownership by SMT. Delivered objectives and now transitioned to a 3-day advisory role in Feb 2026.</p>
                     <p class="role-context" style="margin-top: 6px;">Budget responsibility for all marketing activities. £1.2M, landed 2024/2025 under budget at £920K.</p>
 
+
+                    <div class="skill-tags" style="margin: 10px 0 4px;">
+                        <span class="skill-tag">4 national titles — 2026 Gravel Nats</span>
+                        <span class="skill-tag">Coverage 135 → 196 articles</span>
+                        <span class="skill-tag">Audience 117M → 327M</span>
+                        <span class="skill-tag">£1.2M budget, landed £920K</span>
+                    </div>
                     <div class="achievements">
                         <h4>Leadership</h4>
                         <ul>
@@ -383,6 +390,7 @@ const RESUME_DATA = {
                     <div class="achievements">
                         <h4>Brand & Strategy</h4>
                         <ul>
+                            <li><strong>ALLGRIT &amp; ULTRA-GRIT go-to-market</strong> - wrote the GTM strategy for the range and its material variants, Ribble's most successful new product launch, with retail partners, athletes and journalists aligned behind one set of messaging, content and promotional material.</li>
                             <li><strong>The Original Outliers rebrand</strong> - worked with FreshBritain on repositioning Ribble's tone of voice and visual language.</li>
                             <li><strong>2025 strategic objectives</strong> - grow gravel market share, increase regional penetration (North East and South), launch four new bikes.</li>
                             <li><strong>Led NPD marketing</strong> - market gap analysis, sign-off documents, and GTM strategies covering positioning, messaging, and channels.</li>
