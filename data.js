@@ -422,8 +422,13 @@ const RESUME_DATA = {
 
                     <div class="media-gallery">
                         <h4>UK Gravel National Championships 2026 - Four National Titles</h4>
-                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The Ribble Outliers won all four national titles at the 2026 UK Gravel National Championships. The race day reel and podium photography came out of the same weekend.</p>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The Ribble Outliers won all four national titles at the 2026 UK Gravel National Championships, and the story film, race day reel and podium photography all came out of the same weekend. I raced too and finished 9th in the 40-44 category, my best national result to date. The full film is also on <a href="https://www.youtube.com/watch?v=qm-CDWKo8xc" target="_blank" rel="noopener" style="color:#2563eb;">YouTube</a>.</p>
                         <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/Ribble Gravel Nationals 2026 - Four Titles/Ribble Outliers Nationals Film.mp4">
+                                <video src="assets/Ribble Gravel Nationals 2026 - Four Titles/Ribble Outliers Nationals Film.mp4" muted preload="metadata" poster="assets/Ribble Gravel Nationals 2026 - Four Titles/Nationals Film Poster.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">The Nationals Film</div>
+                            </div>
                             <div class="gallery-item" data-type="video" data-src="assets/Ribble Gravel Nationals 2026 - Four Titles/RACE DAY REEL.mp4">
                                 <video src="assets/Ribble Gravel Nationals 2026 - Four Titles/RACE DAY REEL.mp4" muted preload="metadata" poster="assets/Ribble Gravel Nationals 2026 - Four Titles/4SC.RIBBLE.NATCHAMP.-209.jpg"></video>
                                 <div class="gallery-play"></div>
@@ -1501,7 +1506,7 @@ const RESUME_DATA = {
                     <div class="about-sections">
                         <div class="about-section">
                             <h4>Cycling - It's Part of My Fabric</h4>
-                            <p>I am a lifestyle cyclist. Cycling isn't just an interest - it runs through everything I do. My father was a mountain biking instructor, and I grew up on bikes. I rode the juniors competitively before heading off to college. Today I ride and race road and gravel. In August 2026 I finished 9th in the 40-44 category at the UK National Gravel Championships, a year after placing 15th at the Nationals in 2025. I'm equally at home on a gravel bike in the Peak District or on the road in the Yorkshire Dales. Cycling culture, community and progression are values I live, not just market.</p>
+                            <p>I am a lifestyle cyclist. Cycling isn't just an interest - it runs through everything I do. My father was a mountain biking instructor, and I grew up on bikes. I rode the juniors competitively before heading off to college. Today I ride and race road and gravel. In August 2026 I finished 9th in the 40-44 category at the UK National Gravel Championships, my best national result to date, a year after placing 15th at the Nationals in 2025. I'm equally at home on a gravel bike in the Peak District or on the road in the Yorkshire Dales. Cycling culture, community and progression are values I live, not just market.</p>
                         </div>
                         <div class="about-section">
                             <h4>Industry Network</h4>
