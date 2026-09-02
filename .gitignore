@@ -9,3 +9,6 @@
 *.avi
 *.mkv
 *.webm
+
+# readable source of the encrypted answers page stays local
+answer-bank-source.html
