@@ -1513,3 +1513,8 @@ a.contact-item:hover {
     padding-top: 22px;
     border-top: 1px solid var(--border-light);
 }
+
+/* Air between one achievements list and the next group heading */
+.achievements ul + h4 {
+    margin-top: 18px;
+}
