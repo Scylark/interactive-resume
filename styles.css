@@ -1502,3 +1502,14 @@ a.contact-item:hover {
 @media (prefers-reduced-motion: reduce) {
     .gallery-item { animation: none; }
 }
+
+/* Space between a media gallery and the section that follows it */
+.media-gallery + .achievements,
+.media-gallery + .stat-grid,
+.media-gallery + .section-divider {
+    margin-top: 32px;
+}
+.media-gallery + .achievements {
+    padding-top: 22px;
+    border-top: 1px solid var(--border-light);
+}
