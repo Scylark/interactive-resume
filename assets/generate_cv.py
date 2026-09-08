@@ -149,6 +149,7 @@ bullet('Brand repositioning - shifted perception from "budget heritage" to "high
 bullet('Ribble Outliers - thought leadership on LinkedIn alongside B2C content. Partnership marketing with Precision and Restrap added 8,000+ email subscribers.')
 bullet('Presenting Partner, British Gravel Championships - digital and physical rights negotiation, planning, and execution.')
 bullet('Gravel category growth - Ribble\'s fastest-growing segment, +2pp above market, taking competitor share.')
+bullet('ALLGRIT & ULTRA-GRIT go-to-market - wrote the positioning and messaging framework and the GTM plan for the range and its material variants, ran the press tour, and produced the showroom and retailer education assets with localised versions for each market. Ribble\'s most successful new product launch.')
 bullet('Ribble Outliers race programme - all four national titles at the 2026 UK Gravel National Championships, 2nd at the UCI Gralloch with Jenson Young, and a team film from The Traka in Girona.')
 bullet('The Original Outliers rebrand - worked with FreshBritain on repositioning tone of voice and visual language.')
 bullet('2025 strategic objectives - grow gravel market share, increase regional penetration (NE and South), launch four new bikes.')
@@ -237,7 +238,7 @@ context('Developed and executed sales and marketing strategies driving revenue g
 section('ADDITIONAL')
 story.append(Paragraph('<b>Professional Accreditations:</b> MCIM - MCPR', styles['CVSmall']))
 story.append(Paragraph(
-    '<b>Personal Interests:</b> Road Cycling - Gravel - 15th at National Championships 2025 - XC MTB - Travel - Adventure Sports - Sustainability - Technology - AI',
+    '<b>Personal Interests:</b> Road Cycling - Gravel - 5th in age group, UCI Gravel Cymru 2026 - 9th (40-44), UK Gravel National Championships 2026 - XC MTB - Travel - Adventure Sports - Sustainability - Technology - AI',
     styles['CVSmall']
 ))
 story.append(Paragraph(
