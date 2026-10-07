@@ -102,7 +102,7 @@ def small(text):
     story.append(Paragraph(text, styles['CVSmall']))
 
 # -- Header --
-story.append(Paragraph('James Vickers MCIM MCPR', styles['CVName']))
+story.append(Paragraph('James Vickers MCIM MCIPR', styles['CVName']))
 story.append(Paragraph('Sheffield / Lincoln, UK - 1.5hrs from London - 07897714630 - james@manual-focus.co.uk', styles['CVContact']))
 story.append(Paragraph(
     'Senior marketing leader with ten years in CMO, Head of Marketing and senior PR/brand roles across '
@@ -236,7 +236,7 @@ context('Developed and executed sales and marketing strategies driving revenue g
 
 # -- Additional --
 section('ADDITIONAL')
-story.append(Paragraph('<b>Professional Accreditations:</b> MCIM - MCPR', styles['CVSmall']))
+story.append(Paragraph('<b>Professional Accreditations:</b> MCIM - MCIPR', styles['CVSmall']))
 story.append(Paragraph(
     '<b>Personal Interests:</b> Road Cycling - Gravel - 5th in age group, UCI Gravel Cymru 2026 - 9th (40-44), UK Gravel National Championships 2026 - XC MTB - Travel - Adventure Sports - Sustainability - Technology - AI',
     styles['CVSmall']
@@ -256,7 +256,7 @@ story.append(Paragraph(
 
 # -- Education --
 section('EDUCATION &amp; QUALIFICATIONS')
-small('MCIM - Marketing - MCPR - Public Relations')
+small('MCIM - Marketing - MCIPR - Public Relations')
 small('Higher Diploma - Fishing &amp; Fishery Sciences &amp; Management (Distinction)')
 small('ISEB - BCS Requirements Engineering - ISEB - BCS Certificate in Business Analysis')
 small('Information Technology Infrastructure Library (ITIL)')
