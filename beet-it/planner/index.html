@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Nitrate Loading Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Assistant:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: brand header with logo, a short 5-step flow with a live "your pack" panel beside it, then a results view: loading calendar on the left, basket and checkout on the right. Calm white surfaces, plum and beetroot pink as accents. */
+:root{
+  --plum:#16022d; --plum-2:#2a0b47; --pink:#e44aa0; --pink-d:#c7378b; --pink-soft:#fdeef6; --lime:#D0EF90; --lime-ink:#273900;
+  --bg:#ffffff; --soft:#f8f6fa; --line:#ebe6f0; --ink:#16022d; --ink-2:#4a3d5c; --ink-3:#8a7f99; --ok:#3d6b12;
+  --display:"Archivo",system-ui,sans-serif; --body:"Assistant",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px; --shadow:0 1px 2px rgba(22,2,45,.04),0 8px 28px rgba(22,2,45,.07);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--display);font-stretch:110%;letter-spacing:-.02em;margin:0;text-wrap:balance}
+
+/* header */
+.hdr{background:var(--plum);color:#fff;padding-top:env(safe-area-inset-top,0px)}
+.hdr .in{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:20px}
+.hdr img{height:64px;width:auto;display:block}
+.hdr .t{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:15px;letter-spacing:.01em;opacity:.92}
+.hdr .sp{flex:1}
+.steps{display:flex;gap:6px;align-items:center}
+.steps i{width:28px;height:4px;border-radius:2px;background:rgba(255,255,255,.2);transition:background .3s}
+.steps i.on{background:var(--pink)} .steps i.done{background:#fff}
+.steps span{font-size:13px;opacity:.7;margin-left:8px;white-space:nowrap}
+@media(max-width:640px){.hdr .t{display:none}.steps i{width:16px}}
+
+.wrap{max-width:1120px;margin:0 auto;padding:44px 20px 72px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr;gap:28px}}
+
+/* question */
+.q{animation:in .35s ease both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.q{animation:none}}
+.kick{font-size:14px;font-weight:600;color:var(--pink);margin-bottom:10px}
+.q h1{font-size:clamp(30px,4vw,44px);font-weight:750;line-height:1.08}
+.q h1:focus{outline:none}
+.q .lead{color:var(--ink-2);font-size:18.5px;margin:14px 0 30px;max-width:56ch}
+.choices{display:grid;gap:10px}
+.choices.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:560px){.choices.two{grid-template-columns:1fr}}
+.ch{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s}
+.ch:hover{border-color:#d6c9e3;box-shadow:var(--shadow)}
+.ch .dot{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #cfc3dc;display:grid;place-items:center;transition:.15s}
+.ch[aria-pressed="true"]{border-color:var(--plum);background:#fbf9fd;box-shadow:0 0 0 1px var(--plum)}
+.ch[aria-pressed="true"] .dot{border-color:var(--plum);background:var(--plum)}
+.ch[aria-pressed="true"] .dot::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.ch b{display:block;font-weight:700;font-size:17px}
+.ch small{display:block;color:var(--ink-3);font-size:15px;margin-top:1px}
+.ch .tag{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--pink-d);background:var(--pink-soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:520px}
+@media(max-width:560px){.fields{grid-template-columns:1fr}}
+.field label{display:block;font-weight:700;font-size:15px;margin-bottom:6px}
+.field input{width:100%;font:500 18px var(--body);color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px}
+.field input:focus{border-color:var(--plum);outline:none;box-shadow:0 0 0 3px rgba(228,74,160,.18)}
+.hint{font-size:15px;color:var(--ink-3);margin-top:14px;max-width:56ch}
+.reco{margin-top:18px;background:var(--soft);border-radius:14px;padding:14px 16px;font-size:15.5px;color:var(--ink-2);max-width:60ch}
+.reco b{color:var(--ink)}
+.nav{display:flex;gap:12px;align-items:center;margin-top:34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--plum);color:#fff;border:0;border-radius:999px;padding:15px 28px;font-weight:700;font-size:16.5px;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s}
+.btn:hover{background:var(--plum-2)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.btn.pink{background:var(--pink)} .btn.pink:hover{background:var(--pink-d)}
+.btn.wide{width:100%;padding:17px}
+.link{background:none;border:0;color:var(--ink-2);font-weight:600;cursor:pointer;padding:10px 6px}
+.link:hover{color:var(--ink)}
+
+/* side panel */
+.pack{position:sticky;top:24px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.pack .ph{background:linear-gradient(180deg,#fbf3f8,#fff);display:flex;justify-content:center;align-items:flex-end;gap:4px;height:230px;padding-top:18px}
+.pack .ph img{height:200px;width:auto;filter:drop-shadow(0 14px 18px rgba(22,2,45,.18));transition:transform .4s}
+.pack .ph img+img{height:180px;margin-left:-26px;transform:rotate(8deg)}
+.pack .pb{padding:18px 20px 20px}
+.pack h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.pack ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15.5px}
+.pack li{display:flex;justify-content:space-between;gap:10px;color:var(--ink-2)}
+.pack li b{color:var(--ink);font-variant-numeric:tabular-nums}
+@media(max-width:900px){.pack{position:static}.pack .ph{height:170px}.pack .ph img{height:150px}.pack .ph img+img{height:130px}}
+
+/* results */
+.res-hero{position:relative;border-radius:var(--r);overflow:hidden;background:var(--plum);color:#fff;min-height:230px;display:flex;align-items:flex-end;margin-bottom:34px}
+.res-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center 30%;opacity:.42}
+.res-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,2,45,.92) 0%,rgba(22,2,45,.55) 60%,rgba(22,2,45,.2) 100%)}
+.res-hero .c{position:relative;z-index:1;padding:30px 30px 28px;max-width:640px}
+.res-hero .k{font-size:14px;font-weight:600;color:var(--lime);margin-bottom:8px}
+.res-hero h1{font-size:clamp(28px,3.8vw,42px);font-weight:750;line-height:1.08}
+.res-hero p{color:#e4d9ef;margin-top:10px;font-size:17px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.facts span{background:rgba(255,255,255,.12);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:600}
+.facts span b{color:var(--lime);font-weight:700}
+
+.sec-t{font-size:20px;font-weight:700;margin:0 0 14px}
+.cal{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:15px 18px;border-top:1px solid var(--line);align-items:center}
+.row:first-child{border-top:0}
+.row .d{line-height:1.25}
+.row .d b{display:block;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:15px}
+.row .d span{font-size:13.5px;color:var(--ink-3)}
+.row .w{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:5px 12px 5px 6px;font-size:14.5px;font-weight:600;background:var(--soft)}
+.pill img{width:22px;height:22px;object-fit:contain}
+.pill.n{background:#f7ecf3;color:#7e1856} .pill.r{background:#fbecee;color:#9c1730}
+.row .note{width:100%;font-size:14.5px;color:var(--ink-3)}
+.row.race{background:var(--plum);color:#fff}
+.row.race .d span,.row.race .note{color:#cdbde0}
+.row.race .pill.n{background:var(--pink);color:#fff}
+.row.race .pill.r{background:rgba(255,255,255,.14);color:#fff}
+.row.prac{background:#fbf9fd}
+.adj{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 0;font-size:15px;color:var(--ink-2)}
+.seg{display:inline-flex;background:var(--soft);border-radius:999px;padding:4px}
+.seg button{border:0;background:none;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(22,2,45,.12)}
+
+.bask{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;position:sticky;top:24px}
+@media(max-width:900px){.bask{position:static}}
+.bl{display:grid;grid-template-columns:68px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.bl:first-of-type{border-top:0}
+.bl img{width:68px;height:68px;object-fit:contain;border-radius:10px;background:#fff}
+.bl .n{font-weight:700;line-height:1.25}
+.bl .s{font-size:14px;color:var(--ink-3)}
+.bl .p{font-weight:700;font-variant-numeric:tabular-nums}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.tot b{font-family:var(--display);font-stretch:110%;font-size:30px;font-weight:750;font-variant-numeric:tabular-nums}
+.ship{font-size:14.5px;font-weight:700;color:var(--ok);margin:10px 0 16px}
+.ship.no{color:#8a5a00}
+.fine{font-size:13.5px;color:var(--ink-3);margin-top:12px}
+.alt{margin-top:14px;background:var(--soft);border-radius:14px;padding:14px;font-size:15px;color:var(--ink-2)}
+.alt button{margin-top:8px}
+footer{border-top:1px solid var(--line);background:var(--soft)}
+footer .in{max-width:1120px;margin:0 auto;padding:22px 20px calc(30px + env(safe-area-inset-bottom,0px));font-size:13.5px;color:var(--ink-3);display:grid;gap:6px}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <img src="https://www.beet-it.com/cdn/shop/files/Beet_It_Sport_reverse_2_1.png?width=200" alt="Beet It Sport">
+  <div class="t">Nitrate loading planner</div>
+  <div class="sp"></div>
+  <div class="steps" id="steps" aria-hidden="true"></div>
+</div></header>
+
+<main class="wrap" id="app"></main>
+
+<footer><div class="in">
+  <p>Based on Beet It Sport's dosing guidance. One Nitrate 400 shot a day for five days, Regen Cherry+ added for the last three, then one or two shots two to three hours before you start.</p>
+  <p>Concept prototype for discussion. Not an official Beet It Sport page. <a href="../" style="color:inherit">Back to the marketing audit</a></p>
+  <p>General guidance, not medical advice. If you take blood pressure medication or have a medical condition, speak to your GP before using nitrate supplements.</p>
+</div></footer>
+
+<script>
+const IMG={"logo": "https://www.beet-it.com/cdn/shop/files/Beet_It_Sport_reverse_2_1.png?width=200", "n4b": "https://www.beet-it.com/cdn/shop/files/TEST.png?width=400", "rcb": "https://www.beet-it.com/cdn/shop/files/Regan-NEW.png?width=400", "n4c": "https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Beet_It_Sport_Nitrate_400_shots_sports.jpg?width=300", "rcc": "https://cdn.shopify.com/s/files/1/0616/6082/3652/files/REGEN_DISPLAY_CASE_OPEN-1.jpg?width=300", "sp": "https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Beet_It_Sport_Starter_Pack-1.jpg?width=300", "bun": "https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Nitrate_400_Ultimate_Bundle.jpg?width=300", "run": "https://www.beet-it.com/cdn/shop/articles/Screenshot_2026-05-20_at_13.51.08_09bf23ab-36fa-40e0-91e5-c8c7453e05c7.png?width=1200"};
+const SHOP='https://www.beet-it.com';
+const P={
+  n4:{id:42447343255652,name:'Nitrate 400 Shot',sub:'15 × 70ml',price:32.5,per:15,img:IMG.n4c},
+  n4x3:{id:55130009829752,name:'Nitrate 400 Triple Bundle',sub:'45 shots',price:85,per:45,img:IMG.bun},
+  n4x4:{id:55130113180024,name:'Nitrate 400 Ultimate Bundle',sub:'60 shots',price:110,per:60,img:IMG.bun},
+  rc:{id:42447343321188,name:'Regen Cherry+ Shot',sub:'15 × 70ml',price:32.5,per:15,img:IMG.rcc},
+  sp:{id:55254266446200,name:'Starter Pack',sub:'3 Nitrate 400, 2 Regen Cherry+, 2 gels',price:14.99,per:1,img:IMG.sp}
+};
+const today=()=>{const d=new Date();d.setHours(12,0,0,0);return d};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const def=()=>{const d=today();d.setDate(d.getDate()+21);return iso(d)};
+const S={step:0,date:def(),start:'09:00',event:null,level:null,used:null,regen:null,races:1,shots:null,mode:'plan'};
+
+const EVENTS=[['short','Short and fast','5k, time trial, crit, 2k erg'],['endurance','Endurance','10k to marathon, sportive, triathlon'],['hyrox','Hyrox','Singles, doubles or relay'],['team','Team sport','Match day or tournament']];
+const LEVELS=[['rec','Recreational','A few sessions a week'],['reg','Regular','Training most days'],['comp','Competitive','Structured plan, racing for results'],['elite','Elite','National level or above']];
+
+const STEPS=[
+ {k:'Your race',h:'When are you racing?',lead:'Loading starts five days out, so we\'ll build your plan around your race day and start time.',
+  body:()=>`<div class="fields"><div class="field"><label for="date">Race day</label><input type="date" id="date" value="${S.date}" min="${iso(today())}"></div><div class="field"><label for="start">Start time</label><input type="time" id="start" value="${S.start}"></div></div>
+  <p class="hint" id="dhint"></p>`,
+  bind(){const d=q('#date'),t=q('#start');const h=()=>{const n=daysOut();q('#dhint').textContent=n<0?'Pick a date in the future.':n<5?`That's ${n} day${n===1?'':'s'} away. We'll load for the days you have.`:`${n} days to go. Plenty of time to load properly.`};d.oninput=()=>{S.date=d.value;h();ok()};t.oninput=()=>{S.start=t.value||'09:00'};h()},
+  valid:()=>S.date&&daysOut()>=0},
+ {k:'Your event',h:'What are you racing?',lead:'Nitrate supports hard efforts of every length, from a parkrun to a Hyrox to a full match.',
+  body:()=>choices(EVENTS,'event'),valid:()=>S.event},
+ {k:'Your training',h:'How would you describe your training?',lead:'Well-trained athletes often need a bigger dose to see the same benefit. This sets your race-morning shots.',
+  body:()=>choices(LEVELS,'level')+`<div class="reco" id="reco" ${S.level?'':'hidden'}></div>`,
+  bind(){paintReco()},valid:()=>S.level},
+ {k:'Experience',h:'Have you used Beet It before?',lead:'Never try anything new on race day. If it\'s your first time, we\'ll add a practice run on a hard training session.',
+  body:()=>choices([['yes','Yes, I know how I get on',''],['no','No, this is my first time','We\'ll add a practice run']],'used','two'),valid:()=>S.used},
+ {k:'Recovery',h:'Add Regen Cherry+ to your plan?',lead:'Beet It pairs Regen Cherry+ with the last three loading days, then one after you finish and one on each of the next two days.',
+  body:()=>choices([['y','Yes, include recovery','Six Regen Cherry+ shots'],['n','No, just the loading','Nitrate 400 only']],'regen','two'),valid:()=>S.regen}
+];
+
+const app=document.getElementById('app');
+function q(s){return app.querySelector(s)}
+function daysOut(){if(!S.date)return -1;return Math.round((new Date(S.date+'T12:00:00')-today())/864e5)}
+function choices(list,key,cls=''){return `<div class="choices ${cls}" role="radiogroup">${list.map(([v,b,s])=>`<button type="button" class="ch" role="radio" data-k="${key}" data-v="${v}" aria-pressed="${S[key]===v}" aria-checked="${S[key]===v}"><span class="dot"></span><span><b>${b}</b>${s?`<small>${s}</small>`:''}</span>${key==='level'&&suggest(v)===2?'<span class="tag">2 shots</span>':''}</button>`).join('')}</div>`}
+function suggest(level){return level==='comp'||level==='elite'?2:1}
+function shots(){return S.shots||suggest(S.level)}
+function paintReco(){const r=q('#reco');if(!r||!S.level)return;r.hidden=false;const n=suggest(S.level);
+  r.innerHTML=n===2?'<b>We suggest two shots on race morning (800mg).</b> Studies on well-trained athletes often used around 12.8mmol of nitrate, which is two Nitrate 400 shots.':'<b>We suggest one shot on race morning (400mg).</b> That covers the 6mmol the research points to, and you can step up to two later.'}
+function ok(){const b=q('#next');if(b)b.disabled=!STEPS[S.step].valid()}
+function paintSteps(){document.getElementById('steps').innerHTML=STEPS.map((s,i)=>`<i class="${i<S.step?'done':i===S.step?'on':''}"></i>`).join('')+(S.step<STEPS.length?`<span>Step ${S.step+1} of ${STEPS.length}</span>`:'<span>Your plan</span>')}
+
+function tallies(){
+  const n=Math.min(5,Math.max(0,daysOut()));const sh=shots();const prac=S.used==='no'&&daysOut()>=8;
+  return{load:n,sh,prac,n4:n+sh+(prac?sh:0),rc:S.regen==='y'?Math.min(3,n)+3:0}
+}
+function packPanel(){
+  const t=tallies();
+  return `<aside class="pack" aria-label="Your pack so far"><div class="ph"><img src="${IMG.n4b}" alt="Nitrate 400 shot">${S.regen==='y'?`<img src="${IMG.rcb}" alt="Regen Cherry+ shot">`:''}</div>
+  <div class="pb"><h3>Your plan so far</h3><ul>
+   <li>Race day <b>${S.date?new Date(S.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'}):'Not set'}</b></li>
+   <li>Loading days <b>${t.load}</b></li>
+   <li>Race-morning shots <b>${S.level?t.sh:'To come'}</b></li>
+   <li>Nitrate 400 shots <b>${S.level?t.n4:'To come'}</b></li>
+   <li>Regen Cherry+ shots <b>${S.regen==null?'To come':t.rc}</b></li>
+  </ul></div></aside>`;
+}
+function renderStep(){
+  const st=STEPS[S.step];paintSteps();
+  app.innerHTML=`<div class="layout"><section class="q" aria-labelledby="qh">
+    <div class="kick">${st.k}</div><h1 id="qh" tabindex="-1">${st.h}</h1><p class="lead">${st.lead}</p>
+    ${st.body()}
+    <div class="nav"><button type="button" class="btn" id="next">${S.step===STEPS.length-1?'See my plan':'Continue'} <span aria-hidden="true">→</span></button>${S.step?'<button type="button" class="link" id="back">Back</button>':''}</div>
+  </section>${packPanel()}</div>`;
+  app.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{S[b.dataset.k]=b.dataset.v;S.shots=null;app.querySelectorAll(`.ch[data-k="${b.dataset.k}"]`).forEach(x=>{x.setAttribute('aria-pressed',x===b);x.setAttribute('aria-checked',x===b)});if(b.dataset.k==='level')paintReco();ok();refreshPanel()});
+  if(st.bind)st.bind();
+  q('#next').onclick=()=>{if(!st.valid())return;S.step++;S.step>=STEPS.length?renderPlan():renderStep()};
+  if(q('#back'))q('#back').onclick=()=>{S.step--;renderStep()};
+  ok();q('#qh').focus({preventScroll:true});window.scrollTo(0,0);
+}
+function refreshPanel(){const a=app.querySelector('.pack');if(a)a.outerHTML=packPanel()}
+
+function shift(t,m){const[h,mm]=t.split(':').map(Number);let x=h*60+mm+m;x=((x%1440)+1440)%1440;return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')}
+function pack(n){let best=null;for(let u=0;u<=Math.ceil(n/60)+1;u++)for(let t=0;t<=2;t++){const r=Math.max(0,n-u*60-t*45),s=Math.ceil(r/15),c=u*110+t*85+s*32.5,sh=u*60+t*45+s*15;if(!best||c<best.c-1e-6||(Math.abs(c-best.c)<1e-6&&sh<best.sh))best={u,t,s,c,sh}}return best}
+const money=v=>'£'+v.toFixed(2);
+const fmtD=d=>d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+
+function renderPlan(){
+  paintSteps();
+  const t=tallies(),race=new Date(S.date+'T12:00:00'),D=o=>{const d=new Date(race);d.setDate(d.getDate()+o);return d};
+  const take=shift(S.start,-150);const rows=[];
+  const N=n=>`<span class="pill n"><img src="${IMG.n4b}" alt="">${n} × Nitrate 400</span>`,R=`<span class="pill r"><img src="${IMG.rcb}" alt="">1 × Regen Cherry+</span>`;
+  if(t.prac){const o=-Math.min(10,daysOut()-1);rows.push({o,cls:'prac',w:N(t.sh)+'',note:'Practice run. Take it two to three hours before a hard session, exactly as you will on race day.'})}
+  for(let o=-t.load;o<0;o++)rows.push({o,w:N(1)+(S.regen==='y'&&o>=-3?R:''),note:o===-t.load?(t.load<5?`Start today. The guide uses five days and you have ${t.load}.`:'Start loading. Nitrate builds up in your muscles over several days.'):''});
+  rows.push({o:0,cls:'race',w:N(t.sh).replace('Nitrate 400',`Nitrate 400 at ${take}`)+(S.regen==='y'?R.replace('Regen Cherry+','Regen Cherry+ after'):''),note:`Start ${S.start}. Your last dose lands two and a half hours before the gun.`});
+  if(S.regen==='y')for(let o=1;o<=2;o++)rows.push({o,w:R,note:o===2?'Your last recovery shot.':''});
+  const totN=t.n4*S.races,totR=t.rc*S.races,b=pack(totN);
+  const L=S.mode==='try'?[{p:P.sp,q:1}]:[...(b.u?[{p:P.n4x4,q:b.u}]:[]),...(b.t?[{p:P.n4x3,q:b.t}]:[]),...(b.s?[{p:P.n4,q:b.s}]:[]),...(totR?[{p:P.rc,q:Math.ceil(totR/15)}]:[])];
+  const total=L.reduce((a,l)=>a+l.p.price*l.q,0);
+  const spare=S.mode==='try'?0:b.sh-totN;
+  app.innerHTML=`
+  <div class="res-hero"><div class="bg" style="background-image:url('${IMG.run}')"></div><div class="c">
+    <div class="k">Your loading plan</div>
+    <h1>${t.load} days of loading, then ${t.sh===2?'two shots':'one shot'} at ${take} on ${race.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</h1>
+    <div class="facts"><span><b>${t.sh*400}mg</b> nitrate on race morning</span><span><b>${t.n4}</b> Nitrate 400 shots</span>${t.rc?`<span><b>${t.rc}</b> Regen Cherry+</span>`:''}</div>
+  </div></div>
+  <div class="layout">
+    <section>
+      <h2 class="sec-t">Day by day</h2>
+      <div class="cal">${rows.map(r=>`<div class="row ${r.cls||''}"><div class="d"><b>${r.o===0?'Race day':r.o<0?'Day '+r.o:'Day +'+r.o}</b><span>${fmtD(D(r.o))}</span></div><div class="w">${r.w}${r.note?`<span class="note">${r.note}</span>`:''}</div></div>`).join('')}</div>
+      <div class="adj">Race-morning dose <div class="seg" id="sh"><button type="button" data-v="1" aria-pressed="${t.sh===1}">One shot</button><button type="button" data-v="2" aria-pressed="${t.sh===2}">Two shots</button></div>
+      Races to plan for <div class="seg" id="rc">${[1,2,3,4].map(n=>`<button type="button" data-v="${n}" aria-pressed="${S.races===n}">${n}</button>`).join('')}</div></div>
+      <div class="nav"><button type="button" class="link" id="edit">← Change my answers</button></div>
+    </section>
+    <aside class="bask" aria-label="Your basket">
+      <h2 class="sec-t">Your basket</h2>
+      ${L.map(l=>`<div class="bl"><img src="${l.p.img}" alt=""><div><div class="n">${l.q} × ${l.p.name}</div><div class="s">${l.p.sub}</div></div><div class="p">${money(l.p.price*l.q)}</div></div>`).join('')}
+      <div class="tot"><span>Total</span><b>${money(total)}</b></div>
+      <div class="ship ${total>=40||S.mode==='try'?'':'no'}">${S.mode==='try'||total>=40?'Free UK delivery':`Add ${money(40-total)} for free UK delivery`}</div>
+      <a class="btn pink wide" href="${SHOP}/cart/${L.map(l=>l.p.id+':'+l.q).join(',')}" target="_blank" rel="noopener">Checkout <span aria-hidden="true">→</span></a>
+      <p class="fine">${S.mode==='try'?'Enough for your practice run. Come back for the full plan once you know how you get on.':`Covers ${totN} Nitrate 400${totR?` and ${totR} Regen Cherry+`:''} shots${S.races>1?` for ${S.races} races`:''}.${spare>0?` ${spare} spare for training.`:''} Prefer to subscribe and save? Choose it on the product page.`}</p>
+      ${S.used==='no'?`<div class="alt">${S.mode==='try'?'<b>Ready for the full plan?</b>':'<b>First time with Beet It?</b> Try the Starter Pack for £14.99 with free delivery before you commit.'}<br><button type="button" class="link" id="mode" style="padding-left:0;color:var(--pink-d)">${S.mode==='try'?'Show the full plan basket':'Switch to the Starter Pack'}</button></div>`:''}
+    </aside>
+  </div>`;
+  app.querySelectorAll('#sh button').forEach(x=>x.onclick=()=>{S.shots=+x.dataset.v;renderPlan()});
+  app.querySelectorAll('#rc button').forEach(x=>x.onclick=()=>{S.races=+x.dataset.v;renderPlan()});
+  q('#edit').onclick=()=>{S.step=0;renderStep()};
+  if(q('#mode'))q('#mode').onclick=()=>{S.mode=S.mode==='try'?'plan':'try';renderPlan()};
+  window.scrollTo(0,0);
+}
+renderStep();
+</script>
+</body>
+</html>
