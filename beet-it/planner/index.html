@@ -179,7 +179,7 @@ const P={
 const today=()=>{const d=new Date();d.setHours(12,0,0,0);return d};
 const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const def=()=>{const d=today();d.setDate(d.getDate()+42);return iso(d)};
-const S={step:0,date:def(),start:'09:00',event:null,level:null,used:null,regen:null,races:1,shots:null,mode:'plan',train:null,hours:null,gph:1};
+const S={step:0,date:def(),start:'09:00',event:null,level:null,used:null,regen:null,races:1,shots:null,mode:'plan',train:null,hours:null};
 
 const EVENTS=[['short','Short and fast','5k, time trial, crit, 2k erg'],['endurance','Endurance','10k to marathon, sportive, triathlon'],['hyrox','Hyrox','Singles, doubles or relay'],['team','Team sport','Match day or tournament']];
 const LEVELS=[['rec','Recreational','A few sessions a week'],['reg','Regular','Training most days'],['comp','Competitive','Structured plan, competing for results'],['elite','Elite','National level or above']];
@@ -216,7 +216,8 @@ function tw(){return Math.max(0,Math.min(12,Math.floor((daysOut()-5)/7)))}
 function trainShots(){return tw()>0&&S.train?tw()*(+S.train):0}
 const HOURS={short:0,endurance:3,hyrox:1,team:2};
 function hours(){return S.hours!=null?S.hours:(HOURS[S.event]??0)}
-function gels(){return TEAM()?(hours()?2:0):Math.ceil(hours()*S.gph)}
+function gph(){return S.level==='comp'||S.level==='elite'?2:1}
+function gels(){return TEAM()?(hours()?2:0):Math.ceil(hours()*gph())}
 function suggest(level){return level==='comp'||level==='elite'?2:1}
 function shots(){return S.shots||suggest(S.level)}
 function paintReco(){const r=q('#reco');if(!r||!S.level)return;r.hidden=false;const n=suggest(S.level);
@@ -270,7 +271,7 @@ function renderPlan(){
   if(t.tr){const first=-(5+tw()*7)+1;rows.push({o:first,cls:'prac',span:true,w:N(1)+`<span class="note" style="width:auto">before ${S.train==='2'?'your two key sessions':'your key session'} each week</span>`,note:`${tw()} week${tw()===1?'':'s'} of training, ${t.tr} shots in all. Your first one doubles as a practice run.`})}
   for(let o=-t.load;o<0;o++)rows.push({o,w:N(1)+(S.regen==='y'&&o>=-3?R:''),note:o===-t.load?(t.load<5?`Start today. The guide uses five days and you have ${t.load}.`:'Start loading. Nitrate builds up in your muscles over several days.'):''});
   const G=t.gl?`<span class="pill g"><img src="${IMG.gl}" alt="">${t.gl} × Top Up 100 gel${t.gl>1?'s':''} ${TEAM()?'(one before, one at half-time)':'during'}</span>`:'';
-  rows.push({o:0,cls:'race',w:N(t.sh).replace('Nitrate 400',`Nitrate 400 at ${take}`)+G+(S.regen==='y'?R.replace('Regen Cherry+','Regen Cherry+ after'):''),note:TEAM()?`Kick-off ${S.start}. Your last dose lands two and a half hours before kick-off.`:`Start ${S.start}. Your last dose lands two and a half hours before the gun.`});
+  rows.push({o:0,cls:'race',w:N(t.sh).replace('Nitrate 400',`Nitrate 400 at ${take}`)+G+(S.regen==='y'?R.replace('Regen Cherry+','Regen Cherry+ after'):''),note:TEAM()?`Kick-off ${S.start}. Your last dose lands two and a half hours before kick-off.${t.gl?' We recommend one gel before kick-off and one at half-time.':''}`:`Start ${S.start}. Your last dose lands two and a half hours before the gun.${t.gl?` We recommend ${gph()===2?'two gels an hour at your level':'one gel an hour'}, in line with Beet It's guidance.`:''}`});
   if(S.regen==='y')for(let o=1;o<=2;o++)rows.push({o,w:R,note:o===2?'Your last recovery shot.':''});
   // Weekly matches overlap: after the first loading block it is one shot a day, with the bigger dose on match day.
   const totN=(TEAM()?t.n4+(S.races-1)*(6+t.sh):t.n4*S.races)+t.tr,totR=t.rc*S.races,totG=t.gl*S.races,b=pack(totN);
@@ -289,8 +290,7 @@ function renderPlan(){
       <div class="cal">${rows.map(r=>`<div class="row ${r.cls||''}"><div class="d"><b>${r.span?'Weekly':r.o===0?W().Day:r.o<0?'Day '+r.o:'Day +'+r.o}</b><span>${r.span?'from '+fmtD(D(r.o)):fmtD(D(r.o))}</span></div><div class="w">${r.w}${r.note?`<span class="note">${r.note}</span>`:''}</div></div>`).join('')}</div>
       <div class="adj"><h3>Fine-tune your plan</h3>
         <div class="ctl"><span>Dose before ${W().when}</span><div class="seg" id="sh"><button type="button" data-v="1" aria-pressed="${t.sh===1}">One shot</button><button type="button" data-v="2" aria-pressed="${t.sh===2}">Two shots</button></div></div>
-        ${TEAM()?'':`<div class="ctl"><span>Time on course</span><div class="seg" id="hr">${[[0,'Under 1h'],[1,'1h'],[2,'2h'],[3,'3h'],[4,'4h'],[5,'5h+']].map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${hours()===v}">${l}</button>`).join('')}</div></div>
-        <div class="ctl"><span>Gels an hour</span><div class="seg" id="gph"><button type="button" data-v="1" aria-pressed="${S.gph===1}">One</button><button type="button" data-v="2" aria-pressed="${S.gph===2}">Two</button></div></div>`}
+        ${TEAM()?'':`<div class="ctl"><span>Time on course</span><div class="seg" id="hr">${[[0,'Under 1h'],[1,'1h'],[2,'2h'],[3,'3h'],[4,'4h'],[5,'5h+']].map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${hours()===v}">${l}</button>`).join('')}</div></div>`}
         <div class="ctl"><span>${TEAM()?'Weekly matches':'Races to plan for'}</span><div class="seg" id="rc">${[1,2,3,4].map(n=>`<button type="button" data-v="${n}" aria-pressed="${S.races===n}">${n}</button>`).join('')}</div></div>
       </div>
       <div class="nav"><button type="button" class="link" id="edit">← Change my answers</button></div>
@@ -308,7 +308,6 @@ function renderPlan(){
   app.querySelectorAll('#sh button').forEach(x=>x.onclick=()=>{S.shots=+x.dataset.v;renderPlan()});
   app.querySelectorAll('#rc button').forEach(x=>x.onclick=()=>{S.races=+x.dataset.v;renderPlan()});
   app.querySelectorAll('#hr button').forEach(x=>x.onclick=()=>{S.hours=+x.dataset.v;renderPlan()});
-  app.querySelectorAll('#gph button').forEach(x=>x.onclick=()=>{S.gph=+x.dataset.v;renderPlan()});
   q('#edit').onclick=()=>{S.step=0;renderStep()};
   if(q('#mode'))q('#mode').onclick=()=>{S.mode=S.mode==='try'?'plan':'try';renderPlan()};
   window.scrollTo(0,0);
