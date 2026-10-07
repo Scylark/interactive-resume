@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beet It Sport Audit</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700;125,800&family=Bai+Jamjuree:wght@500;600;700&family=Assistant:wght@400;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* Layout: consultancy report with a fixed plum navigation rail and a light reading column, dressed in the beet-it.com system (plum, beetroot pink, lime, lilac; extended display caps, Bai Jamjuree labels, Assistant body). One committed light look to match their site. */
+:root{
+  --plum:#16022d; --plum-2:#2b0a49; --pink:#e44aa0; --pink-ink:#a3176a; --pink-wash:#fde9f4; --blush:#FFB7DF;
+  --lime:#D0EF90; --lime-ink:#273900; --lime-wash:#f2fadf; --lilac:#C097F7; --lilac-wash:#f3ebfe;
+  --paper:#ffffff; --paper-2:#f7f3fb; --ink:#16022d; --ink-2:#3d2c52; --ink-3:#6f6380; --line:#e7def0;
+  --amber:#8a5a00; --amber-wash:#fdf1d8; --red:#b0192f; --red-wash:#fde6ea; --green:#3d6b12; --green-wash:#eef8dc;
+  --display:"Archivo","Arial Black",system-ui,sans-serif; --label:"Bai Jamjuree","Arial Narrow",system-ui,sans-serif; --body:"Assistant","Segoe UI",system-ui,sans-serif;
+  --nav:262px; color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--pink-ink);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+strong{font-weight:700}
+h1,h2,h3,h4{text-wrap:balance}
+
+/* nav rail */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--nav);background:var(--plum);color:#fff;overflow-y:auto;z-index:50;padding-bottom:24px}
+.rail .hd{padding:26px 22px 20px;border-bottom:1px solid rgba(255,255,255,.14);position:relative}
+.rail .mark{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:21px;line-height:1.05;text-transform:uppercase}
+.rail .mark span{color:var(--lime)}
+.rail .kick{display:block;margin-top:10px;font:600 11px var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--blush)}
+.rail ul{list-style:none;margin:0;padding:14px 0}
+.rail a{display:block;color:rgba(255,255,255,.68);text-decoration:none;padding:7px 22px;font:600 12px var(--label);letter-spacing:.12em;text-transform:uppercase;border-left:3px solid transparent}
+.rail a:hover{color:#fff}
+.rail a.pl{color:#D0EF90;margin-top:10px}
+.rail a.on{color:#fff;border-left-color:var(--lime)}
+.burger{display:none}
+@media (max-width:1024px){
+  .rail{transform:translateX(-100%);transition:transform .3s}
+  .rail.open{transform:none}
+  .burger{display:block;position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:12px;z-index:60;width:46px;height:46px;border:0;border-radius:50%;background:var(--pink);color:#fff;font-size:20px;cursor:pointer}
+}
+.main{margin-left:var(--nav);padding-inline:max(16px,4vw);padding-block:0 48px}
+.col{max-width:960px;margin:0 auto}
+@media (max-width:1024px){.main{margin-left:0}}
+
+/* header */
+.hero{background:linear-gradient(110deg,#16022d 0%,#2f0a4f 55%,#62166a 100%);color:#fff;padding:56px clamp(20px,4vw,52px) 44px;margin:28px 0 8px;border-radius:0 0 28px 28px;position:relative;overflow:hidden}
+.hero>*{position:relative;z-index:1}
+.hero .ey{font:700 12px var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--lime)}
+.hero h1{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(38px,6vw,74px);line-height:.95;text-transform:uppercase;margin:14px 0 0}
+.hero h1 span{display:block;color:var(--blush)}
+.hero .sub{color:#e3d4f3;font-size:19px;max-width:52ch;margin-top:16px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.meta span{font:700 11px var(--label);letter-spacing:.14em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 12px}
+.meta span:first-child{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+.src-box{margin-top:18px;border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:14px 16px;font-size:14.5px;line-height:1.6;color:#dccdee;max-width:90ch}
+.src-box strong{display:block;font:700 11px var(--label);letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:4px}
+
+/* sections */
+section{padding:56px 0 40px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.05;text-transform:uppercase;margin:0 0 22px;color:var(--plum)}
+h2 .n{display:block;font:700 12px var(--label);letter-spacing:.2em;color:var(--pink);margin-bottom:8px}
+h3{font:700 14px var(--label);letter-spacing:.14em;text-transform:uppercase;margin:34px 0 12px;color:var(--plum)}
+p{margin:0 0 16px;max-width:74ch}
+.lede{font-size:20px;line-height:1.55;color:var(--ink)}
+ul.l{margin:0 0 16px 22px;padding:0}
+ul.l li{margin-bottom:7px;max-width:72ch}
+
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:2px solid var(--plum);border-radius:16px;overflow:hidden;margin:28px 0}
+.stat{padding:18px 18px 16px;border-right:1px solid var(--line);min-width:0}
+.stat:last-child{border-right:0}
+.stat .v{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(26px,3vw,36px);line-height:1;color:var(--pink-ink);font-variant-numeric:tabular-nums}
+.stat .k{font:600 12px var(--label);letter-spacing:.06em;color:var(--ink-2);margin-top:8px;line-height:1.45}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* callouts */
+.co{display:flex;gap:14px;padding:16px 18px;background:var(--lilac-wash);border-left:4px solid var(--lilac);border-radius:0 14px 14px 0;margin:22px 0;max-width:86ch}
+.co .i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--plum);color:#fff;font:700 13px var(--label);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.co.warn{background:var(--amber-wash);border-left-color:#d79b17}.co.warn .i{background:var(--amber)}
+.co.bad{background:var(--red-wash);border-left-color:var(--red)}.co.bad .i{background:var(--red)}
+.co.good{background:var(--green-wash);border-left-color:#8fbf3a}.co.good .i{background:var(--green)}
+.co p{margin:0}
+
+/* tables */
+.tw{overflow-x:auto;border:2px solid var(--plum);border-radius:14px;margin:20px 0}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:680px}
+th{background:var(--plum);color:#fff;font:700 11.5px var(--label);letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:11px 12px;white-space:nowrap}
+td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.b{background:var(--pink-wash);font-weight:600}
+th.b{background:var(--pink);color:#fff}
+tr:hover td{background:var(--paper-2)} tr:hover td.b{background:#f9d9eb}
+.ml{font:700 11.5px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.note{font-size:13.5px;color:var(--ink-3);margin-top:-8px;max-width:92ch}
+.pill{display:inline-block;font:700 10.5px var(--label);letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.p-crit{background:var(--red-wash);color:var(--red)} .p-high{background:var(--amber-wash);color:var(--amber)} .p-med{background:var(--lilac-wash);color:#5a2d97} .p-pass{background:var(--green-wash);color:var(--green)}
+
+/* charts */
+.chart{border:2px solid var(--line);border-radius:16px;padding:18px 20px;margin:22px 0}
+.chart .t{font:700 12px var(--label);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;color:var(--plum)}
+.chart .cv{position:relative;height:320px}
+.chart.tall .cv{height:420px}
+.chart .cn{font-size:13.5px;color:var(--ink-3);margin:10px 0 0}
+
+/* grids */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:2px solid var(--plum);border-radius:16px;overflow:hidden;margin:22px 0}
+.g2>div{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.g2>div:nth-child(2n){border-right:0}
+.g2>div:nth-last-child(-n+2){border-bottom:0}
+.g2 h4{display:inline-block;font:700 11.5px var(--label);letter-spacing:.16em;text-transform:uppercase;margin:0 0 12px;padding-bottom:4px;border-bottom:3px solid var(--plum)}
+.g2 ul{margin:0;padding-left:18px;font-size:15.5px}
+.g2 li{margin-bottom:7px}
+.sw-s h4{border-color:#8fbf3a}.sw-w h4{border-color:#d79b17}.sw-o h4{border-color:var(--pink)}.sw-t h4{border-color:var(--red)}
+@media (max-width:760px){.g2{grid-template-columns:1fr}.g2>div{border-right:0}.g2>div:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+/* creative evidence */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin:20px 0}
+.gallery figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.gallery img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;background:#fff}
+.gallery figcaption{font-size:12.5px;line-height:1.4;color:var(--ink-2);padding:8px 10px;border-top:1px solid var(--line)}
+.gallery figcaption b{font-family:var(--label);color:var(--plum)}
+
+/* priorities */
+.pri{border:2px solid var(--plum);border-left:6px solid var(--pink);border-radius:14px;padding:20px 22px;margin:16px 0}
+.pri .pm{font:700 11px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--pink-ink);margin-bottom:6px}
+.pri h3{margin:0 0 10px;font-size:16px}
+.pri p:last-child{margin-bottom:0}
+.plink{display:inline-block;background:#e44aa0;color:#fff;text-decoration:none;font:700 15px var(--label);letter-spacing:.06em;padding:11px 20px;border-radius:999px}
+.plink:hover{background:#c7378b}
+
+details{border:2px solid var(--line);border-radius:14px;margin:20px 0}
+summary{cursor:pointer;padding:13px 16px;font:700 12px var(--label);letter-spacing:.14em;text-transform:uppercase;background:var(--paper-2);border-radius:12px;color:var(--plum)}
+details[open] summary{border-radius:12px 12px 0 0;border-bottom:1px solid var(--line)}
+details .dc{padding:16px 18px;font-size:15.5px}
+.srcs{font-size:14px;line-height:1.55}
+.srcs li{margin-bottom:5px;word-break:break-word}
+.srcs h4{font:700 11.5px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:16px 0 6px}
+
+footer{margin:40px 0 0;background:var(--plum);color:#d8c8ea;border-radius:20px;padding:26px 28px;font-size:14.5px}
+footer b{color:#fff;font-family:var(--label);letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<button class="burger" type="button" aria-label="Open sections" onclick="document.querySelector('.rail').classList.toggle('open')">☰</button>
+<nav class="rail" aria-label="Report sections">
+  <div class="hd"><div class="mark">Beet It <span>Sport</span></div><span class="kick">Marketing audit · Oct 2026</span></div>
+  <ul>
+    <li><a href="#summary" class="on">Executive summary</a></li>
+    <li><a href="#brand">Brand overview</a></li>
+    <li><a href="#market">Market &amp; category</a></li>
+    <li><a href="#audience">Audience profile</a></li>
+    <li><a href="#competition">Competitive set</a></li>
+    <li><a href="#product">Product analysis</a></li>
+    <li><a href="#ceps">Category entry points</a></li>
+    <li><a href="#content">Content &amp; editorial</a></li>
+    <li><a href="#pr">PR &amp; earned media</a></li>
+    <li><a href="#paid">Paid &amp; social</a></li>
+    <li><a href="#messaging">Brand &amp; creative</a></li>
+    <li><a href="#seo">SEO &amp; GEO</a></li>
+    <li><a href="#swot">SWOT</a></li>
+    <li><a href="#implications">Strategic implications</a></li>
+    <li><a href="#sources">Sources</a></li>
+    <li><a href="planner/" class="pl">Loading planner →</a></li>
+  </ul>
+</nav>
+
+<main class="main"><div class="col">
+
+<header class="hero">
+  <div class="ey">Marketing audit · situation analysis</div>
+  <h1>Beet It Sport<span>Marketing audit</span></h1>
+  <p class="sub">An outside-in view of where the brand sits, what is holding it back, and where the next stage of growth comes from.</p>
+  <div class="meta"><span>7 October 2026</span><span>beet-it.com</span><span>UK and US</span><span>Prepared by James Vickers</span></div>
+  <div class="src-box"><strong>Data sources</strong>beet-it.com (homepage, product, collection, Optimise, ambassador, Our Story and blog pages, product feed and page source, all read on 7 October 2026, plus a live browser check of the shop and product pages the same day), DataForSEO run on 7 October 2026 (Labs domain overviews and ranked keywords for UK and US Google, keyword overview for 35 category terms in both markets, live UK SERPs with AI Overviews for 15 terms, Backlinks summaries for eight domains and an On-Page crawl of 60 pages), Instagram and TikTok profiles read live, HypeAuditor and Socialblade for competitor social figures, Trustpilot, and trade and research sources listed at the end. Traffic figures from DataForSEO are modelled estimates. No SimilarWeb data, first-party analytics or sales data were used.</div>
+  <div class="src-box"><strong>What this audit could not see</strong>The Meta Ad Library and Facebook pages were not reachable from the research setup, so live paid social creative is not assessed here and is the first thing I would review with the team. Audience demographics are inferred from public signals rather than measured. Where a figure is an estimate or my own judgement, it is labelled as one.</div>
+</header>
+
+<!-- 1 EXEC SUMMARY -->
+<section id="summary">
+  <h2><span class="n">01</span>Executive summary</h2>
+  <p class="lede">Beet It Sport owns something almost no sports nutrition brand can claim. Its shots sit behind a large share of the published research on dietary nitrate, the brand says more than 300 studies, and the brand states that the 2018 IOC consensus statement on supplements drew on 12 papers that used them. The product is Informed Sport certified, delivers a consistent 400mg dose, carries a 4.3 average across 1,755 reviews on its own site and passed £2m in sales in 2025, up 35% on the year, with roughly two thirds of that from export. The substance is excellent. The way the brand presents that substance is what is holding it back.</p>
+
+  <p>The clearest problem is the brand itself. Beet It is a household name on supermarket shelves through the parent juice brand, which reached £5.7m in retail sales in 2025 and is the largest not-from-concentrate ambient juice SKU in the UK. Sport sits on the same name but presents itself with little discipline. On the Sport website I counted at least four visual treatments for product imagery, red discount stickers and black type that sit outside the brand palette and typefaces, two older brand architectures (an earlier Beet It logo on the organic range and an orange "circulate+" label) living alongside the Sport identity, a production image on the homepage still named TEST.png, and a Nitrate 400 page whose FAQ says the product is not Informed Sport certified while the body copy and footer say it is. Each of these is small. Together they read as a brand run on short-term activation, discount bundles, codes and promotional tiles, with nobody holding the line on how it looks and sounds. That is the pattern the IPA's long-term effectiveness work warns about. Activation buys this month's orders and slowly cheapens the brand that has to sell next year's.</p>
+
+  <p>The search data shows what that costs. beet-it.com ranks for 141 search terms in Google UK and earns an estimated 5,800 organic visits a month. Holland &amp; Barrett ranks for 550 beetroot and nitrate searches and takes an estimated 10,100 visits a month from them, nearly double Beet It's total from its own subject. Science in Sport, with a new 500mg nitrate shot, now holds first place for "nitrate shot". Beet It is missing from the top 100 for beetroot supplement (3,600 UK searches a month, difficulty 1), beetroot capsules (5,400, difficulty 0), beetroot powder (8,100, difficulty 0) and nitric oxide supplement (1,900). With 1,234 linking domains and a DataForSEO authority score of 220, it sits below Torq (288) and HumanN (268), despite the research record. In AI search the picture is the same. Google's AI Overviews cite beet-it.com on four of 13 UK queries tested, all of them sport-specific, and on none of the buying or health questions, where the answers go to Holland &amp; Barrett, Healthline and Amazon. On "nitrate shot" the AI Overview cites both beet-it.com and jameswhite.co.uk, so one brand appears as two.</p>
+
+  <p>The audience work is thin by necessity, but the signals agree. Instagram has 16,400 followers, TikTok 104 and I could not find an active YouTube channel. Science in Sport has 143,900 on Instagram, Precision Fuel &amp; Hydration 118,400 and Holland &amp; Barrett 236,500. The blog publishes every six to ten weeks, all from one author. The 30-plus ambassadors include a 2:14 marathoner and a Hyrox athlete, which is the right shape, but there is no visible system that turns them into reach or sales.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">141</div><div class="k">UK keywords for beet-it.com, about 5,800 est. visits a month (DataForSEO)</div></div>
+    <div class="stat"><div class="v">550</div><div class="k">Beetroot and nitrate searches Holland &amp; Barrett ranks for, against 118 for Beet It</div></div>
+    <div class="stat"><div class="v">4 of 13</div><div class="k">UK AI Overviews citing beet-it.com, all sport-specific</div></div>
+    <div class="stat"><div class="v">4+</div><div class="k">Different visual treatments for product imagery on one website</div></div>
+  </div>
+
+  <h3>The three priorities that matter most</h3>
+  <p><strong>1. Put one brand system back in charge.</strong> A single set of distinctive assets (the plum, pink and lime, the extended type, the beetroot mark, one photographic style) applied to every packshot, bundle tile, ad and email, with promotional devices designed inside it rather than bolted on. Agree a brand-to-activation balance and protect it. This is the cheapest fix in the audit and the one with the longest tail.</p>
+  <p><strong>2. Turn the research into reach.</strong> A research hub listing every study that used the product, a link-reclamation programme with the universities and teams behind them, and category pages for the beetroot supplement, capsule, powder and nitric oxide searches the brand is absent from. Consolidate the brand's web presence so search engines and AI models see one entity, not three domains.</p>
+  <p><strong>3. Build the loading routine into the product.</strong> Nitrate works over several days, and the Optimise page already explains how. A step-by-step planner that ends in a filled basket would answer the most common question, capture the race date and give lifecycle email a reason to exist. I have built a working concept, <a href="planner/">the Beet It loading planner</a>.</p>
+
+  <div class="co"><div class="i">i</div><p><strong>Overall assessment.</strong> A world-class product with a research record competitors cannot buy, sold by a brand that is spending its credibility on short-term promotion. Nothing here calls for repositioning. It calls for discipline. Brand system first, because every other pound works harder once the brand looks like the science behind it. Then search and AI visibility, because the demand exists and nobody specialist is meeting it. Then lifecycle and new audiences such as Hyrox.</p></div>
+</section>
+
+<!-- 2 BRAND OVERVIEW -->
+<section id="brand">
+  <h2><span class="n">02</span>Brand overview</h2>
+  <h3>Origins and ownership</h3>
+  <p>Beet It Sport is the performance range of Beet It, which James White Drinks has bottled since 2005. James White is based at Whites Fruit Farm in Ashbocking, Suffolk, holds a Royal Warrant and installed a £250,000 beetroot press there in April 2025. The Our Story page credits Lawrence Mallinson as founder of James White Drinks and Beet It Sport, and says the shot format came from work with England Rugby. The brand has supplied nitrate researchers since 2008. I could not confirm where the Sport concentrate shots themselves are produced, so I have not stated it.</p>
+  <h3>Scale today</h3>
+  <p>Trade press reported Beet It at £5.7m in retail sales value in 2025, its best year, with 58% growth over two years and listings in Sainsbury's, Tesco, Morrisons, Asda, Waitrose and Holland &amp; Barrett. Beet It Sport passed £2m in 2025, up 35%, with about two thirds of sales from export markets led by the US. Sport is sold DTC on beet-it.com, through Myprotein and Sports Direct, by distributors including Beet It USA, Beet It Netherlands and a Malaysian partner, and historically on Amazon.</p>
+  <h3>Positioning and proof</h3>
+  <p>The page title reads "BEET IT SPORT | Endurance Supplement | Power of NO" and the hero describes "award-winning natural nitrate products made from beetroot juice." The proof stack is strong on paper. The site claims use in more than 300 studies, supply to over 150 professional teams across the UCI WorldTour, Premier League, Premiership Rugby, NFL and NBA, Informed Sport testing at LGC, European Specialist Sports Nutrition awards in 2020 and 2021 and NutraIngredients Product of the Year in 2022 and 2024. Past partnerships include the NN Running Team and Jumbo-Visma through Beet It Netherlands.</p>
+  <div class="co warn"><div class="i">!</div><p><strong>The proof is real but it is not managed.</strong> The Nitrate 400 page carries a FAQ entry that answers "Are these products Informed Sport certified?" with "No, the Beet It Organic Shot (70ml) is not Informed-Sport certified", directly under body copy and a footer that say every Sport product is certified. Review counts are pooled across products, so Regen Cherry+ and the gel both show 1,647 and three bundles show 1,415, and the Nitrate 400 summary of 1,755 sits over a star breakdown that adds up to 20. For a brand whose whole argument is trust, these are the details a sceptical athlete or a competitor will notice first.</p></div>
+</section>
+
+<!-- 3 MARKET -->
+<section id="market">
+  <h2><span class="n">03</span>Market and category context</h2>
+  <h3>Market sizing</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Level</th><th>Estimate</th><th>Basis and confidence</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">TAM</td><td>UK sports nutrition, about US$4.07bn in 2025, forecast US$8.64bn by 2033 (9.9% a year)</td><td>Grand View Research. A second source, Market Data Forecast, puts 2025 at US$2.68bn, so treat the range as directional.</td></tr>
+      <tr><td class="ml">Category</td><td>Global beetroot juice US$344m in 2025, rising to US$473m by 2031. Global beetroot powder US$418m in 2023, rising to US$581m by 2030</td><td>Mordor Intelligence, which names James White Drinks among the leaders, and Grand View Research. Medium confidence.</td></tr>
+      <tr><td class="ml">SAM</td><td>Natural nitrate products for endurance and team sport athletes in Beet It's markets</td><td>No credible published figure. One low-quality report sizes nitrate shots at about US$0.4bn, which I would not quote.</td></tr>
+      <tr><td class="ml">SOM</td><td>Beet It Sport above £2m in 2025, about a third of it UK by my estimate</td><td>Trade press for the total. The UK share is derived from the "two thirds export" statement and is an estimate.</td></tr>
+    </tbody>
+  </table></div>
+  <p>The useful reading is that Sport is a small, fast-growing line inside a healthy parent brand, in a category whose demand is far larger than the specialist players currently serve. The search data later in this audit puts numbers on that gap.</p>
+  <h3>PESTLE</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Factor</th><th>What it means for Beet It Sport</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Political</td><td>Two thirds of Sport sales are export. US tariff and import rules for food supplements are the main exposure, and EU distribution runs through a Dutch partner.</td></tr>
+      <tr><td class="ml">Economic</td><td>£2.17 a shot is premium against Holland &amp; Barrett tablets at about 66p a serving and CherryActive concentrate at about £1.23. Price pressure pushes brands toward discount codes, which is exactly the habit this audit warns about.</td></tr>
+      <tr><td class="ml">Social</td><td>Mass participation (marathons, Hyrox at 1.5 million athletes last season and a target of 2 million) is growing, and the new audience is gym-led and video-first.</td></tr>
+      <tr><td class="ml">Technological</td><td>Generative search now answers "does beetroot juice work" before the click. Brands that are cited consistently in AI answers capture the consideration.</td></tr>
+      <tr><td class="ml">Legal</td><td>UK and EU rules restrict health claims on food. Imported reviews on product pages describing blood pressure and chest pain effects, and the contradictory Informed Sport FAQ, are compliance risks rather than marketing details.</td></tr>
+      <tr><td class="ml">Environmental</td><td>A solar-powered factory and British beetroot are credible sustainability stories that the Sport range barely tells.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 4 AUDIENCE -->
+<section id="audience">
+  <h2><span class="n">04</span>Audience profile</h2>
+  <p>No SimilarWeb data was available, so this section is inferred from public signals and should be validated with GA4 and SimilarWeb in the first month.</p>
+  <ul class="l">
+    <li><strong>Who the brand addresses.</strong> The ambassador roster covers marathon (Charlie Davis, 2:14), Hyrox (Harry Thompson), swimming (Jess Podger), ballet and more. Product copy talks mainly to cyclists and runners.</li>
+    <li><strong>Who writes reviews.</strong> Reviews on the Nitrate 400 page come from runners, mountain bikers, gym users and people using it as a daily health habit, including several describing blood pressure effects. That last group is a real audience the Sport site cannot speak to under food-claim rules.</li>
+    <li><strong>Where search demand sits.</strong> The highest-volume beetroot searches are health questions (beetroot juice benefits 9,900 UK a month) and formats (beetroot powder 8,100, capsules 5,400), not sport. The performance audience is smaller and more specific (beetroot juice for runners 210).</li>
+    <li><strong>Social engagement.</strong> HypeAuditor puts Instagram engagement at 2.22%, below Precision Fuel &amp; Hydration's 2.82% and above Science in Sport's 1.94%.</li>
+  </ul>
+  <div class="co"><div class="i">i</div><p><strong>The audience is wider than the brand presentation.</strong> Athletes come for performance, health shoppers come for beetroot, and gym-goers come for a natural pre-workout. The site and creative speak mostly to the first group, while search and reviews show the other two arriving anyway.</p></div>
+</section>
+
+<!-- 5 COMPETITION -->
+<section id="competition">
+  <h2><span class="n">05</span>Competitive landscape</h2>
+  <p>The competitive set mixes direct nitrate rivals, the UK endurance benchmark, and the retailers and health brands that take the wider beetroot demand. SERP data shows how buyers actually meet the category. Across 15 UK category searches, Amazon appeared in the top ten eight times, Reddit seven and eBay five. No specialist sports brand appeared more than once.</p>
+  <div class="tw"><table>
+    <thead><tr><th></th><th class="b">Beet It Sport</th><th>Science in Sport</th><th>Precision F&amp;H</th><th>HumanN SuperBeets</th><th>Holland &amp; Barrett</th><th>Styrkr</th><th>CherryActive</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Role</td><td class="b">Nitrate specialist</td><td>UK category leader, now in nitrate</td><td>UK endurance DTC benchmark</td><td>US beet health brand</td><td>Health retailer and own brand</td><td>Nitrate gel rival</td><td>Tart cherry rival to Regen</td></tr>
+      <tr><td class="ml">Nitrate product</td><td class="b">Nitrate 400, 400mg, £2.17 a shot</td><td>GO Nitrates Shot, 500mg stated, £2.92 a shot</td><td>None</td><td>Chews and powder, nitrate not stated, about $1.33 a serving</td><td>Beetroot tablets, nitrate not stated, about 66p a serving</td><td>GEL30 Nitro+, £2.58 a gel</td><td>Concentrate, about £1.23 a serving</td></tr>
+      <tr><td class="ml">Distribution</td><td class="b">DTC, Myprotein, Sports Direct, export distributors</td><td>Supermarkets, specialist, Amazon, global</td><td>DTC with US, EU, CA storefronts, specialist retail</td><td>30,000+ US doors incl. Costco, Walmart</td><td>Own stores and online, UK and NL</td><td>Specialist retail</td><td>H&amp;B, Sports Direct, online</td></tr>
+      <tr><td class="ml">Proof</td><td class="b">300+ studies, Informed Sport, 150+ teams</td><td>Informed Sport, Loughborough partnership, INEOS 10+ years</td><td>Scientist bylines, IRONMAN partner</td><td>"#1 cardiologist recommended"</td><td>Retail scale</td><td>Informed Sport</td><td>Montmorency cherry research</td></tr>
+      <tr><td class="ml">UK organic keywords</td><td class="b num">141</td><td class="num">2,353</td><td class="num">2,753</td><td class="num">216</td><td class="num">173,707</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="ml">Est. UK organic visits / mo</td><td class="b num">5,828</td><td class="num">76,513</td><td class="num">18,183</td><td class="num">391</td><td class="num">4.39m</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="ml">Linking domains</td><td class="b num">1,234</td><td class="num">5,262</td><td class="num">3,109</td><td class="num">1,962</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="ml">Trustpilot</td><td class="b">4.3 from 59</td><td>4.2 from 65,679</td><td>3.9 from 3 (not invited)</td><td>Blocked</td><td>4.2 from 22,638</td><td>Not checked</td><td>Not found</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">DataForSEO Labs and Backlinks, 7 October 2026. Price per serving from each brand's site or the retailer cited in the sources. Styrkr and CherryActive search data were not pulled in this pass.</p>
+
+  <div class="chart"><div class="t">Estimated UK organic visits a month, competitive set</div><div class="cv"><canvas id="cTraffic" aria-label="Bar chart of estimated UK organic visits"></canvas></div><p class="cn">Holland &amp; Barrett (4.39m) is left off the scale. DataForSEO modelled estimates, 7 October 2026.</p></div>
+
+  <h3>Social media comparison</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Platform</th><th class="b">Beet It Sport</th><th>Science in Sport</th><th>Precision F&amp;H</th><th>HumanN</th><th>Holland &amp; Barrett</th><th>Styrkr</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Instagram</td><td class="b num">16.4k</td><td class="num">143.9k</td><td class="num">118.4k</td><td class="num">51.2k</td><td class="num">236.5k</td><td class="num">4k</td></tr>
+      <tr><td class="ml">IG engagement</td><td class="b num">2.22%</td><td class="num">1.94%</td><td class="num">2.82%</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="ml">TikTok</td><td class="b num">104</td><td class="num">6,445</td><td class="num">1.5k</td><td class="num">8,845</td><td class="num">79.4k</td><td class="num">None</td></tr>
+      <tr><td class="ml">YouTube</td><td class="b num">None found</td><td class="num">11.5k</td><td class="num">11.0k</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">0.9k</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Beet It Instagram and TikTok read from the live profiles, 7 October 2026. Others from HypeAuditor and Socialblade (July to October 2026) and, for Precision and Styrkr TikTok and YouTube, my own July 2026 benchmark. Facebook and X counts could not be retrieved for any brand.</p>
+
+  <div class="chart"><div class="t">Perceptual map</div><div class="cv" style="height:400px"><canvas id="cMap" aria-label="Perceptual map scatter chart"></canvas></div><p class="cn">My assessment from positioning, proof and channel. Horizontal axis runs from specialist sport to mainstream health. Vertical axis is the strength of scientific evidence the brand puts forward.</p></div>
+  <p>Beet It sits where it should, top left, with more evidence than anyone in the set. The white space is directly to its right. Nobody combines strong evidence with an accessible, everyday presentation. HumanN reaches the mainstream with a cardiovascular story but no stated nitrate dose, and Holland &amp; Barrett wins on reach with almost no proof. Beet It already has a household brand next door in the juice range. The question is whether Sport borrows that familiarity or keeps presenting as a niche supplement.</p>
+
+  <h3>Points of parity and difference</h3>
+  <div class="g2">
+    <div class="sw-s"><h4>Points of difference</h4><ul><li>Research record behind the actual product, not just the ingredient</li><li>A consistent, declared 400mg dose</li><li>British beetroot, family business, solar-powered factory</li><li>Household name in grocery through the parent brand</li></ul></div>
+    <div class="sw-w"><h4>Points of parity it misses</h4><ul><li>A consistent visual identity across products and channels, which SiS and Precision both hold</li><li>Scientist-bylined education content (Precision, SiS)</li><li>Short-form video presence (SiS, H&amp;B, HumanN)</li><li>Accurate, product-specific reviews and FAQs</li></ul></div>
+  </div>
+</section>
+
+<!-- 6 PRODUCT -->
+<section id="product">
+  <h2><span class="n">06</span>Product analysis</h2>
+  <h3>Boston matrix</h3>
+  <p>Placements are my hypotheses from public signals, because product-level sales are not visible. They are the first thing I would check against the real numbers.</p>
+  <div class="g2">
+    <div><h4>Stars</h4><ul><li><strong>Nitrate 400 shots.</strong> The flagship, the research product and the main driver of 35% growth. Highest review count.</li></ul></div>
+    <div><h4>Question marks</h4><ul><li><strong>Nitrate Energy Gel Top Up 100.</strong> Enters a crowded gel market with a real point of difference (100mg nitrate plus 30g carbohydrate).</li><li><strong>Regen Cherry+.</strong> Against cheaper tart cherry concentrates in a 12,100 searches a month UK category where Beet It does not rank.</li></ul></div>
+    <div><h4>Cash cows</h4><ul><li><strong>Nitrate 3000 concentrate.</strong> Team and research supply, steady demand, about £1.11 a serving.</li><li><strong>The parent juice range</strong> funds the business but sits outside Sport.</li></ul></div>
+    <div><h4>Dogs</h4><ul><li><strong>Organic Health shots on the Sport site.</strong> A health product inside a performance shop, with an older identity, no Informed Sport status and no sport story.</li></ul></div>
+  </div>
+  <h3>Pricing</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Product</th><th class="num">Pack price</th><th class="num">Per serving</th><th>Nearest rival</th><th class="num">Rival per serving</th></tr></thead>
+    <tbody>
+      <tr><td class="b">Nitrate 400 (15 × 70ml)</td><td class="num b">£32.50</td><td class="num b">£2.17</td><td>SiS GO Nitrates Shot (12)</td><td class="num">£2.92</td></tr>
+      <tr><td class="b">Nitrate 3000 (about 90 servings)</td><td class="num b">£100.00</td><td class="num b">£1.11</td><td>H&amp;B beetroot tablets</td><td class="num">£0.66</td></tr>
+      <tr><td class="b">Regen Cherry+ (15)</td><td class="num b">£32.50</td><td class="num b">£2.17</td><td>CherryActive concentrate</td><td class="num">£1.23</td></tr>
+      <tr><td class="b">Energy Gel Top Up 100 (12)</td><td class="num b">£27.00</td><td class="num b">£2.25</td><td>Styrkr GEL30 Nitro+ (12)</td><td class="num">£2.58</td></tr>
+    </tbody>
+  </table></div>
+  <p>Pricing is well judged against the specialists, cheaper than SiS per shot and cheaper than Styrkr per gel. The risk is how it is sold. A first-order code, a 10% pop-up, "SAVE £9", "SAVE £18.50" and "Save 20%" stickers and a sale price all sit across one small range. Each one trains the buyer to wait for a deal on a product that has no real competitor on proof.</p>
+  <h3>Value proposition canvas</h3>
+  <div class="g2">
+    <div><h4>Customer jobs, pains and gains</h4><ul><li><strong>Job.</strong> Go faster or last longer on a target day, legally and safely.</li><li><strong>Pains.</strong> Unsure how and when to take it, the taste, glass bottles in the post, not knowing if it works for them.</li><li><strong>Gains.</strong> A PB, confidence that the product is tested, a simple routine.</li></ul></div>
+    <div><h4>How the brand answers today</h4><ul><li><strong>Strong.</strong> Testing, dose consistency, research.</li><li><strong>Partial.</strong> Dosing guidance exists on the Optimise page but is not personalised or tied to a race date.</li><li><strong>Missing.</strong> Packaging and delivery reassurance (the main Trustpilot complaint), and any honest treatment of taste.</li></ul></div>
+  </div>
+</section>
+
+<!-- 7 CEPs -->
+<section id="ceps">
+  <h2><span class="n">07</span>Category entry points</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Entry point</th><th>Evidence of demand</th><th>Who owns it today</th><th>Beet It position</th></tr></thead>
+    <tbody>
+      <tr><td>"Race week, what should I take?"</td><td>beetroot juice for runners, 210 UK and 1,000 US a month, difficulty 5 to 6</td><td>Beet It in the UK (first place), Runna and Runners Connect in AI answers</td><td><span class="pill p-pass">Owned UK</span> <span class="pill p-high">Weak US</span></td></tr>
+      <tr><td>"Is beetroot good for me?"</td><td>beetroot juice benefits 9,900 UK and 49,500 US</td><td>Healthline, BHF, Holland &amp; Barrett</td><td><span class="pill p-crit">Absent</span></td></tr>
+      <tr><td>"Which beetroot supplement?"</td><td>beetroot supplement 3,600, capsules 5,400, powder 8,100 UK</td><td>Amazon, Holland &amp; Barrett, eBay</td><td><span class="pill p-crit">Absent</span></td></tr>
+      <tr><td>"Natural pre-workout"</td><td>480 UK, 5,400 US, difficulty 0 to 1</td><td>Vivo Life, Amazon, coaching blogs</td><td><span class="pill p-crit">Absent</span></td></tr>
+      <tr><td>"How much, how often?"</td><td>how much beetroot juice per day, 1,300 UK</td><td>British Heart Foundation</td><td><span class="pill p-high">39th</span></td></tr>
+      <tr><td>"Recovery after a hard race"</td><td>tart cherry juice 12,100 UK and 74,000 US</td><td>Planet Organic, health publishers</td><td><span class="pill p-crit">Absent</span></td></tr>
+      <tr><td>"Hyrox race prep"</td><td>Hyrox supplements 50 UK a month, tiny but new</td><td>Nobody</td><td><span class="pill p-med">Open</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Search volumes and positions from DataForSEO Labs, 7 October 2026. AI answer citations from live UK SERPs the same day.</p>
+</section>
+
+<!-- 8 CONTENT -->
+<section id="content">
+  <h2><span class="n">08</span>Content and editorial</h2>
+  <div class="tw"><table>
+    <thead><tr><th></th><th class="b">Beet It Sport</th><th>Science in Sport</th><th>Precision F&amp;H</th><th>HumanN</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Frequency</td><td class="b">Every 6 to 10 weeks (22 Sep, 15 Jul, 28 May, 13 Apr, 13 Jan 2026)</td><td>Several a month, latest 7 Oct 2026</td><td>Frequent, large library</td><td>Undated</td></tr>
+      <tr><td class="ml">Bylines</td><td class="b">All Barney Mallinson (product development)</td><td>Mostly "SiS Team", one named sport scientist</td><td>Named sport scientists, founder Andy Blow</td><td>Brand</td></tr>
+      <tr><td class="ml">Themes</td><td class="b">Dosing and timing, the gel, the 3% marginal gain, concentrate versus powder, the 180-study review</td><td>Marathon fuelling, sodium, caffeine, heat, UTMB</td><td>Sweat, sodium, carbohydrate, race plans</td><td>Heart health, family campaign</td></tr>
+      <tr><td class="ml">Standout</td><td class="b">"Beetroot concentrate vs beetroot juice" ranks third for concentrated beetroot</td><td>Breadth and cadence</td><td>Planner and education engine</td><td>Mainstream health framing</td></tr>
+      <tr><td class="ml">Gap</td><td class="b">No scientist voices despite 300+ studies. No video. No health or format content</td><td>Thin nitrate content</td><td>No nitrate</td><td>No sport</td></tr>
+    </tbody>
+  </table></div>
+  <div class="co good"><div class="i">✓</div><p><strong>The US site already shows the answer.</strong> beet-it.us earns an estimated 47,800 US organic visits a month, mostly from useful articles on nitrate-rich foods and nitric oxide, and ranks third for "foods high in nitrates". The UK Sport site has none of this. Repurposing that library for UK readers is the fastest content win available.</p></div>
+</section>
+
+<!-- 9 PR -->
+<section id="pr">
+  <h2><span class="n">09</span>PR and earned media</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Brand</th><th>Notable 2025 to 2026 coverage</th><th>Quality</th></tr></thead>
+    <tbody>
+      <tr><td class="b">Beet It Sport</td><td class="b">Food Manufacture (£250k press, Apr 2025), KAM / NamNews (record sales, Feb 2026), London Marathon expo stand C113 (2026), NutraIngredients Product of the Year 2024</td><td class="b">Trade and industry only. I found no 2025 to 2026 consumer or endurance media reviews</td></tr>
+      <tr><td>Science in Sport</td><td>£82m bd-capital takeover (Apr 2025), Loughborough partnership extended (Feb 2026), Nike After Dark Tour (Sep 2026)</td><td>Financial, university and consumer</td></tr>
+      <tr><td>Precision F&amp;H</td><td>IRONMAN 70.3 World Championship title partner 2026 to 2028, IRONMAN global hydration partner (2025), ASICS LA Marathon gel (Jan 2026)</td><td>Endurance trade and consumer, high cadence</td></tr>
+      <tr><td>HumanN</td><td>Manning family national TV campaign, Texas Athletics</td><td>Mainstream US, mostly self-reported</td></tr>
+    </tbody>
+  </table></div>
+  <p>The irony is sharp. Beet It is the product scientists use, yet it gets less earned coverage than brands with far thinner evidence. Every new study that uses the shots is a press release the brand is not writing.</p>
+</section>
+
+<!-- 10 PAID -->
+<section id="paid">
+  <h2><span class="n">10</span>Paid search and paid social</h2>
+  <ul class="l">
+    <li><strong>Paid search.</strong> DataForSEO detects no paid keywords for beet-it.com, Science in Sport, Precision or HumanN in UK or US Google. Its sample misses tightly targeted, Shopping and Performance Max activity, so this needs confirming in the Google Ads Transparency Center.</li>
+    <li><strong>Paid social.</strong> The Meta Ad Library could not be reached from the research setup, so no competitor or Beet It ad creative is scored here. The onsite creative reviewed in the next section is the same material that typically feeds paid social, and the review should start there with the live account.</li>
+  </ul>
+  <div class="co warn"><div class="i">!</div><p><strong>Gap to close in week one.</strong> A side-by-side Ad Library review of Beet It, SiS, Precision and HumanN, scoring each live ad for brand consistency, creative quality, and the balance between promotion and brand building.</p></div>
+</section>
+
+<!-- 11 MESSAGING / BRAND -->
+<section id="messaging">
+  <h2><span class="n">11</span>Brand, creative and messaging review</h2>
+  <p class="lede">This is the most important section in the audit. Beet It is a household brand with a premium, science-led product, and it is being presented through creative that is inconsistent, often low in craft and heavily promotional. The short-term logic is understandable. The long-term effect is a slow erosion of what makes people choose and pay for Beet It.</p>
+
+  <h3>What the product imagery shows</h3>
+  <div class="gallery">
+    <figure><img src="https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Nitrate_400_Triple_Bundle.jpg?width=400" alt="Nitrate 400 Triple Bundle tile with red Save £9 sticker"><figcaption><b>Bundle tile.</b> Red "SAVE £9" sticker and black grotesque type, neither from the brand palette or fonts.</figcaption></figure>
+    <figure><img src="https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Recovery_Month_Bundle_Beet_It_Regen_Cherry_Two_15-Shot_Packs.png?width=400" alt="Recovery Month Bundle tile with red Save 20% badge"><figcaption><b>Recovery bundle.</b> A different red, a different badge shape, a different headline style again.</figcaption></figure>
+    <figure><img src="https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Race_Ready.jpg?width=400" alt="Race Ready Nitrate Stack tile"><figcaption><b>Race Ready stack.</b> A third tile layout with its own icon row.</figcaption></figure>
+    <figure><img src="https://www.beet-it.com/cdn/shop/files/TEST.png?width=400" alt="Tilted Nitrate 400 bottle on grey"><figcaption><b>Homepage asset "TEST.png".</b> Grey-ground tilted render, live in production under a test filename.</figcaption></figure>
+    <figure><img src="https://www.beet-it.com/cdn/shop/files/Regan-NEW.png?width=400" alt="Regen Cherry+ bottle render"><figcaption><b>"Regan-NEW.png".</b> The recovery hero is filed under a misspelt product name.</figcaption></figure>
+    <figure><img src="https://cdn.shopify.com/s/files/1/0616/6082/3652/files/NITRATE_3000_INDIVIDUAL.png?width=400" alt="Nitrate 3000 bottle"><figcaption><b>Nitrate 3000.</b> Older, lower-fidelity packshot on its own style.</figcaption></figure>
+    <figure><img src="https://www.beet-it.com/cdn/shop/files/Health-NEW_5c8f708e-ce86-4d7b-ba34-c9ce08941d8c.png?width=400" alt="Organic shot display case with older Beet It logo"><figcaption><b>Organic range.</b> Earlier Beet It logo and a dark green case, sold in the Sport shop.</figcaption></figure>
+    <figure><img src="https://cdn.shopify.com/s/files/1/0616/6082/3652/files/Beet-It-Shot-Ginger.jpg?width=400" alt="Organic beetroot and ginger shot with orange circulate+ label"><figcaption><b>"circulate+ &amp; ginger".</b> A third brand architecture, orange label and all.</figcaption></figure>
+    <figure><img src="https://www.beet-it.com/cdn/shop/articles/Screenshot_2026-05-20_at_13.51.08_09bf23ab-36fa-40e0-91e5-c8c7453e05c7.png?width=400" alt="Marathon runner photograph"><figcaption><b>Athlete imagery.</b> One of only two people pictures among the 20 site images sampled.</figcaption></figure>
+  </div>
+  <p class="note">Images taken from beet-it.com product feed and homepage, 7 October 2026, shown here for review only. Filenames as served by the site.</p>
+
+  <h3>The pattern</h3>
+  <ul class="l">
+    <li><strong>No single photographic style.</strong> White studio packshots, grey-ground renders, transparent cut-outs and tilted floating bottles all sit side by side. Of 20 site images sampled, two show a person.</li>
+    <li><strong>Promotion designed outside the brand.</strong> Discount stickers use reds and type the brand does not otherwise use, in three different badge styles across four bundle tiles, plus a first-order code banner and a "Limited-Time 10%" pop-up.</li>
+    <li><strong>Three identities in one shop.</strong> Beet It Sport (plum, pink, lime), an earlier Beet It identity on the organic cases, and an orange "circulate+" sub-brand.</li>
+    <li><strong>Copy that contradicts itself.</strong> The Informed Sport FAQ conflict, pooled review counts, page addresses that still carry long marketplace titles and tags such as "Diet Shakes" and "Drugstore".</li>
+    <li><strong>Missing human and story content.</strong> No scientist faces, little athlete photography and no video on the site or YouTube, for a brand whose story is people and research.</li>
+  </ul>
+
+  <h3>Why it matters more than it looks</h3>
+  <p>The IPA's effectiveness research (Binet and Field, The Long and the Short of It) found that short-term sales activation and long-term brand building work on different timescales, and that brands which tilt heavily toward activation see the effect fade as soon as spend stops, while brand building compounds. Their guidance for most categories is to keep around 60% of effort on brand. Distinctive asset research (Romaniuk, Building Distinctive Brand Assets) adds that recognition depends on using the same colours, shapes, type and imagery every time. Beet It has the assets, the beetroot mark, the plum and pink, the lime stripe. It is not using them consistently, and the promotional layer keeps overriding them.</p>
+  <p>For a premium, household name this has a specific cost. Each discount tile tells the buyer the price is negotiable. Each off-brand image makes the product look like any other supplement on Amazon. And because grocery shoppers know the Beet It name from the juice, a Sport presentation that looks cheaper than the shelf product undermines both.</p>
+
+  <h3>The AI search angle</h3>
+  <p>AI search raises the stakes. Generative answers and AI Overviews assemble a view of a brand from every consistent signal across the web. In the UK tests, beet-it.com was cited in four AI Overviews out of 13, always for sport-specific questions. For "nitrate shot", Google's AI Overview cited both beet-it.com and jameswhite.co.uk, alongside Science in Sport twice. The brand currently presents as Beet It, Beet It Sport, beet-it.com, beet-it.us and jameswhite.co.uk, with different product names and claims across them. Models reward clear, consistent entities. At the same time, AI-generated creative has made average-looking ads abundant and cheap. When anyone can produce a passable discount tile in seconds, craft and consistency are what make a brand recognisable, and that is where Beet It should be competing.</p>
+
+  <h3>Messaging clarity</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Test</th><th>Finding</th><th>Rating</th></tr></thead>
+    <tbody>
+      <tr><td>Five-second clarity</td><td>"Natural nitrate products made from beetroot juice" is clear to athletes who know nitrate, less so to a gym-goer or health shopper</td><td><span class="pill p-high">Partial</span></td></tr>
+      <tr><td>Value proposition</td><td>The research record is the most believable proposition in the category and is under-told on the homepage</td><td><span class="pill p-high">Under-used</span></td></tr>
+      <tr><td>Consistency across channels</td><td>Three identities, multiple image styles, contradictory FAQ</td><td><span class="pill p-crit">Weak</span></td></tr>
+      <tr><td>Calls to action</td><td>Clear "Shop Now" paths, but every route ends in a discount</td><td><span class="pill p-high">Promotional</span></td></tr>
+      <tr><td>Brand story</td><td>Suffolk family business, England Rugby origin, 300+ studies, solar factory. All true, mostly hidden on Our Story</td><td><span class="pill p-high">Hidden</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 12 SEO -->
+<section id="seo">
+  <h2><span class="n">12</span>SEO and GEO performance</h2>
+  <div class="stats">
+    <div class="stat"><div class="v">5,828</div><div class="k">Est. UK organic visits a month, beet-it.com</div></div>
+    <div class="stat"><div class="v">+33</div><div class="k">Net UK keywords last period (67 new, 34 lost)</div></div>
+    <div class="stat"><div class="v">47,756</div><div class="k">Est. US organic visits a month, beet-it.us</div></div>
+    <div class="stat"><div class="v">90.5</div><div class="k">On-Page score across 60 crawled pages</div></div>
+  </div>
+  <div class="chart"><div class="t">Who takes beetroot and nitrate searches in Google UK</div><div class="cv" style="height:260px"><canvas id="cShare" aria-label="Bar chart of beetroot and nitrate search share"></canvas></div><p class="cn">Estimated monthly organic visits from keywords containing "beet" or "nitr". DataForSEO Labs ranked keywords, 7 October 2026. Myprotein ranks 10th to 18th for Beet It's own brand terms because it resells the range.</p></div>
+
+  <div class="chart tall"><div class="t">Keyword gaps, UK monthly searches where beet-it.com is not in the top 100</div><div class="cv"><canvas id="cGap" aria-label="Bar chart of keyword gaps"></canvas></div><p class="cn">Volume is the 12-month average. Difficulty (0 to 100) shown in the tooltip. DataForSEO Labs, 7 October 2026.</p></div>
+
+  <div class="chart"><div class="t">Linking domains, authority comparison</div><div class="cv"><canvas id="cLinks" aria-label="Bar chart of linking domains"></canvas></div><p class="cn">DataForSEO Backlinks summary, 7 October 2026.</p></div>
+
+  <h3>What ranks today</h3>
+  <p>beet-it.com is strong on its own name and the shot format. It ranks first for beet shot (2,400 a month), beet it, beet it sport nitrate 400 and beetroot juice for runners, second for beetroot shots and sixth to eighth for beet juice and beetroot juice (27,100 each), where the organic Health collection does the work. Keyword count grew last period, so the trend is positive. The constraint is breadth and authority, not decline.</p>
+
+  <h3>AI visibility (GEO)</h3>
+  <div class="tw"><table>
+    <thead><tr><th>UK query</th><th>AI Overview</th><th>beet-it.com cited</th><th>Other sources cited</th></tr></thead>
+    <tbody>
+      <tr><td>beetroot juice for runners</td><td>Yes</td><td><span class="pill p-pass">Yes</span></td><td>Runna, Reddit, Runners Connect</td></tr>
+      <tr><td>beetroot juice for athletes</td><td>Yes</td><td><span class="pill p-pass">Yes</span></td><td>PubMed, MDPI, University of Exeter</td></tr>
+      <tr><td>beetroot juice before running</td><td>Yes</td><td><span class="pill p-pass">Yes</span></td><td>Sports Injury Physio, Runna</td></tr>
+      <tr><td>nitrate shot</td><td>Yes</td><td><span class="pill p-pass">Yes</span></td><td>Science in Sport (twice), jameswhite.co.uk, Amacx</td></tr>
+      <tr><td>nitrate supplement</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>PMC, Examine, Amazon, GSSI</td></tr>
+      <tr><td>nitric oxide supplement</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>Healthline, Holland &amp; Barrett, Bolt Pharmacy</td></tr>
+      <tr><td>beetroot juice benefits</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>Healthline, BHF, Holland &amp; Barrett</td></tr>
+      <tr><td>how much beetroot juice per day</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>BHF, Medical News Today</td></tr>
+      <tr><td>beetroot capsules</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>Bolt Pharmacy, Tesco</td></tr>
+      <tr><td>beetroot powder</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>Amazon, Cleveland Clinic</td></tr>
+      <tr><td>natural pre workout</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>Amazon, iHerb, Squatwolf</td></tr>
+      <tr><td>energy gels</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>XMiles, Science in Sport, Myprotein</td></tr>
+      <tr><td>beetroot supplement</td><td>Yes</td><td><span class="pill p-crit">No</span></td><td>None returned</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Google AI Overviews via DataForSEO live SERP (UK, English), 7 October 2026. ChatGPT, Perplexity and Claude answers were not tested in this pass.</p>
+
+  <details><summary>Technical SEO findings (On-Page crawl, 60 pages)</summary><div class="dc">
+    <div class="tw" style="margin:0"><table>
+      <thead><tr><th>Check</th><th class="num">Pages affected</th><th>Severity</th></tr></thead>
+      <tbody>
+        <tr><td>Images without alt text</td><td class="num">55 of 60</td><td><span class="pill p-high">High</span></td></tr>
+        <tr><td>Render-blocking resources</td><td class="num">55</td><td><span class="pill p-med">Medium</span></td></tr>
+        <tr><td>Duplicate content</td><td class="num">21</td><td><span class="pill p-high">High</span></td></tr>
+        <tr><td>Titles too long</td><td class="num">20</td><td><span class="pill p-med">Medium</span></td></tr>
+        <tr><td>Missing meta description</td><td class="num">15</td><td><span class="pill p-med">Medium</span></td></tr>
+        <tr><td>Deprecated HTML tags</td><td class="num">22</td><td><span class="pill p-med">Low</span></td></tr>
+        <tr><td>Broken page (4xx)</td><td class="num">1</td><td><span class="pill p-med">Low</span></td></tr>
+        <tr><td>Sitemap, robots.txt, SSL, HTTP/2, HTTPS redirect</td><td class="num">All</td><td><span class="pill p-pass">Pass</span></td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:14px">Product page addresses carry full marketplace titles (the Nitrate 400 address is over 130 characters) and the product tags include "Diet Shakes", "Drugstore" and "MCF", which suggests Amazon listing data was imported into Shopify and never cleaned.</p>
+  </div></details>
+</section>
+
+<!-- 13 SWOT -->
+<section id="swot">
+  <h2><span class="n">13</span>SWOT summary</h2>
+  <div class="g2">
+    <div class="sw-s"><h4>Strengths</h4><ul><li>More than 300 studies and the IOC consensus behind the product itself</li><li>Informed Sport testing and a consistent 400mg dose</li><li>£2m+ Sport sales growing 35%, with a £5.7m household parent brand</li><li>4.3 average across 1,755 onsite reviews</li><li>First place for its own core UK searches, and a strong US content site</li></ul></div>
+    <div class="sw-w"><h4>Weaknesses</h4><ul><li>Inconsistent brand presentation, three identities and discount-led creative</li><li>141 UK keywords and a lower authority score (220) than Torq or HumanN</li><li>16.4k Instagram, 104 TikTok, no YouTube</li><li>Contradictory Informed Sport FAQ and pooled review counts</li><li>Blog every 6 to 10 weeks from one author, no scientist voices</li></ul></div>
+    <div class="sw-o"><h4>Opportunities</h4><ul><li>Beetroot supplement, capsule and powder searches (17,100 UK a month) nobody specialist owns</li><li>Research hub and link reclamation from 300+ studies</li><li>A loading planner that captures race dates and drives lifecycle email</li><li>Hyrox, with 1.5m athletes and no nitrate partner named</li><li>Borrowing the juice brand's grocery familiarity</li></ul></div>
+    <div class="sw-t"><h4>Threats</h4><ul><li>Science in Sport's 500mg GO Nitrates shot, already first for "nitrate shot"</li><li>Holland &amp; Barrett and Amazon owning the wider beetroot demand</li><li>Discount habits eroding price power</li><li>Health-claim exposure from imported reviews</li><li>AI answers forming a view of the category without Beet It in it</li></ul></div>
+  </div>
+</section>
+
+<!-- 14 IMPLICATIONS -->
+<section id="implications">
+  <h2><span class="n">14</span>Strategic implications</h2>
+  <p>The situation points to a clear order of work. Each step makes the next one cheaper.</p>
+  <div class="pri"><div class="pm">Priority 1 · Brand</div><h3>One brand system, applied everywhere</h3><p>Codify the distinctive assets, set one photographic and packshot standard, redesign promotional devices inside the brand, retire or separate the older identities, and agree a brand-to-activation balance with a target close to the IPA's 60:40. Start with the website and the paid social account, because they reach the most people every day.</p></div>
+  <div class="pri"><div class="pm">Priority 2 · Trust housekeeping</div><h3>Fix what a sceptical athlete will check</h3><p>Correct the Informed Sport FAQ, separate review counts by product, remove imported reviews that make health claims, clean page addresses and tags, add alt text, and set up Trustpilot replies and a packaging check for the delivery complaints.</p></div>
+  <div class="pri"><div class="pm">Priority 3 · Search and AI visibility</div><h3>Turn the research into reach</h3><p>Build a research hub, run link reclamation with the universities and teams behind the studies, create category pages for beetroot supplement, capsules, powder and nitric oxide, bring the US nitrate content to the UK, and consolidate the brand's entities so AI answers see one Beet It.</p></div>
+  <div class="pri"><div class="pm">Priority 4 · Product experience</div><h3>Make the loading routine the product</h3><p>A step-by-step planner, built on the Optimise guidance, that captures the race date and ends in a filled basket on beet-it.com. Then lifecycle email around that date. I have built a working concept to show how it could look in the Beet It brand.</p><p><a class="plink" href="planner/">Open the loading planner →</a></p></div>
+  <div class="pri"><div class="pm">Priority 5 · Growth</div><h3>New audiences, once the base is right</h3><p>A UK Hyrox pilot on the spring 2027 events, ambassador codes so creator reach can be measured, and a short-form video series fronted by athletes and the scientists behind the studies.</p></div>
+  <h3>Questions to answer with internal data</h3>
+  <ul class="l">
+    <li>How is Sport revenue split between DTC, UK retail and export, and how much of DTC comes through discount codes?</li>
+    <li>What share of spend goes to promotion versus brand building today?</li>
+    <li>Who owns brand guidelines and creative sign-off across Sport, the juice range and the export partners?</li>
+    <li>What is the repeat rate for first-time buyers, and how many move to subscription?</li>
+    <li>What is live in Meta and Google Ads right now, and how is it measured?</li>
+  </ul>
+</section>
+
+<!-- SOURCES -->
+<section id="sources">
+  <h2><span class="n">15</span>Sources</h2>
+  <details open><summary>Full source list</summary><div class="dc srcs">
+    <h4>Brand</h4><ul>
+      <li>beet-it.com homepage, collections/all, Nitrate 400 page, Optimise, Ambassadors, Our Story, products.json and page source, read 7 October 2026</li>
+      <li>KAM / NamNews, Beet It record sales, 16 February 2026, kamcity.com</li>
+      <li>Food Manufacture, Beet It juice maker reveals £250k investment, 16 April 2025</li>
+      <li>Royal Warrant Holders Association, James White Drinks Limited</li>
+      <li>uk.trustpilot.com/review/beet-it.com, 7 October 2026</li>
+      <li>instagram.com/beetitsport and tiktok.com/@beetitsport, read live 7 October 2026. hypeauditor.com/instagram/beetitsport</li>
+    </ul>
+    <h4>Competitors</h4><ul>
+      <li>scienceinsport.com GO Nitrates Shot page. HypeAuditor and Socialblade SiS profiles. Loughborough University news, February 2026. Science in Sport acquisition announcement, 17 April 2025</li>
+      <li>precisionhydration.com. endurance.biz on IRONMAN 70.3 World Championship (March 2026) and ASICS LA Marathon (January 2026)</li>
+      <li>humann.com. HypeAuditor @livehumann. Socialblade TikTok livehumann</li>
+      <li>hollandandbarrett.com and Ocado H&amp;B Beetroot Extract listing. Retail Gazette, May 2025</li>
+      <li>sigmasports.com Styrkr GEL30 Nitro+. cherryactive.co.uk and victoriahealth.com</li>
+    </ul>
+    <h4>Market and research</h4><ul>
+      <li>Grand View Research, UK sports nutrition outlook and beetroot powder market report</li>
+      <li>Mordor Intelligence, beetroot juice market</li>
+      <li>Poon et al. (2025), umbrella review of dietary nitrate, PMID 40085422. IOC consensus statement on dietary supplements (2018)</li>
+      <li>endurance.biz, Hyrox expands global calendar for 2026/27, 20 July 2026</li>
+      <li>Binet, L. and Field, P. (2013), The Long and the Short of It, IPA. Romaniuk, J. (2018), Building Distinctive Brand Assets</li>
+    </ul>
+    <h4>Search data</h4><ul>
+      <li>DataForSEO Labs domain rank overview, ranked keywords and keyword overview, Google UK and US, 7 October 2026</li>
+      <li>DataForSEO SERP API live advanced with AI Overviews, Google UK, 15 queries, 7 October 2026</li>
+      <li>DataForSEO Backlinks summary, eight domains, and On-Page crawl of beet-it.com, 60 pages, 7 October 2026</li>
+    </ul>
+  </div></details>
+</section>
+
+<footer><b>Prepared by James Vickers · MCIM MCIPR</b><br>Outside-in marketing audit of Beet It Sport, 7 October 2026. Built from public information only, for discussion with the Beet It Sport team. Not affiliated with or endorsed by James White Drinks.</footer>
+
+</div></main>
+
+<script>
+const PLUM='#16022d',PINK='#e44aa0',LIME='#a9cf5c',LILAC='#C097F7',GREY='#b7abc5',INK='#3d2c52';
+const D={
+  traffic:[['Science in Sport',76513],['Precision F&H',18183],['Torq',10951],['Beet It Sport',5828],['HumanN',391]],
+  share:[['Holland & Barrett',10069],['Beet It Sport',5763],['Myprotein',85],['Science in Sport',78]],
+  gaps:[['tart cherry juice',12100,7],['beetroot juice benefits',9900,19],['beetroot powder',8100,0],['energy gels',6600,10],['beetroot capsules',5400,0],['beetroot supplement',3600,1],['nitric oxide supplement',1900,8],['beetroot juice side effects',1000,15],['nitric oxide booster',1000,12],['natural pre workout',480,0]],
+  links:[['Science in Sport',5262],['Precision F&H',3109],['HumanN',1962],['Beet It Sport',1234],['Torq',823],['Beetroot Pro',779],['beet-it.us',261]],
+  map:[['Beet It Sport',2,9,PINK],['Science in Sport',3.5,7,GREY],['Precision F&H',2.5,8,GREY],['Styrkr',2,5,GREY],['HumanN',7.5,5.5,GREY],['Holland & Barrett',9,3,GREY],['CherryActive',6,4,GREY]]
+};
+if(window.Chart){
+Chart.defaults.font.family='"Assistant","Segoe UI",system-ui,sans-serif';Chart.defaults.font.size=13;Chart.defaults.color=INK;
+const fmt=v=>v.toLocaleString('en-GB');
+const hbar=(id,rows,label,extra)=>new Chart(document.getElementById(id),{type:'bar',data:{labels:rows.map(r=>r[0]),datasets:[{label,data:rows.map(r=>r[1]),backgroundColor:rows.map(r=>/Beet It/.test(r[0])?PINK:(extra||GREY)),borderRadius:6}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)+' '+label}}},scales:{x:{grid:{color:'#eee6f4'},ticks:{callback:v=>fmt(v)}},y:{grid:{display:false}}}}});
+hbar('cTraffic',D.traffic,'est. visits a month');
+hbar('cShare',D.share,'est. visits a month');
+hbar('cLinks',D.links,'linking domains');
+new Chart(document.getElementById('cGap'),{type:'bar',data:{labels:D.gaps.map(g=>g[0]),datasets:[{data:D.gaps.map(g=>g[1]),backgroundColor:D.gaps.map(g=>g[2]<=5?LIME:LILAC),borderRadius:6}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.raw)+' searches a month, difficulty '+D.gaps[c.dataIndex][2]}}},scales:{x:{grid:{color:'#eee6f4'},ticks:{callback:v=>fmt(v)}},y:{grid:{display:false}}}}});
+const labelPlugin={id:'lbl',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 12.5px "Bai Jamjuree",system-ui';ch.data.datasets.forEach((ds,i)=>{const pt=ch.getDatasetMeta(i).data[0];ctx.fillStyle=i===0?'#a3176a':INK;ctx.textAlign=pt.x>ch.chartArea.right-110?'right':'left';ctx.fillText(ds.label,pt.x+(ctx.textAlign==='right'?-14:14),pt.y+4)});ctx.restore()}};
+new Chart(document.getElementById('cMap'),{type:'scatter',data:{datasets:D.map.map(m=>({label:m[0],data:[{x:m[1],y:m[2]}],backgroundColor:m[3],pointRadius:m[0]==='Beet It Sport'?11:8,pointHoverRadius:12}))},plugins:[labelPlugin],options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label}}},scales:{x:{min:0,max:10,title:{display:true,text:'Specialist sport → mainstream health'},grid:{color:'#eee6f4'},ticks:{display:false}},y:{min:0,max:10,title:{display:true,text:'Strength of evidence put forward →'},grid:{color:'#eee6f4'},ticks:{display:false}}}}});
+}
+const links=[...document.querySelectorAll('.rail a[href^="#"]')];const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>s&&io.observe(s));
+[...document.querySelectorAll('.rail a')].forEach(a=>a.addEventListener('click',()=>document.querySelector('.rail').classList.remove('open')));
+</script>
+</body>
+</html>
