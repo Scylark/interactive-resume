@@ -2,7 +2,7 @@ const RESUME_DATA = {
     center: {
         id: "james",
         label: "James Vickers",
-        sublabel: "MCIM · MCPR",
+        sublabel: "MCIM · MCIPR",
         type: "center",
         icon: "✦",
         color: "#2563eb"
@@ -227,7 +227,7 @@ const RESUME_DATA = {
     details: {
         james: {
             title: "James Vickers",
-            subtitle: "MCIM · MCPR",
+            subtitle: "MCIM · MCIPR",
             type: "profile",
             content: `
                 <div class="profile-hero-card">
@@ -241,7 +241,7 @@ const RESUME_DATA = {
                         <div class="profile-hero-info">
                             <h2>James Vickers</h2>
                             <p class="profile-title">Senior Marketing Professional</p>
-                            <p class="profile-creds">MCIM · MCPR</p>
+                            <p class="profile-creds">MCIM · MCIPR</p>
                         </div>
                         <p class="profile-bio">10+ years driving growth through high-impact marketing strategies across cycling, fitness tech and fintech. Proven track record in team leadership, complex campaigns, and delivering innovative solutions.</p>
                         <div class="profile-tags">
@@ -1466,7 +1466,7 @@ const RESUME_DATA = {
                             </div>
                         </div>
                         <div class="edu-item">
-                            <div class="edu-badge">MCPR</div>
+                            <div class="edu-badge">MCIPR</div>
                             <div class="edu-detail">
                                 <h4>Member of the Chartered Institute of Public Relations</h4>
                                 <p>Professional PR Accreditation</p>

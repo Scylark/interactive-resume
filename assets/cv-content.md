@@ -1,4 +1,4 @@
-# James Vickers MCIM MCPR
+# James Vickers MCIM MCIPR
 
 **Sheffield / Lincoln, UK · Remote · 07897714630 · james@manual-focus.co.uk**
 
@@ -103,10 +103,10 @@ Developed and executed sales and marketing strategies driving revenue growth. Le
 
 ## ADDITIONAL
 
-**Professional Accreditations:** MCIM · MCPR
+**Professional Accreditations:** MCIM · MCIPR
 
 **Personal Interests:** Road Cycling · Gravel · 15th at National Championships 2025 · XC MTB · Travel · Adventure Sports · Sustainability · Technology · AI
 
 ## EDUCATION & QUALIFICATIONS
 
-MCIM – Marketing · MCPR – Public Relations · Higher Diploma – Fishing & Fishery Sciences & Management (Distinction) · ISEB – BCS Requirements Engineering · ISEB – BCS Certificate in Business Analysis · ITIL
+MCIM – Marketing · MCIPR – Public Relations · Higher Diploma – Fishing & Fishery Sciences & Management (Distinction) · ISEB – BCS Requirements Engineering · ISEB – BCS Certificate in Business Analysis · ITIL
