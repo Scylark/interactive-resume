@@ -177,18 +177,20 @@ const S={step:0,date:def(),start:'09:00',event:null,level:null,used:null,regen:n
 const EVENTS=[['short','Short and fast','5k, time trial, crit, 2k erg'],['endurance','Endurance','10k to marathon, sportive, triathlon'],['hyrox','Hyrox','Singles, doubles or relay'],['team','Team sport','Match day or tournament']];
 const LEVELS=[['rec','Recreational','A few sessions a week'],['reg','Regular','Training most days'],['comp','Competitive','Structured plan, racing for results'],['elite','Elite','National level or above']];
 
+const TEAM=()=>S.event==='team';
+const W=()=>TEAM()?{day:'Match day',Day:'Match day',start:'Kick-off',when:'kick-off',ev:'match',evs:'matches'}:{day:'race day',Day:'Race day',start:'Start time',when:'the start',ev:'race',evs:'races'};
 const STEPS=[
- {k:'Your race',h:'When are you racing?',lead:'Loading starts five days out, so we\'ll build your plan around your race day and start time.',
-  body:()=>`<div class="fields"><div class="field"><label for="date">Race day</label><input type="date" id="date" value="${S.date}" min="${iso(today())}"></div><div class="field"><label for="start">Start time</label><input type="time" id="start" value="${S.start}"></div></div>
-  <p class="hint" id="dhint"></p>`,
-  bind(){const d=q('#date'),t=q('#start');const h=()=>{const n=daysOut();q('#dhint').textContent=n<0?'Pick a date in the future.':n<5?`That's ${n} day${n===1?'':'s'} away. We'll load for the days you have.`:`${n} days to go. Plenty of time to load properly.`};d.oninput=()=>{S.date=d.value;h();ok()};t.oninput=()=>{S.start=t.value||'09:00'};h()},
-  valid:()=>S.date&&daysOut()>=0},
- {k:'Your event',h:'What are you racing?',lead:'Nitrate supports hard efforts of every length, from a parkrun to a Hyrox to a full match.',
+ {k:'Your event',h:'What are you training for?',lead:'Nitrate supports hard efforts of every length, from a parkrun to a Hyrox to a full match.',
   body:()=>choices(EVENTS,'event'),valid:()=>S.event},
- {k:'Your training',h:'How would you describe your training?',lead:'Well-trained athletes often need a bigger dose to see the same benefit. This sets your race-morning shots.',
+ {k:()=>TEAM()?'Your match':'Your race',h:()=>TEAM()?'When is your next match?':'When are you racing?',lead:()=>TEAM()?'Loading starts five days out, so we\'ll build your plan around match day and kick-off. Playing every week? You can plan a run of matches at the end.':'Loading starts five days out, so we\'ll build your plan around your race day and start time.',
+  body:()=>`<div class="fields"><div class="field"><label for="date">${W().Day}</label><input type="date" id="date" value="${S.date}" min="${iso(today())}"></div><div class="field"><label for="start">${W().start}</label><input type="time" id="start" value="${S.start}"></div></div>
+  <p class="hint" id="dhint"></p>`,
+  bind(){const d=q('#date'),t=q('#start');const h=()=>{const n=daysOut();q('#dhint').textContent=n<0?'Pick a date in the future.':n<5?`That's ${n} day${n===1?'':'s'} away. We'll load for the days you have.`:`${n} days to go. Plenty of time to load properly.`};d.oninput=()=>{S.date=d.value;h();ok()};t.oninput=()=>{S.start=t.value||'09:00';S.startSet=true};h()},
+  valid:()=>S.date&&daysOut()>=0},
+ {k:'Your training',h:'How would you describe your training?',lead:()=>`Well-trained athletes often need a bigger dose to see the same benefit. This sets your shots before ${W().when}.`,
   body:()=>choices(LEVELS,'level')+`<div class="reco" id="reco" ${S.level?'':'hidden'}></div>`,
   bind(){paintReco()},valid:()=>S.level},
- {k:'Experience',h:'Have you used Beet It before?',lead:'Never try anything new on race day. If it\'s your first time, we\'ll add a practice run on a hard training session.',
+ {k:'Experience',h:'Have you used Beet It before?',lead:()=>`Never try anything new on ${W().day.toLowerCase()}. If it's your first time, we'll add a practice run on a hard training session.`,
   body:()=>choices([['yes','Yes, I know how I get on',''],['no','No, this is my first time','We\'ll add a practice run']],'used','two'),valid:()=>S.used},
  {k:'Recovery',h:'Add Regen Cherry+ to your plan?',lead:'Beet It pairs Regen Cherry+ with the last three loading days, then one after you finish and one on each of the next two days.',
   body:()=>choices([['y','Yes, include recovery','Six Regen Cherry+ shots'],['n','No, just the loading','Nitrate 400 only']],'regen','two'),valid:()=>S.regen}
@@ -198,10 +200,11 @@ const app=document.getElementById('app');
 function q(s){return app.querySelector(s)}
 function daysOut(){if(!S.date)return -1;return Math.round((new Date(S.date+'T12:00:00')-today())/864e5)}
 function choices(list,key,cls=''){return `<div class="choices ${cls}" role="radiogroup">${list.map(([v,b,s])=>`<button type="button" class="ch" role="radio" data-k="${key}" data-v="${v}" aria-pressed="${S[key]===v}" aria-checked="${S[key]===v}"><span class="dot"></span><span><b>${b}</b>${s?`<small>${s}</small>`:''}</span>${key==='level'&&suggest(v)===2?'<span class="tag">2 shots</span>':''}</button>`).join('')}</div>`}
+function f(x){return typeof x==='function'?x():x}
 function suggest(level){return level==='comp'||level==='elite'?2:1}
 function shots(){return S.shots||suggest(S.level)}
 function paintReco(){const r=q('#reco');if(!r||!S.level)return;r.hidden=false;const n=suggest(S.level);
-  r.innerHTML=n===2?'<b>We suggest two shots on race morning (800mg).</b> Studies on well-trained athletes often used around 12.8mmol of nitrate, which is two Nitrate 400 shots.':'<b>We suggest one shot on race morning (400mg).</b> That covers the 6mmol the research points to, and you can step up to two later.'}
+  r.innerHTML=n===2?`<b>We suggest two shots before ${W().when} (800mg).</b> Studies on well-trained athletes often used around 12.8mmol of nitrate, which is two Nitrate 400 shots.`:`<b>We suggest one shot before ${W().when} (400mg).</b> That covers the 6mmol the research points to, and you can step up to two later.`}
 function ok(){const b=q('#next');if(b)b.disabled=!STEPS[S.step].valid()}
 function paintSteps(){document.getElementById('steps').innerHTML=STEPS.map((s,i)=>`<i class="${i<S.step?'done':i===S.step?'on':''}"></i>`).join('')+(S.step<STEPS.length?`<span>Step ${S.step+1} of ${STEPS.length}</span>`:'<span>Your plan</span>')}
 
@@ -213,9 +216,9 @@ function packPanel(){
   const t=tallies();
   return `<aside class="pack" aria-label="Your pack so far"><div class="ph"><img src="${IMG.n4b}" alt="Nitrate 400 shot">${S.regen==='y'?`<img src="${IMG.rcb}" alt="Regen Cherry+ shot">`:''}</div>
   <div class="pb"><h3>Your plan so far</h3><ul>
-   <li>Race day <b>${S.date?new Date(S.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'}):'Not set'}</b></li>
+   <li>${W().Day} <b>${S.date?new Date(S.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'}):'Not set'}</b></li>
    <li>Loading days <b>${t.load}</b></li>
-   <li>Race-morning shots <b>${S.level?t.sh:'To come'}</b></li>
+   <li>Shots before ${W().when} <b>${S.level?t.sh:'To come'}</b></li>
    <li>Nitrate 400 shots <b>${S.level?t.n4:'To come'}</b></li>
    <li>Regen Cherry+ shots <b>${S.regen==null?'To come':t.rc}</b></li>
   </ul></div></aside>`;
@@ -223,11 +226,11 @@ function packPanel(){
 function renderStep(){
   const st=STEPS[S.step];paintSteps();
   app.innerHTML=`<div class="layout"><section class="q" aria-labelledby="qh">
-    <div class="kick">${st.k}</div><h1 id="qh" tabindex="-1">${st.h}</h1><p class="lead">${st.lead}</p>
+    <div class="kick">${f(st.k)}</div><h1 id="qh" tabindex="-1">${f(st.h)}</h1><p class="lead">${f(st.lead)}</p>
     ${st.body()}
     <div class="nav"><button type="button" class="btn" id="next">${S.step===STEPS.length-1?'See my plan':'Continue'} <span aria-hidden="true">→</span></button>${S.step?'<button type="button" class="link" id="back">Back</button>':''}</div>
   </section>${packPanel()}</div>`;
-  app.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{S[b.dataset.k]=b.dataset.v;S.shots=null;app.querySelectorAll(`.ch[data-k="${b.dataset.k}"]`).forEach(x=>{x.setAttribute('aria-pressed',x===b);x.setAttribute('aria-checked',x===b)});if(b.dataset.k==='level')paintReco();ok();refreshPanel()});
+  app.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{S[b.dataset.k]=b.dataset.v;if(b.dataset.k==='event'&&!S.startSet)S.start=b.dataset.v==='team'?'15:00':'09:00';S.shots=null;app.querySelectorAll(`.ch[data-k="${b.dataset.k}"]`).forEach(x=>{x.setAttribute('aria-pressed',x===b);x.setAttribute('aria-checked',x===b)});if(b.dataset.k==='level')paintReco();ok();refreshPanel()});
   if(st.bind)st.bind();
   q('#next').onclick=()=>{if(!st.valid())return;S.step++;S.step>=STEPS.length?renderPlan():renderStep()};
   if(q('#back'))q('#back').onclick=()=>{S.step--;renderStep()};
@@ -245,26 +248,27 @@ function renderPlan(){
   const t=tallies(),race=new Date(S.date+'T12:00:00'),D=o=>{const d=new Date(race);d.setDate(d.getDate()+o);return d};
   const take=shift(S.start,-150);const rows=[];
   const N=n=>`<span class="pill n"><img src="${IMG.n4b}" alt="">${n} × Nitrate 400</span>`,R=`<span class="pill r"><img src="${IMG.rcb}" alt="">1 × Regen Cherry+</span>`;
-  if(t.prac){const o=-Math.min(10,daysOut()-1);rows.push({o,cls:'prac',w:N(t.sh)+'',note:'Practice run. Take it two to three hours before a hard session, exactly as you will on race day.'})}
+  if(t.prac){const o=-Math.min(10,daysOut()-1);rows.push({o,cls:'prac',w:N(t.sh)+'',note:`Practice run. Take it two to three hours before a hard session, exactly as you will on ${W().day.toLowerCase()}.`})}
   for(let o=-t.load;o<0;o++)rows.push({o,w:N(1)+(S.regen==='y'&&o>=-3?R:''),note:o===-t.load?(t.load<5?`Start today. The guide uses five days and you have ${t.load}.`:'Start loading. Nitrate builds up in your muscles over several days.'):''});
-  rows.push({o:0,cls:'race',w:N(t.sh).replace('Nitrate 400',`Nitrate 400 at ${take}`)+(S.regen==='y'?R.replace('Regen Cherry+','Regen Cherry+ after'):''),note:`Start ${S.start}. Your last dose lands two and a half hours before the gun.`});
+  rows.push({o:0,cls:'race',w:N(t.sh).replace('Nitrate 400',`Nitrate 400 at ${take}`)+(S.regen==='y'?R.replace('Regen Cherry+','Regen Cherry+ after'):''),note:TEAM()?`Kick-off ${S.start}. Your last dose lands two and a half hours before kick-off.`:`Start ${S.start}. Your last dose lands two and a half hours before the gun.`});
   if(S.regen==='y')for(let o=1;o<=2;o++)rows.push({o,w:R,note:o===2?'Your last recovery shot.':''});
-  const totN=t.n4*S.races,totR=t.rc*S.races,b=pack(totN);
+  // Weekly matches overlap: after the first loading block it is one shot a day, with the bigger dose on match day.
+  const totN=TEAM()?t.n4+(S.races-1)*(6+t.sh):t.n4*S.races,totR=t.rc*S.races,b=pack(totN);
   const L=S.mode==='try'?[{p:P.sp,q:1}]:[...(b.u?[{p:P.n4x4,q:b.u}]:[]),...(b.t?[{p:P.n4x3,q:b.t}]:[]),...(b.s?[{p:P.n4,q:b.s}]:[]),...(totR?[{p:P.rc,q:Math.ceil(totR/15)}]:[])];
   const total=L.reduce((a,l)=>a+l.p.price*l.q,0);
   const spare=S.mode==='try'?0:b.sh-totN;
   app.innerHTML=`
   <div class="res-hero"><div class="bg" style="background-image:url('${IMG.run}')"></div><div class="c">
     <div class="k">Your loading plan</div>
-    <h1>${t.load} days of loading, then ${t.sh===2?'two shots':'one shot'} at ${take} on ${race.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</h1>
-    <div class="facts"><span><b>${t.sh*400}mg</b> nitrate on race morning</span><span><b>${t.n4}</b> Nitrate 400 shots</span>${t.rc?`<span><b>${t.rc}</b> Regen Cherry+</span>`:''}</div>
+    <h1>${t.load} days of loading, then ${t.sh===2?'two shots':'one shot'} at ${take} ${TEAM()?'before kick-off on':'on'} ${race.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</h1>
+    <div class="facts"><span><b>${t.sh*400}mg</b> nitrate before ${W().when}</span><span><b>${t.n4}</b> Nitrate 400 shots</span>${t.rc?`<span><b>${t.rc}</b> Regen Cherry+</span>`:''}</div>
   </div></div>
   <div class="layout">
     <section>
       <h2 class="sec-t">Day by day</h2>
-      <div class="cal">${rows.map(r=>`<div class="row ${r.cls||''}"><div class="d"><b>${r.o===0?'Race day':r.o<0?'Day '+r.o:'Day +'+r.o}</b><span>${fmtD(D(r.o))}</span></div><div class="w">${r.w}${r.note?`<span class="note">${r.note}</span>`:''}</div></div>`).join('')}</div>
-      <div class="adj">Race-morning dose <div class="seg" id="sh"><button type="button" data-v="1" aria-pressed="${t.sh===1}">One shot</button><button type="button" data-v="2" aria-pressed="${t.sh===2}">Two shots</button></div>
-      Races to plan for <div class="seg" id="rc">${[1,2,3,4].map(n=>`<button type="button" data-v="${n}" aria-pressed="${S.races===n}">${n}</button>`).join('')}</div></div>
+      <div class="cal">${rows.map(r=>`<div class="row ${r.cls||''}"><div class="d"><b>${r.o===0?W().Day:r.o<0?'Day '+r.o:'Day +'+r.o}</b><span>${fmtD(D(r.o))}</span></div><div class="w">${r.w}${r.note?`<span class="note">${r.note}</span>`:''}</div></div>`).join('')}</div>
+      <div class="adj">Dose before ${W().when} <div class="seg" id="sh"><button type="button" data-v="1" aria-pressed="${t.sh===1}">One shot</button><button type="button" data-v="2" aria-pressed="${t.sh===2}">Two shots</button></div>
+      ${TEAM()?'Weekly matches to plan for':'Races to plan for'} <div class="seg" id="rc">${[1,2,3,4].map(n=>`<button type="button" data-v="${n}" aria-pressed="${S.races===n}">${n}</button>`).join('')}</div></div>
       <div class="nav"><button type="button" class="link" id="edit">← Change my answers</button></div>
     </section>
     <aside class="bask" aria-label="Your basket">
@@ -273,7 +277,7 @@ function renderPlan(){
       <div class="tot"><span>Total</span><b>${money(total)}</b></div>
       <div class="ship ${total>=40||S.mode==='try'?'':'no'}">${S.mode==='try'||total>=40?'Free UK delivery':`Add ${money(40-total)} for free UK delivery`}</div>
       <a class="btn pink wide" href="${SHOP}/cart/${L.map(l=>l.p.id+':'+l.q).join(',')}" target="_blank" rel="noopener">Checkout <span aria-hidden="true">→</span></a>
-      <p class="fine">${S.mode==='try'?'Enough for your practice run. Come back for the full plan once you know how you get on.':`Covers ${totN} Nitrate 400${totR?` and ${totR} Regen Cherry+`:''} shots${S.races>1?` for ${S.races} races`:''}.${spare>0?` ${spare} spare for training.`:''} Prefer to subscribe and save? Choose it on the product page.`}</p>
+      <p class="fine">${S.mode==='try'?'Enough for your practice run. Come back for the full plan once you know how you get on.':`Covers ${totN} Nitrate 400${totR?` and ${totR} Regen Cherry+`:''} shots${S.races>1?` for ${S.races} ${W().evs}${TEAM()?', one shot a day between them':''}`:''}.${spare>0?` ${spare} spare for training.`:''} Prefer to subscribe and save? Choose it on the product page.`}</p>
       ${S.used==='no'?`<div class="alt">${S.mode==='try'?'<b>Ready for the full plan?</b>':'<b>First time with Beet It?</b> Try the Starter Pack for £14.99 with free delivery before you commit.'}<br><button type="button" class="link" id="mode" style="padding-left:0;color:var(--pink-d)">${S.mode==='try'?'Show the full plan basket':'Switch to the Starter Pack'}</button></div>`:''}
     </aside>
   </div>`;
