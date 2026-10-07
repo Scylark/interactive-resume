@@ -175,7 +175,7 @@ const def=()=>{const d=today();d.setDate(d.getDate()+21);return iso(d)};
 const S={step:0,date:def(),start:'09:00',event:null,level:null,used:null,regen:null,races:1,shots:null,mode:'plan'};
 
 const EVENTS=[['short','Short and fast','5k, time trial, crit, 2k erg'],['endurance','Endurance','10k to marathon, sportive, triathlon'],['hyrox','Hyrox','Singles, doubles or relay'],['team','Team sport','Match day or tournament']];
-const LEVELS=[['rec','Recreational','A few sessions a week'],['reg','Regular','Training most days'],['comp','Competitive','Structured plan, racing for results'],['elite','Elite','National level or above']];
+const LEVELS=[['rec','Recreational','A few sessions a week'],['reg','Regular','Training most days'],['comp','Competitive','Structured plan, competing for results'],['elite','Elite','National level or above']];
 
 const TEAM=()=>S.event==='team';
 const W=()=>TEAM()?{day:'Match day',Day:'Match day',start:'Kick-off',when:'kick-off',ev:'match',evs:'matches'}:{day:'race day',Day:'Race day',start:'Start time',when:'the start',ev:'race',evs:'races'};
