@@ -145,6 +145,18 @@ details .dc{padding:16px 18px;font-size:15.5px}
 
 footer{margin:40px 0 0;background:var(--plum);color:#d8c8ea;border-radius:20px;padding:26px 28px;font-size:14.5px}
 footer b{color:#fff;font-family:var(--label);letter-spacing:.08em}
+/* channel coverage */
+.cov{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0}
+.cov>div{border:2px solid var(--line);border-radius:16px;padding:16px 16px 14px;min-width:0}
+.cov>div.on{border-color:var(--plum);background:var(--paper-2)}
+.cov h4{font:700 12px var(--label);letter-spacing:.16em;text-transform:uppercase;margin:0 0 8px;color:var(--plum)}
+.cov .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:8px 0 10px}
+.cov .bar i{display:block;height:100%;background:var(--pink)}
+.cov p{font-size:14.5px;line-height:1.5;margin:0;color:var(--ink-2)}
+@media (max-width:860px){.cov{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.cov{grid-template-columns:1fr}}
+tr.grp td{background:var(--paper-2);font:700 11.5px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--plum)}
+.p-none{background:#efe9f4;color:var(--ink-3)}
 </style>
 </head>
 <body>
@@ -153,7 +165,8 @@ footer b{color:#fff;font-family:var(--label);letter-spacing:.08em}
 <nav class="rail" aria-label="Report sections">
   <div class="hd"><div class="mark">Beet It <span>Sport</span></div><span class="kick">Marketing audit · Oct 2026</span></div>
   <ul>
-    <li><a href="#summary" class="on">Executive summary</a></li>
+    <li><a href="#channels" class="on">Channel coverage</a></li>
+    <li><a href="#summary">Executive summary</a></li>
     <li><a href="#brand">Brand overview</a></li>
     <li><a href="#market">Market &amp; category</a></li>
     <li><a href="#audience">Audience profile</a></li>
@@ -177,11 +190,50 @@ footer b{color:#fff;font-family:var(--label);letter-spacing:.08em}
 <header class="hero">
   <div class="ey">Marketing audit · situation analysis</div>
   <h1>Beet It Sport<span>Marketing audit</span></h1>
-  <p class="sub">An outside-in view of where the brand sits, what is holding it back, and where the next stage of growth comes from.</p>
-  <div class="meta"><span>7 October 2026</span><span>beet-it.com</span><span>UK and US</span><span>Prepared by James Vickers</span></div>
+  <p class="sub">An outside-in view of the brand and its owned channels. Where it sits, what is holding it back, and where the next stage of growth comes from.</p>
+  <div class="meta"><span>7 October 2026</span><span>beet-it.com</span><span>UK and US</span><span>Brand and owned channels</span><span>Prepared by James Vickers</span></div>
   <div class="src-box"><strong>Data sources</strong>beet-it.com (homepage, product, collection, Optimise, ambassador, Our Story and blog pages, product feed and page source, all read on 7 October 2026, plus a live browser check of the shop and product pages the same day), DataForSEO run on 7 October 2026 (Labs domain overviews and ranked keywords for UK and US Google, keyword overview for 35 category terms in both markets, live UK SERPs with AI Overviews for 15 terms, Backlinks summaries for eight domains and an On-Page crawl of 60 pages), Instagram and TikTok profiles read live, HypeAuditor and Socialblade for competitor social figures, Trustpilot, and trade and research sources listed at the end. Traffic figures from DataForSEO are modelled estimates. No SimilarWeb data, first-party analytics or sales data were used.</div>
   <div class="src-box"><strong>What this audit could not see</strong>The Meta Ad Library and Facebook pages were not reachable from the research setup, so live paid social creative is not assessed here and is the first thing I would review with the team. Audience demographics are inferred from public signals rather than measured. Where a figure is an estimate or my own judgement, it is labelled as one.</div>
 </header>
+
+<!-- 0 CHANNELS -->
+<section id="channels">
+  <h2><span class="n">00</span>Channel coverage</h2>
+  <p class="lede">This is a brand and organic audit. It covers the channels Beet It owns and controls, which are the website, search, AI visibility, content, creative and organic social. Earned and paid channels are only touched where public data allowed. They need a second, more detailed review with account access and time spent at events.</p>
+  <div class="cov">
+    <div class="on"><h4>Owned</h4><div class="bar"><i style="width:80%"></i></div><p>Reviewed in depth. Five of seven channels covered in full, social in part, email not visible.</p></div>
+    <div><h4>Earned</h4><div class="bar"><i style="width:30%"></i></div><p>Light touch. Desk research on PR, links and reviews. Events and ambassadors not yet reviewed.</p></div>
+    <div><h4>Paid</h4><div class="bar"><i style="width:10%"></i></div><p>Not yet reviewed. No ad account or Ad Library access.</p></div>
+    <div><h4>Trade and retail</h4><div class="bar"><i style="width:5%"></i></div><p>Not yet reviewed. Marketplaces and export partners listed only.</p></div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Channel</th><th>Status</th><th>What this audit looked at</th><th>What a full review needs</th><th class="num">Section</th></tr></thead>
+    <tbody>
+<tr class="grp"><td colspan="5">Owned</td></tr>
+      <tr><td><strong>Website and ecommerce</strong></td><td><span class="pill p-pass">Covered</span></td><td>Homepage, product, collection, Optimise and story pages, page source, product feed, a 60-page crawl and a live checkout check</td><td>Covered in this audit</td><td class="num"><a href="#product">06</a>, <a href="#messaging">11</a></td></tr>
+      <tr><td><strong>Organic search</strong></td><td><span class="pill p-pass">Covered</span></td><td>UK and US rankings, 35 category terms in both markets, backlinks for eight domains</td><td>Covered in this audit</td><td class="num"><a href="#seo">12</a></td></tr>
+      <tr><td><strong>AI search (GEO)</strong></td><td><span class="pill p-pass">Covered</span></td><td>15 live UK searches with AI Overviews, who gets cited and for what</td><td>Covered in this audit</td><td class="num"><a href="#seo">12</a></td></tr>
+      <tr><td><strong>Content and blog</strong></td><td><span class="pill p-pass">Covered</span></td><td>Cadence, authors and themes against Science in Sport, Precision and HumanN</td><td>Covered in this audit</td><td class="num"><a href="#content">08</a></td></tr>
+      <tr><td><strong>Brand identity and creative</strong></td><td><span class="pill p-pass">Covered</span></td><td>Packshots, bundle tiles, logos, type and promotional devices across the site</td><td>Covered in this audit</td><td class="num"><a href="#messaging">11</a></td></tr>
+      <tr><td><strong>Organic social</strong></td><td><span class="pill p-med">Partial</span></td><td>Follower counts and engagement rates only. No post-level or format review</td><td>Ninety days of posts across Instagram, TikTok and YouTube, scored for format, consistency and what drives saves and shares</td><td class="num"><a href="#audience">04</a></td></tr>
+      <tr><td><strong>Email and lifecycle</strong></td><td><span class="pill p-none">Not covered</span></td><td>Not visible from outside the business</td><td>Sign-up capture, welcome and post-purchase flows, list growth and revenue per send from the ESP</td><td class="num">&ndash;</td></tr>
+<tr class="grp"><td colspan="5">Earned</td></tr>
+      <tr><td><strong>PR and media</strong></td><td><span class="pill p-high">Light touch</span></td><td>A scan of 2025 to 2026 trade coverage against three competitors</td><td>Coverage tracking and share of voice, consumer and endurance titles, and a research news pipeline</td><td class="num"><a href="#pr">09</a></td></tr>
+      <tr><td><strong>Events, expos and sampling</strong></td><td><span class="pill p-none">Not covered</span></td><td>The London Marathon expo stand is noted, nothing more</td><td>The event calendar, cost per event, sampling volumes, and sign-ups and sales traced back to each one. Time on the stand at a race expo</td><td class="num"><a href="#pr">09</a></td></tr>
+      <tr><td><strong>Ambassadors and team partnerships</strong></td><td><span class="pill p-high">Light touch</span></td><td>The public roster. No contracts, deliverables or code data</td><td>Deliverables, reach per athlete, code redemptions and cost per acquired customer</td><td class="num"><a href="#audience">04</a></td></tr>
+      <tr><td><strong>Research citations and links</strong></td><td><span class="pill p-med">Partial</span></td><td>Linking domains and authority against seven competitors</td><td>A full list of studies using the shots and a link reclamation plan with the universities behind them</td><td class="num"><a href="#seo">12</a></td></tr>
+      <tr><td><strong>Reviews and ratings</strong></td><td><span class="pill p-med">Partial</span></td><td>Onsite review counts and pooling, Trustpilot</td><td>Review platform setup, per-product reviews and sentiment themes</td><td class="num"><a href="#brand">02</a></td></tr>
+<tr class="grp"><td colspan="5">Paid</td></tr>
+      <tr><td><strong>Paid search and Shopping</strong></td><td><span class="pill p-high">Light touch</span></td><td>DataForSEO keyword sample only, which detected no paid terms</td><td>Google Ads account access, Shopping feed quality, brand term defence and Performance Max spend</td><td class="num"><a href="#paid">10</a></td></tr>
+      <tr><td><strong>Paid social</strong></td><td><span class="pill p-none">Not covered</span></td><td>The Meta Ad Library was unreachable from the research setup</td><td>Live and recent ads for Beet It and competitors, scored for brand consistency and creative quality, with account results</td><td class="num"><a href="#paid">10</a></td></tr>
+      <tr><td><strong>Affiliates and creator codes</strong></td><td><span class="pill p-none">Not covered</span></td><td>Not reviewed</td><td>Affiliate programme terms, where codes are published and the margin they cost</td><td class="num">&ndash;</td></tr>
+<tr class="grp"><td colspan="5">Trade and retail</td></tr>
+      <tr><td><strong>Retail and marketplaces</strong></td><td><span class="pill p-none">Not covered</span></td><td>Distribution listed only (Myprotein, Sports Direct, Amazon history)</td><td>Amazon listing quality and seller control, and how the brand looks on Myprotein, Sports Direct and Holland &amp; Barrett</td><td class="num"><a href="#brand">02</a></td></tr>
+      <tr><td><strong>Export distributors</strong></td><td><span class="pill p-none">Not covered</span></td><td>beet-it.us seen in search data only</td><td>Brand guidelines in use by each distributor and how consistent the US, Dutch and Malaysian presence is</td><td class="num"><a href="#content">08</a></td></tr>
+    </tbody>
+  </table></div>
+  <div class="co warn"><div class="i">!</div><p><strong>Phase two is earned and paid.</strong> Events, ambassadors, paid social, paid search and retail are where most of the budget is likely to sit, and none of them can be judged properly from outside. A full review needs GA4 and Shopify data, the ESP, the Google and Meta ad accounts, the events and sampling plan with costs, and ambassador agreements. I would expect it to take the first four to six weeks in role, and it would test the brand consistency findings in section 11 against the creative that is actually running.</p></div>
+</section>
 
 <!-- 1 EXEC SUMMARY -->
 <section id="summary">
