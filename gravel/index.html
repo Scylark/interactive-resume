@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Gravel Gap</title>
+<meta name="description" content="Five years of data on gravel, road, track and mountain bike, globally and in the UK, and why British Cycling should make gravel a priority. A Manual Focus report.">
+<meta property="og:title" content="The Gravel Gap">
+<meta property="og:description" content="Gravel is the one cycling discipline still growing in a shrinking UK market. British Cycling has barely started.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* Layout: Manual Focus report. Warm paper background, dark ink, Anton display caps, Inter body, mono labels. Fixed left rail on desktop. Burnt orange marks gravel everywhere, the other disciplines carry their own fixed hues. */
+:root{
+  --bg:#F1EBE0; --bg-alt:#E7DECF; --surface:#FFFFFF; --ink:#1A1612; --ink-2:#5F574A; --ink-3:#6E6658; --line:rgba(26,22,18,.12); --line-2:rgba(26,22,18,.22);
+  --accent:#C45A2C; --accent-ink:#9E3F18; --accent-wash:#F7E4D8;
+  --c-gravel:#C45A2C; --c-road:#2F6DB5; --c-mtb:#2E8B57; --c-track:#8B5CC4;
+  --good:#2E7D4F; --good-wash:#E3F1E8; --warn:#8A5A00; --warn-wash:#F8EBCF; --bad:#A3272E; --bad-wash:#F7E1E2;
+  --display:"Anton","Bebas Neue","Arial Narrow",sans-serif; --body:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif; --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+  --nav:250px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E0E10; --bg-alt:#111114; --surface:#16161B; --ink:#F2EDE6; --ink-2:#B8B1A7; --ink-3:#9C958B; --line:rgba(242,237,230,.10); --line-2:rgba(242,237,230,.2);
+  --accent:#E06A32; --accent-ink:#F08A57; --accent-wash:rgba(224,106,50,.14);
+  --c-gravel:#E06A32; --c-road:#4C8BD9; --c-mtb:#3FA36E; --c-track:#9E72DA;
+  --good:#5DBB86; --good-wash:rgba(93,187,134,.12); --warn:#E0B04A; --warn-wash:rgba(224,176,74,.12); --bad:#F07A80; --bad-wash:rgba(240,122,128,.12);
+}}
+:root[data-theme="dark"]{
+  --bg:#0E0E10; --bg-alt:#111114; --surface:#16161B; --ink:#F2EDE6; --ink-2:#B8B1A7; --ink-3:#9C958B; --line:rgba(242,237,230,.10); --line-2:rgba(242,237,230,.2);
+  --accent:#E06A32; --accent-ink:#F08A57; --accent-wash:rgba(224,106,50,.14);
+  --c-gravel:#E06A32; --c-road:#4C8BD9; --c-mtb:#3FA36E; --c-track:#9E72DA;
+  --good:#5DBB86; --good-wash:rgba(93,187,134,.12); --warn:#E0B04A; --warn-wash:rgba(224,176,74,.12); --bad:#F07A80; --bad-wash:rgba(240,122,128,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-ink);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{text-wrap:balance}
+strong{font-weight:700}
+
+/* rail */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--nav);background:var(--bg-alt);border-right:1px solid var(--line);overflow-y:auto;z-index:50;padding:0 0 24px}
+.rail .hd{display:flex;align-items:center;gap:10px;padding:24px 20px 18px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+.rail .hd svg{width:20px;height:42px;flex:none}
+.rail .hd b{font:600 12px var(--mono);letter-spacing:.16em}
+.rail ul{list-style:none;margin:0;padding:12px 0}
+.rail a.l{display:block;color:var(--ink-2);text-decoration:none;padding:6px 20px;font:500 12.5px var(--mono);letter-spacing:.02em;border-left:3px solid transparent}
+.rail a.l span{color:var(--ink-3);margin-right:8px}
+.rail a.l:hover{color:var(--ink)}
+.rail a.l.on{color:var(--ink);border-left-color:var(--accent);background:var(--line)}
+.rail .tt{margin:8px 20px 0;font:500 12px var(--mono);background:none;border:1px solid var(--line-2);color:var(--ink-2);border-radius:999px;padding:6px 12px;cursor:pointer}
+.burger{display:none}
+@media (max-width:1024px){
+  .rail{transform:translateX(-100%);transition:transform .3s}
+  .rail.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.25)}
+  .burger{display:flex;align-items:center;justify-content:center;position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:60;width:46px;height:46px;border:0;border-radius:50%;background:var(--ink);color:var(--bg);font-size:18px;cursor:pointer}
+}
+.main{margin-left:var(--nav);padding:0 max(16px,4vw) 48px}
+.col{max-width:940px;margin:0 auto}
+@media (max-width:1024px){.main{margin-left:0}}
+
+/* hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line-2)}
+.ey{font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(56px,10vw,128px);line-height:.9;letter-spacing:.005em;text-transform:uppercase;margin:16px 0 0}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sub{font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink-2);max-width:40ch;margin:22px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.meta span{font:500 12px var(--mono);border:1px solid var(--line-2);border-radius:999px;padding:5px 12px;color:var(--ink-2)}
+.meta span:first-child{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* sections */
+section{padding:60px 0 44px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.4vw,52px);line-height:1;text-transform:uppercase;letter-spacing:.01em;margin:0 0 24px}
+h2 .n{display:block;font:600 12px var(--mono);letter-spacing:.16em;color:var(--accent-ink);margin-bottom:10px}
+h3{font:700 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:36px 0 12px;color:var(--ink)}
+p{margin:0 0 16px;max-width:72ch}
+.lede{font-size:20px;line-height:1.55}
+ul.l{margin:0 0 16px 20px;padding:0}
+ul.l li{margin-bottom:8px;max-width:70ch}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:30px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;min-width:0}
+.stat .v{font-family:var(--display);font-size:clamp(34px,4vw,46px);line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat .k{font-size:13.5px;color:var(--ink-2);margin-top:10px;line-height:1.45}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+
+/* callouts */
+.co{display:flex;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:0 14px 14px 0;margin:24px 0;max-width:84ch}
+.co .i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);font:700 12px var(--mono);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.co p{margin:0}
+.co.warn{border-left-color:var(--warn);background:var(--warn-wash)}.co.warn .i{background:var(--warn)}
+.co.good{border-left-color:var(--good);background:var(--good-wash)}.co.good .i{background:var(--good)}
+.co.acc{border-left-color:var(--accent);background:var(--accent-wash)}.co.acc .i{background:var(--accent)}
+
+/* tables */
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line-2);border-radius:14px;margin:20px 0}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:680px}
+th{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;text-align:left;padding:12px;border-bottom:1px solid var(--line-2);color:var(--ink-2);white-space:nowrap}
+td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.g{background:var(--accent-wash)} th.g{color:var(--accent-ink)}
+tr:hover td{background:var(--line)}
+.ml{font:600 12px var(--mono);color:var(--ink-2);white-space:nowrap}
+.note{font-size:13.5px;color:var(--ink-3);margin-top:-6px;max-width:90ch}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+.pill{display:inline-block;font:600 11px var(--mono);padding:2px 9px;border-radius:999px;white-space:nowrap}
+.p-up{background:var(--good-wash);color:var(--good)} .p-flat{background:var(--warn-wash);color:var(--warn)} .p-down{background:var(--bad-wash);color:var(--bad)}
+
+/* charts */
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px 16px;margin:22px 0}
+.chart .t{font:600 12.5px var(--mono);letter-spacing:.04em;margin-bottom:4px}
+.chart .s{font-size:13.5px;color:var(--ink-2);margin:0 0 12px}
+.chart .cv{position:relative;height:320px}
+.chart .cn{font-size:13px;color:var(--ink-3);margin:12px 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 10px;font-size:13.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:3px;border-radius:2px;display:inline-block}
+details.tv{margin-top:10px}
+details.tv summary{font:500 12px var(--mono);color:var(--ink-2);cursor:pointer}
+details.tv table{min-width:0;font-size:13.5px;margin-top:8px}
+
+/* grids */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.g2>div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;min-width:0}
+.g2 h4{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.g2 h4 i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.g2 ul{margin:0;padding-left:18px;font-size:15.5px}
+.g2 li{margin-bottom:7px}
+.g2 p{font-size:15.5px;margin:0 0 8px}
+@media (max-width:760px){.g2{grid-template-columns:1fr}}
+.bcg{position:relative}
+.bcg .ax{font:500 12px var(--mono);color:var(--ink-3);margin:4px 0}
+
+.pri{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:14px;padding:20px 22px;margin:14px 0}
+.pri .pm{font:600 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:6px}
+.pri h3{margin:0 0 10px;font-size:15px;letter-spacing:.04em}
+.pri p:last-child{margin-bottom:0}
+
+details.sx{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:20px 0}
+details.sx>summary{cursor:pointer;padding:13px 16px;font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+details.sx .dc{padding:4px 18px 16px;font-size:14px;line-height:1.55}
+.srcs li{margin-bottom:6px;word-break:break-word}
+.srcs h4{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:18px 0 6px}
+
+footer{margin:44px 0 0;background:var(--ink);color:var(--bg);border-radius:20px;padding:26px 28px;font-size:14.5px;display:flex;gap:18px;align-items:flex-start}
+footer svg{width:22px;height:46px;flex:none}
+footer p{margin:0 0 6px;max-width:none;opacity:.85}
+footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
+@media print{.rail,.burger{display:none}.main{margin:0}details{open:true}}
+</style>
+</head>
+<body>
+
+<button class="burger" type="button" aria-label="Open sections" onclick="document.querySelector('.rail').classList.toggle('open')">☰</button>
+<nav class="rail" aria-label="Report sections">
+  <a class="hd" href="https://scylark.github.io/manual-focus/"><svg viewBox="-10 -50 110 240" aria-hidden="true"><circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="7"/></svg><b>MANUAL FOCUS</b></a>
+  <ul>
+    <li><a class="l on" href="#scope"><span>00</span>Scope and data</a></li>
+    <li><a class="l" href="#summary"><span>01</span>Executive summary</a></li>
+    <li><a class="l" href="#discipline"><span>02</span>The discipline</a></li>
+    <li><a class="l" href="#market"><span>03</span>Market context</a></li>
+    <li><a class="l" href="#rider"><span>04</span>The rider</a></li>
+    <li><a class="l" href="#compare"><span>05</span>Four disciplines compared</a></li>
+    <li><a class="l" href="#portfolio"><span>06</span>BC's portfolio</a></li>
+    <li><a class="l" href="#ceps"><span>07</span>Entry points</a></li>
+    <li><a class="l" href="#events"><span>08</span>Events and organisers</a></li>
+    <li><a class="l" href="#commercial"><span>09</span>Commercial and media</a></li>
+    <li><a class="l" href="#search"><span>10</span>Search and AI</a></li>
+    <li><a class="l" href="#swot"><span>11</span>SWOT</a></li>
+    <li><a class="l" href="#implications"><span>12</span>What BC should do</a></li>
+    <li><a class="l" href="#sources"><span>13</span>Sources</a></li>
+  </ul>
+  <button class="tt" type="button" id="tt">Light / dark</button>
+</nav>
+
+<main class="main"><div class="col">
+
+<header class="hero">
+  <div class="ey">Manual Focus · Sector report · October 2026</div>
+  <h1>The gravel <em>gap</em></h1>
+  <p class="sub">Five years of data on gravel, road, track and mountain bike. Gravel is the one discipline still growing in a shrinking UK market, and British Cycling has barely started.</p>
+  <div class="meta"><span>11 October 2026</span><span>Global, UK focus</span><span>2021 to 2026</span><span>James Vickers, MCIM MCIPR</span></div>
+</header>
+
+<!-- 00 SCOPE -->
+<section id="scope">
+  <h2><span class="n">00</span>Scope and data</h2>
+  <p class="lede">This report compares the four disciplines most British riders choose between, which are gravel, road, track and mountain bike, over the five years from autumn 2021. It looks at global signals first and then at the UK, and asks one question. Where should British Cycling put its next pound of participation effort?</p>
+  <div class="tw"><table>
+    <thead><tr><th>Evidence</th><th>What it shows</th><th>Coverage</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Search demand</td><td>Google Trends interest by discipline (weekly, October 2021 to October 2026) and Google Ads monthly search volumes (September 2022 to August 2026) for 60 UK and US terms, all pulled through DataForSEO on 11 October 2026</td><td>Global, UK, US</td></tr>
+      <tr><td class="ml">Search footprint</td><td>The keywords britishcycling.org.uk ranks for by discipline, and who Google ranks and cites in AI Overviews for eight UK gravel and road queries</td><td>UK</td></tr>
+      <tr><td class="ml">Events</td><td>UCI Gravel World Series calendars, World Championship fields, and entries for Unbound, The Traka, SBT GRVL, The Gralloch and Dirty Reiver</td><td>Global, UK</td></tr>
+      <tr><td class="ml">Market</td><td>Bicycle Association sales data via trade press, ZIV and ARGE Fahrrad data for Germany and Austria</td><td>UK, DACH</td></tr>
+      <tr><td class="ml">Governance</td><td>British Cycling accounts and membership, road racing data, strategy to 2029, UK Sport funding, the 2026 National Gravel Championships</td><td>UK</td></tr>
+      <tr><td class="ml">Participation</td><td>Sport England Active Lives, DfT National Travel Survey, Strava Year in Sport</td><td>England, global</td></tr>
+    </tbody>
+  </table></div>
+  <div class="co warn"><div class="i">!</div><p><strong>What the data cannot show.</strong> No public source counts gravel riders in the UK. British Cycling does not publish licence or event numbers for every discipline, Strava stopped publishing gravel figures after its 2023 report, and UK retailers do not publish sales by category. Search data stands in for interest, and event entries stand in for participation. Where a figure is modelled, estimated or my own judgement, it is labelled. Google Trends values are relative, so the report compares disciplines with each other rather than quoting them as volumes.</p></div>
+  <div class="co"><div class="i">i</div><p><strong>Disclosure.</strong> Manual Focus works with Ribble Cycles and the Ribble Outliers gravel team. Both 2026 elite national gravel champions ride for Ribble-backed teams. The evidence here is public and sourced, and the conclusions would stand without that link, but readers should know it is there.</p></div>
+</section>
+
+<!-- 01 SUMMARY -->
+<section id="summary">
+  <h2><span class="n">01</span>Executive summary</h2>
+  <p class="lede">British cycling is shrinking. Adult leisure and sport cycling in England fell from 7.3 million people in 2019/20 to about 6.1 million, and has stayed there. British Cycling lost 15% of its members in two years, from 137,968 to 117,475. Road racing, the sport's traditional core, is losing races and riders, with circuit races down 14% and road races down 16% since 2022 and 23 road races cancelled in 2025. Inside that decline, one discipline is moving the other way.</p>
+  <p>Gravel is the growth story of the last five years. The UCI Gravel World Series went from 11 events in 2022 to 47 in 32 countries in 2026. The World Championships grew from 556 starters in 2022 to more than 2,500 entries in 2025, and 345 of those were British, the third largest nation. In the UK, Bicycle Association data shows about 30,000 gravel bikes sold in the year to July 2024, up 284% on pre-Covid, while the wider market fell to its lowest level in around 50 years. In Germany, gravel overtook road bikes outright and reached 10% of non-electric bike sales in 2025. Scotland's Gralloch, the only UK round of the UCI series, grew from 1,230 riders in 2023 to more than 3,000 from 47 nations in 2026. Dirty Reiver sold out its 2026 edition in six hours.</p>
+  <p>Search data tells the same story from the demand side. Across the four disciplines, gravel's share of UK search interest in racing grew from 8% to 42% over five years. In 2024/25 gravel race searches overtook road race searches in the UK, and in 2025/26 they passed mountain bike race searches too. UK searches for gravel race events rose 49% in three years, while searches for road racing and road cycling events fell by 60% or more. Shopping searches fell for every bike type, which reflects the market, though in Google Trends gravel's share of bike searches still rose from 10% to 12%.</p>
+  <p>British Cycling has been slow to follow. It did not recognise gravel as a racing category until mid-2025. Its first official National Gravel Championships took place at Ae Forest in August 2026, and after that weekend its calendar listed no other gravel events. Its strategy to 2029 does not mention gravel. Its website ranks for 42 gravel search terms worth an estimated 333 visits a month, against 8,815 for mountain biking and 7,472 for road. For "gravel events uk" and "gravel cycling uk" it does not appear in Google's top ten at all. The riders, the races and the search demand are being served by independent organisers, media and brands.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">47</div><div class="k">UCI Gravel World Series events in 2026, up from 11 in 2022</div></div>
+    <div class="stat"><div class="v">42%</div><div class="k">Gravel's share of UK racing search interest across four disciplines, up from 8% in 2021/22</div></div>
+    <div class="stat"><div class="v">+284%</div><div class="k">UK gravel bike sales against pre-Covid, about 30,000 a year (Bicycle Association, 2024)</div></div>
+    <div class="stat"><div class="v">-15%</div><div class="k">British Cycling membership in two years, to 117,475</div></div>
+  </div>
+  <div class="co acc"><div class="i">→</div><p><strong>The argument.</strong> This is not a case for taking money from the track. UK Sport's £38.95m for LA28 is tied to Olympic and Paralympic disciplines, and gravel is not one of them. It is a case for pointing British Cycling's own participation, membership and commercial effort at the discipline that is bringing new riders into the sport. Gravel has no traffic and no policing bill, which are the two problems killing road racing, and its riders already pay to race. British Cycling needs a gravel product that gives them a reason to join.</p></div>
+</section>
+
+<!-- 02 DISCIPLINE -->
+<section id="discipline">
+  <h2><span class="n">02</span>The discipline</h2>
+  <p>Gravel is drop-bar riding on mixed surfaces, including forest roads, byways, farm tracks and quiet lanes. It sits between road and mountain bike. The bike looks like a road bike with wider tyres and more clearance, and it works as an all-rounder. The racing ranges from short UCI qualifiers to 200-mile endurance events, and most events let amateurs start alongside professionals.</p>
+  <h3>How it grew</h3>
+  <ul class="l">
+    <li><strong>Grassroots first, governance later.</strong> The format came from the US Midwest. Unbound Gravel had 34 starters in 2006 and has run with a field of about 5,000 since 2024. The UCI created its Gravel World Series and World Championships in 2022, 16 years after Unbound began.</li>
+    <li><strong>The industry backed it with product.</strong> SRAM launched its XPLR gravel groupset in August 2021 and Shimano launched GRX Di2 1x12 in June 2025. Specialized topped Strava's gravel bike rankings in 2024.</li>
+    <li><strong>Riders voted with their uploads.</strong> Strava's 2023 report recorded a 55% rise in athletes logging a gravel ride, against 13% for mountain biking and 23% for e-bikes.</li>
+    <li><strong>The pros arrived.</strong> The Life Time Grand Prix purse rose from $250,000 in 2022 to $590,000 for 2026. WorldTour riders now race gravel worlds, and in the US the number of UCI-level road teams fell from 19 to 11 over a decade while gravel grew.</li>
+  </ul>
+  <div class="co warn"><div class="i">!</div><p><strong>Not every signal points up.</strong> Unbound has plateaued at about 5,000 riders. SBT GRVL was capped at 1,800 by its county permit for 2025. The Gravel Earth series cut its calendar from 25 events to 12 for 2026. The 2026 World Championships in Australia drew only three WorldTour men. Gravel is maturing and some events are finding their ceiling. That makes the next point more important. The growth is moving from the US to Europe and the UK, which is exactly where British Cycling operates.</p></div>
+</section>
+
+<!-- 03 MARKET -->
+<section id="market">
+  <h2><span class="n">03</span>Market and category context</h2>
+  <h3>The bike market</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Market</th><th>Measure</th><th>Finding</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">UK</td><td>Total bikes</td><td>About 1.45m sold in 2024, the lowest in around 50 years. Mechanical bikes fell 22% in 2022 alone. Market value recovered 5% to just under £1.9bn in 2025.</td><td>Bicycle Association via road.cc</td></tr>
+      <tr><td class="ml g">UK</td><td class="g">Gravel bikes</td><td class="g">Up 8% in 2022 while the market fell 22%, 59% above 2019. About 30,000 sold in the year to July 2024, up 15% year on year and 284% on pre-Covid.</td><td class="g">Bicycle Association via BikeBiz and Cycling Weekly</td></tr>
+      <tr><td class="ml">Germany</td><td>Category share</td><td>Gravel was 6.5% of non-electric sales in 2024 and 10.0% in 2025, against road at 5%. Non-electric MTB fell from 5% to 3%. The total market fell for a third year.</td><td>ZIV, Velomotion, BIKE magazin</td></tr>
+      <tr><td class="ml">Austria</td><td>Gravel bikes</td><td>29,000 sold in 2025, up 48%. Non-electric gravel up 74%.</td><td>ARGE Fahrrad via TOUR</td></tr>
+      <tr><td class="ml">Global</td><td>Gravel bike market</td><td>About $1.04bn in 2026. This comes from a market research report with no published method, so treat it as indicative only.</td><td>Business Research Insights</td></tr>
+    </tbody>
+  </table></div>
+  <p>The pattern is the same in every market with published category data. The total market shrinks after the pandemic boom, road and mountain bike lose share, and gravel holds or grows. A UK shop quoted by Cycling Weekly put it plainly, with gravel sales up 110% in a year and road down 45%. One shop is an anecdote, but it matches the national figures.</p>
+  <h3>PESTLE</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Factor</th><th>What it means for gravel and British Cycling</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Political</td><td>Road racing needs police support. One organiser was quoted £35,000 for 30 police motorbikes in 2024, against £3,500 for six in 2019, and cancelled. Gravel runs on private estates and forestry land with no traffic management.</td></tr>
+      <tr><td class="ml">Economic</td><td>Cost-of-living pressure is the reason British Cycling gave for falling membership. Flagship gravel events still sell out within hours, which suggests riders will pay for the right product.</td></tr>
+      <tr><td class="ml">Social</td><td>Gravel offers hard riding away from cars, and it draws first-timers. More than 40% of riders at the first Gralloch were in their first gravel race.</td></tr>
+      <tr><td class="ml">Technological</td><td>Route platforms such as Komoot and Strava make off-road routes easy to find and share, and they now rank above governing bodies for "gravel cycling uk" in Google.</td></tr>
+      <tr><td class="ml">Legal</td><td>Rights of way are the hard constraint. Bridleways and byways in England and Wales limit course design, Scotland's access rights are more open, and Ae Forest, The Gralloch and Dirty Reiver all sit in Scotland or on the border. Until British Cycling recognised gravel, insurance options for organisers were limited.</td></tr>
+      <tr><td class="ml">Environmental</td><td>Events on forestry land need landowner agreements. Grinduro took a year off over Forestry Commission charges before moving to a private estate in 2025. Land access is a partnership job British Cycling is well placed to do.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 04 RIDER -->
+<section id="rider">
+  <h2><span class="n">04</span>The rider</h2>
+  <p>No one publishes a demographic profile of UK gravel riders, so this section uses event and federation data. It should be tested against British Cycling's own member data and event entries.</p>
+  <ul class="l">
+    <li><strong>New to racing.</strong> More than 40% of the 1,230 riders at the first Gralloch in 2023 had never raced gravel before. That is new money and new members for any governing body that can capture them.</li>
+    <li><strong>More women than road racing.</strong> Women were 25% of Unbound's 2025 field. British road racing had 704 women among just under 4,000 racers in 2025, about 18%. SBT GRVL's 2020 edition sold out in under 25 minutes with 75% more women than the year before.</li>
+    <li><strong>Already competing for Britain.</strong> 345 British riders entered the 2025 Gravel World Championships in the Netherlands, more than from Germany, France or the USA. They qualified through UCI series events, and the only one in the UK is The Gralloch.</li>
+    <li><strong>Travelling.</strong> The Gralloch drew 47 nations in 2026, The Traka expected riders of 74 nationalities, and Unbound's 2025 field brought an estimated $21.8m of economic impact to one Kansas county. Gravel riders travel for events, which matters for regional funding and tourism partners.</li>
+  </ul>
+  <div class="co"><div class="i">i</div><p><strong>Same riders, different door.</strong> The gravel rider is often a road rider who stopped racing on roads, a mountain biker who wants distance, or a new adult rider who wants to avoid traffic. They are inside cycling's audience and outside British Cycling's products.</p></div>
+</section>
+
+<!-- 05 COMPARE -->
+<section id="compare">
+  <h2><span class="n">05</span>Four disciplines compared</h2>
+  <div class="tw"><table>
+    <thead><tr><th></th><th class="g"><span class="dot" style="background:var(--c-gravel)"></span>Gravel</th><th><span class="dot" style="background:var(--c-road)"></span>Road</th><th><span class="dot" style="background:var(--c-mtb)"></span>Mountain bike</th><th><span class="dot" style="background:var(--c-track)"></span>Track</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">Five-year direction</td><td class="g"><span class="pill p-up">Growing</span></td><td><span class="pill p-down">Declining</span></td><td><span class="pill p-flat">Mixed</span></td><td><span class="pill p-flat">Stable, small</span></td></tr>
+      <tr><td class="ml">Global events</td><td class="g">UCI series 11 to 47 events, 2022 to 2026</td><td>US UCI road teams 19 to 11</td><td>Enduro calendars thinning</td><td>Elite circuit only</td></tr>
+      <tr><td class="ml">UK events</td><td class="g">Gralloch 1,230 to 3,000+, Dirty Reiver sold out in 6 hours</td><td>Circuit races down 14%, road races down 16%, 23 cancelled in 2025</td><td>Welsh Enduro Series ended, calendar leaner than 2021</td><td>Domestic racing relaunched as six series, 2024</td></tr>
+      <tr><td class="ml">UK bike sales</td><td class="g">+284% on pre-Covid</td><td>Below pre-Covid, high end recovering</td><td>Below pre-Covid, high end recovering</td><td>Not reported</td></tr>
+      <tr><td class="ml">UK racing search share</td><td class="g">8% to 42%</td><td>56% to 20%</td><td>34% to 37%</td><td>2% to 1%</td></tr>
+      <tr><td class="ml">Barrier to entry</td><td class="g">Rights of way, land access</td><td>Traffic, policing costs, licence</td><td>Trail access, travel to venues</td><td>Velodrome access, kit</td></tr>
+      <tr><td class="ml">Olympic</td><td class="g">No</td><td>Yes</td><td>Yes (XC)</td><td>Yes</td></tr>
+      <tr><td class="ml">BC search footprint</td><td class="g">42 keywords, about 333 visits a month</td><td>374 keywords, about 7,472</td><td>322 keywords, about 8,815</td><td>316 keywords, about 3,597</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Search share is gravel, road, MTB and track race terms in Google Trends UK, October 2021 to September 2022 against October 2025 to September 2026. BC footprint is DataForSEO Labs ranked keywords for britishcycling.org.uk containing each discipline's name, so every count includes some unrelated terms, such as BMX tracks or road names.</p>
+
+  <div class="chart"><div class="t">UK search interest in racing, by discipline</div><p class="s">Annual average Google Trends interest for "gravel race", "road race cycling", "mtb race" and "track cycling race", UK, Oct to Sep years</p>
+    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel</span><span><i style="background:var(--c-road)"></i>Road</span><span><i style="background:var(--c-mtb)"></i>Mountain bike</span><span><i style="background:var(--c-track)"></i>Track</span></div>
+    <div class="cv"><canvas id="cRace" aria-label="Line chart. UK racing search interest. Gravel rises from 0.5 to 4.3 and overtakes road in 2024/25 and mountain bike in 2025/26."></canvas></div>
+    <p class="cn">Relative index, not volumes. Weekly values averaged per year. DataForSEO Google Trends, pulled 11 October 2026.</p>
+    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Gravel</th><th class="num">Road</th><th class="num">MTB</th><th class="num">Track</th></tr></thead><tbody id="tRace"></tbody></table></details>
+  </div>
+
+  <div class="chart"><div class="t">Gravel's share of UK search interest across the four disciplines</div><p class="s">Gravel term as a share of the four-term set, for bikes, for the sport and for racing</p>
+    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Racing terms</span><span><i style="background:var(--ink-2)"></i>Sport terms</span><span><i style="background:var(--ink-3);opacity:.6"></i>Bike terms</span></div>
+    <div class="cv"><canvas id="cShare" aria-label="Line chart. Gravel share of UK search interest. Racing terms rise from 8% to 42%, sport terms from 5% to 9%, bike terms from 10% to 12%."></canvas></div>
+    <p class="cn">Sets used. Bikes are "gravel bike", "road bike", "mountain bike" and "track bike". Sport is "gravel cycling", "road cycling", "mountain biking" and "track cycling". Racing is as above. Worldwide, the gravel share of racing terms rose from 33% to 46% over the same years.</p>
+    <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Racing</th><th class="num">Sport</th><th class="num">Bikes</th></tr></thead><tbody id="tShare"></tbody></table></details>
+  </div>
+
+  <div class="chart"><div class="t">UK search demand, three-year change by term</div><p class="s">Google Ads searches in the 12 months to August 2026 against the 12 months to August 2023</p>
+    <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel</span><span><i style="background:var(--c-road)"></i>Road</span><span><i style="background:var(--c-mtb)"></i>Mountain bike</span><span><i style="background:var(--c-track)"></i>Track</span></div>
+    <div class="cv" style="height:470px"><canvas id="cTerms" aria-label="Bar chart of three-year change in UK search volume by term."></canvas></div>
+    <p class="cn">Google Ads volumes via DataForSEO, UK, English. Close variants are grouped by Google, so "gravel bike" includes "gravel bikes". Hover for 12-month totals. Mountain bike racing interest grew too, even as the UK enduro calendar shrank.</p>
+  </div>
+  <div class="co acc"><div class="i">→</div><p><strong>Read the shopping and the racing separately.</strong> People are searching less for every kind of bike, because the market is soft. People are searching more for gravel events and gravel racing, and less for road racing. Demand to take part is moving towards gravel even while demand to buy has dipped everywhere.</p></div>
+</section>
+
+<!-- 06 PORTFOLIO -->
+<section id="portfolio">
+  <h2><span class="n">06</span>British Cycling's discipline portfolio</h2>
+  <p>A Boston matrix usually maps a company's products. Here it maps British Cycling's disciplines by market growth (participation and interest) and by British Cycling's share of that activity (how much of it runs through BC events, licences and membership). The placements are my judgement from the evidence above.</p>
+  <div class="g2">
+    <div><h4><i style="background:var(--good)"></i>Stars</h4><p>None today. Gravel should be here within one strategy cycle if British Cycling builds the product.</p></div>
+    <div><h4><i style="background:var(--c-gravel)"></i>Question mark</h4><p><strong>Gravel.</strong> The fastest-growing discipline in every dataset available, with almost none of it running through British Cycling. One national championship, no series, no gravel membership product, 42 ranking keywords.</p></div>
+    <div><h4><i style="background:var(--c-track)"></i>Cash cows</h4><p><strong>Track.</strong> Most of Britain's 11 Paris medals came on the track, and it anchors the UK Sport funding. Low growth, but it pays for itself in profile.</p><p><strong>Mountain bike XC.</strong> Olympic gold in Paris through Tom Pidcock, a strong elite story and the largest BC search footprint.</p></div>
+    <div><h4><i style="background:var(--c-road)"></i>Dogs</h4><p><strong>Domestic road racing.</strong> High British Cycling share, falling numbers of races and racers, and rising policing costs. Still important, but it cannot carry growth on its own.</p></div>
+  </div>
+  <p class="note">Elite road is outside this matrix. The Tour of Britain and the national championships are commercial assets for British Cycling and the Lloyds partnership, separate from grassroots road racing.</p>
+  <div class="chart"><div class="t">Perceptual map, momentum against British Cycling support</div><p class="s">My assessment from the evidence in this report</p>
+    <div class="cv" style="height:400px"><canvas id="cMap" aria-label="Scatter chart. Gravel sits at high momentum and low BC support. Track and road sit at high support and low momentum."></canvas></div>
+    <p class="cn">Horizontal axis is UK growth momentum from events, sales and search. Vertical axis is British Cycling's structural support from events, series, strategy, funding and content.</p>
+  </div>
+  <p>The map shows the gap. British Cycling's structure sits where the sport used to be, top left, with road and track. The growth sits bottom right, where British Cycling has one event a year.</p>
+</section>
+
+<!-- 07 CEPS -->
+<section id="ceps">
+  <h2><span class="n">07</span>Category entry points</h2>
+  <p>Entry points are the moments that lead someone to start a discipline. Each one is a moment a governing body could meet the rider with a product.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Entry point</th><th>Evidence</th><th>Who meets the rider today</th><th>BC position</th></tr></thead>
+    <tbody>
+      <tr><td>"I want to ride hard without traffic"</td><td>Road cycling events searches down 67% in three years. Leisure cycling in England down 1.2m since 2019/20</td><td>Komoot, Forestry England, Cycling UK, local gravel groups</td><td><span class="pill p-down">Absent</span></td></tr>
+      <tr><td>"I've bought a gravel bike, now what?"</td><td>About 30,000 gravel bikes a year. "Gravel bike uk" searches up 13% while "road bike uk" fell 51%</td><td>Retailers (Ribble ranks first for "beginner gravel ride uk"), media</td><td><span class="pill p-down">Absent</span></td></tr>
+      <tr><td>"I want to enter my first event"</td><td>"Gravel race" and "gravel racing" searches up 49%, "gravel cycling events" up 37%</td><td>Glorious Gravel, Trailbreak, Dirty Reiver, Gralloch, Gritfest</td><td><span class="pill p-flat">9th</span></td></tr>
+      <tr><td>"How do I get into gravel racing?"</td><td>Google shows an AI Overview for this query</td><td>Precision Fuel &amp; Hydration, Reddit, Apidura</td><td><span class="pill p-flat">4th, cited</span></td></tr>
+      <tr><td>"I want to race for my country"</td><td>345 British entries at the 2025 Worlds</td><td>UCI series organisers abroad, The Gralloch</td><td><span class="pill p-flat">Championship only</span></td></tr>
+      <tr><td>"I want to find a national championship"</td><td>Small volume, high intent</td><td>British Cycling</td><td><span class="pill p-up">1st</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Positions are Google UK organic, live SERP via DataForSEO, 11 October 2026.</p>
+  <p>British Cycling owns the narrowest entry point, the championship, and is missing from the broad ones where riders actually start. The people who meet new gravel riders today are retailers, event organisers and route apps. None of them offers membership, insurance, coaching or a pathway to racing for Great Britain.</p>
+</section>
+
+<!-- 08 EVENTS -->
+<section id="events">
+  <h2><span class="n">08</span>Events and organisers</h2>
+  <div class="chart"><div class="t">UCI Gravel World Series events per season</div>
+    <div class="cv" style="height:260px"><canvas id="cUci" aria-label="Bar chart. UCI Gravel World Series events grew from 11 in 2022 to 16, 26, 33 and 47 in 2026."></canvas></div>
+    <p class="cn">UCI calendar announcements. Gran Fondo Daily News counted 45 events in November 2025 before the calendar was finalised at 47.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Event</th><th>Where</th><th>Latest figure</th><th>Trend</th><th>Run by</th></tr></thead>
+    <tbody>
+      <tr><td><strong>The Gralloch</strong></td><td>Gatehouse of Fleet, Scotland</td><td>3,000+ riders from 47 nations (2026)</td><td><span class="pill p-up">2.4x since 2023</span></td><td>Independent, UCI series</td></tr>
+      <tr><td><strong>Dirty Reiver</strong></td><td>Kielder, Northumberland</td><td>About 2,000 riders (2025), 2026 sold out in six hours</td><td><span class="pill p-up">Record</span></td><td>Focal Events</td></tr>
+      <tr><td><strong>Lloyds National Gravel Championships</strong></td><td>Ae Forest, Scotland</td><td>First edition, August 2026. No entry total published</td><td><span class="pill p-flat">New</span></td><td>Outsider Events for British Cycling</td></tr>
+      <tr><td><strong>British Gravel Championships</strong></td><td>Various, last at Dalby (2025)</td><td>Run 2021 to 2025 outside British Cycling</td><td><span class="pill p-flat">Superseded</span></td><td>Red On Group</td></tr>
+      <tr><td><strong>Scottish Gravel Championships</strong></td><td>Scotland</td><td>First sanctioned edition, August 2025</td><td><span class="pill p-flat">New</span></td><td>Scottish Cycling</td></tr>
+      <tr><td><strong>Grinduro</strong></td><td>Kingussie, Scotland</td><td>Returned in 2025 after a year off over land charges</td><td><span class="pill p-flat">Moved</span></td><td>Independent</td></tr>
+    </tbody>
+  </table></div>
+  <p>The UK's gravel calendar was built by independent organisers, mostly in Scotland and the north, without British Cycling. That is a strength, because the events are good and riders trust them. It is also British Cycling's opportunity, because those organisers face the same problems road organisers do, which are insurance, land access, rising costs and marketing, and they need a governing body that helps rather than charges.</p>
+  <div class="co warn"><div class="i">!</div><p><strong>The road warning.</strong> Road racing did not decline because riders lost interest in racing. It declined because the cost and difficulty of putting on a race rose faster than the support for organisers. Circuit races fell from about 700 to 600 between 2022 and 2025. British Cycling has the chance to avoid repeating that with gravel by building organiser support in from the start.</p></div>
+</section>
+
+<!-- 09 COMMERCIAL -->
+<section id="commercial">
+  <h2><span class="n">09</span>Commercial and media</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Signal</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><td class="ml">BC commercial income</td><td>Fell from £5.19m to £3.19m after HSBC UK ended its deal early in 2021, then to £1.84m. The Lloyds partnership lifted sponsorship and rights income from £2.52m to £5.33m in 2024/25, the first surplus in five years.</td></tr>
+      <tr><td class="ml">BC membership income</td><td>Down from £6.1m to £5.8m in 2023/24, with the £27 racing membership scrapped.</td></tr>
+      <tr><td class="ml">Gravel prize money</td><td>Life Time Grand Prix purse up from $250,000 (2022) to $590,000 (2026). Unbound 200 prize money doubled to $60,000.</td></tr>
+      <tr><td class="ml">Brand investment</td><td>Dedicated gravel groupsets from SRAM (2021) and Shimano (2025). Brands including Ribble now back dedicated gravel race teams.</td></tr>
+      <tr><td class="ml">Media</td><td>road.cc runs a dedicated off-road section. BikeRadar, Cycling Weekly and GCN cover it regularly. Unbound's 2026 livestream reported 470,000 views.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Gravel gives British Cycling something to sell. Lloyds already backs the national gravel championships. A national gravel series would give the partnership a mass-participation property with sell-out events, more female fields than road racing, and scenery that films well. That is a stronger story for a high-street bank than closed-circuit crits on business parks.</p>
+</section>
+
+<!-- 10 SEARCH -->
+<section id="search">
+  <h2><span class="n">10</span>Search and AI visibility</h2>
+  <p>Search is where most new riders start. It is also where British Cycling's gap is easiest to measure.</p>
+  <div class="chart"><div class="t">britishcycling.org.uk organic search footprint by discipline</div><p class="s">Estimated monthly visits from UK keywords containing each discipline name</p>
+    <div class="cv" style="height:260px"><canvas id="cBc" aria-label="Bar chart. BC estimated monthly visits. MTB 8,815, road 7,472, track 3,597, gravel 333."></canvas></div>
+    <p class="cn">DataForSEO Labs ranked keywords, Google UK, 11 October 2026. Modelled estimates. Each count includes some unrelated terms, such as BMX tracks or road names, so treat the scale rather than the exact figure as the finding.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>UK query</th><th class="num">BC position</th><th>AI Overview cites BC</th><th>Who ranks first</th></tr></thead>
+    <tbody>
+      <tr><td>gravel championships uk</td><td class="num">1</td><td>Yes</td><td>British Cycling</td></tr>
+      <tr><td>how to get into gravel racing</td><td class="num">4</td><td>Yes</td><td>Precision Fuel &amp; Hydration</td></tr>
+      <tr><td>gravel racing uk</td><td class="num">8</td><td>Yes</td><td>Dukes Weekender</td></tr>
+      <tr><td>gravel races uk</td><td class="num">9</td><td>No</td><td>Glorious Gravel</td></tr>
+      <tr><td>gravel events uk</td><td class="num">Not in top 10</td><td>No</td><td>Sportiva Events</td></tr>
+      <tr><td>gravel cycling uk</td><td class="num">Not in top 10</td><td>No</td><td>Dalby Grit</td></tr>
+      <tr><td>beginner gravel ride uk</td><td class="num">Not in top 10</td><td>No</td><td>Ribble Cycles</td></tr>
+      <tr><td>road races uk cycling</td><td class="num">5</td><td>No</td><td>UK Velo</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Google UK, English, live results via DataForSEO with AI Overviews loaded, 11 October 2026. Results change daily.</p>
+  <p>British Cycling's best gravel results come from a handful of guide pages and the championship page. Those rank and earn AI citations, which shows the domain's authority works when the content exists. The broad discovery searches, where riders look for events and routes, go to listing sites, organisers and retailers. An event calendar and a beginner hub would compete for those searches immediately.</p>
+</section>
+
+<!-- 11 SWOT -->
+<section id="swot">
+  <h2><span class="n">11</span>SWOT, gravel for British Cycling</h2>
+  <div class="g2">
+    <div><h4><i style="background:var(--good)"></i>Strengths</h4><ul><li>A trusted national brand with Lloyds as lead partner, already backing a gravel championship</li><li>Domain authority that already earns AI citations for gravel guides</li><li>A club network and coaching structure no independent organiser has</li><li>British riders already competing in numbers, with 345 at the 2025 Worlds</li></ul></div>
+    <div><h4><i style="background:var(--warn)"></i>Weaknesses</h4><ul><li>Gravel recognised only from mid-2025, one event on the calendar</li><li>No mention of gravel in the strategy to 2029</li><li>42 gravel ranking keywords against 300+ for every other discipline</li><li>Membership down 15% in two years, with no product built for non-racing riders who want events</li></ul></div>
+    <div><h4><i style="background:var(--c-gravel)"></i>Opportunities</h4><ul><li>A national gravel series feeding UCI qualification through The Gralloch</li><li>An organiser package covering insurance, land access and marketing</li><li>A gravel membership tier for riders who pay to race but have no reason to join</li><li>More women and more first-time racers than road racing attracts</li></ul></div>
+    <div><h4><i style="background:var(--bad)"></i>Threats</h4><ul><li>Independent organisers and brands set the standard and see no need for British Cycling</li><li>Rights-of-way limits in England and Wales cap growth south of the border</li><li>Event fatigue and plateaus, as seen with Unbound and Gravel Earth</li><li>Sanctioning that adds cost without adding value would push organisers away</li></ul></div>
+  </div>
+</section>
+
+<!-- 12 IMPLICATIONS -->
+<section id="implications">
+  <h2><span class="n">12</span>What British Cycling should do</h2>
+  <p>The order matters. Each step makes the next one cheaper, and none of them touches the UK Sport money that funds the Olympic programme.</p>
+  <div class="pri"><div class="pm">Priority 1 · Strategy</div><h3>Name gravel as a growth discipline with targets</h3><p>Add gravel to the strategy to 2029 with numbers attached, such as sanctioned events, gravel members and the share of female and first-time entrants. A discipline that is not in the strategy does not get budget, staff or board attention.</p></div>
+  <div class="pri"><div class="pm">Priority 2 · Organisers</div><h3>Build the organiser package before the series</h3><p>Insurance that fits mixed-surface events, a light-touch sanctioning fee, template landowner agreements with Forestry England, Forestry and Land Scotland and private estates, and a shared marketing and entry platform. Work with Cycling UK on rights-of-way access in England and Wales. Organisers should join because it saves them money and effort.</p></div>
+  <div class="pri"><div class="pm">Priority 3 · Competition</div><h3>A national gravel series with a pathway</h3><p>Partner existing events rather than replacing them. A five-round series, with The Gralloch as the UCI qualifier and the national championships moving around the regions each year, would give British riders a domestic route to the World Championships.</p></div>
+  <div class="pri"><div class="pm">Priority 4 · Membership</div><h3>A product for the rider who races but never joined</h3><p>A gravel membership with event insurance, entry discounts at partner events and series ranking. It is aimed at the 30,000 people a year buying gravel bikes, and at lapsed road members. Membership has fallen for three years in a row. This is the clearest way to reverse it.</p></div>
+  <div class="pri"><div class="pm">Priority 5 · Discovery</div><h3>Own the searches where riders start</h3><p>A UK gravel event calendar, a beginner hub, regional route guides and coaching content on britishcycling.org.uk. The domain already ranks and earns AI citations when the content exists. The gap is content, not authority.</p></div>
+  <h3>Questions British Cycling's own data can answer</h3>
+  <ul class="l">
+    <li>How many current and lapsed members own a gravel bike or have entered a gravel event?</li>
+    <li>How many entries did the 2026 National Gravel Championships take, and what share were first-time British Cycling event entrants?</li>
+    <li>What does it cost British Cycling to sanction a gravel event, and what would organisers pay for?</li>
+    <li>Where do lapsed road racers go, and how many now ride gravel?</li>
+    <li>What share of the Lloyds partnership's goals could a national gravel series deliver?</li>
+  </ul>
+</section>
+
+<!-- 13 SOURCES -->
+<section id="sources">
+  <h2><span class="n">13</span>Sources</h2>
+  <details class="sx" open><summary>Full source list</summary><div class="dc srcs">
+    <h4>Search data</h4><ul>
+      <li>DataForSEO Google Trends explore, UK and worldwide, 1 October 2021 to 10 October 2026, three four-term sets, pulled 11 October 2026</li>
+      <li>DataForSEO Google Ads search volume, 60 terms, UK and US, September 2022 to August 2026, pulled 11 October 2026</li>
+      <li>DataForSEO Labs ranked keywords for britishcycling.org.uk, Google UK, and live SERPs with AI Overviews for eight UK queries, 11 October 2026</li>
+    </ul>
+    <h4>British Cycling and UK racing</h4><ul>
+      <li>Cycling Weekly, British Cycling member count falls 9 percent in a year, 2 December 2025, <a href="https://www.cyclingweekly.com/news/british-cycling-member-count-falls-9-percent-in-a-year">cyclingweekly.com</a></li>
+      <li>road.cc, British Cycling membership drop and financial surplus, 1 December 2025, <a href="https://road.cc/content/news/british-cycling-membership-drop-financial-surplus-317087">road.cc</a></li>
+      <li>road.cc, Shell blamed for British Cycling membership drops, 13 December 2024, <a href="https://road.cc/content/news/shell-blamed-british-cycling-membership-drops-311731">road.cc</a></li>
+      <li>Cycling Weekly, Is grassroots racing really on its knees in the UK, 25 April 2026, <a href="https://www.cyclingweekly.com/racing/if-you-dont-nurture-it-it-will-just-die-is-grassroots-racing-really-on-its-knees-in-the-uk">cyclingweekly.com</a></li>
+      <li>Cycling Weekly, Racing in Britain at only 60% of pre-pandemic levels, October 2022, <a href="https://cyclingweekly.com/news/a-dire-state-racing-in-britain-at-only-60-of-pre-pandemic-levels">cyclingweekly.com</a></li>
+      <li>road.cc, Another organiser cancels cycle race amid spiralling costs, 10 March 2024, <a href="https://road.cc/content/news/another-organiser-cancels-cycle-race-amid-spiralling-costs-307203">road.cc</a></li>
+      <li>road.cc, British Cycling has finally embraced gravel, but is it too late, 26 August 2026, <a href="https://road.cc/offroad/feature/british-cycling-has-finally-embraced-gravel-but-is-it-too-late">road.cc</a></li>
+      <li>British Cycling, Our strategy 2025, <a href="https://www.britishcycling.org.uk/our-strategy-2025">britishcycling.org.uk</a></li>
+      <li>Cycling Weekly, British Cycling receives record £39m funding for 2028, 16 December 2024, <a href="https://www.cyclingweekly.com/news/british-cycling-receives-record-gbp39m-funding-for-2028-olympics-and-paralympics">cyclingweekly.com</a></li>
+      <li>The British Continental, British Cycling finds a lifeline with Lloyds Bank partnership, 23 May 2024, <a href="https://thebritishcontinental.co.uk/2024/05/23/british-cycling-finds-a-lifeline-with-new-lloyds-bank-partnership/">thebritishcontinental.co.uk</a></li>
+      <li>British Cycling, Revamped National Track Series, 22 August 2024, <a href="https://cloud.britishcycling.org.uk/track/article/20240822-track-Revamped-National-Track-Series-to-welcome-new-era-of-domestic-track-racing-in-Britain-0">britishcycling.org.uk</a></li>
+      <li>Express and Star (PA), Fifth-place finish for Britain in Paris cycling medal table, 11 August 2024, <a href="https://www.expressandstar.com/sport/uk-sports/2024/08/11/fifth-place-finish-for-britain-in-paris-cycling-medal-table-as-they-lose-summit/">expressandstar.com</a></li>
+      <li>BikeRadar, Ard Rock proves enduro still has a pulse, 28 July 2026, <a href="https://www.bikeradar.com/features/opinion/ard-rock-proves-enduro-still-has-a-pulse">bikeradar.com</a></li>
+    </ul>
+    <h4>UK gravel events</h4><ul>
+      <li>UK Run Chat, British Cycling announce 2026 Lloyds National Gravel Championships, 10 February 2026, <a href="https://www.ukrunchat.co.uk/british-cycling-announce-2026-lloyds-national-gravel-championships/">ukrunchat.co.uk</a></li>
+      <li>UCI Gravel World Series, The Gralloch with more than 1,000 riders, 17 May 2023, <a href="https://ucigravelworldseries.com/en/the-gralloch-with-more-than-1000-riders-signed-up-for-the-first-british-uci-gravel-race/">ucigravelworldseries.com</a></li>
+      <li>Gran Fondo Guide, Over 3,000 riders from 47 nations for 2026 Gralloch, 13 May 2026, <a href="https://www.granfondoguide.com/Contents/IndexFull/9160/over-3000-riders-from-47-nations-set-for-2026-uci-gralloch-gravel-race-in-scotland">granfondoguide.com</a></li>
+      <li>BikeBiz, Focal Events delivers biggest Dirty Reiver to date, 29 April 2025, <a href="https://bikebiz.com/focal-events-delivers-biggest-panaracer-dirty-reiver-to-date/">bikebiz.com</a></li>
+      <li>endurance.biz, Dirty Reiver sells out in six hours, 5 September 2025, <a href="https://endurance.biz/2025/industry-news/panaracer-dirty-reiver-sells-out-in-six-hours/">endurance.biz</a></li>
+      <li>BikeRadar, Grinduro 2025, 24 January 2025, <a href="https://bikeradar.com/news/grinduro-2025">bikeradar.com</a></li>
+      <li>Gran Fondo Daily News, Great Britain gravel national championship time trial, 5 February 2025, <a href="https://granfondodailynews.com/2025/02/05/great-britain-launches-groundbreaking-gravel-national-championship-time-trial-event">granfondodailynews.com</a></li>
+    </ul>
+    <h4>Global gravel</h4><ul>
+      <li>UCI, Gravel World Series expanded calendar comprises 33 events, <a href="https://www.uci.org/article/uci-gravel-world-series-expanded-calendar-comprises-33-events/4adGBPZnpJTMYE8cMfdMt2">uci.org</a></li>
+      <li>UCI, 2026 UCI Gravel World Series, a comprehensive season, <a href="https://www.uci.org/article/2026-gravelking-uci-gravel-world-series-a-comprehensive-season/XWSarTMx2S2EhfkqJvKMW">uci.org</a></li>
+      <li>Gran Fondo Daily News, 2026 series growth, 24 November 2025, <a href="https://granfondodailynews.com/2025/11/24/boom-2026-uci-gravel-world-series-growth-explodes-now-45-races-with-15-new-events/">granfondodailynews.com</a></li>
+      <li>Gran Fondo Daily News, 556 riders chase rainbows at UCI Gravel Worlds, 7 October 2022, <a href="https://granfondodailynews.com/2022/10/08/556-pros-and-amateurs-chase-rainbows-at-uci-gravel-worlds-here-is-the-startlist">granfondodailynews.com</a></li>
+      <li>Gran Fondo Daily News, 2025 Gravel Worlds start list, over 2,500 entries, 10 October 2025, <a href="https://granfondodailynews.com/2025/10/10/2025-gravel-worlds-startlist-over-2500-entries-with-one-race-a-ludicrous-623-riders/">granfondodailynews.com</a></li>
+      <li>IDL Pro Cycling, 2026 Gravel World Championships participants, 6 October 2026, <a href="https://www.idlprocycling.com/gravel/2026-gravel-world-championships-participants-marianne-vos-in-the-womens-race-only-3-worldtour-riders-in-the-mens-race">idlprocycling.com</a></li>
+      <li>Wikipedia, Unbound Gravel (field history), <a href="https://en.wikipedia.org/wiki/Unbound_Gravel">wikipedia.org</a>. Emporia Gazette, 30 May 2025, <a href="https://www.emporiagazette.com/free/article_f5894679-5fc1-47a4-b41a-657cffb3be39.html">emporiagazette.com</a></li>
+      <li>endurance.biz, The Traka 2026, 21 April 2026, <a href="https://endurance.biz/?p=92999">endurance.biz</a></li>
+      <li>Gran Fondo Daily News, SBT GRVL no racing in 2025, 9 October 2024, <a href="https://granfondodailynews.com/2024/10/09/officials-tell-world-famous-sbt-grvl-race-no-racing-in-2025-organizer-may-cancel/">granfondodailynews.com</a>. Sports Destination Management, April 2020, <a href="https://sportsdestinations.com/destinations/colorado/news/sbt-grvl-sells-out-under-25-minutes-has-record-17658">sportsdestinations.com</a></li>
+      <li>Gran Fondo Daily News, Gravel Earth Series shrinks, 14 November 2025, <a href="https://granfondodailynews.com/2025/11/14/gravel-earth-series-shrinks-revamps-events-to-try-and-remain-relevant">granfondodailynews.com</a></li>
+      <li>CyclingWest, $250,000 purse for inaugural Life Time Grand Prix, 28 November 2021, <a href="https://www.cyclingwest.com/racing/250000-prize-purse-announced-for-inaugural-life-time-grand-prix/">cyclingwest.com</a>. Life Time, 2026 Grand Prix series, 23 October 2025, <a href="https://news.lifetime.life/2025-10-23-Life-Time-Unveils-2026-Grand-Prix-Series">lifetime.life</a></li>
+      <li>Cycling Weekly, Gravel boom shows no signs of slowing (Strava), 3 January 2024, <a href="https://cyclingweekly.com/news/gravel-boom-shows-no-signs-of-slowing-strava-report-reveals">cyclingweekly.com</a>. BikeRadar, 2023 Strava Year in Sport, <a href="https://www.bikeradar.com/news/2023-strava-year-in-sport-report">bikeradar.com</a></li>
+      <li>BikeRadar, Is gravel racing saving the US cycling scene, 9 June 2024, <a href="https://bikeradar.com/features/long-reads/is-gravel-racing-saving-the-us-cycling-scene">bikeradar.com</a></li>
+      <li>Singletrack, SRAM launches XPLR, August 2021, <a href="https://singletrackworld.com/2021/08/sram-launches-xplr-its-wireless-suspension-gravel-groupset/">singletrackworld.com</a>. Flow, Shimano GRX 1x12 Di2, June 2025, <a href="https://flowmountainbike.com/post-all/shimano-launch-grx-1x12-di2-gravel-groupset/">flowmountainbike.com</a>. GearJunkie, Strava Year in Sport 2024, <a href="https://gearjunkie.com/endurance/strava-year-in-sport-trend-report-2024">gearjunkie.com</a></li>
+    </ul>
+    <h4>Market and participation</h4><ul>
+      <li>BikeBiz, Bike sales dip to lowest levels in two decades (Bicycle Association), 21 February 2023, <a href="https://bikebiz.com/bike-sales-dip-to-lowest-levels-in-two-decades-according-to-bicycle-association/">bikebiz.com</a></li>
+      <li>Cycling Weekly, Gravel came from the US, has it found its way in the UK yet, 26 October 2024, <a href="https://www.cyclingweekly.com/fitness/gravel-came-from-the-us-has-it-found-its-way-in-the-uk-yet">cyclingweekly.com</a></li>
+      <li>road.cc, UK cycle sales plummet to early 1970s levels, 12 March 2025, <a href="https://road.cc/content/news/uk-cycle-sales-plummet-early-1970s-levels-2024-313015">road.cc</a>. road.cc, Is the cycling industry back on track, 12 March 2026, <a href="https://road.cc/news/is-the-cycling-industry-back-on-track">road.cc</a></li>
+      <li>ZIV, Marktdaten Fahrradwirtschaft 2025, 11 March 2026, <a href="https://www.ziv-zweirad.de/wp-content/uploads/2026/03/Marktdaten-Fahrradwirtschaft-2025.pdf">ziv-zweirad.de</a>. Velomotion, 14 March 2025, <a href="https://www.velomotion.net/2025/03/analysis-of-the-ZIV-market-data-for-2024/">velomotion.net</a></li>
+      <li>TOUR, 48 per cent growth for gravel bikes in Austria, 8 April 2026, <a href="https://www.tour-magazin.de/en/gravel-bike/48-per-cent-growth-boom-in-gravel-bikes-in-austria/">tour-magazin.de</a></li>
+      <li>Business Research Insights, Gravel bikes market (indicative only), <a href="https://www.businessresearchinsights.com/market-reports/gravel-bikes-market-120898">businessresearchinsights.com</a></li>
+      <li>Sport England, Active Lives, 25 April 2024, <a href="https://www.sportengland.org/news-and-inspiration/long-term-increase-activity-levels-positive-further-action-needed-tackle">sportengland.org</a>, and 23 April 2026, <a href="https://www.sportengland.org/activelivesapril26">sportengland.org</a></li>
+      <li>DfT, National Travel Survey 2024, active travel, 27 August 2025, <a href="https://www.gov.uk/government/statistics/national-travel-survey-2024/nts-2024-active-travel">gov.uk</a></li>
+    </ul>
+  </div></details>
+</section>
+
+<footer>
+  <svg viewBox="-10 -50 110 240" aria-hidden="true"><circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="7"/></svg>
+  <div><p><b>MANUAL FOCUS</b></p><p>Bringing focus to the noise. Written by James Vickers, MCIM MCIPR, 11 October 2026. Built from public data and DataForSEO search data. Independent analysis, not commissioned by or affiliated with British Cycling.</p></div>
+</footer>
+
+</div></main>
+
+<script>
+const D={
+  years:['2021/22','2022/23','2023/24','2024/25','2025/26'],
+  race:{gravel:[0.5,1.2,1.6,2.4,4.3],road:[3.9,3.5,4.2,1.0,2.0],mtb:[2.4,2.7,3.2,3.2,3.8],track:[0.2,0.2,0.3,0.1,0.1]},
+  share:{race:[7.7,15.3,17.7,36.0,42.2],sport:[4.7,5.6,6.1,9.0,9.2],bikes:[9.8,11.2,11.9,11.7,12.4]},
+  terms:[['gravel race / racing','gravel',2700,4010],['gravel cycling events','gravel',1440,1970],['gravel bike uk','gravel',17700,20000],['gravel bike','gravel',331500,281800],
+         ['mtb race','mtb',8770,14050],['enduro mtb','mtb',22400,26300],['mountain bike','mtb',480400,435100],['mtb trails','mtb',57900,45500],
+         ['track league','track',340,470],['track bike','track',19700,16800],['track cycling','track',10100,7450],
+         ['sportive','road',20600,17700],['road bike','road',268200,240100],['criterium','road',9030,5440],['road racing cycling','road',840,340],['road cycling events','road',1190,390]],
+  uci:[['2022',11],['2023',16],['2024',26],['2025',33],['2026',47]],
+  bc:[['Mountain bike','mtb',8815,322],['Road','road',7472,374],['Track','track',3597,316],['Gravel','gravel',333,42]],
+  map:[['Gravel','gravel',8.5,1.5],['Road','road',2,8],['Track','track',3.2,9],['Mountain bike','mtb',5,6]]
+};
+const NAMES={gravel:'Gravel',road:'Road',mtb:'Mountain bike',track:'Track'};
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt=v=>Math.round(v).toLocaleString('en-GB');
+function tables(){
+  document.getElementById('tRace').innerHTML=D.years.map((y,i)=>`<tr><td>${y}</td><td class="num">${D.race.gravel[i]}</td><td class="num">${D.race.road[i]}</td><td class="num">${D.race.mtb[i]}</td><td class="num">${D.race.track[i]}</td></tr>`).join('');
+  document.getElementById('tShare').innerHTML=D.years.map((y,i)=>`<tr><td>${y}</td><td class="num">${D.share.race[i]}%</td><td class="num">${D.share.sport[i]}%</td><td class="num">${D.share.bikes[i]}%</td></tr>`).join('');
+}
+tables();
+let charts=[];
+function draw(){
+  if(!window.Chart)return;
+  charts.forEach(c=>c.destroy());charts=[];
+  const C={gravel:css('--c-gravel'),road:css('--c-road'),mtb:css('--c-mtb'),track:css('--c-track')};
+  const ink=css('--ink'),ink2=css('--ink-2'),ink3=css('--ink-3'),grid=css('--line'),surf=css('--surface');
+  Chart.defaults.font.family='Inter, Helvetica, Arial, sans-serif';Chart.defaults.font.size=13;Chart.defaults.color=ink2;
+  const tip={backgroundColor:css('--ink'),titleColor:css('--bg'),bodyColor:css('--bg'),padding:10,cornerRadius:8,displayColors:true,boxPadding:4};
+  const lineOpts=(ysuf)=>({responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>` ${c.dataset.label} ${c.formattedValue}${ysuf}`}}},scales:{x:{grid:{display:false},border:{color:grid}},y:{beginAtZero:true,grid:{color:grid},border:{display:false},ticks:{callback:v=>v+ysuf}}},elements:{line:{borderWidth:2,tension:0},point:{radius:4,hoverRadius:6,borderWidth:2,borderColor:surf}}});
+  // labels at line ends
+  const endLabels={id:'endl',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 12px Inter, sans-serif';ch.data.datasets.forEach((ds,i)=>{const m=ch.getDatasetMeta(i);if(m.hidden)return;const p=m.data[m.data.length-1];ctx.fillStyle=ink;ctx.textAlign='left';ctx.fillText(ds.label,p.x+8,p.y+4)});ctx.restore()}};
+  charts.push(new Chart(document.getElementById('cRace'),{type:'line',data:{labels:D.years,datasets:['gravel','mtb','road','track'].map(k=>({label:NAMES[k],data:D.race[k],borderColor:C[k],backgroundColor:C[k],borderWidth:k==='gravel'?3:2}))},options:{...lineOpts(''),layout:{padding:{right:96}}},plugins:[endLabels]}));
+  charts.push(new Chart(document.getElementById('cShare'),{type:'line',data:{labels:D.years,datasets:[{label:'Racing',data:D.share.race,borderColor:C.gravel,backgroundColor:C.gravel,borderWidth:3},{label:'Sport',data:D.share.sport,borderColor:ink2,backgroundColor:ink2},{label:'Bikes',data:D.share.bikes,borderColor:ink3,backgroundColor:ink3,borderDash:[5,4]}]},options:{...lineOpts('%'),layout:{padding:{right:70}}},plugins:[endLabels]}));
+  const T=D.terms.map(t=>({n:t[0],k:t[1],a:t[2],b:t[3],p:Math.round((t[3]/t[2]-1)*100)}));
+  charts.push(new Chart(document.getElementById('cTerms'),{type:'bar',data:{labels:T.map(t=>t.n),datasets:[{data:T.map(t=>t.p),backgroundColor:T.map(t=>C[t.k]),borderRadius:4,borderSkipped:false,barThickness:16}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,callbacks:{title:i=>T[i[0].dataIndex].n+' · '+NAMES[T[i[0].dataIndex].k],label:c=>{const t=T[c.dataIndex];return ` ${t.p>0?'+':''}${t.p}%  (${fmt(t.a)} to ${fmt(t.b)} searches a year)`}}}},scales:{x:{grid:{color:grid},border:{display:false},ticks:{callback:v=>(v>0?'+':'')+v+'%'}},y:{grid:{display:false},border:{color:grid},ticks:{color:ink},afterFit:a=>{a.width=Math.max(a.width,Math.min(150,a.chart.width*.38))}}}}}));
+  charts.push(new Chart(document.getElementById('cUci'),{type:'bar',data:{labels:D.uci.map(u=>u[0]),datasets:[{data:D.uci.map(u=>u[1]),backgroundColor:C.gravel,borderRadius:4,barPercentage:.6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,displayColors:false,callbacks:{label:c=>` ${c.raw} events`}}},scales:{x:{grid:{display:false},border:{color:grid}},y:{beginAtZero:true,grid:{color:grid},border:{display:false}}}},plugins:[{id:'v',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 12px Inter, sans-serif';ctx.fillStyle=ink;ctx.textAlign='center';ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(D.uci[i][1],b.x,b.y-6));ctx.restore()}}]}));
+  charts.push(new Chart(document.getElementById('cBc'),{type:'bar',data:{labels:D.bc.map(b=>b[0]),datasets:[{data:D.bc.map(b=>b[2]),backgroundColor:D.bc.map(b=>C[b[1]]),borderRadius:4,barThickness:22}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,displayColors:false,callbacks:{label:c=>` About ${fmt(c.raw)} visits a month from ${D.bc[c.dataIndex][3]} keywords`}}},scales:{x:{grid:{color:grid},border:{display:false},ticks:{callback:v=>fmt(v)}},y:{grid:{display:false},border:{color:grid},ticks:{color:ink}}}}}));
+  const mapLbl={id:'ml',afterDatasetsDraw(ch){const ctx=ch.ctx;ctx.save();ctx.font='600 13px Inter, sans-serif';ctx.fillStyle=ink;ch.data.datasets.forEach((ds,i)=>{const p=ch.getDatasetMeta(i).data[0];const r=p.x>ch.chartArea.right-120;ctx.textAlign=r?'right':'left';ctx.fillText(ds.label,p.x+(r?-16:16),p.y+4)});ctx.restore()}};
+  charts.push(new Chart(document.getElementById('cMap'),{type:'scatter',data:{datasets:D.map.map(m=>({label:m[0],data:[{x:m[2],y:m[3]}],backgroundColor:C[m[1]],borderColor:surf,borderWidth:2,pointRadius:m[1]==='gravel'?12:9,pointHoverRadius:13}))},plugins:[mapLbl],options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...tip,callbacks:{label:c=>' '+c.dataset.label}}},scales:{x:{min:0,max:10,title:{display:true,text:'UK growth momentum →',color:ink2},grid:{color:grid},ticks:{display:false},border:{display:false}},y:{min:0,max:10,title:{display:true,text:'British Cycling support →',color:ink2},grid:{color:grid},ticks:{display:false},border:{display:false}}}}}));
+}
+draw();
+document.getElementById('tt').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';draw()};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+const links=[...document.querySelectorAll('.rail a.l')];const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))})},{rootMargin:'-30% 0px -60% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+links.forEach(a=>a.addEventListener('click',()=>document.querySelector('.rail').classList.remove('open')));
+</script>
+</body>
+</html>
