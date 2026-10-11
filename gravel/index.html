@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Gravel Gap</title>
+<title>The Gravel Gap | Manual Focus</title>
 <meta name="description" content="Five years of data on gravel, road, track and mountain bike, globally and in the UK, and why British Cycling should make gravel a priority. A Manual Focus report.">
 <meta property="og:title" content="The Gravel Gap">
 <meta property="og:description" content="Gravel is the one cycling discipline still growing in a shrinking UK market. British Cycling has barely started.">
@@ -65,7 +65,10 @@ strong{font-weight:700}
 @media (max-width:1024px){.main{margin-left:0}}
 
 /* hero */
-.hero{padding:72px 0 40px;border-bottom:1px solid var(--line-2)}
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--line-2)}
+.lock{display:inline-flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;margin-bottom:34px}
+.lock svg{width:22px;height:46px}
+.lock span{font:600 13px var(--mono);letter-spacing:.18em}
 .ey{font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
 .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(56px,10vw,128px);line-height:.9;letter-spacing:.005em;text-transform:uppercase;margin:16px 0 0}
 .hero h1 em{font-style:normal;color:var(--accent)}
@@ -183,10 +186,11 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 <main class="main"><div class="col">
 
 <header class="hero">
+  <a class="lock" href="https://scylark.github.io/manual-focus/"><svg viewBox="-10 -50 110 240" aria-hidden="true"><circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="7"/></svg><span>MANUAL FOCUS</span></a>
   <div class="ey">Manual Focus · Sector report · October 2026</div>
   <h1>The gravel <em>gap</em></h1>
   <p class="sub">Five years of data on gravel, road, track and mountain bike. Gravel is the one discipline still growing in a shrinking UK market, and British Cycling has barely started.</p>
-  <div class="meta"><span>11 October 2026</span><span>Global, UK focus</span><span>2021 to 2026</span><span>James Vickers, MCIM MCIPR</span></div>
+  <div class="meta"><span>11 October 2026</span><span>Global, UK focus</span><span>2021 to 2026</span><span>By Manual Focus</span></div>
 </header>
 
 <!-- 00 SCOPE -->
@@ -196,7 +200,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
   <div class="tw"><table>
     <thead><tr><th>Evidence</th><th>What it shows</th><th>Coverage</th></tr></thead>
     <tbody>
-      <tr><td class="ml">Search demand</td><td>Google Trends interest by discipline (weekly, October 2021 to October 2026) and Google Ads monthly search volumes (September 2022 to August 2026) for 60 UK and US terms, all pulled through DataForSEO on 11 October 2026</td><td>Global, UK, US</td></tr>
+      <tr><td class="ml">Search demand</td><td>Google Trends interest by discipline (weekly, October 2021 to October 2026) and Google Ads monthly search volumes (September 2022 to August 2026) for 60 UK and US terms. Both come from Google and were retrieved through the DataForSEO API on 11 October 2026</td><td>Global, UK, US</td></tr>
       <tr><td class="ml">Search footprint</td><td>The keywords britishcycling.org.uk ranks for by discipline, and who Google ranks and cites in AI Overviews for eight UK gravel and road queries</td><td>UK</td></tr>
       <tr><td class="ml">Events</td><td>UCI Gravel World Series calendars, World Championship fields, and entries for Unbound, The Traka, SBT GRVL, The Gralloch and Dirty Reiver</td><td>Global, UK</td></tr>
       <tr><td class="ml">Market</td><td>Bicycle Association sales data via trade press, ZIV and ARGE Fahrrad data for Germany and Austria</td><td>UK, DACH</td></tr>
@@ -204,7 +208,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
       <tr><td class="ml">Participation</td><td>Sport England Active Lives, DfT National Travel Survey, Strava Year in Sport</td><td>England, global</td></tr>
     </tbody>
   </table></div>
-  <div class="co warn"><div class="i">!</div><p><strong>What the data cannot show.</strong> No public source counts gravel riders in the UK. British Cycling does not publish licence or event numbers for every discipline, Strava stopped publishing gravel figures after its 2023 report, and UK retailers do not publish sales by category. Search data stands in for interest, and event entries stand in for participation. Where a figure is modelled, estimated or my own judgement, it is labelled. Google Trends values are relative, so the report compares disciplines with each other rather than quoting them as volumes.</p></div>
+  <div class="co warn"><div class="i">!</div><p><strong>What the data cannot show.</strong> No public source counts gravel riders in the UK. British Cycling does not publish licence or event numbers for every discipline, Strava stopped publishing gravel figures after its 2023 report, and UK retailers do not publish sales by category. Search data stands in for interest, and event entries stand in for participation. Where a figure is modelled, estimated or our own judgement, it is labelled. Google Trends values are relative, so the report compares disciplines with each other rather than quoting them as volumes.</p></div>
   <div class="co"><div class="i">i</div><p><strong>Disclosure.</strong> Manual Focus works with Ribble Cycles and the Ribble Outliers gravel team. Both 2026 elite national gravel champions ride for Ribble-backed teams. The evidence here is public and sourced, and the conclusions would stand without that link, but readers should know it is there.</p></div>
 </section>
 
@@ -301,7 +305,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
   <div class="chart"><div class="t">UK search interest in racing, by discipline</div><p class="s">Annual average Google Trends interest for "gravel race", "road race cycling", "mtb race" and "track cycling race", UK, Oct to Sep years</p>
     <div class="legend"><span><i style="background:var(--c-gravel)"></i>Gravel</span><span><i style="background:var(--c-road)"></i>Road</span><span><i style="background:var(--c-mtb)"></i>Mountain bike</span><span><i style="background:var(--c-track)"></i>Track</span></div>
     <div class="cv"><canvas id="cRace" aria-label="Line chart. UK racing search interest. Gravel rises from 0.5 to 4.3 and overtakes road in 2024/25 and mountain bike in 2025/26."></canvas></div>
-    <p class="cn">Relative index, not volumes. Weekly values averaged per year. DataForSEO Google Trends, pulled 11 October 2026.</p>
+    <p class="cn">Relative index, not volumes. Weekly values averaged per year. Google Trends data via the DataForSEO API, pulled 11 October 2026.</p>
     <details class="tv"><summary>Show as table</summary><table><thead><tr><th>Year</th><th class="num">Gravel</th><th class="num">Road</th><th class="num">MTB</th><th class="num">Track</th></tr></thead><tbody id="tRace"></tbody></table></details>
   </div>
 
@@ -323,7 +327,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 <!-- 06 PORTFOLIO -->
 <section id="portfolio">
   <h2><span class="n">06</span>British Cycling's discipline portfolio</h2>
-  <p>A Boston matrix usually maps a company's products. Here it maps British Cycling's disciplines by market growth (participation and interest) and by British Cycling's share of that activity (how much of it runs through BC events, licences and membership). The placements are my judgement from the evidence above.</p>
+  <p>A Boston matrix usually maps a company's products. Here it maps British Cycling's disciplines by market growth (participation and interest) and by British Cycling's share of that activity (how much of it runs through BC events, licences and membership). The placements are our judgement from the evidence above.</p>
   <div class="g2">
     <div><h4><i style="background:var(--good)"></i>Stars</h4><p>None today. Gravel should be here within one strategy cycle if British Cycling builds the product.</p></div>
     <div><h4><i style="background:var(--c-gravel)"></i>Question mark</h4><p><strong>Gravel.</strong> The fastest-growing discipline in every dataset available, with almost none of it running through British Cycling. One national championship, no series, no gravel membership product, 42 ranking keywords.</p></div>
@@ -331,7 +335,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
     <div><h4><i style="background:var(--c-road)"></i>Dogs</h4><p><strong>Domestic road racing.</strong> High British Cycling share, falling numbers of races and racers, and rising policing costs. Still important, but it cannot carry growth on its own.</p></div>
   </div>
   <p class="note">Elite road is outside this matrix. The Tour of Britain and the national championships are commercial assets for British Cycling and the Lloyds partnership, separate from grassroots road racing.</p>
-  <div class="chart"><div class="t">Perceptual map, momentum against British Cycling support</div><p class="s">My assessment from the evidence in this report</p>
+  <div class="chart"><div class="t">Perceptual map, momentum against British Cycling support</div><p class="s">Manual Focus assessment from the evidence in this report</p>
     <div class="cv" style="height:400px"><canvas id="cMap" aria-label="Scatter chart. Gravel sits at high momentum and low BC support. Track and road sit at high support and low momentum."></canvas></div>
     <p class="cn">Horizontal axis is UK growth momentum from events, sales and search. Vertical axis is British Cycling's structural support from events, series, strategy, funding and content.</p>
   </div>
@@ -455,7 +459,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
   <h2><span class="n">13</span>Sources</h2>
   <details class="sx" open><summary>Full source list</summary><div class="dc srcs">
     <h4>Search data</h4><ul>
-      <li>DataForSEO Google Trends explore, UK and worldwide, 1 October 2021 to 10 October 2026, three four-term sets, pulled 11 October 2026</li>
+      <li>Google Trends data via the DataForSEO Google Trends API, UK and worldwide, 1 October 2021 to 10 October 2026, three four-term sets, pulled 11 October 2026</li>
       <li>DataForSEO Google Ads search volume, 60 terms, UK and US, September 2022 to August 2026, pulled 11 October 2026</li>
       <li>DataForSEO Labs ranked keywords for britishcycling.org.uk, Google UK, and live SERPs with AI Overviews for eight UK queries, 11 October 2026</li>
     </ul>
@@ -514,7 +518,7 @@ footer b{font:600 12px var(--mono);letter-spacing:.14em;opacity:1}
 
 <footer>
   <svg viewBox="-10 -50 110 240" aria-hidden="true"><circle cx="45" cy="45" r="42" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="45" cy="93" r="42" fill="none" stroke="currentColor" stroke-width="7"/></svg>
-  <div><p><b>MANUAL FOCUS</b></p><p>Bringing focus to the noise. Written by James Vickers, MCIM MCIPR, 11 October 2026. Built from public data and DataForSEO search data. Independent analysis, not commissioned by or affiliated with British Cycling.</p></div>
+  <div><p><b>MANUAL FOCUS</b></p><p>Bringing focus to the noise. Published by Manual Focus, 11 October 2026. Built from public data and DataForSEO search data. Independent analysis, not commissioned by or affiliated with British Cycling.</p></div>
 </footer>
 
 </div></main>
