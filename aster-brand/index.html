@@ -127,6 +127,10 @@ dl { margin: 0 0 26px; }
 .films figcaption { font-family: var(--f-display); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 9px; }
 @media (max-width: 720px) { .photos, .films.tall { grid-template-columns: repeat(2, 1fr); } .films { grid-template-columns: 1fr; } }
 
+.nots { list-style: none; margin: 10px 0 0; padding: 0; }
+.nots li { position: relative; padding: 3px 0 3px 24px; font-size: 15px; color: var(--ink-2); }
+.nots li::before { content: "\00d7"; position: absolute; left: 2px; top: -1px; font-family: var(--f-display); font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--dark); }
+
 footer { background: var(--dark); color: var(--mint); padding-block: 32px 56px; font-size: 14.5px; }
 footer p { margin: 0 0 6px; max-width: 72ch; }
 footer a { color: var(--lime); }
@@ -268,19 +272,18 @@ footer a { color: var(--lime); }
 <section id="photo"><div class="wrap">
     <p class="kicker">Photography</p>
     <h2>Felt as much as seen</h2>
-    <p class="lead">Aster photography is nostalgic and filtered, with heavy motion blur. It shows riders mid-effort, in the light and the weather they actually ride in, and a picture should feel the way the ride felt.</p>
+    <p class="lead">Aster lets people watch someone they care about mid-ride, so the pictures have to feel like being out there with them. The look is nostalgic and filtered, with heavy motion blur, and every frame should feel like the middle of a race.</p>
     <div class="say">
         <table>
             <thead><tr><th scope="col">Property</th><th scope="col">Direction</th></tr></thead>
             <tbody>
                 <tr><td>Subject</td><td>Gravel and road cyclists mid-effort. People who read as riders.</td></tr>
                 <tr><td>Motion</td><td>Heavy panning blur on the background and the wheels. The rider stays sharp.</td></tr>
-                <tr><td>Depth</td><td>A wide aperture and a shallow depth of field.</td></tr>
-                <tr><td>Light</td><td>Late gold, dusk, dappled forest and side-lit dust. Flat midday light stays out.</td></tr>
+                <tr><td>Depth</td><td>A wide aperture and a shallow depth of field, so the background drops away.</td></tr>
+                <tr><td>Light</td><td>Late gold, dusk, dappled forest and side-lit dust.</td></tr>
                 <tr><td>Colour</td><td>Saturated kit against green and brown. Mud is welcome.</td></tr>
-                <tr><td>Framing</td><td>Tight crops. Half a rider, three-quarter, or a wheel and a leg.</td></tr>
-                <tr><td>Casting</td><td>A mix of gender, body type and kit in every set.</td></tr>
-                <tr><td>Avoid</td><td>Studio backdrops, static portraits, posed smiles, stock cleanness and matching team kit.</td></tr>
+                <tr><td>Framing</td><td>Tight crops. Half a rider, three-quarter, or a wheel and a leg, cropped harder than a catalogue would.</td></tr>
+                <tr><td>Casting</td><td>A mix of gender, body type, skin tone, age and kit across the set.</td></tr>
             </tbody>
         </table>
     </div>
@@ -300,15 +303,23 @@ footer a { color: var(--lime); }
     </div>
     <div class="grid g3" style="margin-top: 26px;">
         <div class="card"><h3>How it is made</h3><p>The cycling library is art-directed and generated in Midjourney against a mood board.</p></div>
-        <div class="card"><h3>What gets checked</h3><p>Every frame is reviewed before use. No real brand names, no third-party race numbers and no identifiable people.</p></div>
+        <div class="card"><h3>What gets checked</h3><p>Every output is reviewed before it is saved. If a logo or a line of real text has crept in, the frame is made again.</p></div>
         <div class="card"><h3>On social and in decks</h3><p>Labels sit on a lime chip. Gradients stay off the picture and the grit stays in.</p></div>
+    </div>
+    <div class="group">
+        <h3>What we don't want</h3>
+        <div class="grid g3">
+            <div class="card"><h3>In the picture</h3><ul class="nots"><li>Studio backdrops</li><li>Static portraits and posed smiles</li><li>Flat, white-balanced midday light</li><li>Stock-photo cleanness</li><li>Clip-art cyclist silhouettes</li><li>A blurred rider</li></ul></div>
+            <div class="card"><h3>In the cast</h3><ul class="nots"><li>Everyone in matching team kit</li><li>A set that is all men</li><li>A set that is all pros</li></ul></div>
+            <div class="card"><h3>On the kit and the course</h3><ul class="nots"><li>Real logos and sponsor text</li><li>Named events and teams</li><li>Third-party race numbers</li><li>Identifiable people</li><li>Reference shots from the mood board</li></ul></div>
+        </div>
     </div>
 </div></section>
 
 <section id="film" class="alt"><div class="wrap">
     <p class="kicker">Film</p>
     <h2>Photography first, then the map</h2>
-    <p class="lead">Every Aster film opens on moving photography and then shows the product on a dark map. Headlines sit in white and lime, and the pictures keep their blur and grain.</p>
+    <p class="lead">The photograph stays a photograph and the product arrives as a layer on top. Every film opens on a few seconds of moving photography, draws the route on a dark map and then brings the app in.</p>
     <div class="films">
         <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-launch-brand.jpg" src="../assets/Aster/films/launch-brand.mp4"></video><figcaption>Brand launch film, 1:38</figcaption></figure>
         <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-launch-organisers.jpg" src="../assets/Aster/films/launch-organisers.mp4"></video><figcaption>Organisers, 1:01</figcaption></figure>
@@ -322,15 +333,25 @@ footer a { color: var(--lime); }
     </div>
     <ul class="rules">
         <li>Photography holds 4 to 8 seconds</li>
-        <li>No cuts inside a shot</li>
-        <li>Cross-fades only</li>
-        <li>No bouncing effects</li>
+        <li>Cross-fades between scenes</li>
+        <li>One headline style</li>
+        <li>Last line in lime</li>
+        <li>The whole phone in frame</li>
         <li>Four shapes per film</li>
     </ul>
-    <div class="grid g3" style="margin-top: 26px;">
-        <div class="card"><h3>Four shapes</h3><p>16:9 for YouTube and the site, 4:5 for feeds, 1:1 where a feed crops square, and 9:16 for Reels and Stories with the text clear of the platform's own controls.</p></div>
+    <div class="grid" style="margin-top: 26px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));">
+        <div class="card"><h3>One headline style</h3><p>Capitals in the display face at one size, broken by hand into two or three lines, with the last line in lime.</p></div>
+        <div class="card"><h3>Checked against the code</h3><p>Every claim in a film is checked against the product before it ships. The demo race keeps its Live demo label, and anyone shown live carries the line Subject to network coverage.</p></div>
+        <div class="card"><h3>Built for each shape</h3><p>Composed in Remotion and rendered in 16:9, 4:5, 1:1 and 9:16. The vertical cut is built for 9:16 from source, with the text inside the platform's safe area.</p></div>
         <div class="card"><h3>Feature cuts</h3><p>Each launch film breaks into feature cuts of 20 to 32 seconds, in the order they appear in the film.</p></div>
-        <div class="card"><h3>Built in code</h3><p>The films are composed in Remotion and rendered in every shape from one source.</p></div>
+    </div>
+    <div class="group">
+        <h3>What we don't want</h3>
+        <div class="grid g3">
+            <div class="card"><h3>In motion</h3><ul class="nots"><li>Cuts inside a shot</li><li>Wipes</li><li>Bouncing effects and parallax</li><li>Animated illustration</li><li>Zooms, swoops and orbits on a still</li></ul></div>
+            <div class="card"><h3>In the frame</h3><ul class="nots"><li>A cropped card of part of a screen</li><li>Big empty areas of dark</li><li>Text outside the safe area</li><li>A vertical cut cropped from a finished film</li></ul></div>
+            <div class="card"><h3>In the claims</h3><ul class="nots"><li>A simulated race shown as a real one</li><li>A real brand shown as a sponsor</li><li>A line the product cannot back</li><li>A promise of safety</li></ul></div>
+        </div>
     </div>
 </div></section>
 
