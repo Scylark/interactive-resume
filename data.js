@@ -1553,19 +1553,6 @@ const RESUME_DATA = {
                             <li><strong>Production</strong> - the cycling library is art-directed and generated in Midjourney against a mood board, and every output is reviewed before it is saved so that no real brand name, third-party race number or identifiable person gets through.</li>
                         </ul>
                     </div>
-                    <div class="achievements">
-                        <h4>What we don't want</h4>
-                        <ul>
-                            <li><strong>Catalogue pictures</strong> - studio backdrops, static portraits, posed smiles, flat midday light, stock-photo cleanness and clip-art cyclist silhouettes.</li>
-                            <li><strong>A blurred rider</strong> - the blur belongs to the background and the wheels.</li>
-                            <li><strong>Team-issue casting</strong> - everyone in matching kit, or a set that is all men or all pros.</li>
-                            <li><strong>Real brands</strong> - logos, sponsor text, named events and teams, third-party race numbers and identifiable people.</li>
-                            <li><strong>Lost grit</strong> - any colour treatment that cleans a picture up.</li>
-                            <li><strong>Busy motion</strong> - cuts inside a shot, wipes, bouncing effects, parallax and animated illustration.</li>
-                            <li><strong>Half a product</strong> - a cropped card of part of a screen, or big empty areas of dark frame.</li>
-                            <li><strong>Overclaiming</strong> - a simulated race passed off as a real one, a real brand shown as a sponsor, or a line the product cannot back.</li>
-                        </ul>
-                    </div>
                     <div class="media-gallery">
                         <h4>Photography</h4>
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Twelve frames from the cycling library in use on the Aster site.</p>
@@ -1660,6 +1647,47 @@ const RESUME_DATA = {
                                 <video src="assets/Aster/films/event-story-4x5.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-event-story-4x5.jpg"></video>
                                 <div class="gallery-play"></div>
                                 <div class="gallery-label">Social cut, chain gang</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <h4>What we don't want</h4>
+                        <ul>
+                            <li><strong>Catalogue pictures</strong> - studio backdrops, static portraits, posed smiles, flat midday light, stock-photo cleanness and clip-art cyclist silhouettes.</li>
+                            <li><strong>A blurred rider</strong> - the blur belongs to the background and the wheels.</li>
+                            <li><strong>Team-issue casting</strong> - everyone in matching kit, or a set that is all men or all pros.</li>
+                            <li><strong>Real brands</strong> - logos, sponsor text, named events and teams, third-party race numbers and identifiable people.</li>
+                            <li><strong>Lost grit</strong> - any colour treatment that cleans a picture up.</li>
+                            <li><strong>Busy motion</strong> - cuts inside a shot, wipes, bouncing effects, parallax and animated illustration.</li>
+                            <li><strong>Half a product</strong> - a cropped card of part of a screen, or big empty areas of dark frame.</li>
+                            <li><strong>Overclaiming</strong> - a simulated race passed off as a real one, a real brand shown as a sponsor, or a line the product cannot back.</li>
+                        </ul>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>The don'ts, pictured</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Five frames that miss the brief. They are clean, evenly lit and still, and they could belong to any brand.</p>
+                        <div class="gallery-grid dont" style="grid-template-columns: repeat(2, 1fr);">
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/peloton-mountain.jpg">
+                                <img src="assets/thumbs/g/dont-peloton-mountain.jpg" alt="A professional peloton in team kit on a mountain road, sharp from front to back" loading="lazy" decoding="async">
+                                <div class="gallery-label">All pros in team kit</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/peloton-midday.jpg">
+                                <img src="assets/thumbs/g/dont-peloton-midday.jpg" alt="A professional peloton on an open road in flat midday light" loading="lazy" decoding="async">
+                                <div class="gallery-label">Flat midday light</div>
+                            </div>
+                        </div>
+                        <div class="gallery-grid dont portrait" style="margin-top: 10px;">
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/road-run-legs.jpg">
+                                <img src="assets/thumbs/g/dont-road-run-legs.jpg" alt="Runners in a road race from the waist down, clean and sharp" loading="lazy" decoding="async">
+                                <div class="gallery-label">Stock-photo clean</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/trail-run.jpg">
+                                <img src="assets/thumbs/g/dont-trail-run.jpg" alt="Trail runners from the waist down, frozen mid-stride" loading="lazy" decoding="async">
+                                <div class="gallery-label">Sharp, still and anonymous</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/road-race-run.jpg">
+                                <img src="assets/thumbs/g/dont-road-race-run.jpg" alt="A road runner from the waist down in a city race" loading="lazy" decoding="async">
+                                <div class="gallery-label">Generic race stock</div>
                             </div>
                         </div>
                     </div>
@@ -1805,18 +1833,6 @@ const RESUME_DATA = {
                             <li><strong>Production</strong> - the library of 36 images is art-directed and generated in Midjourney against one mood board, and every output is checked before it is kept.</li>
                         </ul>
                     </div>
-                    <div class="achievements">
-                        <h4>What we don't want</h4>
-                        <ul>
-                            <li><strong>Catalogue pictures</strong> - studio backdrops, static portraits, posed smiles and stock-photo cleanness.</li>
-                            <li><strong>Flat light</strong> - even midday sun outdoors, or a brightly lit room indoors.</li>
-                            <li><strong>A blurred rider</strong> - the blur belongs to the road and the wheels.</li>
-                            <li><strong>Team-issue casting</strong> - everyone in matching kit, or a set that is all men or all pros.</li>
-                            <li><strong>Real brands</strong> - logos, sponsor text, named events, third-party race numbers and identifiable people.</li>
-                            <li><strong>Mocked-up product</strong> - invented screens, numbers the app would not show, or a Coach line the real Coach would not say.</li>
-                            <li><strong>Promised results</strong> - watts, times, placings or percentages on screen.</li>
-                        </ul>
-                    </div>
                     <div class="media-gallery">
                         <h4>Photography</h4>
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Ten frames from the library. The indoor set first, then the road and gravel set.</p>
@@ -1876,6 +1892,36 @@ const RESUME_DATA = {
                         </div>
                     </div>
 
+                    <div class="achievements">
+                        <h4>What we don't want</h4>
+                        <ul>
+                            <li><strong>Catalogue pictures</strong> - studio backdrops, static portraits, posed smiles and stock-photo cleanness.</li>
+                            <li><strong>Flat light</strong> - even midday sun outdoors, or a brightly lit room indoors.</li>
+                            <li><strong>A blurred rider</strong> - the blur belongs to the road and the wheels.</li>
+                            <li><strong>Team-issue casting</strong> - everyone in matching kit, or a set that is all men or all pros.</li>
+                            <li><strong>Real brands</strong> - logos, sponsor text, named events, third-party race numbers and identifiable people.</li>
+                            <li><strong>Mocked-up product</strong> - invented screens, numbers the app would not show, or a Coach line the real Coach would not say.</li>
+                            <li><strong>Promised results</strong> - watts, times, placings or percentages on screen.</li>
+                        </ul>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>The don'ts, pictured</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Three frames that miss the brief. They are clean, evenly lit and still, with a studio wall or a pro peloton where a rider's own riding should be.</p>
+                        <div class="gallery-grid dont">
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/turbo-studio.jpg">
+                                <img src="assets/thumbs/g/dont-turbo-studio.jpg" alt="A rider on a turbo trainer against a clean studio wall in even light" loading="lazy" decoding="async">
+                                <div class="gallery-label">Studio backdrop, even light</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/peloton-mountain.jpg">
+                                <img src="assets/thumbs/g/dont-peloton-mountain.jpg" alt="A professional peloton in team kit on a mountain road, sharp from front to back" loading="lazy" decoding="async">
+                                <div class="gallery-label">All pros in team kit</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/creative-dont/peloton-midday.jpg">
+                                <img src="assets/thumbs/g/dont-peloton-midday.jpg" alt="A professional peloton on an open road in flat midday light" loading="lazy" decoding="async">
+                                <div class="gallery-label">Flat midday light</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="media-gallery">
                         <h4>The messaging house</h4>
                         <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Every store listing, page, onboarding screen and email traces back to this one document, and every claim in it traces to shipped code. A line that cannot be traced to a pillar does not ship. <a href="https://manual-focus.co.uk/blog/wattplan-messaging-hierarchy/" target="_blank" rel="noopener" style="color:#2563eb;">How it was built</a> is written up on the Manual Focus blog.</p>

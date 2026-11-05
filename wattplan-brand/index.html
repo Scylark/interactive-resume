@@ -116,6 +116,13 @@ td:last-child { color: var(--ink-3); text-decoration: line-through; text-decorat
 .film { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; border: 1px solid var(--line); background: #000; }
 @media (max-width: 720px) { .photos, .photos.wide { grid-template-columns: repeat(2, 1fr); } }
 
+.donts { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
+.donts figure { margin: 0; position: relative; }
+.donts img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255, 90, 95, 0.45); }
+.donts figure::before { content: "\00d7"; position: absolute; top: 10px; left: 10px; width: 26px; height: 26px; border-radius: 50%; background: #FF5A5F; color: #0E0E10; font-weight: 700; font-size: 20px; line-height: 25px; text-align: center; }
+.donts figcaption { font-family: var(--f-mono); font-size: 12px; color: #FFB3B5; margin-top: 8px; }
+@media (max-width: 720px) { .donts { grid-template-columns: 1fr; } }
+
 .inuse { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .inuse img { border-radius: 12px; border: 1px solid var(--line); width: 100%; }
 .banner { border-radius: 14px; border: 1px solid var(--line); width: 100%; margin-top: 12px; }
@@ -318,6 +325,11 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
             <div class="card"><h3>In the picture</h3><div class="chips"><span>studio backdrops</span><span>static portraits</span><span>posed smiles</span><span>stock-photo cleanness</span><span>flat midday light</span><span>a brightly lit room</span><span>a blurred rider</span></div></div>
             <div class="card"><h3>In the cast and the kit</h3><div class="chips"><span>matching team kit</span><span>all men</span><span>all pros</span><span>real logos</span><span>sponsor text</span><span>named events</span><span>third-party race numbers</span><span>identifiable people</span></div></div>
             <div class="card"><h3>In the film</h3><div class="chips"><span>mocked-up screens</span><span>numbers the app would not show</span><span>invented Coach lines</span><span>promised watts, times or placings</span><span>text under platform buttons</span><span>speeded-up footage shown as real time</span></div></div>
+        </div>
+        <div class="donts">
+            <figure><img src="../assets/creative-dont/turbo-studio.jpg" alt="A rider on a turbo trainer against a clean studio wall in even light" loading="lazy"><figcaption>Studio backdrop, even light</figcaption></figure>
+            <figure><img src="../assets/creative-dont/peloton-mountain.jpg" alt="A professional peloton in team kit on a mountain road, sharp from front to back" loading="lazy"><figcaption>All pros in team kit</figcaption></figure>
+            <figure><img src="../assets/creative-dont/peloton-midday.jpg" alt="A professional peloton on an open road in flat midday light" loading="lazy"><figcaption>Flat midday light</figcaption></figure>
         </div>
     </div>
     <div class="card" style="margin-top: 14px;">
