@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>WattPlan Brand Book</title>
+<meta name="description" content="The WattPlan brand in one place. Logo, colour, type, voice, vocabulary and the messaging house.">
+<link rel="icon" href="../assets/Wattplan/brand/icon-wp-two-tone.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;700&display=swap">
+<style>
+:root {
+    --bg: #0E0E10; --surface: #1A1A1D; --surface-2: #242427; --surface-3: #2E2E32;
+    --line: rgba(255, 255, 255, 0.08); --line-2: rgba(255, 255, 255, 0.16);
+    --ink: #F5F5F7; --ink-2: #A5A5AE; --ink-3: #6E6E78;
+    --volt: #4DE3FF; --volt-ink: #001418; --paper: #F4F4EF;
+    --f-brand: 'Bebas Neue', 'Arial Narrow', sans-serif;
+    --f-text: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-text); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: var(--volt); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--volt); outline-offset: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 24px; }
+
+.top { border-top: 6px solid var(--volt); padding-block: 56px 40px; }
+.top img.wordmark { height: 44px; width: auto; }
+.top h1 { font-family: var(--f-brand); font-weight: 400; font-size: clamp(64px, 12vw, 148px); line-height: 0.88; letter-spacing: 0.005em; margin: 36px 0 18px; text-wrap: balance; }
+.top h1 span { color: var(--volt); }
+.top p { max-width: 58ch; color: var(--ink-2); font-size: 18px; margin: 0; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+nav.toc a { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 999px; padding: 7px 13px; }
+nav.toc a:hover { color: var(--volt-ink); background: var(--volt); border-color: var(--volt); }
+
+section { padding-block: 56px; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
+.label { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--volt); margin: 0 0 10px; }
+h2 { font-family: var(--f-brand); font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 0.95; letter-spacing: 0.01em; margin: 0 0 16px; text-wrap: balance; }
+h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; }
+.lead { max-width: 62ch; color: var(--ink-2); margin: 0 0 28px; }
+.grid { display: grid; gap: 14px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.g4 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+.card p + p { margin-top: 10px; }
+.card ul { margin: 12px 0 0; padding: 0 0 0 18px; color: var(--ink-2); font-size: 14.5px; }
+.card li + li { margin-top: 6px; }
+
+.reads { counter-reset: r; }
+.reads .card { position: relative; padding-top: 54px; }
+.reads .card::before { counter-increment: r; content: counter(r); position: absolute; top: 14px; left: 22px; font-family: var(--f-brand); font-size: 34px; line-height: 1; color: var(--volt); }
+
+.tile { border-radius: 14px; border: 1px solid var(--line); display: grid; place-items: center; padding: 34px 24px 46px; position: relative; min-height: 190px; }
+.tile img { max-height: 84px; width: auto; max-width: 80%; }
+.tile.wide img { max-height: 54px; }
+.tile figcaption, .tile .cap { position: absolute; left: 14px; bottom: 11px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; }
+.on-dark { background: var(--bg); } .on-dark .cap { color: var(--ink-3); }
+.on-surface { background: var(--surface-2); } .on-surface .cap { color: var(--ink-2); }
+.on-paper { background: var(--paper); } .on-paper .cap { color: #5C6166; }
+.on-volt { background: var(--volt); } .on-volt .cap { color: var(--volt-ink); }
+.on-white { background: #FFFFFF; } .on-white .cap { color: #5C6166; }
+
+.swatches { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.sw { border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+.sw i { display: block; height: 84px; }
+.sw div { padding: 10px 12px 12px; }
+.sw b { display: block; font-size: 14px; font-weight: 700; }
+.sw code { font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); }
+.sw small { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; line-height: 1.35; }
+.group { margin-top: 30px; }
+.group > h3 { margin-bottom: 12px; }
+.zones { display: grid; grid-template-columns: repeat(6, 1fr); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+.zones span { padding: 46px 8px 10px; font-family: var(--f-mono); font-size: 11px; color: #0E0E10; }
+@media (max-width: 560px) { .zones { grid-template-columns: repeat(3, 1fr); } }
+
+.type-row { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding-block: 24px; border-top: 1px solid var(--line); align-items: baseline; }
+.type-row:first-of-type { border-top: 0; padding-top: 0; }
+.type-row .meta b { display: block; font-size: 15px; }
+.type-row .meta span { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); }
+.spec-brand { font-family: var(--f-brand); font-size: clamp(54px, 9vw, 104px); line-height: 0.9; }
+.spec-brand em { font-style: normal; color: var(--volt); }
+.spec-head { font-size: clamp(26px, 4vw, 36px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+.spec-body { color: var(--ink-2); max-width: 60ch; }
+.spec-mono { font-family: var(--f-mono); font-size: 15px; color: var(--ink-2); }
+@media (max-width: 640px) { .type-row { grid-template-columns: 1fr; gap: 8px; } }
+
+.quote { border-left: 3px solid var(--volt); padding: 4px 0 4px 18px; margin: 16px 0 0; }
+.quote p { color: var(--ink); font-size: 18px; margin: 0; }
+.quote small { display: block; color: var(--ink-3); font-size: 13px; margin-top: 6px; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+th, td { text-align: left; padding: 12px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+thead th { border-top: 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; background: var(--surface); }
+td:first-child { font-weight: 700; color: var(--ink); width: 40%; }
+td:last-child { color: var(--ink-3); text-decoration: line-through; text-decoration-color: rgba(255, 90, 95, 0.6); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chips span { font-family: var(--f-mono); font-size: 12px; padding: 6px 11px; border-radius: 8px; background: rgba(255, 90, 95, 0.12); border: 1px solid rgba(255, 90, 95, 0.35); color: #FFB3B5; }
+
+.house img { border-radius: 14px; border: 1px solid var(--line); width: 100%; }
+.pillar .eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--volt); }
+.pillar h3 { font-family: var(--f-brand); font-weight: 400; font-size: 30px; letter-spacing: 0.01em; margin: 4px 0 8px; }
+
+.inuse { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.inuse img { border-radius: 12px; border: 1px solid var(--line); width: 100%; }
+.banner { border-radius: 14px; border: 1px solid var(--line); width: 100%; margin-top: 12px; }
+
+footer { border-top: 1px solid var(--line); padding-block: 36px 64px; color: var(--ink-3); font-size: 14px; }
+footer p { margin: 0 0 6px; max-width: 70ch; }
+</style>
+</head>
+<body>
+
+<header class="top">
+    <div class="wrap">
+        <img class="wordmark" src="../assets/Wattplan/brand/wordmark-dark.svg" alt="WattPlan">
+        <h1>Train. <span>Adapt.</span></h1>
+        <p>The WattPlan brand in one place. How it looks, how it sounds, and the messaging house that every line of copy has to trace back to.</p>
+        <nav class="toc" aria-label="Sections">
+            <a href="#idea">The idea</a>
+            <a href="#logo">Logo</a>
+            <a href="#colour">Colour</a>
+            <a href="#type">Type</a>
+            <a href="#voice">Voice</a>
+            <a href="#words">Vocabulary</a>
+            <a href="#house">Messaging house</a>
+            <a href="#use">In use</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section id="idea"><div class="wrap">
+    <p class="label">The idea</p>
+    <h2>A cycling training app built to make you stronger on the bike</h2>
+    <p class="lead">WattPlan builds your training around your goals and the time you have, adjusting it as things change. The tagline carries the whole product in two words, and it reads four ways.</p>
+    <div class="grid g4 reads">
+        <div class="card"><h3>The cyclist trains</h3><p>The rider does the work.</p></div>
+        <div class="card"><h3>The body adapts</h3><p>Training changes what the rider can do.</p></div>
+        <div class="card"><h3>The plan adapts</h3><p>It follows the riding that was actually done.</p></div>
+        <div class="card"><h3>The loop</h3><p>Train, adapt, and go again.</p></div>
+    </div>
+    <div class="card" style="margin-top: 14px;">
+        <h3>What the rider should feel</h3>
+        <p>Confidence that their training is right. This is the emotional benefit the brand works towards. It guides the copy and stays out of it.</p>
+    </div>
+</div></section>
+
+<section id="logo"><div class="wrap">
+    <p class="label">Logo</p>
+    <h2>The WP mark and the wordmark</h2>
+    <p class="lead">One mark, drawn once, and coloured for the surface it sits on. The two-tone version is the default, with the W in ink and the P in volt.</p>
+    <div class="grid g3">
+        <figure class="tile on-dark" style="margin:0"><img src="../assets/Wattplan/brand/mark-wp-two-tone-dark.svg" alt="WP mark, two-tone on dark"><span class="cap">Two-tone on dark</span></figure>
+        <figure class="tile on-paper" style="margin:0"><img src="../assets/Wattplan/brand/mark-wp-two-tone-light.svg" alt="WP mark, two-tone on light"><span class="cap">Two-tone on light</span></figure>
+        <figure class="tile on-surface" style="margin:0"><img src="../assets/Wattplan/brand/mark-wp-accent.svg" alt="WP mark in volt"><span class="cap">Volt</span></figure>
+        <figure class="tile on-volt" style="margin:0"><img src="../assets/Wattplan/brand/mark-wp-black.svg" alt="WP mark in black"><span class="cap">Black on volt</span></figure>
+        <figure class="tile on-dark" style="margin:0"><img src="../assets/Wattplan/brand/mark-wp-white.svg" alt="WP mark in white"><span class="cap">White</span></figure>
+        <figure class="tile on-white" style="margin:0"><img src="../assets/Wattplan/brand/mark-wp-black.svg" alt="WP mark in black"><span class="cap">Black</span></figure>
+    </div>
+    <div class="grid g2" style="margin-top: 14px;">
+        <figure class="tile wide on-dark" style="margin:0"><img src="../assets/Wattplan/brand/wordmark-dark.svg" alt="WattPlan wordmark on dark"><span class="cap">Wordmark on dark</span></figure>
+        <figure class="tile wide on-paper" style="margin:0"><img src="../assets/Wattplan/brand/wordmark-light.svg" alt="WattPlan wordmark on light"><span class="cap">Wordmark on light</span></figure>
+    </div>
+    <div class="group">
+        <h3>App icon</h3>
+        <div class="grid g3">
+            <figure class="tile on-surface" style="margin:0"><img src="../assets/Wattplan/brand/icon-wp-two-tone.svg" alt="App icon, two-tone" style="border-radius:20px"><span class="cap">Two-tone</span></figure>
+            <figure class="tile on-surface" style="margin:0"><img src="../assets/Wattplan/brand/icon-wp-accent.svg" alt="App icon, volt" style="border-radius:20px"><span class="cap">Volt</span></figure>
+            <figure class="tile on-surface" style="margin:0"><img src="../assets/Wattplan/brand/icon-wp-mono.svg" alt="App icon, mono" style="border-radius:20px"><span class="cap">Mono</span></figure>
+        </div>
+    </div>
+</div></section>
+
+<section id="colour"><div class="wrap">
+    <p class="label">Colour</p>
+    <h2>Dark ground, one accent</h2>
+    <p class="lead">The app lives on a near-black ground with a single accent, volt. Everything else is a neutral or a signal with one job.</p>
+    <div class="swatches">
+        <div class="sw"><i style="background:#4DE3FF"></i><div><b>Volt</b><code>#4DE3FF</code><small>The accent. Buttons, the P, the line that matters.</small></div></div>
+        <div class="sw"><i style="background:#001418"></i><div><b>Volt ink</b><code>#001418</code><small>Text on volt.</small></div></div>
+        <div class="sw"><i style="background:#0E0E10"></i><div><b>Background</b><code>#0E0E10</code><small>The page.</small></div></div>
+        <div class="sw"><i style="background:#1A1A1D"></i><div><b>Surface</b><code>#1A1A1D</code><small>Cards and sheets.</small></div></div>
+        <div class="sw"><i style="background:#242427"></i><div><b>Surface 2</b><code>#242427</code><small>Raised surfaces.</small></div></div>
+        <div class="sw"><i style="background:#F5F5F7"></i><div><b>Ink</b><code>#F5F5F7</code><small>Primary text.</small></div></div>
+        <div class="sw"><i style="background:#A5A5AE"></i><div><b>Ink 2</b><code>#A5A5AE</code><small>Secondary text.</small></div></div>
+        <div class="sw"><i style="background:#6E6E78"></i><div><b>Ink 3</b><code>#6E6E78</code><small>Captions and hints.</small></div></div>
+    </div>
+    <div class="group">
+        <h3>Volt family</h3>
+        <div class="swatches">
+            <div class="sw"><i style="background:#7BEBFF"></i><div><b>Volt hover</b><code>#7BEBFF</code></div></div>
+            <div class="sw"><i style="background:#2FA9C2"></i><div><b>Volt mid</b><code>#2FA9C2</code><small>Sweet-spot bars, forecast line.</small></div></div>
+            <div class="sw"><i style="background:#1E8AA0"></i><div><b>Volt shade</b><code>#1E8AA0</code><small>The hard shadow under a button.</small></div></div>
+            <div class="sw"><i style="background:#1E4550"></i><div><b>Volt deep</b><code>#1E4550</code><small>Tempo bars.</small></div></div>
+        </div>
+    </div>
+    <div class="group">
+        <h3>Signals</h3>
+        <div class="swatches">
+            <div class="sw"><i style="background:#FF5A5F"></i><div><b>Coral</b><code>#FF5A5F</code><small>Warnings and destructive actions.</small></div></div>
+            <div class="sw"><i style="background:#FFC94A"></i><div><b>Amber</b><code>#FFC94A</code><small>Caution.</small></div></div>
+            <div class="sw"><i style="background:#6BE38A"></i><div><b>Mint</b><code>#6BE38A</code><small>Success, warmed so it never reads as the accent.</small></div></div>
+            <div class="sw"><i style="background:#F4F4EF"></i><div><b>Paper</b><code>#F4F4EF</code><small>The ground in the light scheme.</small></div></div>
+        </div>
+    </div>
+    <div class="group">
+        <h3>Training zones</h3>
+        <div class="zones">
+            <span style="background:#6E737D">Z1 #6E737D</span>
+            <span style="background:#3D8BFF">Z2 #3D8BFF</span>
+            <span style="background:#34C46A">Z3 #34C46A</span>
+            <span style="background:#FFC233">Z4 #FFC233</span>
+            <span style="background:#FF8A2B">Z5 #FF8A2B</span>
+            <span style="background:#FF4D55">Z6 #FF4D55</span>
+        </div>
+    </div>
+</div></section>
+
+<section id="type"><div class="wrap">
+    <p class="label">Type</p>
+    <h2>Three faces, three jobs</h2>
+    <div class="type-row">
+        <div class="meta"><b>Bebas Neue</b><span>Brand, big numbers</span></div>
+        <div class="spec-brand">TRAIN. <em>ADAPT.</em> 284W</div>
+    </div>
+    <div class="type-row">
+        <div class="meta"><b>Onest Bold</b><span>Headings</span></div>
+        <div class="spec-head">Tomorrow becomes a rest day.</div>
+    </div>
+    <div class="type-row">
+        <div class="meta"><b>Onest Regular</b><span>Body</span></div>
+        <div class="spec-body">WattPlan builds your training around your goals and the time you have, adjusting it as things change. Connect once, then ride.</div>
+    </div>
+    <div class="type-row">
+        <div class="meta"><b>JetBrains Mono</b><span>Data and labels</span></div>
+        <div class="spec-mono">Weighted Power 251 W · Intensity 0.84 · Load 96</div>
+    </div>
+</div></section>
+
+<section id="voice"><div class="wrap">
+    <p class="label">Voice</p>
+    <h2>An experienced club rider who knows the science</h2>
+    <p class="lead">The Coach sets the voice for the whole brand. If a line would sound wrong coming from the rider next to you on a Sunday, it is wrong on the page too.</p>
+    <div class="grid g2">
+        <div class="card"><h3>Know the science, skip the medicine</h3><p>Sound like someone who has read the research and ridden the miles. Keep medical language out.</p></div>
+        <div class="card"><h3>Warm and direct</h3><p>Friendly, plain, and with room for dry humour.</p></div>
+        <div class="card"><h3>One clear answer</h3><p>Recommend something. A rider who asks what to do tomorrow wants a decision.</p>
+            <div class="quote"><p>Tomorrow becomes a rest day because you need to absorb this block.</p><small>More useful than telling the rider they have a few options.</small></div></div>
+        <div class="card"><h3>Stop when it is said</h3><p>Finish when the answer is complete. Cut the throat-clearing and the repetition.</p></div>
+    </div>
+</div></section>
+
+<section id="words"><div class="wrap">
+    <p class="label">Vocabulary</p>
+    <h2>Use the words in the app</h2>
+    <p class="lead">Copy uses the product's own words, so a rider never has to translate between the marketing and the screen in front of them.</p>
+    <div class="tablewrap">
+        <table>
+            <thead><tr><th scope="col">Say</th><th scope="col">Avoid</th></tr></thead>
+            <tbody>
+                <tr><td>Cyclist, rider</td><td>Athlete, user, triathlete</td></tr>
+                <tr><td>Plan</td><td>Programme</td></tr>
+                <tr><td>Coach</td><td>Assistant, bot, AI</td></tr>
+                <tr><td>Load</td><td>TSS</td></tr>
+                <tr><td>Fitness, Fatigue, Form</td><td>CTL, ATL, TSB</td></tr>
+                <tr><td>Weighted Power</td><td>NP, Normalised Power</td></tr>
+                <tr><td>Intensity</td><td>IF, Intensity Factor</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="grid g3" style="margin-top: 14px;">
+        <div class="card"><h3>Sport clichés</h3><div class="chips"><span>epic</span><span>pain cave</span><span>beast mode</span></div></div>
+        <div class="card"><h3>Technology filler</h3><div class="chips"><span>seamless</span><span>disruptive</span><span>next-generation</span><span>AI-powered</span></div></div>
+        <div class="card"><h3>Claims that never ship</h3><p>Guaranteed gains, promised watts, FTP points, times or placings, medical or safety claims, and any comparison of the Coach with a human coach.</p></div>
+    </div>
+</div></section>
+
+<section id="house" class="house"><div class="wrap">
+    <p class="label">Messaging house</p>
+    <h2>Every line traces to a pillar</h2>
+    <p class="lead">The house was built from the bottom up. The proof came first, with each claim mapped to shipped code, and the pillars and the tagline were layered on top. A line that cannot be traced to a pillar does not ship. <a href="https://manual-focus.co.uk/blog/wattplan-messaging-hierarchy/">How it was built</a> is on the Manual Focus blog.</p>
+    <img src="../assets/Wattplan/brand/messaging-house.jpg" alt="The WattPlan messaging hierarchy. Emotional benefit at the top, then the proposition Train. Adapt., then three pillars with their proof points." loading="lazy">
+    <div class="grid g3" style="margin-top: 14px;">
+        <div class="card pillar"><span class="eyebrow">The week</span><h3>Personalised. Training</h3><p>When life or riding changes, your week still makes sense.</p>
+            <ul><li>The plan is built around the days and hours you can ride.</li><li>Missed workouts are repaired without crowding hard days.</li><li>Harder or easier rides influence what comes next.</li></ul></div>
+        <div class="card pillar"><span class="eyebrow">The Coach</span><h3>Questions. Answered.</h3><p>Ask a normal question and get a clear answer based on your plan, rides and goals.</p>
+            <ul><li>Answers use your plan, recent rides, availability and event.</li><li>Ask the Coach to skip, move or reduce a workout.</li><li>Goals, injuries and preferences carry across conversations.</li></ul></div>
+        <div class="card pillar"><span class="eyebrow">The data</span><h3>Rides. Counted.</h3><p>Connect once, then ride. WattPlan imports the file, scores it and spots what changed.</p>
+            <ul><li>Garmin, Strava and Wahoo rides sync automatically.</li><li>Each file updates Weighted Power, Intensity and Load.</li><li>Personal bests and possible FTP changes are flagged.</li></ul></div>
+    </div>
+</div></section>
+
+<section id="use"><div class="wrap">
+    <p class="label">In use</p>
+    <h2>On the stores and in the feed</h2>
+    <p class="lead">The store screenshots for version 1.0.49, covers from the Train. Adapt. launch campaign, and the brand banners.</p>
+    <div class="inuse">
+        <img src="../assets/Wattplan/2026/store-01-today.jpg" alt="Store screenshot, Today" loading="lazy">
+        <img src="../assets/Wattplan/2026/store-02-plan.jpg" alt="Store screenshot, Plan" loading="lazy">
+        <img src="../assets/Wattplan/2026/store-03-coach.jpg" alt="Store screenshot, Coach" loading="lazy">
+        <img src="../assets/Wattplan/2026/store-05-rides-counted.jpg" alt="Store screenshot, Rides counted" loading="lazy">
+        <img src="../assets/Wattplan/2026/store-06-adjusted-plan.jpg" alt="Store screenshot, Adjusted plan" loading="lazy">
+        <img src="../assets/Wattplan/2026/store-07-fitness-explorer.jpg" alt="Store screenshot, Fitness explorer" loading="lazy">
+    </div>
+    <div class="inuse" style="margin-top: 12px;">
+        <img src="../assets/Wattplan/campaign/cover-chain-gang.jpg" alt="Reel cover, chain gang" loading="lazy">
+        <img src="../assets/Wattplan/campaign/cover-wedding-rest-day.jpg" alt="Reel cover, wedding rest day" loading="lazy">
+        <img src="../assets/Wattplan/campaign/cover-train-adapt.jpg" alt="Train. Adapt. end frame" loading="lazy">
+    </div>
+    <img class="banner" src="../assets/Wattplan/2026/feature-graphic.jpg" alt="Google Play feature graphic" loading="lazy">
+    <img class="banner" src="../assets/Wattplan/brand/linkedin-banner.jpg" alt="LinkedIn banner" loading="lazy">
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+    <p>WattPlan brand book, November 2026. Compiled from the app's design tokens, the logo family and the messaging house.</p>
+    <p><a href="https://wattplan.cc/">wattplan.cc</a> · <a href="../">Back to James Vickers' resume</a></p>
+</div></footer>
+
+</body>
+</html>
