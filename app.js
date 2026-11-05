@@ -131,6 +131,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------
     // Modal management
     // ----------------------------------------
+    // A link inside a card can open another card. Products and projects
+    // live inside their parent card instead of taking a node each.
+    modalContent.addEventListener('click', (e) => {
+        const link = e.target.closest('[data-open]');
+        if (!link) return;
+        e.preventDefault();
+        openModal(link.dataset.open);
+        modalContent.scrollTop = 0;
+        if (modalContent.parentElement) modalContent.parentElement.scrollTop = 0;
+    });
+
     function openModal(id) {
         const detail = RESUME_DATA.details[id];
         if (!detail) return;
