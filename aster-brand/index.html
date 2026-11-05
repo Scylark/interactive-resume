@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Aster Brand Book</title>
-<meta name="description" content="The Aster brand in one place. The mark, colour, type, shape, voice, vocabulary and the message.">
+<meta name="description" content="The Aster brand in one place. The mark, colour, type, shape, photography, film, voice, vocabulary and the message.">
 <link rel="icon" href="../assets/Aster/brand/aster-mark-dark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,6 +117,16 @@ dl { margin: 0 0 26px; }
 .shots { display: grid; gap: 14px 16px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 18px; padding-right: 6px; }
 .shots img { border: 2px solid var(--dark); border-radius: 14px; width: 100%; box-shadow: 3px 3px 0 0 var(--dark); }
 
+.photos { display: grid; gap: 14px 16px; grid-template-columns: repeat(4, 1fr); margin-top: 22px; padding-right: 6px; }
+.photos img { border: 2px solid var(--dark); border-radius: 14px; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: 3px 3px 0 0 var(--dark); }
+.films { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); padding-right: 6px; }
+.films.tall { grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
+.films figure { margin: 0; }
+.films video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 2px solid var(--dark); border-radius: 14px; box-shadow: 3px 3px 0 0 var(--dark); background: var(--dark); }
+.films.tall video { aspect-ratio: 4 / 5; }
+.films figcaption { font-family: var(--f-display); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 9px; }
+@media (max-width: 720px) { .photos, .films.tall { grid-template-columns: repeat(2, 1fr); } .films { grid-template-columns: 1fr; } }
+
 footer { background: var(--dark); color: var(--mint); padding-block: 32px 56px; font-size: 14.5px; }
 footer p { margin: 0 0 6px; max-width: 72ch; }
 footer a { color: var(--lime); }
@@ -142,6 +152,8 @@ footer a { color: var(--lime); }
         <a href="#colour">Colour</a>
         <a href="#type">Type</a>
         <a href="#shape">Shape</a>
+        <a href="#photo">Photography</a>
+        <a href="#film">Film</a>
         <a href="#voice">Voice</a>
         <a href="#words">Vocabulary</a>
         <a href="#use">In use</a>
@@ -253,6 +265,75 @@ footer a { color: var(--lime); }
     </div>
 </div></section>
 
+<section id="photo"><div class="wrap">
+    <p class="kicker">Photography</p>
+    <h2>Felt as much as seen</h2>
+    <p class="lead">Aster photography is nostalgic and filtered, with heavy motion blur. It shows riders mid-effort, in the light and the weather they actually ride in, and a picture should feel the way the ride felt.</p>
+    <div class="say">
+        <table>
+            <thead><tr><th scope="col">Property</th><th scope="col">Direction</th></tr></thead>
+            <tbody>
+                <tr><td>Subject</td><td>Gravel and road cyclists mid-effort. People who read as riders.</td></tr>
+                <tr><td>Motion</td><td>Heavy panning blur on the background and the wheels. The rider stays sharp.</td></tr>
+                <tr><td>Depth</td><td>A wide aperture and a shallow depth of field.</td></tr>
+                <tr><td>Light</td><td>Late gold, dusk, dappled forest and side-lit dust. Flat midday light stays out.</td></tr>
+                <tr><td>Colour</td><td>Saturated kit against green and brown. Mud is welcome.</td></tr>
+                <tr><td>Framing</td><td>Tight crops. Half a rider, three-quarter, or a wheel and a leg.</td></tr>
+                <tr><td>Casting</td><td>A mix of gender, body type and kit in every set.</td></tr>
+                <tr><td>Avoid</td><td>Studio backdrops, static portraits, posed smiles, stock cleanness and matching team kit.</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="photos">
+        <img src="../assets/Aster/creative/three-abreast.jpg" alt="Three riders abreast at dusk" loading="lazy">
+        <img src="../assets/Aster/creative/dune-sprint.jpg" alt="Rider sprinting on sand with panning blur" loading="lazy">
+        <img src="../assets/Aster/creative/road-rain-night.jpg" alt="Rider on a wet road with a light leak" loading="lazy">
+        <img src="../assets/Aster/creative/face-dusk.jpg" alt="Close crop of a rider at dusk" loading="lazy">
+        <img src="../assets/Aster/creative/bunch-gravel-dusk.jpg" alt="A bunch on gravel at dusk" loading="lazy">
+        <img src="../assets/Aster/creative/spray-head-on.jpg" alt="Rider head on through spray" loading="lazy">
+        <img src="../assets/Aster/creative/reach-gold-wheel.jpg" alt="Rider reaching forward beside a gold wheel" loading="lazy">
+        <img src="../assets/Aster/creative/road-autumn-attack.jpg" alt="Rider attacking on an autumn road" loading="lazy">
+        <img src="../assets/Aster/creative/bunch-wet-dusk.jpg" alt="A bunch from behind at dusk" loading="lazy">
+        <img src="../assets/Aster/creative/climb-hazy.jpg" alt="Riders climbing in haze" loading="lazy">
+        <img src="../assets/Aster/creative/bunch-corner.jpg" alt="A bunch through a corner with the edges of the frame blurred" loading="lazy">
+        <img src="../assets/Aster/creative/woods-number.jpg" alt="Rider with a plain race number in woodland light" loading="lazy">
+    </div>
+    <div class="grid g3" style="margin-top: 26px;">
+        <div class="card"><h3>How it is made</h3><p>The cycling library is art-directed and generated in Midjourney against a mood board.</p></div>
+        <div class="card"><h3>What gets checked</h3><p>Every frame is reviewed before use. No real brand names, no third-party race numbers and no identifiable people.</p></div>
+        <div class="card"><h3>On social and in decks</h3><p>Labels sit on a lime chip. Gradients stay off the picture and the grit stays in.</p></div>
+    </div>
+</div></section>
+
+<section id="film" class="alt"><div class="wrap">
+    <p class="kicker">Film</p>
+    <h2>Photography first, then the map</h2>
+    <p class="lead">Every Aster film opens on moving photography and then shows the product on a dark map. Headlines sit in white and lime, and the pictures keep their blur and grain.</p>
+    <div class="films">
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-launch-brand.jpg" src="../assets/Aster/films/launch-brand.mp4"></video><figcaption>Brand launch film, 1:38</figcaption></figure>
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-launch-organisers.jpg" src="../assets/Aster/films/launch-organisers.mp4"></video><figcaption>Organisers, 1:01</figcaption></figure>
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-launch-clubs.jpg" src="../assets/Aster/films/launch-clubs.mp4"></video><figcaption>Clubs, 1:17</figcaption></figure>
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-launch-athletes.jpg" src="../assets/Aster/films/launch-athletes.mp4"></video><figcaption>Athletes, 1:07</figcaption></figure>
+    </div>
+    <div class="films tall">
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-justride-story-4x5.jpg" src="../assets/Aster/films/justride-story-4x5.mp4"></video><figcaption>Social cut, Just Ride</figcaption></figure>
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-club-story-4x5.jpg" src="../assets/Aster/films/club-story-4x5.mp4"></video><figcaption>Social cut, meet-up</figcaption></figure>
+        <figure><video controls preload="none" poster="../assets/thumbs/g/aster-film-event-story-4x5.jpg" src="../assets/Aster/films/event-story-4x5.mp4"></video><figcaption>Social cut, chain gang</figcaption></figure>
+    </div>
+    <ul class="rules">
+        <li>Photography holds 4 to 8 seconds</li>
+        <li>No cuts inside a shot</li>
+        <li>Cross-fades only</li>
+        <li>No bouncing effects</li>
+        <li>Four shapes per film</li>
+    </ul>
+    <div class="grid g3" style="margin-top: 26px;">
+        <div class="card"><h3>Four shapes</h3><p>16:9 for YouTube and the site, 4:5 for feeds, 1:1 where a feed crops square, and 9:16 for Reels and Stories with the text clear of the platform's own controls.</p></div>
+        <div class="card"><h3>Feature cuts</h3><p>Each launch film breaks into feature cuts of 20 to 32 seconds, in the order they appear in the film.</p></div>
+        <div class="card"><h3>Built in code</h3><p>The films are composed in Remotion and rendered in every shape from one source.</p></div>
+    </div>
+</div></section>
+
 <section id="voice"><div class="wrap">
     <p class="kicker">Voice</p>
     <h2>Clear, warm, and it doesn't shout</h2>
@@ -304,7 +385,7 @@ footer a { color: var(--lime); }
 </main>
 
 <footer><div class="wrap">
-    <p>Aster brand book, November 2026. Compiled from the app's design tokens, the mark and the public message.</p>
+    <p>Aster brand book, November 2026. Compiled from the app's design tokens, the mark, the photography brief and the public message.</p>
     <p><a href="https://aster-track.com/">aster-track.com</a> · <a href="../">Back to James Vickers' resume</a></p>
 </div></footer>
 

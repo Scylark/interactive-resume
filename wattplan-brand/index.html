@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>WattPlan Brand Book</title>
-<meta name="description" content="The WattPlan brand in one place. Logo, colour, type, voice, vocabulary and the messaging house.">
+<meta name="description" content="The WattPlan brand in one place. Logo, colour, type, creative direction, voice, vocabulary and the messaging house.">
 <link rel="icon" href="../assets/Wattplan/brand/icon-wp-two-tone.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,6 +107,15 @@ td:last-child { color: var(--ink-3); text-decoration: line-through; text-decorat
 .pillar .eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--volt); }
 .pillar h3 { font-family: var(--f-brand); font-weight: 400; font-size: 30px; letter-spacing: 0.01em; margin: 4px 0 8px; }
 
+.dir td:first-child { width: 24%; }
+.dir td:last-child { color: var(--ink-2); text-decoration: none; }
+.photos { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+.photos img { border-radius: 12px; border: 1px solid var(--line); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.photos.wide { grid-template-columns: repeat(4, 1fr); }
+.photos.wide img { aspect-ratio: 16 / 9; }
+.film { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; border: 1px solid var(--line); background: #000; }
+@media (max-width: 720px) { .photos, .photos.wide { grid-template-columns: repeat(2, 1fr); } }
+
 .inuse { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .inuse img { border-radius: 12px; border: 1px solid var(--line); width: 100%; }
 .banner { border-radius: 14px; border: 1px solid var(--line); width: 100%; margin-top: 12px; }
@@ -127,6 +136,7 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
             <a href="#logo">Logo</a>
             <a href="#colour">Colour</a>
             <a href="#type">Type</a>
+            <a href="#look">Creative direction</a>
             <a href="#voice">Voice</a>
             <a href="#words">Vocabulary</a>
             <a href="#house">Messaging house</a>
@@ -245,6 +255,67 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
     </div>
 </div></section>
 
+<section id="look"><div class="wrap">
+    <p class="label">Creative direction</p>
+    <h2>Nostalgic, filtered, in motion</h2>
+    <p class="lead">WattPlan photography and film share one look. It reads like a roll of film from a hard ride, and it is made to sit behind a dark app with one bright accent.</p>
+    <div class="grid g3">
+        <div class="card"><h3>Nostalgic</h3><p>Grain, light leaks and soft edges. A frame should feel remembered.</p></div>
+        <div class="card"><h3>Filtered</h3><p>Colour leans to dusk blue and purple with the highlights held back, so volt stays the brightest thing on screen.</p></div>
+        <div class="card"><h3>Motion blur</h3><p>The background and the wheels streak. The rider stays readable.</p></div>
+    </div>
+    <div class="group">
+        <h3>Photography</h3>
+        <div class="tablewrap">
+            <table class="dir">
+                <thead><tr><th scope="col">Property</th><th scope="col">Direction</th></tr></thead>
+                <tbody>
+                    <tr><td>Subject</td><td>Cyclists mid-effort on the road, on gravel and on the turbo.</td></tr>
+                    <tr><td>Framing</td><td>Tight crops. Hands on the bars, shoulders, a face, a wheel and a leg.</td></tr>
+                    <tr><td>Light</td><td>Dusk, rain, spray and low sun outdoors. One bulb or one window indoors.</td></tr>
+                    <tr><td>Indoor</td><td>A dark garage, a fan, a bare wall and a rider working alone.</td></tr>
+                    <tr><td>Colour</td><td>Dusk blue and purple in the picture, with volt reserved for the app on top.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="group">
+        <h3>The indoor set</h3>
+        <div class="photos wide">
+        <img src="../assets/Wattplan/creative/29-indoor-male-bulb-dark.jpg" alt="Rider on a turbo trainer lit by one bulb" loading="lazy">
+        <img src="../assets/Wattplan/creative/30-indoor-male-shadow-wall.jpg" alt="Rider on a turbo trainer with a hard shadow on the wall" loading="lazy">
+        <img src="../assets/Wattplan/creative/31-indoor-male-window-side.jpg" alt="Rider on a turbo trainer beside a window" loading="lazy">
+        <img src="../assets/Wattplan/creative/33-indoor-female-shutter-front.jpg" alt="Rider on a turbo trainer in front of a shutter door" loading="lazy">
+        </div>
+    </div>
+    <div class="group">
+        <h3>The road and gravel set</h3>
+        <div class="photos">
+        <img src="../assets/Wattplan/creative/04-two-drafting.jpg" alt="Two riders drafting at dusk with panning blur" loading="lazy">
+        <img src="../assets/Wattplan/creative/07-climbing-rear.jpg" alt="Rider climbing out of the saddle in dust" loading="lazy">
+        <img src="../assets/Wattplan/creative/20-road-female-wet-spray.jpg" alt="Rider in road spray" loading="lazy">
+        <img src="../assets/Wattplan/creative/14-peloton-twilight-climb.jpg" alt="A bunch climbing at twilight" loading="lazy">
+        <img src="../assets/Wattplan/creative/08-two-finish.jpg" alt="Two riders close to the lens" loading="lazy">
+        <img src="../assets/Wattplan/creative/03-detail-hands-bars.jpg" alt="Hands on the bars" loading="lazy">
+        </div>
+    </div>
+    <div class="group">
+        <h3>Film</h3>
+        <div class="grid g4">
+            <div class="card"><h3>A ride, then the screen</h3><p>The photography moves slowly behind the real app, so each scene pairs a ride with the screen that responds to it.</p></div>
+            <div class="card"><h3>Two-line headlines</h3><p>Bebas Neue, with the first line in white and the second in volt.</p></div>
+            <div class="card"><h3>The mark opens and closes</h3><p>The WP mark starts the film and signs it off.</p></div>
+            <div class="card"><h3>Four shapes</h3><p>16:9, 4:5, 1:1 and 9:16. The vertical cuts keep text out of the bottom fifth of the frame, where the platform controls sit.</p></div>
+        </div>
+        <img class="banner" src="../assets/Wattplan/creative/film-frames.jpg" alt="Four frames from the hero film, with app screens over ride photography" loading="lazy">
+        <video class="film" style="margin-top: 12px;" controls preload="none" poster="../assets/thumbs/g/wattplan-hero-film.jpg" src="../assets/Wattplan/campaign/hero-film-one-story.mp4"></video>
+    </div>
+    <div class="card" style="margin-top: 14px;">
+        <h3>How it is made</h3>
+        <p>The library of 36 images is art-directed and generated in Midjourney against one mood board. The films are built in code from the app's real screens.</p>
+    </div>
+</div></section>
+
 <section id="voice"><div class="wrap">
     <p class="label">Voice</p>
     <h2>An experienced club rider who knows the science</h2>
@@ -322,7 +393,7 @@ footer p { margin: 0 0 6px; max-width: 70ch; }
 </main>
 
 <footer><div class="wrap">
-    <p>WattPlan brand book, November 2026. Compiled from the app's design tokens, the logo family and the messaging house.</p>
+    <p>WattPlan brand book, November 2026. Compiled from the app's design tokens, the logo family, the photo library and the messaging house.</p>
     <p><a href="https://wattplan.cc/">wattplan.cc</a> · <a href="../">Back to James Vickers' resume</a></p>
 </div></footer>
 

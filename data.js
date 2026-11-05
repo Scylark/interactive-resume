@@ -1476,6 +1476,7 @@ const RESUME_DATA = {
                             <li><strong>Founder</strong> - concept, brand, strategy and go-to-market.</li>
                             <li><strong>Agent orchestration</strong> - designed the AI agent workflows (Hermes, Paperclip and supporting models) that run analysis, product, engineering, QA, marketing and content.</li>
                             <li><strong>Brand</strong> - the Go. Live. brand line, the messaging house with its versions for clubs, teams, event organisers and brand partners, the visual identity and the tone of voice.</li>
+                            <li><strong>Creative direction</strong> - set the brief for photography and film, a nostalgic, filtered look with heavy motion blur, and directed the launch films for organisers, clubs and athletes.</li>
                             <li><strong>Go-to-market</strong> - positioning, channel strategy, store listings and the launch plan across cycling and running.</li>
                             <li><strong>Product</strong> - the core proposition and four non-negotiable reliability rules (offline start and finish, never auto-logout, tracking persists, never lose a ping).</li>
                             <li><strong>Shipping</strong> - native iOS and Android via Capacitor, with background location and live maps.</li>
@@ -1541,6 +1542,115 @@ const RESUME_DATA = {
                         </div>
                     </div>
                     <div class="achievements">
+                        <h4>Creative direction</h4>
+                        <p style="font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 4px;">I set the brief for Aster's photography and film. The look is nostalgic and filtered with heavy motion blur, so a picture feels the way the ride felt.</p>
+                        <ul>
+                            <li><strong>Photography</strong> - riders mid-effort, with the background and the wheels panned into blur and the rider held sharp. Shallow depth of field, tight crops on half a rider or a wheel and a leg, and saturated kit against dust, mud and wet tarmac.</li>
+                            <li><strong>Light</strong> - late gold, dusk, forest shade and side-lit dust. Flat midday light stays out.</li>
+                            <li><strong>Casting</strong> - people who read as riders, in mixed kit, with a mix of gender and body type in every set. Studio backdrops, posed smiles and matching team kit stay out.</li>
+                            <li><strong>Film</strong> - each film opens on moving photography and then goes to the product on a dark map. Headlines sit in white and lime, scenes cross-fade, and the pictures keep their blur and grain.</li>
+                            <li><strong>Formats</strong> - a brand launch film and one each for organisers, clubs and athletes, with feature cuts of 20 to 32 seconds. Every film is built in code with Remotion and rendered in 16:9, 4:5, 1:1 and 9:16.</li>
+                            <li><strong>Production</strong> - the cycling library is art-directed and generated in Midjourney against a mood board. Every frame is reviewed so that no real brand name, third-party race number or identifiable person appears.</li>
+                        </ul>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>Photography</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Twelve frames from the cycling library in use on the Aster site.</p>
+                        <div class="gallery-grid portrait">
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/three-abreast.jpg">
+                                <img src="assets/thumbs/g/aster-cr-three-abreast.jpg" alt="Three riders abreast at dusk" loading="lazy" decoding="async">
+                                <div class="gallery-label">Three abreast</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/dune-sprint.jpg">
+                                <img src="assets/thumbs/g/aster-cr-dune-sprint.jpg" alt="Rider sprinting on sand with panning blur" loading="lazy" decoding="async">
+                                <div class="gallery-label">Panning blur</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/road-rain-night.jpg">
+                                <img src="assets/thumbs/g/aster-cr-road-rain-night.jpg" alt="Rider on a wet road with a light leak" loading="lazy" decoding="async">
+                                <div class="gallery-label">Light leak</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/face-dusk.jpg">
+                                <img src="assets/thumbs/g/aster-cr-face-dusk.jpg" alt="Close crop of a rider at dusk" loading="lazy" decoding="async">
+                                <div class="gallery-label">Close crop</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/bunch-gravel-dusk.jpg">
+                                <img src="assets/thumbs/g/aster-cr-bunch-gravel-dusk.jpg" alt="A bunch on gravel at dusk" loading="lazy" decoding="async">
+                                <div class="gallery-label">Gravel bunch</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/spray-head-on.jpg">
+                                <img src="assets/thumbs/g/aster-cr-spray-head-on.jpg" alt="Rider head on through spray" loading="lazy" decoding="async">
+                                <div class="gallery-label">Spray</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/reach-gold-wheel.jpg">
+                                <img src="assets/thumbs/g/aster-cr-reach-gold-wheel.jpg" alt="Rider reaching forward beside a gold wheel" loading="lazy" decoding="async">
+                                <div class="gallery-label">Wheel and rider</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/road-autumn-attack.jpg">
+                                <img src="assets/thumbs/g/aster-cr-road-autumn-attack.jpg" alt="Rider attacking on an autumn road" loading="lazy" decoding="async">
+                                <div class="gallery-label">Autumn road</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/bunch-wet-dusk.jpg">
+                                <img src="assets/thumbs/g/aster-cr-bunch-wet-dusk.jpg" alt="A bunch from behind at dusk" loading="lazy" decoding="async">
+                                <div class="gallery-label">From behind</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/climb-hazy.jpg">
+                                <img src="assets/thumbs/g/aster-cr-climb-hazy.jpg" alt="Riders climbing in haze" loading="lazy" decoding="async">
+                                <div class="gallery-label">Hazy climb</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/bunch-corner.jpg">
+                                <img src="assets/thumbs/g/aster-cr-bunch-corner.jpg" alt="A bunch through a corner with the edges of the frame blurred" loading="lazy" decoding="async">
+                                <div class="gallery-label">Through the corner</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/creative/woods-number.jpg">
+                                <img src="assets/thumbs/g/aster-cr-woods-number.jpg" alt="Rider with a plain race number in woodland light" loading="lazy" decoding="async">
+                                <div class="gallery-label">Woodland light</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>Launch films</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The brand film and the three audience films, each with voice-over, followed by three short cuts for social.</p>
+                        <div class="gallery-grid" style="grid-template-columns: repeat(2, 1fr);">
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/launch-brand.mp4">
+                                <video src="assets/Aster/films/launch-brand.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-launch-brand.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Brand launch film, 1:38</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/launch-organisers.mp4">
+                                <video src="assets/Aster/films/launch-organisers.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-launch-organisers.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Organisers, 1:01</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/launch-clubs.mp4">
+                                <video src="assets/Aster/films/launch-clubs.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-launch-clubs.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Clubs, 1:17</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/launch-athletes.mp4">
+                                <video src="assets/Aster/films/launch-athletes.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-launch-athletes.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Athletes, 1:07</div>
+                            </div>
+                        </div>
+                        <div class="gallery-grid portrait" style="margin-top: 10px;">
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/justride-story-4x5.mp4">
+                                <video src="assets/Aster/films/justride-story-4x5.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-justride-story-4x5.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Social cut, Just Ride</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/club-story-4x5.mp4">
+                                <video src="assets/Aster/films/club-story-4x5.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-club-story-4x5.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Social cut, meet-up</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Aster/films/event-story-4x5.mp4">
+                                <video src="assets/Aster/films/event-story-4x5.mp4" muted preload="none" poster="assets/thumbs/g/aster-film-event-story-4x5.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Social cut, chain gang</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievements">
                         <h4>The message</h4>
                         <ul>
                             <li><strong>Go. Live.</strong> - the brand line, with the descriptor "Any ride or run, live on the map."</li>
@@ -1578,6 +1688,7 @@ const RESUME_DATA = {
                             <li><strong>Product</strong> - defined the adaptive engine, so plans repair themselves when a workout is missed or a ride lands harder than prescribed.</li>
                             <li><strong>Development</strong> - directed the whole build with AI development agents, shipping 80 cloud services, integrations with Garmin, Strava, Wahoo and Zwift, a Bluetooth workout player and an AI coach with long-term memory, behind 109 automated test suites.</li>
                             <li><strong>Brand</strong> - wrote the messaging house, built the logo family and tone of voice, and set the vocabulary rules that keep product and marketing consistent.</li>
+                            <li><strong>Creative direction</strong> - set the photography and film direction, a nostalgic, filtered look with motion blur that runs through the site, the films and the launch campaign.</li>
                             <li><strong>Marketing</strong> - produced 45 long-form articles alongside the store listings, the site and the launch campaigns for both platforms.</li>
                             <li><strong>Subscription</strong> - built the free and Premium tiers through RevenueCat.</li>
                         </ul>
@@ -1665,6 +1776,76 @@ const RESUME_DATA = {
                             <div class="gallery-item" data-type="image" data-src="assets/Wattplan/campaign/cover-train-adapt.jpg">
                                 <img src="assets/thumbs/g/wattplan-cover-train-adapt.jpg" alt="Train. Adapt. end frame" loading="lazy" decoding="async">
                                 <div class="gallery-label">End frame</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievements">
+                        <h4>Creative direction</h4>
+                        <p style="font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 4px;">I set the look for WattPlan's photography and film. It is nostalgic and filtered, with motion blur carrying the speed, and it is made to sit behind a dark app with one bright accent.</p>
+                        <ul>
+                            <li><strong>Photography</strong> - shot like a roll of film from a hard ride. The background and the wheels streak while the rider stays readable, the crops are tight on hands, shoulders and faces, and the colour leans to dusk blue and purple so the volt of the app is the brightest thing in frame.</li>
+                            <li><strong>Indoor</strong> - the turbo set is shot dark, with one bulb or one window, a fan and a bare wall. It shows a rider working alone in a garage, which is where a lot of structured training gets done.</li>
+                            <li><strong>Film</strong> - the photography moves slowly behind the real app, so each scene pairs a ride with the screen that responds to it. Headlines run on two lines in white and volt, and the WP mark opens and closes the film.</li>
+                            <li><strong>Formats</strong> - the 82-second hero film is rendered in 16:9, 4:5, 1:1 and 9:16, and the vertical cuts keep text out of the bottom fifth of the frame where the platform controls sit.</li>
+                            <li><strong>Production</strong> - the library of 36 images is art-directed and generated in Midjourney against one mood board, and the films are built in code from the app's real screens.</li>
+                        </ul>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>Photography</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Ten frames from the library. The indoor set first, then the road and gravel set.</p>
+                        <div class="gallery-grid" style="grid-template-columns: repeat(2, 1fr);">
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/29-indoor-male-bulb-dark.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-29-indoor-male-bulb-dark.jpg" alt="Rider on a turbo trainer lit by one bulb" loading="lazy" decoding="async">
+                                <div class="gallery-label">One bulb</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/30-indoor-male-shadow-wall.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-30-indoor-male-shadow-wall.jpg" alt="Rider on a turbo trainer with a hard shadow on the wall" loading="lazy" decoding="async">
+                                <div class="gallery-label">Shadow on the wall</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/31-indoor-male-window-side.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-31-indoor-male-window-side.jpg" alt="Rider on a turbo trainer beside a window" loading="lazy" decoding="async">
+                                <div class="gallery-label">Window light</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/33-indoor-female-shutter-front.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-33-indoor-female-shutter-front.jpg" alt="Rider on a turbo trainer in front of a shutter door" loading="lazy" decoding="async">
+                                <div class="gallery-label">Shutter door</div>
+                            </div>
+                        </div>
+                        <div class="gallery-grid portrait" style="margin-top: 10px;">
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/04-two-drafting.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-04-two-drafting.jpg" alt="Two riders drafting at dusk with panning blur" loading="lazy" decoding="async">
+                                <div class="gallery-label">Two up at dusk</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/07-climbing-rear.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-07-climbing-rear.jpg" alt="Rider climbing out of the saddle in dust" loading="lazy" decoding="async">
+                                <div class="gallery-label">Out of the saddle</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/20-road-female-wet-spray.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-20-road-female-wet-spray.jpg" alt="Rider in road spray" loading="lazy" decoding="async">
+                                <div class="gallery-label">Spray</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/14-peloton-twilight-climb.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-14-peloton-twilight-climb.jpg" alt="A bunch climbing at twilight" loading="lazy" decoding="async">
+                                <div class="gallery-label">Twilight climb</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/08-two-finish.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-08-two-finish.jpg" alt="Two riders close to the lens" loading="lazy" decoding="async">
+                                <div class="gallery-label">Close to the lens</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/03-detail-hands-bars.jpg">
+                                <img src="assets/thumbs/g/wattplan-cr-03-detail-hands-bars.jpg" alt="Hands on the bars" loading="lazy" decoding="async">
+                                <div class="gallery-label">Hands on the bars</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>Film</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Four frames from the hero film. Each one pairs a ride with the screen that responds to it.</p>
+                        <div class="gallery-grid contain" style="grid-template-columns: 1fr;">
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/creative/film-frames.jpg" style="aspect-ratio: 16 / 9;">
+                                <img src="assets/thumbs/g/wattplan-cr-film-frames.jpg" alt="Four frames from the WattPlan hero film, with app screens over ride photography" loading="lazy" decoding="async">
+                                <div class="gallery-label">Hero film frames</div>
                             </div>
                         </div>
                     </div>
