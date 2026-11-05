@@ -1445,6 +1445,35 @@ a.contact-item:hover {
     display: none;
 }
 
+/* Don't examples: marked and captioned so they can't be read as the brand's own imagery */
+.gallery-grid.dont .gallery-item::after {
+    content: '\00d7';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e5484d;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 21px;
+    text-align: center;
+}
+.gallery-grid.dont .gallery-label {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px 10px 7px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+}
+
 /* Lightbox */
 .lightbox {
     position: fixed;

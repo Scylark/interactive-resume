@@ -131,6 +131,15 @@ dl { margin: 0 0 26px; }
 .nots li { position: relative; padding: 3px 0 3px 24px; font-size: 15px; color: var(--ink-2); }
 .nots li::before { content: "\00d7"; position: absolute; left: 2px; top: -1px; font-family: var(--f-display); font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--dark); }
 
+.donts { display: grid; gap: 18px; grid-template-columns: repeat(6, 1fr); margin-top: 18px; padding-right: 6px; }
+.donts figure { margin: 0; position: relative; grid-column: span 2; }
+.donts figure.wide { grid-column: span 3; }
+.donts img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 2px solid var(--dark); border-radius: 14px; box-shadow: 3px 3px 0 0 var(--dark); }
+.donts figure.wide img { aspect-ratio: 16 / 9; }
+.donts figure::before { content: "\00d7"; position: absolute; top: 12px; left: 12px; width: 30px; height: 30px; border: 2px solid var(--dark); border-radius: 8px; background: var(--white); color: var(--dark); font-family: var(--f-display); font-weight: 700; font-size: 26px; line-height: 24px; text-align: center; }
+.donts figcaption { font-family: var(--f-display); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 9px; }
+@media (max-width: 720px) { .donts figure, .donts figure.wide { grid-column: span 6; } }
+
 footer { background: var(--dark); color: var(--mint); padding-block: 32px 56px; font-size: 14.5px; }
 footer p { margin: 0 0 6px; max-width: 72ch; }
 footer a { color: var(--lime); }
@@ -312,6 +321,13 @@ footer a { color: var(--lime); }
             <div class="card"><h3>In the picture</h3><ul class="nots"><li>Studio backdrops</li><li>Static portraits and posed smiles</li><li>Flat, white-balanced midday light</li><li>Stock-photo cleanness</li><li>Clip-art cyclist silhouettes</li><li>A blurred rider</li></ul></div>
             <div class="card"><h3>In the cast</h3><ul class="nots"><li>Everyone in matching team kit</li><li>A set that is all men</li><li>A set that is all pros</li></ul></div>
             <div class="card"><h3>On the kit and the course</h3><ul class="nots"><li>Real logos and sponsor text</li><li>Named events and teams</li><li>Third-party race numbers</li><li>Identifiable people</li><li>Reference shots from the mood board</li></ul></div>
+        </div>
+        <div class="donts">
+            <figure class="wide"><img src="../assets/creative-dont/peloton-mountain.jpg" alt="A professional peloton in team kit on a mountain road, sharp from front to back" loading="lazy"><figcaption>All pros in team kit</figcaption></figure>
+            <figure class="wide"><img src="../assets/creative-dont/peloton-midday.jpg" alt="A professional peloton on an open road in flat midday light" loading="lazy"><figcaption>Flat midday light</figcaption></figure>
+            <figure><img src="../assets/creative-dont/road-run-legs.jpg" alt="Runners in a road race from the waist down, clean and sharp" loading="lazy"><figcaption>Stock-photo clean</figcaption></figure>
+            <figure><img src="../assets/creative-dont/trail-run.jpg" alt="Trail runners from the waist down, frozen mid-stride" loading="lazy"><figcaption>Sharp, still and anonymous</figcaption></figure>
+            <figure><img src="../assets/creative-dont/road-race-run.jpg" alt="A road runner from the waist down in a city race" loading="lazy"><figcaption>Generic race stock</figcaption></figure>
         </div>
     </div>
 </div></section>
