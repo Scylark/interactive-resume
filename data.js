@@ -406,7 +406,7 @@ const RESUME_DATA = {
                         <h4>Brand & Strategy</h4>
                         <ul>
                             <li><strong>ALLGRIT &amp; ULTRA-GRIT go-to-market</strong> - wrote the positioning and messaging framework and the GTM plan for the range and its material variants, ran the press tour, and produced the showroom and retailer education assets with localised versions for each market. Ribble's most successful new product launch, with retail partners, athletes and journalists aligned behind one story.</li>
-                            <li><strong>The Original Outliers rebrand</strong> - worked with FreshBritain on repositioning Ribble's tone of voice and visual language.</li>
+                            <li><strong>The Original Outliers rebrand</strong> - my first major project. I led the rebrand with FreshBritain and rolled the new brand out across every touchpoint, from retail and the website to social. I was closely involved in developing the messaging and carried it through the tone of voice and the product copy.</li>
                             <li><strong>2025 strategic objectives</strong> - grow gravel market share, increase regional penetration (North East and South), launch four new bikes.</li>
                             <li><strong>Led NPD marketing</strong> - market gap analysis, sign-off documents, and GTM strategies covering positioning, messaging, and channels.</li>
                         </ul>
@@ -1115,7 +1115,7 @@ const RESUME_DATA = {
         },
 
         "privacy-project": {
-            title: "Privacy Stablecoin",
+            title: "Haven Protocol",
             subtitle: "Marketing & Communications Lead · Feb 2020 – Jul 2022",
             type: "role",
             color: "#64748b",
@@ -1127,8 +1127,8 @@ const RESUME_DATA = {
                         <div class="role-badge" style="background: #64748b">Fintech / Web3</div>
                     </div>
                     <h2>Marketing & Communications Lead</h2>
-                    <h3>Undisclosed Cryptographic Privacy Project · Self-employed · Feb 2020 – Jul 2022</h3>
-                    <p class="role-context">A top-10 privacy-focused stablecoin on CoinGecko with a market cap of $400M. I led its marketing and communications as a self-employed project, working remotely alongside my role at RGT Cycling. The project itself remains undisclosed.</p>
+                    <h3>Haven Protocol · Privacy Stablecoin · Self-employed · Feb 2020 – Jul 2022</h3>
+                    <p class="role-context">Haven Protocol is a privacy-focused crypto project, and a top-10 privacy stablecoin on CoinGecko with a market cap of $400M. I led its marketing and communications as a self-employed project, working remotely alongside my role at RGT Cycling.</p>
                     <div class="achievements">
                         <h4>What I Led</h4>
                         <ul>
@@ -1417,20 +1417,29 @@ const RESUME_DATA = {
                             </div>
                         </div>
                         <div class="pj-tile">
-                            <a href="#" data-open="aster" class="pj-media"><img src="assets/thumbs/g/aster-aster-brand-book-logo-mark.jpg" alt="Aster brand, logo and mark" loading="lazy" decoding="async"></a>
+                            <a href="#" data-open="aster" class="pj-media"><img src="assets/thumbs/g/aster-store-trio.jpg" alt="Aster store screenshots" loading="lazy" decoding="async"></a>
                             <div class="pj-body">
-                                <span class="pj-eyebrow">iOS and Android</span>
-                                <h4>Aster, Watch the Dot</h4>
-                                <p>Live GPS tracking for ultra-endurance cycling, run as a one-person business with AI agents handling analysis, product, engineering, marketing and content.</p>
-                                <div class="pj-links"><a href="#" data-open="aster" class="pj-link">Open Aster →</a></div>
+                                <span class="pj-eyebrow">Live on the App Store and Google Play</span>
+                                <h4>Aster</h4>
+                                <p>Any ride or run, live on the map. An athlete goes live from their phone, shares one link, and anyone can watch. Built and run by a lean team with AI agents doing much of the work.</p>
+                                <ul class="pj-points">
+                                    <li>Store screenshots</li>
+                                    <li>Messaging</li>
+                                    <li>Brand book</li>
+                                </ul>
+                                <div class="pj-links">
+                                    <a href="#" data-open="aster" class="pj-link">Open Aster →</a>
+                                    <a href="aster-brand/" target="_blank" class="pj-link">Brand book →</a>
+                                    <a href="https://aster-track.com" target="_blank" rel="noopener" class="pj-link">aster-track.com →</a>
+                                </div>
                             </div>
                         </div>
                         <div class="pj-tile">
                             <a href="#" data-open="privacy-project" class="pj-media pj-art"><b>$400M</b><span>market cap</span></a>
                             <div class="pj-body">
                                 <span class="pj-eyebrow">Feb 2020 to Jul 2022</span>
-                                <h4>Privacy Stablecoin</h4>
-                                <p>Marketing and communications lead for an undisclosed cryptographic privacy project, a top-10 privacy-focused stablecoin on CoinGecko.</p>
+                                <h4>Haven Protocol</h4>
+                                <p>Marketing and communications lead for Haven Protocol, a privacy-focused crypto project and a top-10 privacy stablecoin on CoinGecko.</p>
                                 <div class="pj-links"><a href="#" data-open="privacy-project" class="pj-link">Open the project →</a></div>
                             </div>
                         </div>
@@ -1440,85 +1449,109 @@ const RESUME_DATA = {
         },
 
         aster: {
-            title: "Aster — Watch the Dot",
-            subtitle: "Founder / Autonomous AI Business · 2025 – Present",
+            title: "Aster",
+            subtitle: "Founder · Live on the App Store and Google Play · 2025 – Present",
             type: "role",
             color: "#ef4444",
             industry: "AI / Endurance Sports",
             content: `
                 <div class="role-card">
                     <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="ai-exploration" style="color: var(--text-secondary); text-decoration: none;">← Projects</a></p>
-                    <div class="role-header">
-                        <div class="role-badge" style="background: #ef4444">Autonomous AI Business</div>
+                    <div class="as-hero">
+                        <img class="as-mark" src="assets/Aster/brand/aster-mark-dark.svg" alt="Aster">
+                        <span class="as-pill">Live on the App Store and Google Play</span>
+                        <h2 class="as-title">Go<i>.</i><br>Live<i>.</i></h2>
+                        <p class="as-desc">Any ride or run, live on the map.</p>
+                        <p class="as-lede">Aster makes any ride or run watchable live. An athlete goes live from the phone in their pocket and sends one link, and the people who care can watch the whole way. No tracker to carry, nothing to hire.</p>
+                        <div class="as-links">
+                            <a class="as-btn" href="https://apps.apple.com/gb/app/aster-live-track/id6764533612" target="_blank" rel="noopener">App Store</a>
+                            <a class="as-btn" href="https://play.google.com/store/apps/details?id=app.astertrack" target="_blank" rel="noopener">Google Play</a>
+                            <a class="as-link" href="https://aster-track.com" target="_blank" rel="noopener">aster-track.com →</a>
+                        </div>
                     </div>
-                    <h2>Aster — Watch the Dot</h2>
-                    <h3>Live GPS Tracking Platform for Ultra-Endurance Cycling · 2025 – Present</h3>
-                    <p class="role-context">A vibe-created and fully autonomous business, with the app as its front end. Aster is live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. The point isn't the app: it's that the entire back office runs itself. Orchestrated AI agents (Hermes, Paperclip and various models) handle business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy, with little or no input from me. A live proof of how much of a business one operator can run when AI handles the stack.</p>
+                    <p class="role-context">I founded Aster to test how far AI can take a lean team. Orchestrated AI agents handle much of the business analysis, product, engineering, testing, marketing and content, and I lead the brand and the go-to-market. The app has been on the App Store since August 2026 and is on Google Play, with the site in English, Spanish, Italian and German.</p>
                     <div class="achievements">
                         <h4>My Role</h4>
                         <ul>
-                            <li><strong>Founder & Operator</strong> - concept, brand, strategy and the human in the loop for an otherwise autonomous business.</li>
-                            <li><strong>Agent Orchestration</strong> - designed the AI agent workflows (Hermes, Paperclip and supporting models) that run BA, product, engineering, QA, marketing and content end-to-end.</li>
-                            <li><strong>Product</strong> - core proposition, four non-negotiable rider-safety rules (offline start/finish, never auto-logout, tracking persists, never lose a ping).</li>
-                            <li><strong>GTM</strong> - positioning ("for the rides that don't end on TV"), brand, channel strategy and launch plan.</li>
-                            <li><strong>Shipping</strong> - native iOS and Android via Capacitor, with background geolocation, live race maps and a real-time leaderboard.</li>
+                            <li><strong>Founder</strong> - concept, brand, strategy and go-to-market.</li>
+                            <li><strong>Agent orchestration</strong> - designed the AI agent workflows (Hermes, Paperclip and supporting models) that run analysis, product, engineering, QA, marketing and content.</li>
+                            <li><strong>Brand</strong> - the Go. Live. brand line, the messaging house with its versions for clubs, teams, event organisers and brand partners, the visual identity and the tone of voice.</li>
+                            <li><strong>Go-to-market</strong> - positioning, channel strategy, store listings and the launch plan across cycling and running.</li>
+                            <li><strong>Product</strong> - the core proposition and four non-negotiable reliability rules (offline start and finish, never auto-logout, tracking persists, never lose a ping).</li>
+                            <li><strong>Shipping</strong> - native iOS and Android via Capacitor, with background location and live maps.</li>
                         </ul>
                     </div>
                     <div class="achievements">
                         <h4>Why It Matters</h4>
-                        <p>Aster is the live proof of the Brand-to-Platform thesis: a cycling brand operating as a software platform, run by a single operator with AI handling the rest. It's a working answer to the question "how much business can one person run?" when the org chart is mostly agents.</p>
+                        <p>Aster is my working answer to how much of a business a lean team can run when AI agents take on the stack, and a live example of a brand operating as a software platform.</p>
                     </div>
-                    <span class="ai-coming" style="display:inline-block;margin-top:16px;">iOS & Android · public launch in progress</span>
-                    <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;margin-left:12px;color:#ef4444;font-weight:600;">preview at watch-the-dot-frontend.vercel.app →</a>
 
                     <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
-                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">Inside the Autonomous Business</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Brand, design system, operations and team comms, all running with AI agents in the loop.</p>
 
                     <div class="media-gallery">
-                        <div class="gallery-grid">
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Brand Book - Logo & Mark.png">
-                                <img src="assets/thumbs/g/aster-aster-brand-book-logo-mark.jpg" alt="Aster brand book — Logo & Mark" loading="lazy" decoding="async">
-                                <div class="gallery-label">Brand Book — Logo & Mark</div>
+                        <h4>The app today</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The nine screenshots on the App Store listing.</p>
+                        <div class="gallery-grid phone">
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-01.jpg">
+                                <img src="assets/thumbs/g/aster-store-01.jpg" alt="Aster store screenshot, Go Live" loading="lazy" decoding="async">
+                                <div class="gallery-label">Go Live</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Brand Book - Components.png">
-                                <img src="assets/thumbs/g/aster-aster-brand-book-components.jpg" alt="Aster brand book — Components" loading="lazy" decoding="async">
-                                <div class="gallery-label">Brand Book — Components</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-02.jpg">
+                                <img src="assets/thumbs/g/aster-store-02.jpg" alt="Aster store screenshot, Everyone Live" loading="lazy" decoding="async">
+                                <div class="gallery-label">Everyone Live</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Notion - Source of Truth.png">
-                                <img src="assets/thumbs/g/aster-aster-notion-source-of-truth.jpg" alt="Aster Notion workspace — source of truth" loading="lazy" decoding="async">
-                                <div class="gallery-label">Operations Hub (Notion)</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-03.jpg">
+                                <img src="assets/thumbs/g/aster-store-03.jpg" alt="Aster store screenshot, Where You Stand" loading="lazy" decoding="async">
+                                <div class="gallery-label">Where You Stand</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Slack - Feature Suggestions.jpg">
-                                <img src="assets/thumbs/g/aster-aster-slack-feature-suggestions.jpg" alt="Aster Slack — feature suggestions with Claude" loading="lazy" decoding="async">
-                                <div class="gallery-label">Team Slack (with Claude)</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-04.jpg">
+                                <img src="assets/thumbs/g/aster-store-04.jpg" alt="Aster store screenshot, One Link" loading="lazy" decoding="async">
+                                <div class="gallery-label">One Link</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-05.jpg">
+                                <img src="assets/thumbs/g/aster-store-05.jpg" alt="Aster store screenshot, Clubs" loading="lazy" decoding="async">
+                                <div class="gallery-label">Clubs</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-06.jpg">
+                                <img src="assets/thumbs/g/aster-store-06.jpg" alt="Aster store screenshot, Milestone" loading="lazy" decoding="async">
+                                <div class="gallery-label">Milestone</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-07.jpg">
+                                <img src="assets/thumbs/g/aster-store-07.jpg" alt="Aster store screenshot, Share It All" loading="lazy" decoding="async">
+                                <div class="gallery-label">Share It All</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-08.jpg">
+                                <img src="assets/thumbs/g/aster-store-08.jpg" alt="Aster store screenshot, The Story" loading="lazy" decoding="async">
+                                <div class="gallery-label">The Story</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/store-09.jpg">
+                                <img src="assets/thumbs/g/aster-store-09.jpg" alt="Aster store screenshot, Battery" loading="lazy" decoding="async">
+                                <div class="gallery-label">Battery</div>
                             </div>
                         </div>
                     </div>
-
-                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-top: 24px; margin-bottom: 4px;">The Shipped Product</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Live on iOS and Android with feed, live tracking, events and profile.</p>
-
                     <div class="media-gallery">
-                        <div class="gallery-grid">
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Home.png">
-                                <img src="assets/thumbs/g/aster-aster-home.jpg" alt="Aster Home Feed" loading="lazy" decoding="async">
-                                <div class="gallery-label">Home Feed</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Tracking.png">
-                                <img src="assets/thumbs/g/aster-aster-tracking.jpg" alt="Aster live tracking" loading="lazy" decoding="async">
-                                <div class="gallery-label">Live Tracking</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Event Detail.png">
-                                <img src="assets/thumbs/g/aster-aster-event-detail.jpg" alt="Aster Event Detail" loading="lazy" decoding="async">
-                                <div class="gallery-label">Event Detail</div>
-                            </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Aster/Aster Profile.png">
-                                <img src="assets/thumbs/g/aster-aster-profile.jpg" alt="Aster Profile" loading="lazy" decoding="async">
-                                <div class="gallery-label">Profile</div>
+                        <h4>Watching on the web</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Anyone with the link can watch in a browser, with no app and no sign-up.</p>
+                        <div class="gallery-grid contain">
+                            <div class="gallery-item" data-type="image" data-src="assets/Aster/2026/live-map-desktop.jpg">
+                                <img src="assets/thumbs/g/aster-live-map-desktop.jpg" alt="Aster live map on desktop" loading="lazy" decoding="async">
+                                <div class="gallery-label">Live map</div>
                             </div>
                         </div>
                     </div>
+                    <div class="achievements">
+                        <h4>The message</h4>
+                        <ul>
+                            <li><strong>Go. Live.</strong> - the brand line, with the descriptor "Any ride or run, live on the map."</li>
+                            <li><strong>Proposition</strong> - Aster makes any ride or run watchable live.</li>
+                            <li><strong>Everyone Live</strong> - enter an event and the whole field goes live. No tracker to carry, nothing to hire.</li>
+                            <li><strong>Clubs made easy</strong> - build the ride in minutes and one link gets the whole club in, live on one map.</li>
+                            <li><strong>Share it all</strong> - send one link and your people are with you the whole way.</li>
+                            <li><strong>One house, several rooms</strong> - the same structure is cut for clubs, teams, event organisers and brand partners, and for cycling and running.</li>
+                        </ul>
+                    </div>
+                    <a href="aster-brand/" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;color:#6366f1;font-weight:600;">Open the Aster brand book →</a>
                 </div>
             `
         },
@@ -1799,10 +1832,10 @@ const RESUME_DATA = {
                     <div class="ai-grid">
                         <div class="ai-item">
                             <div class="ai-item-icon">A</div>
-                            <h4>Aster — Watch the Dot</h4>
-                            <p>A vibe-created and fully autonomous business, with the app as its front end. Live GPS tracking for ultra-endurance cycling, shipped to iOS and Android. Built and run by orchestrated AI agents (Hermes, Paperclip and various models) across the full back office: business analysis, product, engineering requirements, market research, development, testing, marketing, content and copy. A live proof of how much of a business one operator can run when AI handles the stack.</p>
-                            <span class="ai-coming">iOS & Android · public launch in progress</span>
-                            <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link">preview at watch-the-dot-frontend.vercel.app</a>
+                            <h4>Aster</h4>
+                            <p>Any ride or run, live on the map. An athlete goes live from their phone, shares one link, and anyone can watch. Built and run by a lean team, with AI agents (Hermes, Paperclip and supporting models) handling much of the analysis, product, engineering, marketing and content.</p>
+                            <span class="ai-coming">Live on the App Store and Google Play</span>
+                            <a href="https://aster-track.com" target="_blank" class="ai-link">aster-track.com</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
