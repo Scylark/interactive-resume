@@ -1137,31 +1137,42 @@ const RESUME_DATA = {
             type: "manual-focus",
             content: `
                 <div class="ai-work-card">
-                    <h2>Manual Focus</h2>
-                    <p style="margin: -2px 0 10px; font-size: 12px;"><a href="https://manual-focus.co.uk/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">manual-focus.co.uk →</a></p>
-                    <p class="ai-intro">Manual Focus is my marketing consultancy for endurance sport and cycling brands, based in Sheffield. It pairs senior marketing with AI that takes on the repetitive work, and it builds its own research tools. Click each product for the detail.</p>
-                    <div class="ai-grid">
-                        <div class="ai-item">
-                            <div class="ai-item-icon">L</div>
-                            <h4>Light Meter</h4>
-                            <p>Measures which brands AI recommends. It puts buyer questions to six AI engines three times each and reports every brand they name and every site they cite. BikeBiz covered the first study, on UK indoor cycling.</p>
-                            <span class="ai-coming">Launched October 2026</span>
-                            <a href="https://manual-focus.co.uk/light-meter/" target="_blank" class="ai-link">manual-focus.co.uk/light-meter</a>
-                            <a href="#" class="ai-link" data-open="light-meter" style="display:block;margin-top:10px;font-weight:600;">Open Light Meter →</a>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">R</div>
-                            <h4>Rider Panel</h4>
-                            <p>Tests a product launch before a brand spends on it. The launch runs through a season in a simulated market of AI agents, each with a life story of their own, then runs again with one thing changed so the plans can be compared.</p>
-                            <span class="ai-coming">Launches 10 November 2026</span>
-                            <a href="#" class="ai-link" data-open="rider-panel" style="display:block;margin-top:10px;font-weight:600;">Open the Rider Panel →</a>
-                        </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">T</div>
-                            <h4>The Lens</h4>
-                            <p>A free, open-source library of 47 AI marketing playbooks and 28 skills for Claude, released under the MIT licence.</p>
-                            <a href="https://manual-focus.co.uk/lens/" target="_blank" class="ai-link">manual-focus.co.uk/lens</a>
-                        </div>
+                    <div class="mf-hero">
+                        <img class="mf-logo" src="assets/ManualFocus/logo-white.svg" alt="Manual Focus">
+                        <p class="mf-eyebrow">Manual Focus · Sheffield</p>
+                        <h2 class="mf-title">Senior marketing for endurance and sports brands <em>with AI doing the heavy lifting.</em></h2>
+                        <p class="mf-lede">Manual Focus is my marketing consultancy. It leads a brand's marketing as a fractional CMO, advises the team already in place, or builds what is needed and hands it over. It also makes its own research tools.</p>
+                        <a class="mf-cta" href="https://manual-focus.co.uk/" target="_blank" rel="noopener">manual-focus.co.uk →</a>
+                        <svg class="mf-rings" viewBox="0 0 92 78" aria-hidden="true"><defs><linearGradient id="mfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF2D78"/><stop offset=".5" stop-color="#C026D3"/><stop offset="1" stop-color="#00E5FF"/></linearGradient></defs><circle cx="54" cy="30" r="27" fill="none" stroke="url(#mfg)" stroke-width="5"/><circle cx="38" cy="48" r="27" fill="none" stroke="url(#mfg)" stroke-width="5"/></svg>
+                    </div>
+                    <div class="mf-products">
+                        <a href="#" class="mf-product" data-open="light-meter">
+                            <img src="assets/thumbs/g/mf-chart-shortlist.jpg" alt="Light Meter chart, who AI recommends" loading="lazy" decoding="async">
+                            <div class="mf-product-body">
+                                <span class="mf-eyebrow">Launched October 2026</span>
+                                <h4>Light Meter</h4>
+                                <p>Measures which brands AI recommends. Buyer questions go to six AI engines three times each, and every brand named and site cited is counted. BikeBiz covered the first study.</p>
+                                <span class="mf-more">Open Light Meter →</span>
+                            </div>
+                        </a>
+                        <a href="#" class="mf-product" data-open="rider-panel">
+                            <img src="assets/thumbs/g/mf-rider-panel-graph.jpg" alt="Rider Panel knowledge graph" loading="lazy" decoding="async">
+                            <div class="mf-product-body">
+                                <span class="mf-eyebrow">Launches 10 November 2026</span>
+                                <h4>Rider Panel</h4>
+                                <p>Tests a product launch before a brand spends on it. The launch runs through a season in a simulated market of AI agents, then runs again with one thing changed.</p>
+                                <span class="mf-more">Open the Rider Panel →</span>
+                            </div>
+                        </a>
+                        <a href="https://manual-focus.co.uk/lens/" target="_blank" rel="noopener" class="mf-product">
+                            <div class="mf-product-art"><b>47</b><span>playbooks</span><b>28</b><span>skills</span></div>
+                            <div class="mf-product-body">
+                                <span class="mf-eyebrow">Free and open source</span>
+                                <h4>The Lens</h4>
+                                <p>A library of AI marketing playbooks and skills for Claude, released under the MIT licence.</p>
+                                <span class="mf-more">manual-focus.co.uk/lens →</span>
+                            </div>
+                        </a>
                     </div>
                     <div class="achievements" style="margin-top: 18px;">
                         <h4>How it works</h4>
@@ -1184,14 +1195,14 @@ const RESUME_DATA = {
             content: `
                 <div class="role-card">
                     <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="manual-focus" style="color: var(--text-secondary); text-decoration: none;">← Manual Focus</a></p>
-                    <div class="role-header">
-                        <div class="role-badge" style="background: #e11d48">Manual Focus Product</div>
-                        <span class="role-status active">Live - launched October 2026</span>
+                    <div class="mf-hero">
+                        <p class="mf-eyebrow">Manual Focus Light Meter · Launched October 2026</p>
+                        <h2 class="mf-title">Light Meter shows which brands <em>AI recommends</em></h2>
+                        <p class="mf-lede">AI is becoming the shop window. When a buyer asks ChatGPT or Gemini what to buy, the brands it names are the ones that get considered. Light Meter measures which brands AI recommends in a category, how often, and which websites the engines cite, so a brand knows which questions it is losing and whose coverage to chase.</p>
+                        <div class="mf-chips"><span class="mf-chip hot">5,562 answers</span><span class="mf-chip">6 AI engines</span><span class="mf-chip">309 questions</span></div>
+                        <a class="mf-cta" href="https://manual-focus.co.uk/light-meter/" target="_blank" rel="noopener">manual-focus.co.uk/light-meter →</a>
+                        <svg class="mf-rings" viewBox="0 0 92 78" aria-hidden="true"><defs><linearGradient id="mfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF2D78"/><stop offset=".5" stop-color="#C026D3"/><stop offset="1" stop-color="#00E5FF"/></linearGradient></defs><circle cx="54" cy="30" r="27" fill="none" stroke="url(#mfg)" stroke-width="5"/><circle cx="38" cy="48" r="27" fill="none" stroke="url(#mfg)" stroke-width="5"/></svg>
                     </div>
-                    <h2>Light Meter</h2>
-                    <h3>AI Visibility Audit · Manual Focus · Oct 2026 – Present</h3>
-                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://manual-focus.co.uk/light-meter/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">manual-focus.co.uk/light-meter →</a></p>
-                    <p class="role-context">AI is becoming the shop window. When a buyer asks ChatGPT or Gemini what to buy, the brands it names are the ones that get considered. Light Meter is a quantitative research tool that measures which brands AI recommends in a category, how often, and which websites the engines cite, so a brand knows which questions it is losing and whose coverage to chase.</p>
                     <div class="achievements">
                         <h4>How it works</h4>
                         <ul>
@@ -1203,20 +1214,20 @@ const RESUME_DATA = {
                     </div>
                     <div class="stat-grid">
                         <div class="stat">
-                            <span class="stat-value">309</span>
-                            <span class="stat-label">Buyer Questions</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">5,562</span>
-                            <span class="stat-label">AI Answers Analysed</span>
-                        </div>
-                        <div class="stat">
                             <span class="stat-value">83%</span>
                             <span class="stat-label">Trainer Answers Naming Wahoo</span>
                         </div>
                         <div class="stat">
+                            <span class="stat-value">88%</span>
+                            <span class="stat-label">App Answers Naming Zwift</span>
+                        </div>
+                        <div class="stat">
                             <span class="stat-value">20%</span>
                             <span class="stat-label">Same Brands In All Three Runs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">50%+</span>
+                            <span class="stat-label">Sources From Cycling Media</span>
                         </div>
                     </div>
                     <div class="achievements">
@@ -1228,6 +1239,63 @@ const RESUME_DATA = {
                             <li><strong>PR decides it</strong> - cycling media supplied over half the sources the engines cited, led by Cyclingnews.</li>
                             <li><strong>Coverage</strong> - <a href="https://manual-focus.co.uk/reports/ai-shortlist-indoor-cycling/" target="_blank" rel="noopener" style="color:#2563eb;">the full report</a> is free to read and BikeBiz covered the launch.</li>
                         </ul>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>From the report</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The press charts from the indoor cycling study. Who the engines recommend, how far they disagree, and where they get their answers.</p>
+                        <div class="gallery-grid contain">
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/chart-shortlist.jpg">
+                                <img src="assets/thumbs/g/mf-chart-shortlist.jpg" alt="Who AI recommends, by category" loading="lazy" decoding="async">
+                                <div class="gallery-label">Who AI recommends</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/chart-engines.jpg">
+                                <img src="assets/thumbs/g/mf-chart-engines.jpg" alt="How the six engines differ" loading="lazy" decoding="async">
+                                <div class="gallery-label">Engine by engine</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/chart-sources.jpg">
+                                <img src="assets/thumbs/g/mf-chart-sources.jpg" alt="The sites the engines cite" loading="lazy" decoding="async">
+                                <div class="gallery-label">Sources cited</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>Launch carousel</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The six-slide LinkedIn carousel that launched the study.</p>
+                        <div class="gallery-grid portrait">
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/launch-slide-01.jpg">
+                                <img src="assets/thumbs/g/mf-launch-slide-01.jpg" alt="Light Meter launch carousel, slide 1" loading="lazy" decoding="async">
+                                <div class="gallery-label">Slide 1</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/launch-slide-02.jpg">
+                                <img src="assets/thumbs/g/mf-launch-slide-02.jpg" alt="Light Meter launch carousel, slide 2" loading="lazy" decoding="async">
+                                <div class="gallery-label">Slide 2</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/launch-slide-03.jpg">
+                                <img src="assets/thumbs/g/mf-launch-slide-03.jpg" alt="Light Meter launch carousel, slide 3" loading="lazy" decoding="async">
+                                <div class="gallery-label">Slide 3</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/launch-slide-04.jpg">
+                                <img src="assets/thumbs/g/mf-launch-slide-04.jpg" alt="Light Meter launch carousel, slide 4" loading="lazy" decoding="async">
+                                <div class="gallery-label">Slide 4</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/launch-slide-05.jpg">
+                                <img src="assets/thumbs/g/mf-launch-slide-05.jpg" alt="Light Meter launch carousel, slide 5" loading="lazy" decoding="async">
+                                <div class="gallery-label">Slide 5</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/launch-slide-06.jpg">
+                                <img src="assets/thumbs/g/mf-launch-slide-06.jpg" alt="Light Meter launch carousel, slide 6" loading="lazy" decoding="async">
+                                <div class="gallery-label">Slide 6</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>Coverage</h4>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/bikebiz-coverage.jpg">
+                                <img src="assets/thumbs/g/mf-bikebiz-coverage.jpg" alt="BikeBiz coverage of the first Light Meter study" loading="lazy" decoding="async">
+                                <div class="gallery-label">BikeBiz</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="achievements">
                         <h4>My Role</h4>
@@ -1250,13 +1318,13 @@ const RESUME_DATA = {
             content: `
                 <div class="role-card">
                     <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="manual-focus" style="color: var(--text-secondary); text-decoration: none;">← Manual Focus</a></p>
-                    <div class="role-header">
-                        <div class="role-badge" style="background: #0d9488">Manual Focus Product</div>
-                        <span class="role-status active">Launches 10 November 2026</span>
+                    <div class="mf-hero">
+                        <p class="mf-eyebrow">Manual Focus Rider Panel · Launches 10 November 2026</p>
+                        <h2 class="mf-title">Try a launch plan <em>before you spend on it</em></h2>
+                        <p class="mf-lede">Asking real customers is slow and expensive, so most brands only do it for their biggest launches and decide everything else on instinct. The Rider Panel tests a launch plan in a simulated market of AI agents first. Light Meter shows what AI tells a brand's buyers, and the Rider Panel shows what those buyers might then do.</p>
+                        <div class="mf-chips"><span class="mf-chip hot">500 AI agents</span><span class="mf-chip">A season, month by month</span><span class="mf-chip">Change one thing</span></div>
+                        <svg class="mf-rings" viewBox="0 0 92 78" aria-hidden="true"><defs><linearGradient id="mfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF2D78"/><stop offset=".5" stop-color="#C026D3"/><stop offset="1" stop-color="#00E5FF"/></linearGradient></defs><circle cx="54" cy="30" r="27" fill="none" stroke="url(#mfg)" stroke-width="5"/><circle cx="38" cy="48" r="27" fill="none" stroke="url(#mfg)" stroke-width="5"/></svg>
                     </div>
-                    <h2>Rider Panel</h2>
-                    <h3>Launch Simulation · Manual Focus · 2026</h3>
-                    <p class="role-context">Asking real customers is slow and expensive, so most brands only do it for their biggest launches and decide everything else on instinct. The Rider Panel tests a launch plan in a simulated market of AI agents before a brand spends on it. Light Meter shows what AI tells a brand's buyers, and the Rider Panel shows what those buyers might then do.</p>
                     <div class="achievements">
                         <h4>How it works</h4>
                         <ul>
@@ -1273,6 +1341,16 @@ const RESUME_DATA = {
                             <li><strong>The test</strong> - a made-up folding smart trainer, launched to 500 simulated UK cyclists shopping for an indoor trainer over the 2026 to 2027 season, under four different launch plans.</li>
                             <li><strong>Results</strong> - published with the launch on 10 November 2026.</li>
                         </ul>
+                    </div>
+                    <div class="media-gallery">
+                        <h4>The panel</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The 500 agents in the first study, connected by what they have in common.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="image" data-src="assets/ManualFocus/rider-panel-graph.jpg">
+                                <img src="assets/thumbs/g/mf-rider-panel-graph.jpg" alt="Rider Panel knowledge graph" loading="lazy" decoding="async">
+                                <div class="gallery-label">Knowledge graph</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="achievements">
                         <h4>My Role</h4>
