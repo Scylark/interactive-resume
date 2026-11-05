@@ -75,7 +75,7 @@ const RESUME_DATA = {
         },
         {
             id: "ai-exploration",
-            label: "AI Exploration",
+            label: "Projects",
             type: "category",
             icon: "⬢",
             color: "#6366f1",
@@ -223,6 +223,16 @@ const RESUME_DATA = {
             order: 2,
             icon: "◆",
             color: "#0d9488"
+        },
+        {
+            id: "privacy-project",
+            label: "Privacy Stablecoin",
+            sublabel: "2020–22",
+            type: "role",
+            parent: "ai-exploration",
+            order: 3,
+            icon: "◆",
+            color: "#64748b"
         }
     ],
 
@@ -251,6 +261,7 @@ const RESUME_DATA = {
         // AI Exploration to side projects
         { from: "ai-exploration", to: "aster" },
         { from: "ai-exploration", to: "wattplan" },
+        { from: "ai-exploration", to: "privacy-project" },
         // Manual Focus to its products
         { from: "manual-focus", to: "light-meter" },
         { from: "manual-focus", to: "rider-panel" }
@@ -1137,6 +1148,45 @@ const RESUME_DATA = {
             `
         },
 
+        "privacy-project": {
+            title: "Privacy Stablecoin",
+            subtitle: "Marketing & Communications Lead · Feb 2020 – Jul 2022",
+            type: "role",
+            color: "#64748b",
+            industry: "Fintech / Web3",
+            content: `
+                <div class="role-card">
+                    <div class="role-header">
+                        <div class="role-badge" style="background: #64748b">Fintech / Web3</div>
+                    </div>
+                    <h2>Marketing & Communications Lead</h2>
+                    <h3>Undisclosed Cryptographic Privacy Project · Self-employed · Feb 2020 – Jul 2022</h3>
+                    <p class="role-context">A top-10 privacy-focused stablecoin on CoinGecko with a market cap of $400M. I led its marketing and communications as a self-employed project, working remotely alongside my role at RGT Cycling. The project itself remains undisclosed.</p>
+                    <div class="achievements">
+                        <h4>What I Led</h4>
+                        <ul>
+                            <li><strong>Positioning</strong> - built the brand position around privacy, stability and trust, so the project stood apart in a crowded market.</li>
+                            <li><strong>Community</strong> - grew an engaged community through ambassador programmes, digital events and direct engagement.</li>
+                            <li><strong>Campaigns</strong> - planned and ran global campaigns for user acquisition and awareness.</li>
+                            <li><strong>PR and editorial</strong> - managed media relations and editorial across the crypto press.</li>
+                            <li><strong>Paid media</strong> - led paid media and inventory planning, with budgets managed for return.</li>
+                            <li><strong>Compliance</strong> - kept every communication within the international regulatory frameworks that applied.</li>
+                        </ul>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat">
+                            <span class="stat-value">$400M</span>
+                            <span class="stat-label">Market Cap</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">Top 10</span>
+                            <span class="stat-label">Privacy Stablecoin on CoinGecko</span>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+
         "manual-focus": {
             title: "Manual Focus",
             subtitle: "My marketing consultancy · Founder · 2009 – Present",
@@ -1290,13 +1340,13 @@ const RESUME_DATA = {
         },
 
         "ai-exploration": {
-            title: "AI Exploration",
-            subtitle: "Side projects exploring AI in product and operations",
+            title: "Projects",
+            subtitle: "Side projects alongside the day jobs",
             type: "ai-exploration",
             content: `
                 <div class="ai-work-card">
-                    <h2>AI Exploration</h2>
-                    <p class="ai-intro">Side projects where I explore AI as an operator rather than as a vendor. They run alongside the day jobs and supplement them. Click each project for the detail.</p>
+                    <h2>Projects</h2>
+                    <p class="ai-intro">Side projects that run alongside the day jobs and supplement them. Two are AI builds where I work as the operator, and one is an earlier fintech engagement. Click each project for the detail.</p>
                     <div class="ai-grid">
                         <div class="ai-item">
                             <div class="ai-item-icon">A</div>
@@ -1310,6 +1360,12 @@ const RESUME_DATA = {
                             <h4>WattPlan</h4>
                             <p>AI-powered endurance training app built end-to-end with Claude Code as a readiness experiment. Concept, full-stack development, brand and launch all delivered with AI throughout the stack.</p>
                             <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">P</div>
+                            <h4>Privacy Stablecoin</h4>
+                            <p>Marketing and communications lead for an undisclosed cryptographic privacy project, a top-10 privacy-focused stablecoin on CoinGecko with a $400M market cap. Brand positioning, community, PR, paid media and compliant communications.</p>
+                            <span class="ai-coming">Feb 2020 to Jul 2022</span>
                         </div>
                     </div>
                 </div>

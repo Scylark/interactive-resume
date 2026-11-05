@@ -88,7 +88,7 @@ class GraphEngine {
             });
         });
 
-        // Role nodes — stack near their actual parent (Experience or AI Exploration)
+        // Role nodes — stack near their actual parent (Experience, Manual Focus or Projects)
         const roles = data.nodes.filter(n => n.type === 'role').sort((a, b) => (a.order || 0) - (b.order || 0));
 
         const roleOffset = isMobile ? 90 : 130;
