@@ -136,7 +136,7 @@ story.append(Paragraph(
 section('CAREER HIGHLIGHTS')
 
 # Ribble 2
-role('Ribble Cycles - High-Performance D2C Bike Brand', 'Marketing Consultant (currently 3 days/week advisory)', 'Nov 2024 - Present')
+role('Ribble Cycles - High-Performance D2C Bike Brand', 'Head of Brand and Marketing (Nov 2024 - Jan 2026), now retained Marketing Advisor three days a week', 'Nov 2024 - Present')
 context('Budget responsibility: £1.2M. Landed 2024/2025 budget under at £920,000.')
 bullet('Reshaped the marketing team - reorganised roles and responsibilities across the department.')
 bullet('Built organisational structure - processes, planning, and a new task management platform.')
@@ -159,7 +159,7 @@ bullet('Smurfit Westrock &amp; Cyclist magazine - "Welcome to Hell" mini-documen
 story.append(Spacer(1, 4))
 
 # motif
-role('motif - AI-Powered Wealth Advisory (Fintech)', 'Fractional CMO (ESOP Holder)', '2024 - Present')
+role('motif - AI-Powered Wealth Advisory (Fintech)', 'Fractional CMO (ESOP Holder)', 'Jan 2025 - Present')
 context('Originally an advisory board role. ESOP holder handling the full marketing mandate with a small team and budget. motif is being built using Claude Code - actively involved in product feature development.')
 bullet('Full marketing ownership: brand and website development, hosting, updates, and social media management.')
 bullet('Pivoted to B2B outreach, contacting 1,000+ fintech organisations to develop the sales pipeline.')
@@ -170,7 +170,14 @@ bullet('AI product development - actively involved in building features within t
 story.append(Spacer(1, 4))
 
 # Classified
-role('Classified Cycling - Cycling Component Manufacturer', 'Head of Marketing and Communications', 'Jun 2024 - Nov 2024')
+role('Manual Focus - Marketing Consultancy for Endurance Sport and Cycling Brands', 'Founder', '2009 - Present')
+bullet('Light Meter - built and launched an AI visibility audit that measures which brands six AI engines recommend. Its first study put 309 buyer questions to the engines for 5,562 answers and was covered by BikeBiz.')
+bullet('Rider Panel - launch simulation in a market of AI agents, launching November 2026.')
+bullet('Clients include Ribble Cycles and Pyramid Plastics. Founded in 2009 as a marketing agency for electronic music artists and labels, and the vehicle for my consultancy work since 2026.')
+
+story.append(Spacer(1, 4))
+
+role('Classified Cycling - Cycling Component Manufacturer', 'Head of Marketing and Communications', 'May 2024 - Oct 2024')
 bullet('Led the research, validation, and integration of brand and product positions.')
 bullet('160+ media placements - spearheaded global product launches, including the Vistar // Powershift drivetrain at Eurobike.')
 bullet('Global events - managed Eurobike, Sea Otter, and Taichung Bike Week to strengthen partnerships and drive growth.')
@@ -181,7 +188,7 @@ bullet('Enhanced education and process for IBDs and distributors.')
 story.append(Spacer(1, 4))
 
 # Muuvr
-role('Muuvr - Move-to-Earn Application', 'CMO', 'Jan 2023 - May 2024')
+role('Muuvr - Move-to-Earn Application', 'Chief Marketing and Communications Officer', 'Jan 2023 - Jun 2024')
 bullet('Brand development - led Muuvr\'s brand and visual identity from scratch, including persona work.')
 bullet('AI strategy - designed and implemented AI strategies across product, marketing, and financial decision-making.')
 bullet('$4.5M fundraise - contributed to a successful fundraising effort securing $4.5M in investment.')
@@ -191,7 +198,7 @@ bullet('Gamification - led development of key gamification strategies driving us
 story.append(Spacer(1, 4))
 
 # Wahoo
-role('Wahoo Fitness - Multi-faceted Indoor Training Platform', 'Head of Marketing (Subscription Services)', 'Apr 2022 - Jan 2023')
+role('Wahoo Fitness - Multi-faceted Indoor Training Platform', 'Head of Marketing (Subscription Services)', 'Apr 2022 - Dec 2022')
 bullet('Led strategic development and execution of Wahoo X\'s integrated marketing strategy.')
 bullet('Directed go-to-market, PR, partnerships, product innovation, and multi-channel marketing.')
 bullet('Managed global product launches and expanded RGT retail presence to 500+ retailers.')
@@ -200,7 +207,7 @@ bullet('Led the Wahoo X GTM Fall 2022 campaign, securing media coverage in 20 to
 story.append(Spacer(1, 4))
 
 # RGT
-role('RGT Cycling - Indoor Cycling Platform', 'Chief Marketing Officer (2021-2022) - Head of Brand &amp; Marketing (2019-2021)', '2019 - 2022')
+role('RGT Cycling - Indoor Cycling Platform', 'Chief Marketing Officer (2021-2022) - Head of Brand &amp; Marketing (2019-2021)', 'Jul 2019 - Apr 2022')
 bullet('Co-founded RGT Cycling. Drove register-to-ride conversions from 20% to 45% within 12 months.')
 bullet('Grew subscribers from 0 to 10K and registered users from 100 to 450K. MOU/WAU increased ~3,000%.')
 bullet('Directed content strategy generating over 2.2M sessions from ~1M users.')
@@ -211,7 +218,7 @@ bullet('Played critical role in corporate strategy and due diligence during acqu
 story.append(Spacer(1, 4))
 
 # Wattbike
-role('Wattbike - Indoor Training Bike', 'PR &amp; Marketing Manager', '2018 - 2019')
+role('Wattbike - Indoor Training Bike', 'Marketing &amp; PR Manager', 'Apr 2018 - Aug 2019')
 bullet('Media perception shift - shifted perceptions of the Wattbike Atom, improving mid-funnel retention and driving conversions.')
 bullet('Global events - delivered growth through events across the UK, Europe, and Africa.')
 bullet('Ambassador marketing - built the framework for selecting and engaging ambassadors and high-profile talent.')
@@ -220,7 +227,7 @@ bullet('International support - provided tailored marketing materials and traini
 story.append(Spacer(1, 4))
 
 # Pelotan
-role('Pelotan - Cycling Specific Sun Protection', 'Consultant Marketing Director', '2018 - 2020')
+role('Pelotan - Cycling Specific Sun Protection', 'Consultant Marketing Director', 'Feb 2018 - Dec 2020')
 
 story.append(Spacer(1, 4))
 

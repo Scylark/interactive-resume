@@ -82,6 +82,15 @@ const RESUME_DATA = {
             angle: 60,
             distance: 1
         },
+        {
+            id: "manual-focus",
+            label: "Manual Focus",
+            type: "category",
+            icon: "◎",
+            color: "#1e293b",
+            angle: 330,
+            distance: 1
+        },
 
         // Experience sub-nodes (ordered newest → oldest)
         {
@@ -97,7 +106,7 @@ const RESUME_DATA = {
         {
             id: "motif",
             label: "motif",
-            sublabel: "2024–Present",
+            sublabel: "2025–Present",
             type: "role",
             parent: "experience",
             order: 2,
@@ -128,7 +137,7 @@ const RESUME_DATA = {
         {
             id: "wahoo",
             label: "Wahoo / RGT",
-            sublabel: "2019–23",
+            sublabel: "2019–22",
             type: "role",
             parent: "experience",
             order: 5,
@@ -178,7 +187,7 @@ const RESUME_DATA = {
         {
             id: "wattplan",
             label: "Wattplan",
-            sublabel: "2025–Present",
+            sublabel: "2026–Present",
             type: "role",
             parent: "ai-exploration",
             order: 2,
@@ -194,6 +203,26 @@ const RESUME_DATA = {
             order: 1,
             icon: "◆",
             color: "#ef4444"
+        },
+        {
+            id: "light-meter",
+            label: "Light Meter",
+            sublabel: "2026",
+            type: "role",
+            parent: "manual-focus",
+            order: 1,
+            icon: "◆",
+            color: "#e11d48"
+        },
+        {
+            id: "rider-panel",
+            label: "Rider Panel",
+            sublabel: "Nov 2026",
+            type: "role",
+            parent: "manual-focus",
+            order: 2,
+            icon: "◆",
+            color: "#0d9488"
         }
     ],
 
@@ -204,6 +233,7 @@ const RESUME_DATA = {
         { from: "james", to: "skills" },
         { from: "james", to: "ai-work" },
         { from: "james", to: "ai-exploration" },
+        { from: "james", to: "manual-focus" },
         { from: "james", to: "education" },
         { from: "james", to: "about" },
         { from: "james", to: "contact" },
@@ -220,7 +250,10 @@ const RESUME_DATA = {
         { from: "experience", to: "planetx" },
         // AI Exploration to side projects
         { from: "ai-exploration", to: "aster" },
-        { from: "ai-exploration", to: "wattplan" }
+        { from: "ai-exploration", to: "wattplan" },
+        // Manual Focus to its products
+        { from: "manual-focus", to: "light-meter" },
+        { from: "manual-focus", to: "rider-panel" }
     ],
 
     // Detail content for modals
@@ -240,10 +273,10 @@ const RESUME_DATA = {
                         </div>
                         <div class="profile-hero-info">
                             <h2>James Vickers</h2>
-                            <p class="profile-title">Senior Marketing Professional</p>
+                            <p class="profile-title">Marketing and communications leader</p>
                             <p class="profile-creds">MCIM · MCIPR</p>
                         </div>
-                        <p class="profile-bio">10+ years driving growth through high-impact marketing strategies across cycling, fitness tech and fintech. Proven track record in team leadership, complex campaigns, and delivering innovative solutions.</p>
+                        <p class="profile-bio">I lead marketing and communications for brands in endurance sport, cycling and fitness tech. I was on the founding team at RGT Cycling as CMO and grew it from 100 to 450,000 users through to its acquisition by Wahoo Fitness.</p>
                         <div class="profile-tags">
                             <span class="tag">Strategy</span>
                             <span class="tag">Brand</span>
@@ -293,7 +326,7 @@ const RESUME_DATA = {
                         <div class="timeline-item">
                             <span class="timeline-role">CMO</span>
                             <span class="timeline-company">RGT → Wahoo</span>
-                            <span class="timeline-date">2019 – 23</span>
+                            <span class="timeline-date">2019 – 22</span>
                         </div>
                         <div class="timeline-item">
                             <span class="timeline-role">CMO</span>
@@ -306,14 +339,19 @@ const RESUME_DATA = {
                             <span class="timeline-date">2024</span>
                         </div>
                         <div class="timeline-item current">
-                            <span class="timeline-role">Marketing Consultant</span>
+                            <span class="timeline-role">Head of Brand → Advisor</span>
                             <span class="timeline-company">Ribble Cycles</span>
                             <span class="timeline-date">2024 – Present</span>
                         </div>
                         <div class="timeline-item current">
                             <span class="timeline-role">Fractional CMO</span>
                             <span class="timeline-company">motif</span>
-                            <span class="timeline-date">2024 – Present</span>
+                            <span class="timeline-date">2025 – Present</span>
+                        </div>
+                        <div class="timeline-item current">
+                            <span class="timeline-role">Founder</span>
+                            <span class="timeline-company">Manual Focus</span>
+                            <span class="timeline-date">2009 – Present</span>
                         </div>
                     </div>
                 </div>
@@ -322,7 +360,7 @@ const RESUME_DATA = {
 
         "ribble-2": {
             title: "Ribble Cycles",
-            subtitle: "Marketing Consultant · Nov 2024 – Present",
+            subtitle: "Head of Brand & Marketing, now Marketing Advisor · Nov 2024 – Present",
             type: "role",
             color: "#059669",
             industry: "Cycling",
@@ -330,12 +368,12 @@ const RESUME_DATA = {
                 <div class="role-card">
                     <div class="role-header">
                         <div class="role-badge" style="background: #059669">Cycling</div>
-                        <span class="role-status active">Current - Advisory (3 days/week)</span>
+                        <span class="role-status active">Current - Retained advisor (3 days/week)</span>
                     </div>
-                    <h2>Marketing Consultant</h2>
+                    <h2>Head of Brand & Marketing, now Marketing Advisor</h2>
                     <h3>Ribble Cycles · Nov 2024 – Present</h3>
                     <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.ribblecycles.co.uk/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">ribblecycles.co.uk →</a></p>
-                    <p class="role-context">Brought in on a 5-day contractor role under PE ownership by SMT. Delivered objectives and now transitioned to a 3-day advisory role in Feb 2026.</p>
+                    <p class="role-context">Joined as Head of Brand and Marketing in November 2024 to lead the marketing function under PE ownership. Since January 2026 I have been a retained Marketing Advisor three days a week, working through Manual Focus on strategy and the pro sports programme.</p>
                     <p class="role-context" style="margin-top: 6px;">Budget responsibility for all marketing activities. £1.2M, landed 2024/2025 under budget at £920K.</p>
 
 
@@ -644,7 +682,7 @@ const RESUME_DATA = {
 
         motif: {
             title: "motif",
-            subtitle: "Fractional CMO · 2024 – Present",
+            subtitle: "Fractional CMO · Jan 2025 – Present",
             type: "role",
             color: "#7c3aed",
             industry: "Fintech / AI",
@@ -655,7 +693,7 @@ const RESUME_DATA = {
                         <span class="role-status active">Current - ESOP Holder</span>
                     </div>
                     <h2>Fractional CMO</h2>
-                    <h3>motif · AI-Powered Wealth Advisory · 2024 – Present</h3>
+                    <h3>motif · AI-Powered Wealth Advisory · Jan 2025 – Present</h3>
                     <p class="role-context">Originally an advisory board role at this AI-powered wealth advisory fintech. ESOP holder handling the full marketing mandate with a small team and budget. Much of the work we do is supported by Claude, Claude Code, and other AI tools.</p>
                     <div class="achievements">
                         <h4>Marketing</h4>
@@ -708,7 +746,7 @@ const RESUME_DATA = {
 
         classified: {
             title: "Classified Cycling",
-            subtitle: "Head of Marketing & Comms · Jun – Nov 2024",
+            subtitle: "Head of Marketing & Comms · May – Oct 2024",
             type: "role",
             color: "#2563eb",
             industry: "Cycling",
@@ -718,7 +756,7 @@ const RESUME_DATA = {
                         <div class="role-badge" style="background: #2563eb">Cycling</div>
                     </div>
                     <h2>Head of Marketing & Communications</h2>
-                    <h3>Classified Cycling · Component Manufacturer · Jun – Nov 2024</h3>
+                    <h3>Classified Cycling · Component Manufacturer · May – Oct 2024</h3>
                     <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.classified-cycling.cc/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">classified-cycling.cc →</a></p>
                     <div class="achievements">
                         <h4>Key Achievements</h4>
@@ -815,7 +853,7 @@ const RESUME_DATA = {
 
         muuvr: {
             title: "Muuvr",
-            subtitle: "CMO · Jan 2023 – May 2024",
+            subtitle: "CMO · Jan 2023 – Jun 2024",
             type: "role",
             color: "#d946ef",
             industry: "Fitness Tech",
@@ -824,8 +862,8 @@ const RESUME_DATA = {
                     <div class="role-header">
                         <div class="role-badge" style="background: #d946ef">Fitness Tech</div>
                     </div>
-                    <h2>Chief Marketing Officer</h2>
-                    <h3>Muuvr · Move-to-Earn Application · Jan 2023 – May 2024</h3>
+                    <h2>Chief Marketing and Communications Officer</h2>
+                    <h3>Muuvr · Move-to-Earn Application · Jan 2023 – Jun 2024</h3>
                     <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://www.muuvr.io/en/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">muuvr.io →</a></p>
                     <div class="achievements">
                         <h4>Brand & GTM</h4>
@@ -864,7 +902,7 @@ const RESUME_DATA = {
 
         wahoo: {
             title: "RGT Cycling → Wahoo Fitness",
-            subtitle: "CMO / Head of Marketing · 2019 – Jan 2023",
+            subtitle: "CMO / Head of Marketing · 2019 – Dec 2022",
             type: "role",
             color: "#dc2626",
             industry: "Fitness Tech",
@@ -874,7 +912,7 @@ const RESUME_DATA = {
                         <div class="role-badge" style="background: #dc2626">Fitness Tech</div>
                     </div>
                     <h2>CMO → Head of Marketing (Subscription Services)</h2>
-                    <h3>RGT Cycling (Co-Founded) → Acquired by Wahoo Fitness · 2019 – Jan 2023</h3>
+                    <h3>RGT Cycling (Co-Founded) → Acquired by Wahoo Fitness · 2019 – Dec 2022</h3>
                     <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://uk.wahoofitness.com/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">wahoofitness.com →</a></p>
                     <p class="role-context">Co-founded RGT Cycling as Head of Brand & Marketing (2019), promoted to CMO (2021), then transitioned to Head of Marketing (Subscription Services) at Wahoo Fitness following acquisition (April 2022).</p>
                     <div class="achievements">
@@ -989,7 +1027,7 @@ const RESUME_DATA = {
 
         wattbike: {
             title: "Wattbike",
-            subtitle: "PR & Marketing Manager · 2018 – 2019",
+            subtitle: "Marketing & PR Manager · Apr 2018 – Aug 2019",
             type: "role",
             color: "#ea580c",
             industry: "Fitness Tech",
@@ -998,8 +1036,8 @@ const RESUME_DATA = {
                     <div class="role-header">
                         <div class="role-badge" style="background: #ea580c">Fitness Tech</div>
                     </div>
-                    <h2>PR & Marketing Manager</h2>
-                    <h3>Wattbike · Indoor Training Bike · 2018 – 2019</h3>
+                    <h2>Marketing & PR Manager</h2>
+                    <h3>Wattbike · Indoor Training Bike · Apr 2018 – Aug 2019</h3>
                     <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://wattbike.com/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">wattbike.com →</a></p>
                     <div class="achievements">
                         <h4>Key Achievements</h4>
@@ -1007,6 +1045,7 @@ const RESUME_DATA = {
                             <li><strong>Media perception shift</strong> - shifted media perceptions of the Wattbike Atom, improving mid-funnel retention and driving conversions after addressing early negative reviews.</li>
                             <li><strong>Global events</strong> - delivered growth through events across the UK, Europe, and Africa.</li>
                             <li><strong>Ambassador marketing</strong> - built the framework for selecting and engaging ambassadors, negotiating contracts, and collaborating with high-profile talent.</li>
+                            <li><strong>HUUB Wattbike Test Team</strong> - led the partnership with the amateur track squad that beat Team GB to gold at the London Track World Cup, with coverage on the BBC and ITV News and hundreds of mentions across endemic titles.</li>
                             <li><strong>International support</strong> - provided tailored marketing materials and training resources for international distributors and dealers.</li>
                         </ul>
                     </div>
@@ -1016,7 +1055,7 @@ const RESUME_DATA = {
 
         pelotan: {
             title: "Pelotan",
-            subtitle: "Consultant Marketing Director · 2018 – 2020",
+            subtitle: "Consultant Marketing Director · Feb 2018 – Dec 2020",
             type: "role",
             color: "#ca8a04",
             industry: "Cycling",
@@ -1026,9 +1065,17 @@ const RESUME_DATA = {
                         <div class="role-badge" style="background: #ca8a04">Cycling</div>
                     </div>
                     <h2>Consultant Marketing Director</h2>
-                    <h3>Pelotan · Cycling-Specific Sun Protection · 2018 – 2020</h3>
+                    <h3>Pelotan · Cycling-Specific Sun Protection · Feb 2018 – Dec 2020</h3>
                     <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://pelotan.cc/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">pelotan.cc →</a></p>
                     <p class="role-context">Consultancy role providing marketing direction for this niche cycling sun protection brand.</p>
+                    <div class="achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li><strong>British Cycling partnership</strong> - secured an exclusive three-year sun protection deal with British Cycling and other national governing bodies, lifting conversion rates and the brand's profile.</li>
+                            <li><strong>Marketing strategy</strong> - owned strategy and planning across PR, partnerships and performance marketing.</li>
+                            <li><strong>Website and tracking</strong> - oversaw the website build and set up analytics, the reporting dashboard and remarketing.</li>
+                        </ul>
+                    </div>
                 </div>
             `
         },
@@ -1084,6 +1131,158 @@ const RESUME_DATA = {
                             <li><strong>eCommerce optimisation</strong> - optimised the eCommerce platform and implemented customer segmentation to boost conversions and retention.</li>
                             <li><strong>Team leadership</strong> - led the sales team to exceed targets through training and mentorship.</li>
                             <li><strong>Supplier relationships</strong> - built key supplier partnerships to optimise inventory and pricing.</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        },
+
+        "manual-focus": {
+            title: "Manual Focus",
+            subtitle: "My marketing consultancy · Founder · 2009 – Present",
+            type: "manual-focus",
+            content: `
+                <div class="ai-work-card">
+                    <h2>Manual Focus</h2>
+                    <p style="margin: -2px 0 10px; font-size: 12px;"><a href="https://manual-focus.co.uk/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">manual-focus.co.uk →</a></p>
+                    <p class="ai-intro">Manual Focus is my marketing consultancy for endurance sport and cycling brands, based in Sheffield. It pairs senior marketing with AI that takes on the repetitive work, and it builds its own research tools. Click each product for the detail.</p>
+                    <div class="ai-grid">
+                        <div class="ai-item">
+                            <div class="ai-item-icon">L</div>
+                            <h4>Light Meter</h4>
+                            <p>Measures which brands AI recommends. It puts buyer questions to six AI engines three times each and reports every brand they name and every site they cite. BikeBiz covered the first study, on UK indoor cycling.</p>
+                            <span class="ai-coming">Launched October 2026</span>
+                            <a href="https://manual-focus.co.uk/light-meter/" target="_blank" class="ai-link">manual-focus.co.uk/light-meter</a>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">R</div>
+                            <h4>Rider Panel</h4>
+                            <p>Tests a product launch before a brand spends on it. The launch runs through a season in a simulated market of AI agents, each with a life story of their own, then runs again with one thing changed so the plans can be compared.</p>
+                            <span class="ai-coming">Launches 10 November 2026</span>
+                        </div>
+                        <div class="ai-item">
+                            <div class="ai-item-icon">T</div>
+                            <h4>The Lens</h4>
+                            <p>A free, open-source library of 47 AI marketing playbooks and 28 skills for Claude, released under the MIT licence.</p>
+                            <a href="https://manual-focus.co.uk/lens/" target="_blank" class="ai-link">manual-focus.co.uk/lens</a>
+                        </div>
+                    </div>
+                    <div class="achievements" style="margin-top: 18px;">
+                        <h4>How it works</h4>
+                        <ul>
+                            <li><strong>Clients</strong> - Ribble Cycles, where I am retained as Marketing Advisor three days a week, and Pyramid Plastics.</li>
+                            <li><strong>Engagements</strong> - strategic advisor, fractional CMO, or a fixed-scope build that is handed over when it works.</li>
+                            <li><strong>Where it started</strong> - I founded Manual Focus in 2009 to take digital DJs and producers into physical releases, which is where the name comes from. It ran campaigns, PR and A&amp;R for artists and labels including Jack Fell Down, Modifi Music and Scrap until 2018, then sat dormant until I began running my consultancy work through it in 2026.</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        },
+
+        "light-meter": {
+            title: "Light Meter",
+            subtitle: "Manual Focus · AI visibility audit · Launched Oct 2026",
+            type: "role",
+            color: "#e11d48",
+            industry: "AI / Research",
+            content: `
+                <div class="role-card">
+                    <div class="role-header">
+                        <div class="role-badge" style="background: #e11d48">Manual Focus Product</div>
+                        <span class="role-status active">Live - launched October 2026</span>
+                    </div>
+                    <h2>Light Meter</h2>
+                    <h3>AI Visibility Audit · Manual Focus · Oct 2026 – Present</h3>
+                    <p style="margin: -2px 0 8px; font-size: 12px;"><a href="https://manual-focus.co.uk/light-meter/" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">manual-focus.co.uk/light-meter →</a></p>
+                    <p class="role-context">AI is becoming the shop window. When a buyer asks ChatGPT or Gemini what to buy, the brands it names are the ones that get considered. Light Meter is a quantitative research tool that measures which brands AI recommends in a category, how often, and which websites the engines cite, so a brand knows which questions it is losing and whose coverage to chase.</p>
+                    <div class="achievements">
+                        <h4>How it works</h4>
+                        <ul>
+                            <li><strong>Buyer questions</strong> - 100 to 300 questions per category, tagged by buying moment from beginner and value through to performance and problems.</li>
+                            <li><strong>Six engines, three runs</strong> - every question goes to six AI engines from a UK location, three times each, because the answers change from one run to the next.</li>
+                            <li><strong>Shares with ranges</strong> - every brand named and every site cited is recorded, and each brand's share is reported with a 95% range.</li>
+                            <li><strong>Output</strong> - a league table with each engine's view, the winner of each buying moment, the sites that decide it and the next steps.</li>
+                        </ul>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat">
+                            <span class="stat-value">309</span>
+                            <span class="stat-label">Buyer Questions</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">5,562</span>
+                            <span class="stat-label">AI Answers Analysed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">83%</span>
+                            <span class="stat-label">Trainer Answers Naming Wahoo</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">20%</span>
+                            <span class="stat-label">Same Brands In All Three Runs</span>
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <h4>First study - UK indoor cycling, October 2026</h4>
+                        <ul>
+                            <li><strong>One clear leader</strong> - Wahoo was named in 83% of smart trainer answers and Zwift in 88% of training app answers.</li>
+                            <li><strong>The engines disagree</strong> - Claude named Van Rysel in 43% of its trainer answers against 5% on Google AI Mode.</li>
+                            <li><strong>The answers move</strong> - an engine named the same brands in all three runs only 20% of the time. ChatGPT managed it 13% of the time and Perplexity 48%.</li>
+                            <li><strong>PR decides it</strong> - cycling media supplied over half the sources the engines cited, led by Cyclingnews.</li>
+                            <li><strong>Coverage</strong> - <a href="https://manual-focus.co.uk/reports/ai-shortlist-indoor-cycling/" target="_blank" rel="noopener" style="color:#2563eb;">the full report</a> is free to read and BikeBiz covered the launch.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>My Role</h4>
+                        <ul>
+                            <li><strong>Method</strong> - designed the question sets, the repeat-run approach and the reporting of ranges.</li>
+                            <li><strong>Build</strong> - built the collection and analysis pipeline.</li>
+                            <li><strong>Launch</strong> - wrote the report, ran the launch and secured the trade coverage.</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        },
+
+        "rider-panel": {
+            title: "Rider Panel",
+            subtitle: "Manual Focus · Launch simulation · Launches 10 Nov 2026",
+            type: "role",
+            color: "#0d9488",
+            industry: "AI / Research",
+            content: `
+                <div class="role-card">
+                    <div class="role-header">
+                        <div class="role-badge" style="background: #0d9488">Manual Focus Product</div>
+                        <span class="role-status active">Launches 10 November 2026</span>
+                    </div>
+                    <h2>Rider Panel</h2>
+                    <h3>Launch Simulation · Manual Focus · 2026</h3>
+                    <p class="role-context">Asking real customers is slow and expensive, so most brands only do it for their biggest launches and decide everything else on instinct. The Rider Panel tests a launch plan in a simulated market of AI agents before a brand spends on it. Light Meter shows what AI tells a brand's buyers, and the Rider Panel shows what those buyers might then do.</p>
+                    <div class="achievements">
+                        <h4>How it works</h4>
+                        <ul>
+                            <li><strong>Agents with lives</strong> - every agent has a life story, from who they live with to the kit they already own, the apps they train on and the shop they usually use.</li>
+                            <li><strong>A season, month by month</strong> - the agents live through a simulated season and decide what to buy, when and why.</li>
+                            <li><strong>Change one thing</strong> - the same season runs again with the price or the channel changed, so a brand can compare plans and read why each agent bought or walked away.</li>
+                            <li><strong>Real market</strong> - rivals are real products at UK retailer prices checked on the day.</li>
+                            <li><strong>Speed</strong> - a study takes days, and the best plans then go to real customers.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>First study</h4>
+                        <ul>
+                            <li><strong>The test</strong> - a made-up folding smart trainer, launched to 500 simulated UK cyclists shopping for an indoor trainer over the 2026 to 2027 season, under four different launch plans.</li>
+                            <li><strong>Results</strong> - published with the launch on 10 November 2026.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>My Role</h4>
+                        <ul>
+                            <li><strong>Method</strong> - developed the method across ten rounds of testing, with controls, reruns and checks against real UK search data built in.</li>
+                            <li><strong>Build</strong> - built on Claude and run from Claude Code, from sourced UK rider figures.</li>
+                            <li><strong>Showing the working</strong> - every check is published with the report, and forecasts are registered in advance to be scored against real sales.</li>
+                            <li><strong>Launch</strong> - wrote the report, the press release and the launch plan.</li>
                         </ul>
                     </div>
                 </div>
@@ -1202,7 +1401,7 @@ const RESUME_DATA = {
 
         wattplan: {
             title: "Wattplan",
-            subtitle: "Founder / AI Side Project · 2025 – Present",
+            subtitle: "Founder / AI Side Project · Jan 2026 – Present",
             type: "role",
             color: "#6366f1",
             industry: "AI / Endurance Sports",
@@ -1212,16 +1411,17 @@ const RESUME_DATA = {
                         <div class="role-badge" style="background: #6366f1">AI Side Project</div>
                     </div>
                     <h2>Wattplan</h2>
-                    <h3>AI-Powered Endurance Sports Training App · 2025 – Present</h3>
+                    <h3>AI-Powered Endurance Sports Training App · Jan 2026 – Present</h3>
                     <p class="role-context">An AI-powered endurance sports training app built entirely using Claude Code. Wattplan is a personal experiment into AI readiness and the practical application of AI in product development.</p>
                     <div class="achievements">
                         <h4>My Role</h4>
                         <ul>
-                            <li><strong>Founder</strong> - concept, vision, and strategic direction.</li>
-                            <li><strong>Marketing</strong> - brand development, positioning, website, and launch strategy.</li>
-                            <li><strong>Development</strong> - built the full app using Claude Code - front-end, back-end, and AI integrations.</li>
-                            <li><strong>GTM</strong> - go-to-market planning, user acquisition strategy, and early traction.</li>
-                            <li><strong>Product</strong> - feature design, user flows, and data architecture.</li>
+                            <li><strong>Founder</strong> - took a cycling training app from first commit to live on the App Store and Google Play in seven months. It builds a rider's plan around their goals and hours, then adapts it using the rides they actually complete.</li>
+                            <li><strong>Product</strong> - defined the adaptive engine, so plans repair themselves when a workout is missed or a ride lands harder than prescribed.</li>
+                            <li><strong>Development</strong> - directed the whole build with AI development agents, shipping 80 cloud services, integrations with Garmin, Strava, Wahoo and Zwift, a Bluetooth workout player and an AI coach with long-term memory, behind 109 automated test suites.</li>
+                            <li><strong>Brand</strong> - wrote the messaging house, built the logo family and tone of voice, and set the vocabulary rules that keep product and marketing consistent.</li>
+                            <li><strong>Marketing</strong> - produced 45 long-form articles alongside the store listings, the site and the launch campaigns for both platforms.</li>
+                            <li><strong>Subscription</strong> - built the free and Premium tiers through RevenueCat.</li>
                         </ul>
                     </div>
                     <div class="achievements">
@@ -1476,7 +1676,7 @@ const RESUME_DATA = {
                             <div class="edu-badge">HD</div>
                             <div class="edu-detail">
                                 <h4>Higher Diploma - Fishing & Fishery Sciences & Management</h4>
-                                <p>Distinction</p>
+                                <p>Brooksby Melton College, 1999 – 2002 · Distinction</p>
                             </div>
                         </div>
                         <div class="edu-item">
@@ -1498,6 +1698,13 @@ const RESUME_DATA = {
                             <div class="edu-detail">
                                 <h4>Information Technology Infrastructure Library</h4>
                                 <p>IT Service Management</p>
+                            </div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-badge">AI</div>
+                            <div class="edu-detail">
+                                <h4>Google generative AI courses</h4>
+                                <p>Introduction to Large Language Models, Introduction to Generative AI and Introduction to Responsible AI (Sep 2024), plus the Prompt Design in Vertex AI skill badge (Oct 2024)</p>
                             </div>
                         </div>
                     </div>
