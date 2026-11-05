@@ -183,56 +183,6 @@ const RESUME_DATA = {
             order: 9,
             icon: "◆",
             color: "#0891b2"
-        },
-        {
-            id: "wattplan",
-            label: "WattPlan",
-            sublabel: "2026–Present",
-            type: "role",
-            parent: "ai-exploration",
-            order: 2,
-            icon: "◆",
-            color: "#6366f1"
-        },
-        {
-            id: "aster",
-            label: "Aster",
-            sublabel: "2025–Present",
-            type: "role",
-            parent: "ai-exploration",
-            order: 1,
-            icon: "◆",
-            color: "#ef4444"
-        },
-        {
-            id: "light-meter",
-            label: "Light Meter",
-            sublabel: "2026",
-            type: "role",
-            parent: "manual-focus",
-            order: 1,
-            icon: "◆",
-            color: "#e11d48"
-        },
-        {
-            id: "rider-panel",
-            label: "Rider Panel",
-            sublabel: "Nov 2026",
-            type: "role",
-            parent: "manual-focus",
-            order: 2,
-            icon: "◆",
-            color: "#0d9488"
-        },
-        {
-            id: "privacy-project",
-            label: "Privacy Stablecoin",
-            sublabel: "2020–22",
-            type: "role",
-            parent: "ai-exploration",
-            order: 3,
-            icon: "◆",
-            color: "#64748b"
         }
     ],
 
@@ -258,13 +208,6 @@ const RESUME_DATA = {
         { from: "experience", to: "pelotan" },
         { from: "experience", to: "ribble-1" },
         { from: "experience", to: "planetx" },
-        // AI Exploration to side projects
-        { from: "ai-exploration", to: "aster" },
-        { from: "ai-exploration", to: "wattplan" },
-        { from: "ai-exploration", to: "privacy-project" },
-        // Manual Focus to its products
-        { from: "manual-focus", to: "light-meter" },
-        { from: "manual-focus", to: "rider-panel" }
     ],
 
     // Detail content for modals
@@ -1156,6 +1099,7 @@ const RESUME_DATA = {
             industry: "Fintech / Web3",
             content: `
                 <div class="role-card">
+                    <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="ai-exploration" style="color: var(--text-secondary); text-decoration: none;">← Projects</a></p>
                     <div class="role-header">
                         <div class="role-badge" style="background: #64748b">Fintech / Web3</div>
                     </div>
@@ -1203,12 +1147,14 @@ const RESUME_DATA = {
                             <p>Measures which brands AI recommends. It puts buyer questions to six AI engines three times each and reports every brand they name and every site they cite. BikeBiz covered the first study, on UK indoor cycling.</p>
                             <span class="ai-coming">Launched October 2026</span>
                             <a href="https://manual-focus.co.uk/light-meter/" target="_blank" class="ai-link">manual-focus.co.uk/light-meter</a>
+                            <a href="#" class="ai-link" data-open="light-meter" style="display:block;margin-top:10px;font-weight:600;">Open Light Meter →</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">R</div>
                             <h4>Rider Panel</h4>
                             <p>Tests a product launch before a brand spends on it. The launch runs through a season in a simulated market of AI agents, each with a life story of their own, then runs again with one thing changed so the plans can be compared.</p>
                             <span class="ai-coming">Launches 10 November 2026</span>
+                            <a href="#" class="ai-link" data-open="rider-panel" style="display:block;margin-top:10px;font-weight:600;">Open the Rider Panel →</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">T</div>
@@ -1237,6 +1183,7 @@ const RESUME_DATA = {
             industry: "AI / Research",
             content: `
                 <div class="role-card">
+                    <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="manual-focus" style="color: var(--text-secondary); text-decoration: none;">← Manual Focus</a></p>
                     <div class="role-header">
                         <div class="role-badge" style="background: #e11d48">Manual Focus Product</div>
                         <span class="role-status active">Live - launched October 2026</span>
@@ -1302,6 +1249,7 @@ const RESUME_DATA = {
             industry: "AI / Research",
             content: `
                 <div class="role-card">
+                    <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="manual-focus" style="color: var(--text-secondary); text-decoration: none;">← Manual Focus</a></p>
                     <div class="role-header">
                         <div class="role-badge" style="background: #0d9488">Manual Focus Product</div>
                         <span class="role-status active">Launches 10 November 2026</span>
@@ -1354,18 +1302,21 @@ const RESUME_DATA = {
                             <p>Real-time event tracking platform shipped to iOS and Android. Founder/operator, running the business solo with AI agents (Hermes, Paperclip and supporting models) handling business analysis, product, engineering, market research, marketing and content.</p>
                             <span class="ai-coming">iOS &amp; Android · public launch in progress</span>
                             <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link">preview at watch-the-dot-frontend.vercel.app</a>
+                            <a href="#" class="ai-link" data-open="aster" style="display:block;margin-top:10px;font-weight:600;">Open Aster →</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
                             <h4>WattPlan</h4>
                             <p>AI-powered endurance training app built end-to-end with Claude Code as a readiness experiment. Concept, full-stack development, brand and launch all delivered with AI throughout the stack.</p>
                             <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
+                            <a href="#" class="ai-link" data-open="wattplan" style="display:block;margin-top:10px;font-weight:600;">Open WattPlan →</a>
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">P</div>
                             <h4>Privacy Stablecoin</h4>
                             <p>Marketing and communications lead for an undisclosed cryptographic privacy project, a top-10 privacy-focused stablecoin on CoinGecko with a $400M market cap. Brand positioning, community, PR, paid media and compliant communications.</p>
                             <span class="ai-coming">Feb 2020 to Jul 2022</span>
+                            <a href="#" class="ai-link" data-open="privacy-project" style="display:block;margin-top:10px;font-weight:600;">Open the project →</a>
                         </div>
                     </div>
                 </div>
@@ -1380,6 +1331,7 @@ const RESUME_DATA = {
             industry: "AI / Endurance Sports",
             content: `
                 <div class="role-card">
+                    <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="ai-exploration" style="color: var(--text-secondary); text-decoration: none;">← Projects</a></p>
                     <div class="role-header">
                         <div class="role-badge" style="background: #ef4444">Autonomous AI Business</div>
                     </div>
@@ -1463,6 +1415,7 @@ const RESUME_DATA = {
             industry: "AI / Endurance Sports",
             content: `
                 <div class="role-card">
+                    <p style="margin: 0 0 12px; font-size: 12px;"><a href="#" data-open="ai-exploration" style="color: var(--text-secondary); text-decoration: none;">← Projects</a></p>
                     <div class="role-header">
                         <div class="role-badge" style="background: #6366f1">AI Side Project</div>
                     </div>
