@@ -186,7 +186,7 @@ const RESUME_DATA = {
         },
         {
             id: "wattplan",
-            label: "Wattplan",
+            label: "WattPlan",
             sublabel: "2026–Present",
             type: "role",
             parent: "ai-exploration",
@@ -1307,7 +1307,7 @@ const RESUME_DATA = {
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
-                            <h4>Wattplan</h4>
+                            <h4>WattPlan</h4>
                             <p>AI-powered endurance training app built end-to-end with Claude Code as a readiness experiment. Concept, full-stack development, brand and launch all delivered with AI throughout the stack.</p>
                             <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
                         </div>
@@ -1400,7 +1400,7 @@ const RESUME_DATA = {
         },
 
         wattplan: {
-            title: "Wattplan",
+            title: "WattPlan",
             subtitle: "Founder / AI Side Project · Jan 2026 – Present",
             type: "role",
             color: "#6366f1",
@@ -1410,9 +1410,9 @@ const RESUME_DATA = {
                     <div class="role-header">
                         <div class="role-badge" style="background: #6366f1">AI Side Project</div>
                     </div>
-                    <h2>Wattplan</h2>
-                    <h3>AI-Powered Endurance Sports Training App · Jan 2026 – Present</h3>
-                    <p class="role-context">An AI-powered endurance sports training app built entirely using Claude Code. Wattplan is a personal experiment into AI readiness and the practical application of AI in product development.</p>
+                    <h2>WattPlan</h2>
+                    <h3>Cycling Training App · iOS and Android · Jan 2026 – Present</h3>
+                    <p class="role-context">A cycling training app built to make you stronger on the bike. WattPlan builds a rider's training around their goals and the time they have, and adjusts it as things change. I built it with AI development agents to test how far a lean team can go, and it is live on the App Store and Google Play.</p>
                     <div class="achievements">
                         <h4>My Role</h4>
                         <ul>
@@ -1431,36 +1431,108 @@ const RESUME_DATA = {
                     <a href="https://wattplan.cc" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;color:#6366f1;font-weight:600;">wattplan.cc</a>
 
                     <div class="section-divider" style="margin: 24px 0 16px; border-top: 1px solid var(--border-light);"></div>
-                    <h3 style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">App Screenshots</h3>
 
                     <div class="media-gallery">
-                        <div class="gallery-grid">
-                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Dashboards.png">
-                                <img src="assets/thumbs/g/wattplan-wattplan-dashboards.jpg" alt="Wattplan Dashboards" loading="lazy" decoding="async">
-                                <div class="gallery-label">Dashboards</div>
+                        <h4>The app today</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The screenshots on the App Store and Google Play for version 1.0.49.</p>
+                        <div class="gallery-grid phone">
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-01-today.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-01-today.jpg" alt="WattPlan Today screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Today</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan AI Coach.png">
-                                <img src="assets/thumbs/g/wattplan-wattplan-ai-coach.jpg" alt="Wattplan AI Coach" loading="lazy" decoding="async">
-                                <div class="gallery-label">AI Coach</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-02-plan.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-02-plan.jpg" alt="WattPlan Plan screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Plan</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan AI Strategy.png">
-                                <img src="assets/thumbs/g/wattplan-wattplan-ai-strategy.jpg" alt="Wattplan AI Strategy" loading="lazy" decoding="async">
-                                <div class="gallery-label">AI Strategy</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-03-coach.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-03-coach.jpg" alt="WattPlan Coach screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Coach</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Route Analysis.png">
-                                <img src="assets/thumbs/g/wattplan-wattplan-route-analysis.jpg" alt="Wattplan Route Analysis" loading="lazy" decoding="async">
-                                <div class="gallery-label">Route Analysis</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-04-voice-coach.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-04-voice-coach.jpg" alt="WattPlan Voice Coach screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Voice Coach</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Ride Review Screen.png">
-                                <img src="assets/thumbs/g/wattplan-wattplan-ride-review-screen.jpg" alt="Wattplan Ride Review" loading="lazy" decoding="async">
-                                <div class="gallery-label">Ride Review</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-05-rides-counted.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-05-rides-counted.jpg" alt="WattPlan Rides Counted screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Rides Counted</div>
                             </div>
-                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/Wattplan Ride wPrime Review.png">
-                                <img src="assets/thumbs/g/wattplan-wattplan-ride-wprime-review.jpg" alt="Wattplan wPrime Review" loading="lazy" decoding="async">
-                                <div class="gallery-label">wPrime Review</div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-06-adjusted-plan.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-06-adjusted-plan.jpg" alt="WattPlan Adjusted Plan screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Adjusted Plan</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-07-fitness-explorer.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-07-fitness-explorer.jpg" alt="WattPlan Fitness Explorer screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Fitness Explorer</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-08-workout-player.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-08-workout-player.jpg" alt="WattPlan Workout Player screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Workout Player</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/2026/store-09-strength.jpg">
+                                <img src="assets/thumbs/g/wattplan-store-09-strength.jpg" alt="WattPlan Strength screen" loading="lazy" decoding="async">
+                                <div class="gallery-label">Strength</div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="media-gallery">
+                        <h4>Train. Adapt. campaign, October 2026 to January 2027</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">The launch campaign for both stores. 57 posts across Instagram and LinkedIn over twelve weeks, built around one 82-second hero film that is cut down into Reels and supported by podcast clips, carousels and a logo reveal.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="video" data-src="assets/Wattplan/campaign/hero-film-one-story.mp4">
+                                <video src="assets/Wattplan/campaign/hero-film-one-story.mp4" muted preload="none" poster="assets/thumbs/g/wattplan-hero-film.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Hero film, One Story</div>
+                            </div>
+                            <div class="gallery-item" data-type="video" data-src="assets/Wattplan/campaign/logo-reveal.mp4">
+                                <video src="assets/Wattplan/campaign/logo-reveal.mp4" muted preload="none" poster="assets/thumbs/g/wattplan-logo-reveal.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">Logo reveal</div>
+                            </div>
+                        </div>
+                        <div class="gallery-grid portrait" style="margin-top: 10px;">
+                            <div class="gallery-item" data-type="video" data-src="assets/Wattplan/campaign/app-store-preview.mp4">
+                                <video src="assets/Wattplan/campaign/app-store-preview.mp4" muted preload="none" poster="assets/thumbs/g/wattplan-app-store-preview.jpg"></video>
+                                <div class="gallery-play"></div>
+                                <div class="gallery-label">App Store preview</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/campaign/cover-chain-gang.jpg">
+                                <img src="assets/thumbs/g/wattplan-cover-chain-gang.jpg" alt="Reel cover, chain gang" loading="lazy" decoding="async">
+                                <div class="gallery-label">Reel cover</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/campaign/cover-wedding-rest-day.jpg">
+                                <img src="assets/thumbs/g/wattplan-cover-wedding-rest-day.jpg" alt="Reel cover, wedding rest day" loading="lazy" decoding="async">
+                                <div class="gallery-label">Reel cover</div>
+                            </div>
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/campaign/cover-train-adapt.jpg">
+                                <img src="assets/thumbs/g/wattplan-cover-train-adapt.jpg" alt="Train. Adapt. end frame" loading="lazy" decoding="async">
+                                <div class="gallery-label">End frame</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-gallery">
+                        <h4>The messaging house</h4>
+                        <p class="gallery-description" style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">Every store listing, page, onboarding screen and email traces back to this one document, and every claim in it traces to shipped code. A line that cannot be traced to a pillar does not ship. <a href="https://manual-focus.co.uk/blog/wattplan-messaging-hierarchy/" target="_blank" rel="noopener" style="color:#2563eb;">How it was built</a> is written up on the Manual Focus blog.</p>
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-type="image" data-src="assets/Wattplan/brand/messaging-house.jpg">
+                                <img src="assets/thumbs/g/wattplan-messaging-house.jpg" alt="WattPlan messaging hierarchy" loading="lazy" decoding="async">
+                                <div class="gallery-label">Messaging hierarchy</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <h4>What the house says</h4>
+                        <ul>
+                            <li><strong>Train. Adapt.</strong> - the tagline reads four ways. The cyclist does the work, the body adapts to it, the plan adapts to the riding actually done, and the two keep looping.</li>
+                            <li><strong>Personalised. Training</strong> - when life or riding changes, the week still makes sense.</li>
+                            <li><strong>Questions. Answered.</strong> - ask the Coach a normal question and get a clear answer based on the plan, the rides and the goals.</li>
+                            <li><strong>Rides. Counted.</strong> - connect once, then ride. Every ride is imported, scored and added to the picture.</li>
+                            <li><strong>Voice</strong> - an experienced club rider who knows the science. Warm, direct, and giving one clear recommendation.</li>
+                            <li><strong>Vocabulary</strong> - plan, Coach, cyclist and rider. No sport clichés, no technology filler, and no promise of watts, times or placings.</li>
+                        </ul>
+                    </div>
+                    <a href="wattplan-brand/" target="_blank" class="ai-link" style="display:inline-block;margin-top:16px;color:#6366f1;font-weight:600;">Open the WattPlan brand book →</a>
                 </div>
             `
         },
@@ -1609,7 +1681,7 @@ const RESUME_DATA = {
                         </div>
                         <div class="ai-item">
                             <div class="ai-item-icon">W</div>
-                            <h4>Wattplan</h4>
+                            <h4>WattPlan</h4>
                             <p>AI-powered endurance sports training app built entirely with Claude Code - founder, marketing, development, GTM, and product. A side project testing what's possible when AI handles the full stack.</p>
                             <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
                         </div>

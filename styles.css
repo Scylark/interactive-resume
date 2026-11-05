@@ -1518,3 +1518,17 @@ a.contact-item:hover {
 .achievements ul + h4 {
     margin-top: 18px;
 }
+
+/* Portrait media: tall tiles so a phone screen or a 4x5 cover is not cropped to a band */
+.gallery-grid.phone {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+}
+.gallery-grid.phone .gallery-item {
+    aspect-ratio: 9 / 19.5;
+}
+.gallery-grid.portrait {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+.gallery-grid.portrait .gallery-item {
+    aspect-ratio: 4 / 5;
+}
