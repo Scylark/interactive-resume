@@ -1543,14 +1543,27 @@ const RESUME_DATA = {
                     </div>
                     <div class="achievements">
                         <h4>Creative direction</h4>
-                        <p style="font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 4px;">I set the brief for Aster's photography and film. The look is nostalgic and filtered with heavy motion blur, so a picture feels the way the ride felt.</p>
+                        <p style="font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 4px;">I set the brief for Aster's photography and film. Aster lets people watch someone they care about mid-ride, so the pictures have to feel like being out there with them. The look is nostalgic and filtered with heavy motion blur, and every frame should feel like the middle of a race.</p>
                         <ul>
-                            <li><strong>Photography</strong> - riders mid-effort, with the background and the wheels panned into blur and the rider held sharp. Shallow depth of field, tight crops on half a rider or a wheel and a leg, and saturated kit against dust, mud and wet tarmac.</li>
-                            <li><strong>Light</strong> - late gold, dusk, forest shade and side-lit dust. Flat midday light stays out.</li>
-                            <li><strong>Casting</strong> - people who read as riders, in mixed kit, with a mix of gender and body type in every set. Studio backdrops, posed smiles and matching team kit stay out.</li>
-                            <li><strong>Film</strong> - each film opens on moving photography and then goes to the product on a dark map. Headlines sit in white and lime, scenes cross-fade, and the pictures keep their blur and grain.</li>
-                            <li><strong>Formats</strong> - a brand launch film and one each for organisers, clubs and athletes, with feature cuts of 20 to 32 seconds. Every film is built in code with Remotion and rendered in 16:9, 4:5, 1:1 and 9:16.</li>
-                            <li><strong>Production</strong> - the cycling library is art-directed and generated in Midjourney against a mood board. Every frame is reviewed so that no real brand name, third-party race number or identifiable person appears.</li>
+                            <li><strong>Photography</strong> - riders mid-effort, with the background and the wheels panned into blur and the rider held sharp. Shallow depth of field, crops tight enough to lose half the rider, and saturated kit against dust, mud and wet tarmac, in late gold, dusk or forest shade.</li>
+                            <li><strong>Casting</strong> - people who read as riders, in mixed kit, with a mix of gender, body type, skin tone and age across the set.</li>
+                            <li><strong>Film</strong> - the photograph stays a photograph and the product arrives as a layer on top. Each film opens on a few seconds of moving photography, then draws the route on a dark map and brings the app in. One headline style runs throughout, in capitals at one size with the last line in lime.</li>
+                            <li><strong>Proof</strong> - every claim in a film is checked against the product's code before it ships. The demo race keeps its "Live demo" label, sponsor marks are abstract, and anyone shown live carries the line "Subject to network coverage."</li>
+                            <li><strong>Formats</strong> - a brand launch film and one each for organisers, clubs and athletes, with feature cuts of 20 to 32 seconds. Each is built in Remotion and rendered in 16:9, 4:5, 1:1 and 9:16, and the vertical cut is composed for 9:16 from source so nothing is cropped down from a finished film.</li>
+                            <li><strong>Production</strong> - the cycling library is art-directed and generated in Midjourney against a mood board, and every output is reviewed before it is saved so that no real brand name, third-party race number or identifiable person gets through.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>What we don't want</h4>
+                        <ul>
+                            <li><strong>Catalogue pictures</strong> - studio backdrops, static portraits, posed smiles, flat midday light, stock-photo cleanness and clip-art cyclist silhouettes.</li>
+                            <li><strong>A blurred rider</strong> - the blur belongs to the background and the wheels.</li>
+                            <li><strong>Team-issue casting</strong> - everyone in matching kit, or a set that is all men or all pros.</li>
+                            <li><strong>Real brands</strong> - logos, sponsor text, named events and teams, third-party race numbers and identifiable people.</li>
+                            <li><strong>Lost grit</strong> - any colour treatment that cleans a picture up.</li>
+                            <li><strong>Busy motion</strong> - cuts inside a shot, wipes, bouncing effects, parallax and animated illustration.</li>
+                            <li><strong>Half a product</strong> - a cropped card of part of a screen, or big empty areas of dark frame.</li>
+                            <li><strong>Overclaiming</strong> - a simulated race passed off as a real one, a real brand shown as a sponsor, or a line the product cannot back.</li>
                         </ul>
                     </div>
                     <div class="media-gallery">
@@ -1782,13 +1795,26 @@ const RESUME_DATA = {
 
                     <div class="achievements">
                         <h4>Creative direction</h4>
-                        <p style="font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 4px;">I set the look for WattPlan's photography and film. It is nostalgic and filtered, with motion blur carrying the speed, and it is made to sit behind a dark app with one bright accent.</p>
+                        <p style="font-size: 12px; line-height: 1.6; color: var(--text-secondary); margin: 0 0 4px;">I set the look for WattPlan's photography and film, and it starts from where the riding actually happens. A wet lane at dusk, a chain gang at full speed, a turbo in a dark garage. The look is nostalgic and filtered, with motion blur carrying the speed, so a frame feels like a ride you remember.</p>
                         <ul>
-                            <li><strong>Photography</strong> - shot like a roll of film from a hard ride. The background and the wheels streak while the rider stays readable, the crops are tight on hands, shoulders and faces, and the colour leans to dusk blue and purple so the volt of the app is the brightest thing in frame.</li>
-                            <li><strong>Indoor</strong> - the turbo set is shot dark, with one bulb or one window, a fan and a bare wall. It shows a rider working alone in a garage, which is where a lot of structured training gets done.</li>
-                            <li><strong>Film</strong> - the photography moves slowly behind the real app, so each scene pairs a ride with the screen that responds to it. Headlines run on two lines in white and volt, and the WP mark opens and closes the film.</li>
-                            <li><strong>Formats</strong> - the 82-second hero film is rendered in 16:9, 4:5, 1:1 and 9:16, and the vertical cuts keep text out of the bottom fifth of the frame where the platform controls sit.</li>
-                            <li><strong>Production</strong> - the library of 36 images is art-directed and generated in Midjourney against one mood board, and the films are built in code from the app's real screens.</li>
+                            <li><strong>Photography</strong> - the road and the wheels streak while the rider stays sharp. Crops are tight on hands, shoulders and faces, the light is low, and the colour sits in dusk blue and purple so the volt of the app is the brightest thing in frame.</li>
+                            <li><strong>Indoor</strong> - the turbo set is shot dark, with one bulb or one window, a fan and a bare wall. It shows a rider working alone, which is where a lot of structured training gets done.</li>
+                            <li><strong>Film</strong> - the photograph stays a photograph and the app arrives as a layer on top, one beat at a time. Each picture is split into rider and background, so the rider eases forward while the background falls away. Headlines run on two lines in white and volt, and the WP mark holds the corner throughout.</li>
+                            <li><strong>Real screens</strong> - every screen, number and Coach reply in a film is the app's own. The Coach lines come from running the real Coach, the week comes from the real plan engine, and the render stops if a number disagrees with what the app would show.</li>
+                            <li><strong>Formats</strong> - every film renders in 16:9, 4:5, 1:1 and 9:16 from one script, and each frame is checked against Instagram's own interface so text stays clear of the buttons and the caption.</li>
+                            <li><strong>Production</strong> - the library of 36 images is art-directed and generated in Midjourney against one mood board, and every output is checked before it is kept.</li>
+                        </ul>
+                    </div>
+                    <div class="achievements">
+                        <h4>What we don't want</h4>
+                        <ul>
+                            <li><strong>Catalogue pictures</strong> - studio backdrops, static portraits, posed smiles and stock-photo cleanness.</li>
+                            <li><strong>Flat light</strong> - even midday sun outdoors, or a brightly lit room indoors.</li>
+                            <li><strong>A blurred rider</strong> - the blur belongs to the road and the wheels.</li>
+                            <li><strong>Team-issue casting</strong> - everyone in matching kit, or a set that is all men or all pros.</li>
+                            <li><strong>Real brands</strong> - logos, sponsor text, named events, third-party race numbers and identifiable people.</li>
+                            <li><strong>Mocked-up product</strong> - invented screens, numbers the app would not show, or a Coach line the real Coach would not say.</li>
+                            <li><strong>Promised results</strong> - watts, times, placings or percentages on screen.</li>
                         </ul>
                     </div>
                     <div class="media-gallery">
