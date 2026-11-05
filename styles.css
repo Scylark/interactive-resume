@@ -1655,3 +1655,32 @@ a.contact-item:hover {
 @media (min-width: 641px) {
     .mf-hero .mf-lede, .mf-hero .mf-chips { margin-right: 110px; }
 }
+
+/* Projects card: image tiles, with the lead project given the full width */
+.pj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+.pj-tile { background: var(--bg-card, #fff); border: 1px solid var(--border, #e5e5ea); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+.pj-tile.pj-feature { grid-column: 1 / -1; flex-direction: row; }
+.pj-media { display: block; background: #0E0E10; text-decoration: none; }
+.pj-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.pj-feature .pj-media { flex: 0 0 46%; }
+.pj-feature .pj-media img { height: 100%; aspect-ratio: auto; }
+.pj-art { aspect-ratio: 16 / 10; display: grid; place-content: center; text-align: center; background: #1e293b; color: #fff; }
+.pj-art b { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; display: block; line-height: 1.1; }
+.pj-art span { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; }
+.pj-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.pj-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary, #86868b); }
+.pj-tile h4 { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; margin: 0; color: var(--text); text-transform: none; }
+.pj-tile p { font-size: 12.5px; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+.pj-points { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.pj-points li { font-size: 11px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border, #e5e5ea); color: var(--text-secondary); }
+.pj-links { margin-top: auto; padding-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.pj-link { font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; }
+.pj-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 620px) {
+    .pj-tile.pj-feature { flex-direction: column; }
+    .pj-feature .pj-media { flex: none; }
+    .pj-feature .pj-media img { height: auto; aspect-ratio: 16 / 10; }
+}
+
+/* Keep the start of the headline in the lead image */
+.pj-feature .pj-media img { object-position: left center; }

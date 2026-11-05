@@ -183,6 +183,26 @@ const RESUME_DATA = {
             order: 9,
             icon: "◆",
             color: "#0891b2"
+        },
+        {
+            id: "aster",
+            label: "Aster",
+            sublabel: "2025–Present",
+            type: "role",
+            parent: "ai-exploration",
+            order: 1,
+            icon: "◆",
+            color: "#ef4444"
+        },
+        {
+            id: "wattplan",
+            label: "WattPlan",
+            sublabel: "2026–Present",
+            type: "role",
+            parent: "ai-exploration",
+            order: 2,
+            icon: "◆",
+            color: "#6366f1"
         }
     ],
 
@@ -208,6 +228,9 @@ const RESUME_DATA = {
         { from: "experience", to: "pelotan" },
         { from: "experience", to: "ribble-1" },
         { from: "experience", to: "planetx" },
+        // Projects
+        { from: "ai-exploration", to: "aster" },
+        { from: "ai-exploration", to: "wattplan" },
     ],
 
     // Detail content for modals
@@ -1372,29 +1395,44 @@ const RESUME_DATA = {
             content: `
                 <div class="ai-work-card">
                     <h2>Projects</h2>
-                    <p class="ai-intro">Side projects that run alongside the day jobs and supplement them. Two are AI builds where I work as the operator, and one is an earlier fintech engagement. Click each project for the detail.</p>
-                    <div class="ai-grid">
-                        <div class="ai-item">
-                            <div class="ai-item-icon">A</div>
-                            <h4>Aster — Watch the Dot</h4>
-                            <p>Real-time event tracking platform shipped to iOS and Android. Founder/operator, running the business solo with AI agents (Hermes, Paperclip and supporting models) handling business analysis, product, engineering, market research, marketing and content.</p>
-                            <span class="ai-coming">iOS &amp; Android · public launch in progress</span>
-                            <a href="https://watch-the-dot-frontend.vercel.app/welcome" target="_blank" class="ai-link">preview at watch-the-dot-frontend.vercel.app</a>
-                            <a href="#" class="ai-link" data-open="aster" style="display:block;margin-top:10px;font-weight:600;">Open Aster →</a>
+                    <p class="ai-intro">Side projects that run alongside the day jobs and supplement them. Two are products I built and launched with AI development agents, and one is an earlier fintech engagement.</p>
+                    <div class="pj-grid">
+                        <div class="pj-tile pj-feature">
+                            <a href="#" data-open="wattplan" class="pj-media"><img src="assets/thumbs/g/wattplan-hero-film.jpg" alt="WattPlan launch film, a plan that adapts to the way you ride" loading="lazy" decoding="async"></a>
+                            <div class="pj-body">
+                                <span class="pj-eyebrow">Live on the App Store and Google Play</span>
+                                <h4>WattPlan</h4>
+                                <p>A cycling training app built to make you stronger on the bike. I took it from first commit to both stores in seven months and built the brand around it.</p>
+                                <ul class="pj-points">
+                                    <li>Store screenshots</li>
+                                    <li>Train. Adapt. campaign films</li>
+                                    <li>Messaging house</li>
+                                    <li>Brand book</li>
+                                </ul>
+                                <div class="pj-links">
+                                    <a href="#" data-open="wattplan" class="pj-link">Open WattPlan →</a>
+                                    <a href="wattplan-brand/" target="_blank" class="pj-link">Brand book →</a>
+                                    <a href="https://wattplan.cc" target="_blank" rel="noopener" class="pj-link">wattplan.cc →</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">W</div>
-                            <h4>WattPlan</h4>
-                            <p>AI-powered endurance training app built end-to-end with Claude Code as a readiness experiment. Concept, full-stack development, brand and launch all delivered with AI throughout the stack.</p>
-                            <a href="https://wattplan.cc" target="_blank" class="ai-link">wattplan.cc</a>
-                            <a href="#" class="ai-link" data-open="wattplan" style="display:block;margin-top:10px;font-weight:600;">Open WattPlan →</a>
+                        <div class="pj-tile">
+                            <a href="#" data-open="aster" class="pj-media"><img src="assets/thumbs/g/aster-aster-brand-book-logo-mark.jpg" alt="Aster brand, logo and mark" loading="lazy" decoding="async"></a>
+                            <div class="pj-body">
+                                <span class="pj-eyebrow">iOS and Android</span>
+                                <h4>Aster, Watch the Dot</h4>
+                                <p>Live GPS tracking for ultra-endurance cycling, run as a one-person business with AI agents handling analysis, product, engineering, marketing and content.</p>
+                                <div class="pj-links"><a href="#" data-open="aster" class="pj-link">Open Aster →</a></div>
+                            </div>
                         </div>
-                        <div class="ai-item">
-                            <div class="ai-item-icon">P</div>
-                            <h4>Privacy Stablecoin</h4>
-                            <p>Marketing and communications lead for an undisclosed cryptographic privacy project, a top-10 privacy-focused stablecoin on CoinGecko with a $400M market cap. Brand positioning, community, PR, paid media and compliant communications.</p>
-                            <span class="ai-coming">Feb 2020 to Jul 2022</span>
-                            <a href="#" class="ai-link" data-open="privacy-project" style="display:block;margin-top:10px;font-weight:600;">Open the project →</a>
+                        <div class="pj-tile">
+                            <a href="#" data-open="privacy-project" class="pj-media pj-art"><b>$400M</b><span>market cap</span></a>
+                            <div class="pj-body">
+                                <span class="pj-eyebrow">Feb 2020 to Jul 2022</span>
+                                <h4>Privacy Stablecoin</h4>
+                                <p>Marketing and communications lead for an undisclosed cryptographic privacy project, a top-10 privacy-focused stablecoin on CoinGecko.</p>
+                                <div class="pj-links"><a href="#" data-open="privacy-project" class="pj-link">Open the project →</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
