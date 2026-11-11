@@ -150,6 +150,7 @@ bullet('Ribble Outliers - thought leadership on LinkedIn alongside B2C content. 
 bullet('Presenting Partner, British Gravel Championships - digital and physical rights negotiation, planning, and execution.')
 bullet('Gravel category growth - Ribble\'s fastest-growing segment, +2pp above market, taking competitor share.')
 bullet('ALLGRIT & ULTRA-GRIT go-to-market - wrote the positioning and messaging framework and the GTM plan for the range and its material variants, ran the press tour, and produced the showroom and retailer education assets with localised versions for each market. Ribble\'s most successful new product launch.')
+bullet('Ribble Outliers programme - built and ran the team as a seven-figure programme across three seasons, with Ribble as headline sponsor and partners I brought in alongside, owning its budget, its partners and the return it had to deliver.')
 bullet('Ribble Outliers race programme - all four national titles at the 2026 UK Gravel National Championships, 2nd at the UCI Gralloch with Jenson Young, and a team film from The Traka in Girona.')
 bullet('The Original Outliers rebrand - led the rebrand with FreshBritain as my first major project and rolled it out across retail, the website and social. Closely involved in the messaging, and carried it through the tone of voice and product copy.')
 bullet('2025 strategic objectives - grow gravel market share, increase regional penetration (NE and South), launch four new bikes.')

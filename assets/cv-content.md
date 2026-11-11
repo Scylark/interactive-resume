@@ -26,6 +26,7 @@ Budget responsibility: £1.2M. Landed 2024/2025 budget under at £920,000. Opera
 - Repositioned brand perception from "budget-friendly heritage brand" to "high-performance technical admiration" — ULTRA-RACE compared to Colnago in Cycling Weekly.
 - Onboarded and managed two key agencies: Shift Active Media (PR) and Commute Films (creative video production).
 - Led NPD marketing including pre-design sign-off documents and comprehensive go-to-market strategies.
+- Built and ran the Ribble Outliers as a seven-figure programme across three seasons, with Ribble as headline sponsor and partners I brought in alongside, owning its budget, its partners and the return it had to deliver.
 - Activated the Ribble Outliers Pro Team across main and team-only channels. Partnership marketing with Precision and Restrap added 8,000+ users to the email subscriber list.
 - British Gravel National Championships sponsorship amplified pro sports positioning. Gravel became Ribble's fastest-growing category, outperforming market growth by 2pp.
 - Partnered with DAS-Hutchinson-Brother UK. Delivered "Welcome to Hell" mini-documentary about their Rutland-Melton CiCLE Classic win.
