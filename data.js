@@ -386,6 +386,7 @@ const RESUME_DATA = {
                         <h4>Pro Sports & Ambassadors</h4>
                         <ul>
                             <li><strong>Four national titles</strong> - the Ribble Outliers won all four titles at the 2026 UK Gravel National Championships.</li>
+                            <li><strong>£1M+ programme</strong> - built and ran the Ribble Outliers as a seven-figure programme across three seasons, with Ribble as headline sponsor and partners I brought in alongside, and owned its budget, its partners and the return it had to deliver.</li>
                             <li>Led the development of the Ribble Outliers pro gravel team. In its first season, the most successful British gravel team with multiple golds and podiums at UCI and Gravel Earth Series events.</li>
                             <li>Gravel category growth: Ribble's fastest-growing segment, outperforming market growth by 2 percentage points and taking competitor share.</li>
                             <li>Developed marketing activation and product collaboration opportunities between Ribble and its brand partners, including Precision and Restrap.</li>
