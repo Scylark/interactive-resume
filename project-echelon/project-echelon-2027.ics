@@ -1,0 +1,44 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Project Echelon//2027 calendar//EN
+BEGIN:VEVENT
+UID:event-valley-of-the-sun-stage-race@projectechelon
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270215
+SUMMARY:Project Echelon at Valley of the Sun Stage Race
+LOCATION:Phoenix\, Arizona
+END:VEVENT
+BEGIN:VEVENT
+UID:event-tucson-bicycle-classic@projectechelon
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270218
+DTEND;VALUE=DATE:20270222
+SUMMARY:Project Echelon at Tucson Bicycle Classic
+LOCATION:Tucson\, Arizona
+END:VEVENT
+BEGIN:VEVENT
+UID:event-battenkill@projectechelon
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270522
+DTEND;VALUE=DATE:20270523
+SUMMARY:Project Echelon at Battenkill
+LOCATION:Cambridge\, New York
+END:VEVENT
+BEGIN:VEVENT
+UID:event-armed-forces-cycling-classic@projectechelon
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270607
+SUMMARY:Project Echelon at Armed Forces Cycling Classic
+LOCATION:Washington\, DC\, and Arlington\, Virginia
+END:VEVENT
+BEGIN:VEVENT
+UID:event-philadelphia-cycling-classic@projectechelon
+DTSTAMP:20261124T000000Z
+DTSTART;VALUE=DATE:20270822
+DTEND;VALUE=DATE:20270823
+SUMMARY:Project Echelon at Philadelphia Cycling Classic
+LOCATION:Philadelphia\, Pennsylvania
+END:VEVENT
+END:VCALENDAR
