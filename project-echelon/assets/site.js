@@ -20,7 +20,7 @@
     const off = store.get('pe-motion') === 'off' || (store.get('pe-motion') !== 'on' && matchMedia('(prefers-reduced-motion: reduce)').matches);
     const label = b.querySelector('.ml') || b;
     const words = off ? 'Turn motion on' : 'Turn motion off';
-    label.textContent = b.closest('.dock') && innerWidth <= 820 ? words.replace('Turn motion', 'Motion') : words;
+    label.textContent = words;
     b.setAttribute('aria-label', words);
     b.addEventListener('click', () => {
       store.set('pe-motion', off ? 'on' : 'off');

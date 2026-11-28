@@ -9,582 +9,202 @@
 <meta name="description" content="A UCI Continental pro team and a veteran non-profit, run as one.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,300..800;1,75..125,300..800&family=Big+Shoulders:wght@400..900&family=Martian+Mono:wght@300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,300..800;1,75..125,300..800&family=Big+Shoulders:wght@400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/shell.css">
 <script>(function(d){d.classList.add('js');var m=null;try{m=localStorage.getItem('pe-motion');if(localStorage.getItem('pe-text')==='large')d.classList.add('large')}catch(x){}if(m==='off'||(m!=='on'&&matchMedia('(prefers-reduced-motion: reduce)').matches)||/[?&]calm/.test(location.search))d.classList.add('calm')})(document.documentElement)</script>
 <style>
-  :root {
-    --navy: #022E4C; --deep: #01233A; --slate: #517493; --burgundy: #56061D; --stone: #E2D9CB; --paper: #EDE6DA; --road: #FFC72C;
-    --display: 'Big Shoulders', 'Arial Narrow', Impact, sans-serif;
-    --head: 'Big Shoulders', 'Arial Narrow', Impact, sans-serif;
-    --mono: 'Martian Mono', ui-monospace, Menlo, monospace;
-    --body: 'Archivo', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-    --gutter: clamp(16px, 4vw, 64px);
-    --cut: 8vw;
-    --lean: 0;
-  }
+  :root { --head: 'Big Shoulders', 'Arial Narrow', Impact, sans-serif; --cut: 7vw; }
   * { box-sizing: border-box; }
-  html { background: var(--deep); -webkit-text-size-adjust: 100%; overflow-x: hidden; }
-  body { margin: 0; background: var(--deep); color: var(--stone); font: 400 17px/1.5 var(--body); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+  html { background: var(--deep); -webkit-text-size-adjust: 100%; overflow-x: hidden; scroll-padding-top: var(--top-h); }
+  body { margin: 0; background: var(--deep); color: var(--stone); font: 400 1.125rem/1.5 var(--body); overflow-x: clip; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
   button { font: inherit; color: inherit; }
   p, h1, h2, h3, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
   ul, ol { list-style: none; }
   [hidden] { display: none !important; }
-  :focus-visible { outline: 3px solid var(--road); outline-offset: 3px; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-  /* Type */
-  .display { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .9; letter-spacing: .004em; transform: skewX(calc(-8deg + var(--lean) * 1deg)); transform-origin: 0 100%; }
+  /* One heading, one line and one button on each screen */
+  .display { font: 900 clamp(64px, 13vh, 150px)/.9 var(--display); text-transform: uppercase; letter-spacing: .004em; transform: skewX(-8deg); transform-origin: 0 100%; }
   .display em { font-style: normal; color: var(--road); }
-  .tag { font: 400 11px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-  .tag i { font-style: normal; opacity: .5; padding: 0 .4em; }
-  .lede { font-size: clamp(17px, 1.5vw, 22px); line-height: 1.4; font-stretch: 95%; }
+  .lede { max-width: 24em; text-wrap: balance; margin-top: 22px; font-size: clamp(1.1875rem, 1.7vw, 1.5625rem); line-height: 1.4; }
+  .btn { display: inline-flex; align-items: center; min-height: 56px; margin-top: 32px; padding: 10px 32px 10px 26px; border: 0; background: var(--navy); color: var(--stone); font: 700 1.125rem/1.15 var(--body); text-decoration: none; clip-path: polygon(11px 0, 100% 0, calc(100% - 11px) 100%, 0 100%); cursor: pointer; }
+  .btn:hover { background: var(--burgundy); color: var(--stone); }
+  .btn.road { background: var(--road); color: var(--deep); } .btn.road:hover { background: #fff; color: var(--deep); }
+  .btn:focus-visible { outline-offset: -5px; outline-color: currentColor; }
 
-  /* Fixed furniture */
-  .hud { position: fixed; z-index: 50; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px var(--gutter); color: var(--stone); transition: color .25s; pointer-events: none; }
-  .hud > * { pointer-events: auto; }
-  html[data-hud="light"] .hud, html[data-hud="light"] .rail, html[data-hud="light"] .wind, html[data-hud="light"] .crop, html[data-hud="light"] .concept-tag { color: var(--navy); }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .brand svg { width: 40px; height: auto; overflow: visible; }
-  .brand polygon { fill: currentColor; }
-  .brand .wmt { display: block; font: 800 15px/.9 var(--head); text-transform: uppercase; letter-spacing: .03em; transform: skewX(-8deg); }
-  .hud nav { display: flex; align-items: center; gap: clamp(10px, 1.8vw, 28px); }
-  .hud nav a { font: 400 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 6px 0; }
-  .hud nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .hud nav .crisis { padding: 8px 12px; background: var(--road); color: var(--deep); font-weight: 600; clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%); white-space: nowrap; }
-  .hud nav .crisis:hover { text-decoration: none; background: #fff; }
-  .rail { position: fixed; z-index: 40; left: calc(var(--gutter) * .32); top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: 0 0; font: 400 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; color: var(--stone); transition: color .25s, opacity .25s; }
-  .wind { position: fixed; z-index: 40; right: calc(var(--gutter) + 150px); bottom: 14px; font: 400 10px/1 var(--mono); letter-spacing: .1em; color: var(--stone); transition: color .25s, opacity .25s; font-variant-numeric: tabular-nums; }
-  .concept-tag { position: fixed; z-index: 40; left: var(--gutter); bottom: 14px; font: 400 10px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--stone); opacity: .75; transition: color .25s; }
-  .crop { position: fixed; z-index: 39; width: 14px; height: 14px; color: var(--stone); opacity: .5; pointer-events: none; transition: color .25s; }
-  .crop.tl { top: 8px; left: 8px; border-top: 1px solid; border-left: 1px solid; }
-  .crop.tr { top: 8px; right: 8px; border-top: 1px solid; border-right: 1px solid; }
-  .crop.bl { bottom: 8px; left: 8px; border-bottom: 1px solid; border-left: 1px solid; }
-  .crop.br { bottom: 8px; right: 8px; border-bottom: 1px solid; border-right: 1px solid; }
-  html[data-hud="road"] .hud, html[data-hud="road"] .rail, html[data-hud="road"] .wind, html[data-hud="road"] .crop, html[data-hud="road"] .concept-tag { color: var(--deep); }
-  html[data-hud="road"] .hud nav .crisis { background: var(--deep); color: var(--road); }
-  html.still .wind, html.still .rail { opacity: 0; }
-
-  /* The musette: partner codes, one tap away on every page */
-  .mus-btn { position: fixed; z-index: 60; right: var(--gutter); bottom: 12px; display: flex; align-items: center; gap: 8px; padding: 10px 18px 10px 14px; border: 0; background: var(--road); color: var(--deep); font: 600 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); transition: opacity .25s, background .25s, color .25s; }
-  .mus-btn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .mus-btn .cnt { min-width: 19px; padding: 3px 5px; background: var(--deep); color: var(--road); font: 600 10px/1 var(--mono); text-align: center; }
-  html[data-hud="road"] .mus-btn { background: var(--deep); color: var(--road); }
-  html[data-hud="road"] .mus-btn .cnt { background: var(--road); color: var(--deep); }
-  html.still .mus-btn, html.still .mus-toast { opacity: 0; pointer-events: none; }
-  .mus-btn.bump { animation: bump .5s cubic-bezier(.3, 1.6, .5, 1); }
-  @keyframes bump { 0% { transform: scale(1); } 35% { transform: scale(1.14) rotate(-3deg); } 100% { transform: scale(1); } }
-  .mus-toast { position: fixed; z-index: 61; right: var(--gutter); bottom: 58px; padding: 8px 12px; background: var(--deep); color: var(--stone); font: 400 11px/1.3 var(--mono); letter-spacing: .04em; opacity: 0; transform: translateY(6px); transition: opacity .25s, transform .25s; pointer-events: none; box-shadow: 0 8px 22px rgba(0, 0, 0, .3); }
-  .mus-toast.show { opacity: 1; transform: none; }
-  .fly { position: fixed; z-index: 95; left: 0; top: 0; padding: 7px 11px; background: var(--deep); color: var(--road); font: 600 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; pointer-events: none; white-space: nowrap; transition: transform .75s cubic-bezier(.55, 0, .2, 1), opacity .75s ease-in; }
-  .mus-back { position: fixed; z-index: 85; inset: 0; background: rgba(1, 35, 58, .55); opacity: 0; transition: opacity .3s; }
-  .mus-back.open { opacity: 1; }
-  .musette { position: fixed; z-index: 90; top: 0; right: 0; bottom: 0; width: min(440px, 100vw); overflow-y: auto; padding: 22px 26px 30px; background: var(--deep); color: var(--stone); transform: translateX(100%); transition: transform .32s cubic-bezier(.2, .8, .2, 1); box-shadow: -18px 0 40px rgba(0, 0, 0, .35); }
-  .musette.open { transform: none; }
-  .mus-head { display: flex; justify-content: space-between; align-items: center; color: var(--road); }
-  .mus-x { width: 40px; height: 40px; border: 1px solid rgba(226, 217, 203, .35); background: none; color: var(--stone); font-size: 22px; line-height: 1; cursor: pointer; }
-  .musette h2 { font: 900 clamp(46px, 6vw, 64px)/.9 var(--display); text-transform: uppercase; transform: skewX(-8deg); transform-origin: 0 100%; margin: 14px 0 12px; }
-  .mus-intro { font-size: 15px; line-height: 1.45; max-width: 30em; }
-  .mus-list { margin: 22px 0 22px; border-top: 1px solid rgba(226, 217, 203, .25); }
-  .mi { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(226, 217, 203, .16); }
-  .mi b { display: block; font: 700 22px/1 var(--head); text-transform: uppercase; }
-  .mi span { display: block; margin-top: 4px; font: 400 10px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; opacity: .7; }
-  .mi.got span::before { content: "Picked up / "; color: var(--road); opacity: 1; }
-  .mi code { font: 500 12px/1 var(--mono); letter-spacing: .04em; padding: 7px 8px; border: 1px dashed rgba(226, 217, 203, .45); }
-  .mi.got code { border-color: var(--road); color: var(--road); }
-  .copy { padding: 8px 10px; border: 0; background: var(--stone); color: var(--deep); font: 600 10px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; min-width: 64px; }
-  .copy:hover { background: var(--road); }
-  .musette .fine { margin-top: 18px; font: 400 10px/1.6 var(--mono); letter-spacing: .05em; opacity: .65; }
-
-  /* Pin scaffolding */
   .sec { position: relative; }
   .js:not(.calm) .pin { height: var(--len, 300vh); }
   .js:not(.calm) .stick { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-  .grid-bg { background-color: var(--deep); background-image:
-      linear-gradient(rgba(226, 217, 203, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(226, 217, 203, .055) 1px, transparent 1px);
-    background-size: 96px 96px; background-position: var(--gx, 0) var(--gy, 0); }
   .cut { margin-top: calc(var(--cut) * -1); clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%); }
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s, transform .9s cubic-bezier(.16, .84, .3, 1); }
-  .reveal.in { opacity: 1; transform: none; }
-
-  /* Duotone photography */
   .duo { position: relative; overflow: hidden; background: var(--hi, var(--stone)); isolation: isolate; }
   .duo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.18); mix-blend-mode: multiply; }
   .duo::after { content: ""; position: absolute; inset: 0; background: var(--lo, var(--navy)); mix-blend-mode: lighten; }
 
-  .chip { display: inline-block; padding: 13px 26px 13px 22px; border: 0; font: 600 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; background: var(--navy); color: var(--stone); clip-path: polygon(9px 0, 100% 0, calc(100% - 9px) 100%, 0 100%); cursor: pointer; }
-  .chip:hover { background: var(--burgundy); }
-  .chip.dark { background: var(--deep); color: var(--road); }
-  .chip.dark:hover { background: var(--burgundy); color: var(--stone); }
-  .chip.road { background: var(--road); color: var(--deep); }
-  .chip.road:hover { background: #fff; }
-  .roll { display: inline-flex; }
-  .roll .col { display: inline-block; height: 1em; overflow: hidden; }
-  .roll .col > span { display: block; transition: transform 1.5s cubic-bezier(.16, .84, .3, 1); transition-delay: calc(var(--i) * 100ms); }
-  .roll .col b { display: block; height: 1em; line-height: 1; font-weight: inherit; text-align: center; }
-  .in .roll .col > span, .roll.in .col > span { transform: translateY(calc(var(--d) * -1em)); }
-
-  /* 01 Hero */
-  .hero .stick { background-size: 96px 96px; }
+  /* 01 Opening */
+  .hero .stick { background: var(--deep); }
   #field { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hero-copy { position: absolute; left: var(--gutter); pointer-events: none; }
-  #heroA { top: clamp(84px, 15vh, 150px); width: min(56vw, 800px); }
-  #heroA .display { font-size: clamp(84px, 23vh, 250px); margin: 14px 0 24px; }
-  #heroA .lede { max-width: 30em; }
-  .hint { margin-top: 26px; font: 400 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-  .hint::after { content: ""; width: 54px; height: 1px; background: var(--road); transform-origin: 0 50%; animation: hint 2s ease-in-out infinite; }
-  @keyframes hint { 0%, 100% { transform: scaleX(.3); } 50% { transform: scaleX(1); } }
-  #heroB { top: clamp(100px, 22vh, 220px); width: min(42vw, 620px); opacity: 0; }
-  #heroB .display { font-size: clamp(50px, 10.5vh, 118px); margin: 12px 0 18px; }
-  #heroC { bottom: clamp(70px, 13vh, 130px); width: min(46vw, 680px); opacity: 0; }
-  #heroC .display { font-size: clamp(64px, 15vh, 170px); margin-bottom: 18px; }
-  .readout { position: absolute; bottom: calc(var(--dock-h) + 92px); right: var(--gutter); display: grid; grid-template-columns: auto auto; gap: 5px 14px; font: 400 10px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; font-variant-numeric: tabular-nums; text-align: right; pointer-events: none; }
-  .readout dt { opacity: .8; }
-  .readout dd { color: var(--road); min-width: 8.5em; }
+  .hero-copy { position: absolute; z-index: 2; left: var(--gutter); }
+  #heroA { top: calc(var(--top-h) + clamp(24px, 7vh, 84px)); width: min(54vw, 800px); }
+  #heroA .display { font-size: clamp(72px, min(19.5vh, 13vw), 230px); }
+  .choice { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 30px; margin-top: 34px; }
+  .choice .btn { margin: 0; min-height: 64px; padding: 10px 40px 10px 32px; font-size: 1.3125rem; }
+  .choice span { font-size: 1.125rem; }
+  .js:not(.calm) .hero-copy { opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+  .js:not(.calm) .hero-copy.on { opacity: 1; visibility: visible; }
+  #heroB { top: 24vh; width: min(46vw, 720px); }
+  #heroC { bottom: 12vh; width: min(46vw, 720px); }
+  #heroB .display, #heroC .display { font-size: clamp(56px, min(13vh, 7.6vw), 156px); }
+  .still-btn { position: absolute; z-index: 3; right: calc(var(--gutter) - 14px); bottom: 18px; min-height: 44px; padding: 0 14px; border: 0; background: rgba(1, 35, 58, .82); color: var(--stone); font: 600 1rem/1 var(--body); text-decoration: underline; text-underline-offset: 5px; cursor: pointer; }
+  .still-btn:hover { color: var(--road); }
 
-  /* 02 Roster */
+  /* 02 Team */
   .roster { z-index: 2; background: var(--deep); }
-  .roster .stick::before { content: ""; position: absolute; z-index: 2; inset: 0 0 auto 0; height: 22vh; background: linear-gradient(180deg, var(--deep) 45%, transparent); pointer-events: none; }
-  .roster-head { position: absolute; z-index: 3; top: calc(var(--cut) + 40px); left: calc(var(--gutter) + 12px); }
-  .roster-head .tag { color: var(--road); }
-  .names { position: absolute; left: var(--anchor); top: 50%; --row: clamp(56px, 11.5vh, 116px); --step: calc(var(--row) * .34); --anchor: 12vw; will-change: transform; }
+  .roster h2 { position: absolute; z-index: 3; top: calc(var(--top-h) + 7vh); left: calc(var(--gutter) + 10px); font-size: clamp(44px, 8vh, 92px); color: var(--stone); }
+  .names-wrap { position: absolute; inset: 25vh 0 3vh 0; overflow: hidden; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 32%, #000 68%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 32%, #000 68%, transparent 100%); }
+  .names { position: absolute; left: 11vw; top: 50%; --row: clamp(52px, min(13vh, 8vw), 132px); --step: calc(var(--row) * .34); will-change: transform; }
   .name { position: absolute; left: 0; top: 0; height: var(--row); margin-top: calc(var(--row) * -.5); transform: translate3d(calc(var(--n) * var(--step) * -1), calc(var(--n) * var(--row)), 0); white-space: nowrap; }
-  .nmb { display: flex; align-items: center; gap: .22em; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; font: 900 calc(var(--row) * .95)/1 var(--display); text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px rgba(226, 217, 203, .42); transition: color .22s, -webkit-text-stroke-color .22s; }
-  .nmb small { font: 400 11px/1.3 var(--mono); letter-spacing: .1em; -webkit-text-stroke: 0; color: var(--stone); opacity: 0; width: 7.4em; text-align: right; transition: opacity .22s; }
-  .nmb:hover { -webkit-text-stroke-color: var(--stone); }
-  .name.on .nmb { color: var(--road); -webkit-text-stroke-color: var(--road); }
-  .name.on small { opacity: 1; }
-  .nmb span { transform: skewX(-8deg); display: block; }
-  /* The rider card: a race number with a photo pinned to it, and the way into each rider's page */
-  .bib { position: absolute; z-index: 4; right: calc(var(--gutter) + 4vw); bottom: clamp(60px, 9vh, 100px); width: min(410px, 30vw); padding: 12px 12px 16px; background: var(--paper); color: var(--deep); transform: rotate(var(--tilt, -2deg)); transition: transform .35s cubic-bezier(.3, 1.4, .5, 1); box-shadow: 0 18px 42px rgba(0, 0, 0, .42); }
-  .bib::before, .bib::after { content: ""; position: absolute; z-index: 2; left: 8px; right: 8px; height: 6px; background: radial-gradient(circle at 3px 3px, var(--deep) 2.6px, transparent 3px) left / 100% 100% no-repeat, radial-gradient(circle at calc(100% - 3px) 3px, var(--deep) 2.6px, transparent 3px) right / 100% 100% no-repeat; }
-  .bib::before { top: 8px; } .bib::after { bottom: 8px; }
-  .bib-photo { position: relative; aspect-ratio: 4 / 3.1; margin-bottom: 14px; --hi: var(--stone); --lo: var(--navy); }
-  .bib-photo img { object-position: var(--pos, 50% 30%); }
-  .bib-photo.swap img { animation: swap .45s ease-out; }
-  @keyframes swap { from { opacity: .2; transform: scale(1.06); } to { opacity: 1; transform: none; } }
-  .bib-cap { position: absolute; z-index: 2; left: 10px; bottom: 10px; padding: 4px 6px; background: rgba(1, 35, 58, .78); color: var(--stone); font: 400 9px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-  .bib .tag { display: flex; justify-content: space-between; color: var(--burgundy); margin: 0 6px 4px; }
-  .bib-row { display: flex; align-items: flex-end; gap: 14px; margin: 0 6px; }
-  .bib .bn { flex: none; font: 900 clamp(64px, 7vw, 112px)/.84 var(--display); letter-spacing: -.01em; transform: skewX(-8deg); transform-origin: 0 100%; }
-  .bib .bh { font: 700 clamp(16px, 1.35vw, 21px)/1.12 var(--head); text-transform: uppercase; min-height: 3.36em; display: flex; align-items: flex-end; }
-  .bib .bs { display: flex; align-items: stretch; gap: 2px; margin: 12px 6px 0; height: 10px; }
-  .bib .bs i { flex: 1; background: rgba(1, 35, 58, .16); transform: skewX(-34deg); }
-  .bib .bs i.on { background: var(--burgundy); }
-  .bib-go { margin: 14px 6px 0; padding: 12px 24px 12px 20px; }
-
-  /* A rider's own page, opened from the roster */
-  .rider-back { position: fixed; z-index: 79; inset: 0; background: rgba(1, 35, 58, .6); opacity: 0; transition: opacity .3s; }
-  .rider-back.open { opacity: 1; }
-  .rider { position: fixed; z-index: 80; inset: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--paper); color: var(--navy); transform: translateY(100%); transition: transform .45s cubic-bezier(.2, .8, .2, 1); }
-  .rider.open { transform: none; }
-  .rider-bar { position: sticky; top: 0; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px var(--gutter); background: var(--paper); border-bottom: 1px solid rgba(2, 46, 76, .16); }
-  .rider-bar .tag { color: var(--burgundy); }
-  .rider-nav { display: flex; align-items: center; gap: 8px; }
-  .rider-nav .tag { min-width: 5.4em; text-align: center; color: var(--navy); }
-  .rider-nav button { width: 40px; height: 40px; border: 1px solid rgba(2, 46, 76, .35); background: none; color: var(--navy); font: 400 18px/1 var(--mono); cursor: pointer; }
-  .rider-nav button:hover { background: var(--navy); color: var(--stone); }
-  .rider-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 70px); max-width: 1500px; margin: 0 auto; padding: clamp(26px, 4vw, 56px) var(--gutter) 100px; }
-  .rider-photo { position: sticky; top: 88px; align-self: start; }
-  .rider-photo .duo { aspect-ratio: 4 / 5; }
-  .rider-photo .duo img { object-position: var(--pos, 50% 30%); }
-  .rider-num { position: absolute; z-index: 2; top: 12px; right: 16px; font: 900 clamp(76px, 9vw, 150px)/.84 var(--display); color: var(--road); transform: skewX(-8deg); }
-  .rider-photo figcaption { margin-top: 10px; opacity: .75; }
-  .rider h2 { font-size: clamp(60px, 8.4vw, 150px); margin: 0 0 16px; }
-  .rider h2 small { display: block; font: 700 clamp(22px, 2.4vw, 36px)/1 var(--head); margin-bottom: 8px; transform: skewX(8deg); }
-  .rider-line { max-width: 32em; font-size: clamp(18px, 1.6vw, 23px); line-height: 1.4; }
-  .rider-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin: 28px 0 38px; border-top: 2px solid var(--navy); }
-  .rider-facts div { padding: 10px 14px 12px 0; border-bottom: 1px solid rgba(2, 46, 76, .2); }
-  .rider-facts dt { font: 400 10px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
-  .rider-facts dd { margin-top: 4px; font: 700 clamp(17px, 1.5vw, 21px)/1.2 var(--head); text-transform: uppercase; }
-  .rider h3 { margin-bottom: 4px; color: var(--burgundy); }
-  .rider-res li { display: grid; grid-template-columns: 3.8em minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid rgba(2, 46, 76, .18); }
-  .rider-res .y { font: 400 12px/1 var(--mono); letter-spacing: .04em; }
-  .rider-res .r { font: 700 clamp(18px, 1.6vw, 24px)/1.15 var(--head); text-transform: uppercase; }
-  .rider-res .r small { display: block; margin-top: 4px; font: 400 11px/1.4 var(--mono); letter-spacing: .04em; text-transform: none; opacity: .75; }
-  .rider-res .p { font: 900 clamp(26px, 2.6vw, 40px)/1 var(--display); color: var(--burgundy); text-transform: uppercase; text-align: right; white-space: nowrap; transform: skewX(-8deg); }
-  .rider-note { margin-top: 28px; max-width: 34em; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.5; }
-  .rider-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 28px; }
-  .rider-cta p { max-width: 22em; font-size: 15px; line-height: 1.45; }
-  .rider .fine { margin-top: 26px; font: 400 10px/1.6 var(--mono); letter-spacing: .05em; opacity: .7; }
-  html.locked { overflow: hidden; }
+  .name a { display: flex; align-items: center; height: 100%; font: 900 calc(var(--row) * .95)/1 var(--display); text-transform: uppercase; text-decoration: none; color: rgba(226, 217, 203, .46); transform: skewX(-8deg); transition: color .2s; }
+  .name a:hover { color: var(--stone); }
+  .name.on a { color: var(--road); }
+  .card { position: absolute; z-index: 4; right: var(--gutter); top: 50%; width: min(400px, 30vw); transform: translateY(calc(-50% + var(--top-h) / 2)); }
+  .card .duo { aspect-ratio: 4 / 4.2; --lo: var(--deep); clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%); }
+  .card img { object-position: var(--pos, 50% 30%); }
+  .card small { display: block; margin-top: 8px; font-size: .9375rem; opacity: .8; }
+  .card p { margin-top: 10px; font-size: 1.25rem; line-height: 1.35; min-height: 2.7em; }
+  .card p b { display: block; color: var(--road); }
+  .card .btn { margin-top: 18px; }
 
   /* 03 Results */
-  .results { z-index: 3; background: var(--deep); }
-  .results .bgphoto { position: absolute; inset: 0; --hi: var(--stone); --lo: var(--deep); will-change: transform; }
-  .results .stick { display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--cut) + 70px) var(--gutter) 64px calc(var(--gutter) + 12px); }
-  .results .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(1, 35, 58, .72) 0, rgba(1, 35, 58, .08) 24%, rgba(1, 35, 58, .1) 42%, rgba(1, 35, 58, .94) 80%); }
-  .results-top { position: relative; margin-bottom: clamp(18px, 3vh, 36px); }
-  .results h2 { font-size: clamp(58px, 13vh, 170px); }
-  .results h2 small { display: block; font: 400 11px/1.5 var(--mono); letter-spacing: .1em; margin-bottom: 14px; color: var(--road); transform: skewX(8deg); }
-  .board { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1040px; border-top: 1px solid rgba(226, 217, 203, .35); }
-  .inst { padding: 14px 18px 16px; border-right: 1px solid rgba(226, 217, 203, .18); }
-  .inst:nth-child(3n + 1) { padding-left: 0; }
-  .inst:nth-child(3n) { border-right: 0; }
-  .inst:nth-child(-n + 3) { border-bottom: 1px solid rgba(226, 217, 203, .18); }
-  .inst .n { display: block; font: 800 clamp(44px, 5.6vw, 92px)/1 var(--head); color: var(--stone); white-space: nowrap; }
-  .inst .l { display: block; margin-top: 8px; font: 400 10px/1.45 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+  .results { z-index: 3; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: calc(var(--cut) + 90px) var(--gutter) 11vh calc(var(--gutter) + 10px); background: var(--deep); }
+  .results .duo { position: absolute; inset: 0; --lo: var(--deep); }
+  .results .duo img { position: absolute; inset: 0; }
+  .results .shade { position: absolute; inset: 0; background: linear-gradient(75deg, rgba(1, 35, 58, .95) 0, rgba(1, 35, 58, .8) 38%, rgba(1, 35, 58, .15) 72%); }
+  .results > :not(.duo):not(.shade) { position: relative; }
 
-  /* 04 Kit: what the team rides */
-  .kit { z-index: 4; background: var(--road); color: var(--deep); }
-  .kit .stick { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); grid-template-rows: auto minmax(0, 1fr); grid-template-areas: "copy fig" "list fig"; column-gap: 3.4vw; padding: calc(var(--cut) + 34px) var(--gutter) 64px calc(var(--gutter) + 12px); background: var(--road); }
-  .kit-copy { grid-area: copy; align-self: end; }
-  .kit .display { font-size: clamp(52px, 9vh, 118px); margin: 12px 0 16px; }
-  .kit .lede { max-width: 25em; font-weight: 500; }
-  .kit-list { grid-area: list; align-self: start; margin-top: 26px; border-top: 2px solid var(--deep); }
-  .kit-row { display: grid; grid-template-columns: 2.4em minmax(0, 1fr) auto; align-items: baseline; gap: 10px; width: 100%; padding: 9px 4px 9px 0; border: 0; border-bottom: 1px solid rgba(1, 35, 58, .3); background: none; text-align: left; cursor: pointer; transition: background .2s, padding .2s; }
-  .kit-row .num { font: 400 10px/1 var(--mono); letter-spacing: .08em; }
-  .kit-row .nm { font: 800 clamp(20px, 2vw, 28px)/1 var(--head); text-transform: uppercase; }
-  .kit-row .nm small { font: 400 10px/1 var(--mono); letter-spacing: .06em; margin-left: .7em; opacity: .7; }
-  .kit-row .add { font: 600 10px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 8px; background: var(--deep); color: var(--road); }
-  .kit-row:hover, .kit-row.on { background: rgba(1, 35, 58, .08); padding-left: 8px; }
-  .kit-row.got .add { background: none; color: var(--deep); border: 1px solid var(--deep); }
-  .kit-fig { grid-area: fig; position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 0; }
-  .kit-frame { position: relative; flex: 1; min-height: 0; }
-  .kit-photo { position: absolute; inset: 0; --hi: var(--road); --lo: var(--deep); }
-  .kit-photo img { object-position: 78% 40%; }
-  .hots { position: absolute; inset: 0; }
-  .hot { position: absolute; width: 34px; height: 34px; margin: -17px 0 0 -17px; padding: 0; border: 0; background: none; cursor: pointer; opacity: 0; transform: scale(.4); transition: opacity .35s, transform .45s cubic-bezier(.3, 1.6, .5, 1); }
-  .hot.vis { opacity: 1; transform: none; }
-  .hot .ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--deep); background: var(--road); box-shadow: 0 0 0 3px rgba(255, 199, 44, .45); }
-  .hot .ring::after { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 1px solid var(--road); opacity: 0; }
-  .hot.on .ring::after { animation: ping 1.4s ease-out infinite; }
-  @keyframes ping { 0% { opacity: .9; transform: scale(.6); } 100% { opacity: 0; transform: scale(1.5); } }
-  .hot .hn { position: relative; font: 600 11px/34px var(--mono); color: var(--deep); }
-  .hot.got .ring { background: var(--deep); border-color: var(--road); }
-  .hot.got .hn { color: var(--road); }
-  .hot .pill { position: absolute; top: 50%; left: 42px; transform: translateY(-50%); display: flex; align-items: center; gap: 8px; padding: 8px 12px; white-space: nowrap; background: var(--deep); color: var(--stone); font: 400 10px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; opacity: 0; pointer-events: none; transition: opacity .2s; }
-  .hot .pill b { font: 800 17px/1 var(--head); color: var(--road); letter-spacing: .02em; }
-  .hot.l .pill { left: auto; right: 42px; }
-  .hot.on .pill, .hot.hl .pill, .hot:hover .pill, .hot:focus-visible .pill { opacity: 1; }
-  .hot.hl { opacity: 1; transform: scale(1.15); }
-  .kit-fig figcaption { display: flex; justify-content: space-between; gap: 12px; }
+  /* 04 Kit */
+  .kit { z-index: 4; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 100vh; min-height: 100svh; background: var(--road); color: var(--deep); }
+  .kit-copy { align-self: center; padding: calc(var(--cut) + 40px) 0 60px calc(var(--gutter) + 10px); }
+  .kit .duo { --hi: var(--road); --lo: var(--deep); clip-path: polygon(24% 0, 100% 0, 100% 100%, 0 100%); }
+  .kit .duo img { position: absolute; inset: 0; object-position: 78% 40%; }
 
-  /* 05 Season */
-  .season { background: var(--paper); color: var(--navy); z-index: 5; }
-  .season .stick { background-image: linear-gradient(rgba(2, 46, 76, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(2, 46, 76, .06) 1px, transparent 1px); background-size: 96px 96px; }
-  .season-head { position: absolute; z-index: 3; top: calc(var(--cut) + 54px); left: calc(var(--gutter) + 12px); right: var(--gutter); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 30px; }
-  .season .display { font-size: clamp(50px, 11vh, 136px); }
-  .now { width: min(31em, 42vw); padding-left: 18px; border-left: 3px solid var(--burgundy); }
-  .now .tag { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
-  .now .fr { padding: 3px 7px; background: var(--road); color: var(--deep); font-weight: 600; }
-  .now b { display: block; margin: 6px 0 4px; font: 700 clamp(24px, 2.6vw, 40px)/1.02 var(--head); text-transform: uppercase; color: var(--burgundy); }
-  .now .meta { display: block; font: 400 11px/1.5 var(--mono); letter-spacing: .05em; text-transform: uppercase; }
-  .now p { margin-top: 8px; font-size: clamp(15px, 1.15vw, 17px); line-height: 1.45; min-height: 4.35em; }
-  .world { position: absolute; left: 0; right: 0; bottom: 56px; height: 52vh; }
-  #profile { position: absolute; left: 0; top: 0; height: 100%; overflow: visible; will-change: transform; }
-  #profile text { font-family: var(--mono); fill: var(--navy); }
-  .cursor { position: absolute; top: 0; bottom: 0; left: 34vw; width: 1px; background: var(--burgundy); pointer-events: none; }
-
-  /* 06 How an echelon works */
-  .fig2 { background: var(--stone); color: var(--navy); z-index: 6; }
-  .fig2 .stick { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2vw; align-items: center; padding: var(--cut) var(--gutter) 40px calc(var(--gutter) + 12px); background-image: linear-gradient(rgba(2, 46, 76, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(2, 46, 76, .07) 1px, transparent 1px); background-size: 96px 96px; }
-  .fig2 .display { font-size: clamp(56px, 12vh, 138px); margin: 14px 0 26px; }
-  .caps { position: relative; min-height: 10em; max-width: 27em; }
-  .js:not(.calm) .cap { position: absolute; top: 0; left: 0; opacity: 0; }
-  .cap { font-size: clamp(18px, 1.7vw, 24px); line-height: 1.35; }
-  .cap + .cap { margin-top: 1em; }
-  .js:not(.calm) .cap + .cap { margin-top: 0; }
-  .fig2-stage { position: relative; width: 100%; height: min(82vh, 820px); }
-  #fig2cv { position: absolute; inset: 0; width: 100%; height: 100%; }
-
-  /* 07 The 22 */
-  /* The next section's diagonal top covers the bottom right corner by up to --cut, so the
-     Crisis Line box sits clear of it at any width */
-  .why { background: var(--burgundy); color: var(--stone); z-index: 7; padding: calc(var(--cut) + 90px) var(--gutter) calc(var(--cut) + 100px) calc(var(--gutter) + 12px); }
+  /* 05 The 22. The next section's diagonal top covers the bottom right corner by up to --cut. */
+  .why { background: var(--burgundy); color: var(--stone); z-index: 7; padding: calc(var(--cut) + 90px) var(--gutter) calc(var(--cut) + 100px) calc(var(--gutter) + 10px); }
   .why-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 80px); align-items: end; max-width: 1500px; margin: 0 auto; }
-  .big22 { font: 900 clamp(220px, 44vw, 720px)/.74 var(--display); letter-spacing: -.01em; color: var(--stone); }
+  .big22 { font: 900 clamp(220px, 44vw, 720px)/.74 var(--display); letter-spacing: -.01em; }
   .why h2 { font: 700 clamp(36px, 4.4vw, 68px)/1 var(--head); text-transform: uppercase; margin-bottom: 24px; }
-  .why p { max-width: 31em; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.45; }
-  .why p + p { margin-top: 1em; }
-  .help { display: block; margin-top: 34px; padding: 22px 24px 24px; background: var(--stone); color: var(--burgundy); max-width: 34em; }
+  .why p { max-width: 31em; font-size: clamp(1.125rem, 1.5vw, 1.375rem); line-height: 1.45; }
+  .help { margin-top: 34px; padding: 22px 24px 24px; background: var(--stone); color: var(--burgundy); max-width: 34em; }
   .help strong { display: block; font: 700 clamp(26px, 3vw, 40px)/1.05 var(--head); text-transform: uppercase; margin-bottom: 8px; }
   .help a { font-weight: 700; }
-  .help .tag { display: block; margin-bottom: 10px; }
 
-  /* 08 Veterans */
-  .vets { background: var(--navy); z-index: 8; }
-  .vets .stick { background-color: var(--navy); }
-  .vets-title { position: absolute; z-index: 3; top: calc(var(--cut) + 40px); left: calc(var(--gutter) + 12px); }
-  .track { position: absolute; inset: 0; will-change: transform; }
-  .track-line { position: absolute; height: 2px; background: var(--road); transform-origin: 0 50%; }
-  .panel { position: absolute; left: calc(var(--gutter) + 12px); top: 24vh; width: 62vw; height: 62vh; transform: translate3d(calc(var(--i) * var(--sx)), calc(var(--i) * var(--sy) * -1), 0); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); background: var(--deep); }
-  .vets { --sx: 72vw; --sy: 13vh; }
-  .panel .duo { height: 100%; }
-  .panel .duo img { object-position: 50% 30%; }
-  .panel-body { padding: clamp(18px, 2.4vw, 38px); display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-width: 0; }
-  .panel h3 { font: 900 clamp(48px, 6.4vw, 104px)/.9 var(--display); text-transform: uppercase; transform: skewX(-8deg); transform-origin: 0 100%; }
-  .panel p { font-size: clamp(16px, 1.25vw, 19px); line-height: 1.42; }
-  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .stat .n { display: block; font: 800 clamp(38px, 4.2vw, 68px)/1 var(--head); color: var(--road); white-space: nowrap; }
-  .stat .l { display: block; font: 400 10px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; margin-top: 5px; }
-  .panel.quote { grid-template-columns: 1fr; width: calc(100vw - var(--gutter) * 2 - 12px); background: var(--stone); color: var(--navy); }
-  .panel.quote .panel-body { justify-content: center; gap: 26px; }
-  .panel.quote blockquote { margin: 0; max-width: 21em; font: 700 clamp(28px, 4.6vw, 84px)/1.02 var(--head); text-transform: uppercase; }
-  .panel.quote cite { font: 400 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; font-style: normal; display: block; margin-top: 14px; }
+  /* 06 Veterans */
+  .vets { background: var(--stone); color: var(--navy); z-index: 8; }
+  .vets .stick { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; padding: var(--cut) 0 0 calc(var(--gutter) + 10px); }
+  .vets .display { font-size: clamp(54px, 11.5vh, 132px); }
+  .caps { position: relative; min-height: 5.6em; max-width: 24em; margin-top: 24px; font-size: clamp(1.1875rem, 1.7vw, 1.5625rem); line-height: 1.4; }
+  .js:not(.calm) .cap { position: absolute; top: 0; left: 0; opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+  .js:not(.calm) .cap.on { opacity: 1; visibility: visible; }
+  .calm .cap + .cap, html:not(.js) .cap + .cap { margin-top: .8em; }
+  .vets .btn { margin-top: 8px; }
+  .fig2-stage { position: relative; width: 100%; height: 100%; }
+  #fig2cv { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-  /* 09 How joining works */
-  .join { z-index: 9; background: var(--paper); color: var(--navy); padding: calc(var(--cut) + 80px) var(--gutter) 120px calc(var(--gutter) + 12px); }
-  .join-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 70px); align-items: start; }
-  .join-head { position: sticky; top: 100px; }
-  .join .display { font-size: clamp(54px, 7.4vw, 124px); margin: 12px 0 20px; }
-  .join .lede { max-width: 22em; margin-bottom: 26px; }
-  .steps { display: grid; gap: 10px; --st: clamp(8px, 2.2vw, 34px); counter-reset: s; }
-  .step { display: grid; grid-template-columns: 3.4em minmax(0, 1fr); gap: 14px; align-items: center; width: calc(100% - 6 * var(--st)); margin-left: calc(var(--k) * var(--st)); padding: 18px 34px 18px 28px; background: var(--navy); color: var(--stone); clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
-  .step.reveal { transform: translateX(-34px); transition-delay: calc(var(--k) * 70ms); }
-  .step.reveal.in { transform: none; }
-  .step .sn { font: 900 clamp(34px, 3.4vw, 52px)/1 var(--display); color: var(--road); transform: skewX(-8deg); }
-  .step b { display: block; font: 800 clamp(22px, 2.2vw, 32px)/1 var(--head); text-transform: uppercase; margin-bottom: 5px; }
-  .step p { font-size: 15.5px; line-height: 1.42; }
-  .step:last-child { background: var(--road); color: var(--deep); }
-  .step:last-child .sn { color: var(--burgundy); }
-
-  /* 10 Partners */
-  .partners { background: var(--road); color: var(--deep); z-index: 10; padding: calc(var(--cut) + 76px) 0 90px; overflow: hidden; clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%); margin-top: calc(var(--cut) * -1); }
-  .partners-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(20px, 4vw, 70px); padding: 0 var(--gutter) 0 calc(var(--gutter) + 12px); align-items: end; }
-  .partners .display { font-size: clamp(60px, 9vw, 160px); margin: 12px 0 24px; }
-  .partners .display em { color: var(--burgundy); }
-  .partners .lede { max-width: 30em; font-weight: 500; }
-  .thanks { --hi: var(--paper); --lo: var(--deep); aspect-ratio: 4 / 3; transform: rotate(3deg) translateY(var(--ty, 0)); box-shadow: 0 18px 40px rgba(1, 35, 58, .35); }
-  .seen { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 26px; padding: 34px var(--gutter) 0 calc(var(--gutter) + 12px); }
-  .seen ul { display: flex; flex-wrap: wrap; gap: 6px 0; }
-  .seen li { font: 700 clamp(18px, 1.8vw, 26px)/1 var(--head); text-transform: uppercase; }
-  .seen li + li::before { content: "/"; font-weight: 400; opacity: .4; padding: 0 .55em; }
-  .marquee { margin-top: clamp(30px, 5vh, 60px); border-top: 2px solid var(--deep); }
-  .mrow { display: flex; gap: .5em; padding: .12em 0; border-bottom: 2px solid var(--deep); font: 900 clamp(48px, 8.5vw, 130px)/1 var(--display); text-transform: uppercase; white-space: nowrap; will-change: transform; }
-  .mrow span { flex: none; display: flex; align-items: center; gap: .5em; }
-  .mrow span::after { content: ""; width: .5em; height: .2em; background: var(--deep); transform: skewX(-34deg); }
-  .partner-facts { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 18px 44px; padding: 30px var(--gutter) 0 calc(var(--gutter) + 12px); }
-  .reach > b { display: flex; font: 900 clamp(44px, 5vw, 76px)/1 var(--display); }
-  .reach > span { font: 400 10px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-  .mus-note { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
-  .mus-note p { max-width: 24em; font-size: 15px; line-height: 1.45; font-weight: 500; }
-  .partner-facts .right { display: grid; gap: 10px; justify-items: start; }
-
-  /* 11 Get involved */
-  .routes { background: var(--navy); z-index: 11; padding: calc(var(--cut) + 80px) var(--gutter) 90px calc(var(--gutter) + 12px); margin-top: calc(var(--cut) * -1); clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%); overflow: hidden; }
-  .routes h2 { font-size: clamp(54px, 9vw, 150px); margin: 12px 0 44px; }
-  .bars { display: grid; gap: clamp(10px, 1.6vh, 18px); --max: calc(4 * clamp(12px, 4.4vw, 80px)); }
-  .bar { --s: calc(var(--r) * clamp(12px, 4.4vw, 80px)); display: flex; justify-content: space-between; align-items: center; gap: 20px; width: calc(100% - var(--max)); margin-left: var(--s); padding: clamp(14px, 3vh, 30px) clamp(26px, 4vw, 60px); border: 0; background: var(--stone); color: var(--deep); text-align: left; text-decoration: none; cursor: pointer; clip-path: polygon(clamp(12px, 2.4vw, 34px) 0, 100% 0, calc(100% - clamp(12px, 2.4vw, 34px)) 100%, 0 100%); transform: translateX(calc((1 - var(--in, 1)) * 60vw)); transition: background .2s; }
-  .bar:hover, .bar:focus-visible { background: var(--road); }
+  /* 07 Get involved: the four bars of the mark */
+  .routes { background: var(--navy); z-index: 9; padding: calc(var(--cut) + 70px) var(--gutter) 13vh; }
+  .routes h2 { margin-left: 10px; }
+  .bars { display: grid; gap: 16px; margin-top: 44px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; width: 74%; min-height: clamp(76px, 12.5vh, 124px); margin-left: calc(var(--r) * 4.4%); padding: 10px 5vw 10px 5vw; background: var(--stone); color: var(--navy); text-decoration: none; font: 900 clamp(32px, 6vh, 68px)/1 var(--display); text-transform: uppercase; clip-path: polygon(clamp(30px, 5vw, 70px) 0, 100% 0, calc(100% - clamp(30px, 5vw, 70px)) 100%, 0 100%); }
   .bar:first-child { background: var(--road); }
-  .bar:first-child:hover { background: #fff; }
-  .bar b { font: 900 clamp(30px, 5vw, 84px)/.95 var(--display); text-transform: uppercase; display: block; transform: skewX(-8deg); transform-origin: 0 100%; }
-  .bar .tag { display: block; margin-bottom: 6px; }
-  .bar .go { font: 400 clamp(20px, 3vw, 40px)/1 var(--mono); transition: transform .2s; }
-  .bar:hover .go { transform: translateX(8px); }
+  .bar:hover { background: #fff; }
+  .bar:focus-visible { outline-offset: -8px; outline-color: var(--burgundy); }
 
-  /* Footer */
-  footer { position: relative; z-index: 12; background: var(--deep); padding: 56px var(--gutter) 76px calc(var(--gutter) + 12px); }
-  .foot { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 34px 60px; align-items: start; }
-  .foot h2 { font: 700 clamp(30px, 3.6vw, 56px)/1.02 var(--head); text-transform: uppercase; color: var(--road); }
-  .foot h2 a { text-decoration-thickness: 2px; text-underline-offset: 5px; }
-  .foot p { font-size: 15px; line-height: 1.5; max-width: 38em; }
-  .foot p + p { margin-top: .8em; }
-  .foot p.fine { font: 400 10px/1.7 var(--mono); letter-spacing: .05em; opacity: .75; }
+  /* 08 Find what you need. Where the opening's button lands. Nothing here moves. */
+  .find { z-index: 10; background: var(--paper); color: var(--deep); padding: 80px var(--gutter) 70px; }
+  .find:focus { outline: none; }
+  .find h2 { font: 900 clamp(48px, 9vh, 104px)/.9 var(--display); text-transform: uppercase; transform: skewX(-8deg); transform-origin: 0 100%; color: var(--navy); }
+  .find-form { display: flex; max-width: 660px; margin: 34px 0 44px; }
+  .find-form input { flex: 1; min-width: 0; min-height: 60px; padding: 0 18px; border: 2px solid var(--navy); border-right: 0; border-radius: 0; background: #fff; color: var(--deep); font: 400 1.1875rem/1 var(--body); }
+  .find-form button { min-height: 60px; padding: 0 30px; border: 0; background: var(--navy); color: var(--stone); font: 700 1.125rem/1 var(--body); cursor: pointer; }
+  .quick { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .quick a { display: flex; align-items: center; min-height: 84px; padding: 12px 22px; background: #fff; font: 700 1.25rem/1.2 var(--body); text-decoration: none; }
+  .quick a:hover { background: var(--navy); color: var(--stone); }
+  .find .all { display: inline-block; margin-top: 26px; font-weight: 700; text-underline-offset: 5px; }
 
-  /* Reduced motion and no-JS: everything is present, in plain reading order */
-  html:not(.js) .hero-copy, .calm .hero-copy { position: relative; left: auto; top: auto; bottom: auto; width: auto; opacity: 1 !important; transform: none !important; padding: 20px var(--gutter); }
-  .calm #heroA, .calm #heroB, .calm #heroC, html:not(.js) #heroA, html:not(.js) #heroB, html:not(.js) #heroC { top: auto; bottom: auto; }
-  .calm #heroA, html:not(.js) #heroA { padding-top: 100px; }
-  .calm .hero .stick { display: flex; flex-direction: column; }
-  .calm #field { position: relative; height: 62vh; order: 2; }
-  html:not(.js) #field, html:not(.js) .fig2-stage, html:not(.js) .readout, html:not(.js) .bib, .calm .readout, .calm .bib, html:not(.js) .world, html:not(.js) .now, html:not(.js) .hots, html:not(.js) .mus-btn { display: none; }
-  .calm .fig2 .stick, html:not(.js) .fig2 .stick { display: block; padding: 90px var(--gutter); }
-  .calm .fig2-stage { height: 66vh; margin-top: 24px; }
-  .calm .track, html:not(.js) .track { position: static; transform: none !important; padding: 150px var(--gutter) 40px; display: grid; gap: 24px; }
-  .calm .track-line, html:not(.js) .track-line { display: none; }
-  .calm .panel, html:not(.js) .panel { position: static; transform: none; width: auto; height: auto; }
-  .calm .panel .duo, html:not(.js) .panel .duo { height: 44vh; }
-  .calm .names, html:not(.js) .names { position: static; padding: 160px var(--gutter) 60px; transform: none !important; display: grid; gap: 8px; --row: auto; }
+  .backers { position: relative; background: var(--paper); color: var(--navy); padding: 46px var(--gutter) 56px; border-top: 1px solid rgba(2, 46, 76, .22); }
+  .backers h2 { font: 700 1.125rem/1.2 var(--body); margin-bottom: 16px; }
+  .backers ul { display: flex; flex-wrap: wrap; gap: 10px 38px; font: 800 clamp(24px, 2.4vw, 34px)/1 var(--display); text-transform: uppercase; }
+
+  /* Motion off, or no script: everything in plain reading order */
+  html:not(.js) .hero-copy, .calm .hero-copy { position: relative; left: auto; top: auto !important; bottom: auto !important; width: auto !important; max-width: 900px; opacity: 1 !important; padding: 0 var(--gutter); }
+  .calm #heroA, html:not(.js) #heroA { padding-top: calc(var(--top-h) + 50px); }
+  .calm #heroB, .calm #heroC, html:not(.js) #heroB, html:not(.js) #heroC { padding-top: 30px; padding-bottom: 20px; }
+  .calm #heroB .display, .calm #heroC .display { font-size: clamp(38px, 6vw, 74px); }
+  .calm #heroC, html:not(.js) #heroC { padding-bottom: calc(var(--cut) + 60px); }
+  .calm .hero .stick { display: flex; flex-direction: column; align-items: flex-start; }
+  .calm #heroA { order: 0; } .calm .still-btn { order: 1; } .calm #field { order: 2; position: relative; height: 56vh; margin-top: 30px; } .calm #heroB { order: 3; } .calm #heroC { order: 4; }
+  .calm .still-btn { position: relative; right: auto; bottom: auto; margin: 10px var(--gutter) 0; }
+  html:not(.js) #field, html:not(.js) .fig2-stage, html:not(.js) .card, html:not(.js) .still-btn { display: none; }
+  .calm .choice span, html:not(.js) .choice span { display: none; }
+  .calm .roster .stick, html:not(.js) .roster .stick { padding: calc(var(--cut) + 60px) var(--gutter) calc(var(--cut) + 70px); }
+  .calm .roster h2, html:not(.js) .roster h2 { position: static; }
+  .calm .names-wrap, html:not(.js) .names-wrap { position: static; -webkit-mask-image: none; mask-image: none; padding: 24px 0 0 12px; }
+  .calm .names, html:not(.js) .names { position: static; transform: none !important; display: flex; flex-wrap: wrap; gap: 4px 34px; }
   .calm .name, html:not(.js) .name { position: static; transform: none; margin: 0; height: auto; }
-  .calm .nmb, html:not(.js) .nmb { font: 900 clamp(40px, 7vw, 90px)/1 var(--display); color: var(--stone); -webkit-text-stroke: 0; }
-  .calm .nmb small, html:not(.js) .nmb small { opacity: 1; order: 2; width: auto; text-align: left; }
-  .calm .results .stick, html:not(.js) .results .stick { min-height: 100vh; }
-  .calm .kit .stick, html:not(.js) .kit .stick { padding-bottom: 80px; }
-  .calm .kit-frame, html:not(.js) .kit-frame { flex: none; height: 70vh; }
-  .calm .hot { opacity: 1; transform: none; }
-  .calm .season-head { position: static; padding: calc(var(--cut) + 50px) var(--gutter) 20px; }
-  .calm .world { position: relative; bottom: auto; overflow-x: auto; margin: 20px 0 60px; }
-  .calm .cursor, html:not(.js) .cursor { display: none; }
-  .calm .reveal, html:not(.js) .reveal { opacity: 1; transform: none; transition: none; }
-  .calm .display { transform: skewX(-8deg); }
-  .calm .hint::after { animation: none; }
-  .calm .mus-btn.bump { animation: none; }
-  .calm .fly { transition: none; }
+  .calm .name a, html:not(.js) .name a { min-height: 56px; font-size: clamp(36px, 5vw, 68px); color: var(--stone); }
+  .calm .card { position: static; display: block; transform: none; width: auto; } .calm .card .duo, .calm .card p, .calm .card small { display: none; }
+  .calm .vets .stick, html:not(.js) .vets .stick { padding-top: calc(var(--cut) + 70px); padding-bottom: 60px; }
+  .calm .fig2-stage { height: 70vh; }
+  .calm .vets .btn, html:not(.js) .vets .btn { margin-top: 28px; }
   .calm *, .calm *::before, .calm *::after { animation: none !important; transition: none !important; }
 
-  @media (max-width: 1100px) {
-    .hud nav a:not(.crisis) { display: none; }
-    .rail { display: none; }
-  }
+  @media (max-width: 1040px) { .choice span { width: 100%; } }
   @media (max-width: 820px) {
-    :root { --cut: 13vw; }
-    .crisis .lg { display: none; }
-    .readout dt:nth-of-type(n+3), .readout dd:nth-of-type(n+3) { display: none; }
-    .wind { display: none; }
-    html:not(.at-hero) .concept-tag { display: none; }
-    body { font-size: 16px; }
-    .brand svg { width: 32px; }
-    .brand .wmt { font-size: 12.5px; }
-    .concept-tag, .crop.bl { left: 16px; }
-    .mus-btn { right: 16px; padding: 9px 14px 9px 11px; }
-    .mus-toast { right: 16px; }
-    #heroA { top: 72px; width: calc(100% - 32px); }
-    #heroA .display { font-size: min(21.5vw, 15vh); margin: 8px 0 12px; }
-    #heroA .lede { font-size: 15.5px; max-width: 21em; }
-    .hint { margin-top: 12px; }
-    #heroB { top: 84px; width: calc(100% - 32px); }
-    #heroB .display { font-size: min(12.4vw, 8vh); margin: 8px 0 8px; }
-    #heroC { top: 84px; bottom: auto; width: calc(100% - 32px); }
-    #heroC .display { font-size: min(18vw, 10vh); margin-bottom: 10px; }
-    .readout { top: auto; right: 16px; bottom: 66px; grid-template-columns: auto auto; gap: 3px 8px; font-size: 9px; }
-    .readout dd { min-width: 6.5em; }
-    .names { --anchor: 16px; --row: clamp(44px, 7.2vh, 60px); --step: 5px; top: 28%; }
-    .nmb { font-size: calc(var(--row) * .9); }
-    .nmb small { display: none; }
-    .bib { left: 14px; right: 14px; bottom: 62px; width: auto; padding: 10px 10px 12px; display: grid; grid-template-columns: 40% minmax(0, 1fr); column-gap: 12px; align-content: start; }
-    .bib-photo { grid-row: 1 / span 4; aspect-ratio: auto; height: 100%; min-height: 150px; margin: 0; }
-    .bib .tag, .bib-row, .bib .bs, .bib-go { margin-left: 0; margin-right: 0; }
-    .bib .tag { margin-top: 6px; }
-    .bib .bn { font-size: 52px; }
-    .bib .bh { font-size: 14px; min-height: 0; }
-    .bib-row { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .bib .bs { margin-top: 8px; height: 8px; }
-    .bib-go { margin-top: 10px; padding: 10px 16px 10px 13px; font-size: 10.5px; justify-self: start; }
-    .bib-cap { font-size: 8px; left: 6px; bottom: 6px; }
-    .rider-bar { padding: 10px 16px; }
-    .rider-bar > .tag { display: none; }
-    .rider-grid { grid-template-columns: 1fr; padding: 18px 16px 80px; }
-    .rider-photo { position: relative; top: 0; }
-    .rider-photo .duo { aspect-ratio: 4 / 3; }
-    .rider h2 { font-size: 15vw; }
-    .rider-res li { grid-template-columns: 3em minmax(0, 1fr) auto; gap: 10px; }
-    .results .stick { padding: calc(var(--cut) + 60px) 16px 70px; }
-    .results .shade { background: linear-gradient(180deg, rgba(1, 35, 58, .7) 0, rgba(1, 35, 58, .08) 16%, rgba(1, 35, 58, .2) 32%, rgba(1, 35, 58, .95) 60%); }
-    .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .inst, .inst:nth-child(3n + 1) { padding: 8px 10px; border-bottom: 1px solid rgba(226, 217, 203, .18); }
-    .inst:nth-child(3n) { border-right: 1px solid rgba(226, 217, 203, .18); }
-    .inst:nth-child(2n) { border-right: 0; }
-    .inst .n { font-size: 11vw; }
-    .inst .l { margin-top: 3px; font-size: 9px; }
-    .kit .stick { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr) auto; grid-template-areas: "copy" "fig" "list"; padding: calc(var(--cut) + 46px) 16px 64px; row-gap: 12px; }
-    .kit .display { font-size: min(13vw, 7.4vh); margin: 6px 0 8px; }
-    .kit .lede { font-size: 14.5px; }
-    .kit-list { margin-top: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px; border-top-width: 1px; }
-    .kit-row { grid-template-columns: 1.8em minmax(0, 1fr) auto; padding: 7px 0; gap: 6px; }
-    .kit-row .nm { font-size: 17px; }
-    .kit-row .nm small { display: none; }
-    .kit-row .add { padding: 4px 5px; font-size: 9px; }
-    .hot .pill { display: none; }
-    .kit-fig figcaption { display: none; }
-    .season-head { top: calc(var(--cut) + 46px); left: 16px; right: 16px; display: block; }
-    .season .display { font-size: 15vw; }
-    .now { width: auto; margin-top: 12px; padding-left: 12px; }
-    .now b { font-size: 24px; }
-    .now p { font-size: 14.5px; min-height: 0; }
-    .world { height: 40vh; bottom: 64px; }
-    .fig2 .stick { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); padding: calc(var(--cut) + 54px) 16px 60px; gap: 8px; }
-    .fig2 .display { font-size: min(13vw, 7.4vh); margin: 6px 0 10px; }
-    .caps { min-height: 7.4em; }
-    .cap { font-size: 16.5px; }
-    .fig2-stage { height: 100%; }
-    .why { padding: calc(var(--cut) + 70px) 16px calc(var(--cut) + 60px); }
+    .display { font-size: clamp(48px, 15vw, 92px); }
+    .lede { font-size: 1.125rem; margin-top: 16px; }
+    .btn { margin-top: 24px; }
+    #heroA { left: 18px; right: 18px; width: auto; top: calc(var(--top-h) + min(5vh, 34px)); }
+    #heroA .display { font-size: min(21vw, 14.5vh); }
+    .choice { gap: 12px; margin-top: 20px; }
+    .choice .btn { min-height: 56px; padding: 8px 30px 8px 24px; font-size: 1.1875rem; }
+    .choice span { width: 100%; font-size: 1.0625rem; }
+    #heroB, #heroC { left: 18px; right: 18px; width: auto; top: calc(var(--top-h) + 5vh); bottom: auto; }
+    #heroB .display, #heroC .display { font-size: min(14.5vw, 10vh); }
+    .still-btn { right: 18px; bottom: 10px; font-size: .9375rem; }
+    .roster h2 { top: calc(var(--top-h) + 4vh); left: 24px; font-size: min(12.5vw, 8vh); }
+    .names-wrap { inset: 20vh 0 45vh 0; }
+    .names { left: 24px; --row: min(15vw, 9vh); --step: calc(var(--row) * .09); }
+    .card { left: 18px; right: 18px; top: auto; bottom: 22px; width: auto; transform: none; display: grid; grid-template-columns: 42% minmax(0, 1fr); column-gap: 14px; align-items: center; }
+    .card small { grid-column: 1; grid-row: 4; } .card .duo { grid-row: 1 / 4; aspect-ratio: auto; height: 31vh; }
+    .card p { margin: 0; font-size: 1.0625rem; align-self: end; min-height: 0; }
+    .card .btn { margin-top: 12px; padding: 8px 20px 8px 18px; min-height: 50px; font-size: 1rem; justify-self: start; }
+    .results { padding-left: 24px; padding-bottom: 9vh; }
+    .results .shade { background: linear-gradient(0deg, rgba(1, 35, 58, .95) 10%, rgba(1, 35, 58, .75) 48%, rgba(1, 35, 58, .1) 88%); }
+    .kit { grid-template-columns: 1fr; grid-template-rows: auto minmax(38vh, 1fr); }
+    .kit-copy { padding: calc(var(--cut) + 70px) 18px 30px 24px; }
+    .kit .duo { clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%); }
+    .why { padding: calc(var(--cut) + 70px) 18px calc(var(--cut) + 70px) 24px; }
     .why-grid { grid-template-columns: 1fr; }
     .big22 { font-size: 62vw; }
-    .vets { --sx: 96vw; --sy: 5vh; }
-    .panel { left: 16px; top: 20vh; width: calc(100vw - 32px); height: 70vh; height: 70svh; grid-template-columns: 1fr; grid-template-rows: 34% minmax(0, 1fr); }
-    .panel.quote { grid-template-rows: 1fr; }
-    .panel-body { padding: 16px; gap: 8px; }
-    .panel h3 { font-size: 13vw; }
-    .panel p { font-size: 15px; }
-    .stat .n { font-size: 10.5vw; }
-    .join { padding: calc(var(--cut) + 60px) 16px 90px; }
-    .join-grid { grid-template-columns: 1fr; }
-    .join-head { position: static; }
-    .steps { --st: 7px; }
-    .step { grid-template-columns: 2.4em minmax(0, 1fr); gap: 10px; padding: 14px 22px 14px 18px; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
-    .step p { font-size: 14.5px; }
-    .partners-grid { grid-template-columns: 1fr; padding: 0 16px; }
-    .thanks { width: 72%; justify-self: end; }
-    .seen { padding: 26px 16px 0; }
-    .partner-facts { grid-template-columns: 1fr; padding: 22px 16px 0; }
-    .routes { padding: calc(var(--cut) + 66px) 16px 80px; }
-    .bar b { font-size: 8.4vw; }
-    .foot { grid-template-columns: 1fr; }
-    footer { padding: 44px 16px 80px; }
+    .vets .stick { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); padding: calc(var(--top-h) + 4vh) 0 0 24px; }
+    .vets .display { font-size: min(13.5vw, 8.6vh); padding-right: 24px; }
+    .caps { min-height: 4.4em; margin-top: 12px; padding-right: 18px; font-size: 1.125rem; }
+    .vets .btn { justify-self: start; margin-top: 4px; }
+    .fig2-stage { margin-left: -24px; width: calc(100% + 24px); min-height: 240px; }
+    .calm .fig2-stage { height: 46vh; margin-top: 24px; }
+    .routes { padding-left: 18px; padding-right: 18px; }
+    .bar { width: 88%; margin-left: calc(var(--r) * 3.6%); min-height: 78px; padding: 10px 9vw; font-size: min(8.4vw, 40px); }
+    .find { padding: 60px 18px 50px; }
+    .quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .quick a { min-height: 70px; padding: 10px 14px; font-size: 1.0625rem; }
+    .backers { padding: 34px 18px 40px; }
   }
-
-  /* Fourth pass: room for the fixed header and the dock */
-  .concept-tag, .wind { z-index: 59; bottom: 22px; color: var(--stone) !important; }
-  .concept-tag { left: calc(var(--gutter) + 320px); }
-  .wind { right: calc(var(--gutter) + 420px); }
-  #heroA { top: clamp(82px, 12vh, 130px); }
-  #heroA .display { font-size: clamp(76px, 21vh, 230px); margin: 12px 0 20px; }
-  .mus-btn { bottom: calc(8px + env(safe-area-inset-bottom)); min-height: 40px; }
-  .mus-toast { bottom: calc(var(--dock-h) + 12px); }
-  html.still .mus-btn { opacity: 1; pointer-events: auto; }
-  html[data-hud] .mus-btn { background: var(--road); color: var(--deep); }
-  html[data-hud] .mus-btn .cnt { background: var(--deep); color: var(--road); }
-  .bib { bottom: max(calc(var(--dock-h) + 18px), 9vh); }
-  .world { bottom: calc(var(--dock-h) + 6px); }
-  .tag, .now .meta { font-size: 12.5px; }
-  .inst .l, .stat .l { font-size: 12px !important; line-height: 1.4; }
-  .mi span { font-size: 12px; } .mi code { font-size: 13px; } .copy { font-size: 12px; min-height: 44px; } .mus-intro { font-size: 17px; } .mus-x { width: 44px; height: 44px; }
-  .chip { font-size: 13px; }
-  .results .shade { background: linear-gradient(90deg, rgba(1, 35, 58, .92) 0, rgba(1, 35, 58, .72) 46%, rgba(1, 35, 58, .12) 78%), linear-gradient(0deg, rgba(1, 35, 58, .9) 0, transparent 60%) !important; }
-  .find { position: relative; z-index: 12; margin-top: calc(var(--cut) * -1); clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%); padding: calc(var(--cut) + 70px) var(--gutter) 90px calc(var(--gutter) + 12px); background: var(--paper); color: var(--deep); }
-  .find h2 { font: 900 clamp(46px, 7vw, 116px)/.9 var(--display); text-transform: uppercase; transform: skewX(-8deg); transform-origin: 0 100%; color: var(--navy); margin-bottom: 14px; }
-  .find > p { font-size: 20px; max-width: 34em; }
-  .find-form { display: flex; gap: 0; max-width: 640px; margin: 26px 0 44px; }
-  .find-form input { flex: 1; min-width: 0; min-height: 60px; padding: 0 16px; border: 2px solid var(--navy); background: #fff; color: var(--deep); font: 400 19px/1 var(--body); }
-  .find-form button { min-height: 60px; padding: 0 28px; border: 0; background: var(--navy); color: var(--stone); font: 700 18px/1 var(--body); cursor: pointer; }
-  .find-form button:hover { background: var(--burgundy); }
-  .find-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px clamp(30px, 6vw, 100px); }
-  .find h3 { font: 800 30px/1 var(--display); text-transform: uppercase; margin-bottom: 10px; color: var(--burgundy); }
-  .quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .quick a { display: flex; flex-direction: column; justify-content: center; min-height: 76px; padding: 12px 18px; background: #fff; text-decoration: none; font: 700 20px/1.15 var(--body); }
-  .quick a small { font: 400 16px/1.3 var(--body); margin-top: 3px; }
-  .quick a:hover { background: var(--road); }
-  .latest li { border-top: 1px solid rgba(2, 46, 76, .28); }
-  .latest a { display: block; padding: 14px 0; text-decoration: none; font: 600 18px/1.35 var(--body); } .latest a:hover { text-decoration: underline; }
-  .latest time, .latest small { display: block; font: 400 16px/1.4 var(--body); }
-  .find h3 + .latest { margin-bottom: 30px; }
-  .calm .names, html:not(.js) .names { padding-top: calc(var(--cut) + 110px); }
-  .calm .fig2 .stick, html:not(.js) .fig2 .stick { padding-top: calc(var(--cut) + 70px); }
-  .calm .season-head { padding-top: calc(var(--cut) + 70px); }
-  .calm .find, html:not(.js) .find { clip-path: none; margin-top: 0; padding-top: 80px; }
-  @media (max-width: 820px) {
-    .concept-tag { display: none; }
-    .tag, .now .meta { font-size: 11px; }
-    .season .display { font-size: 11.6vw; }
-    .world { height: 36vh; }
-    #heroC .display { font-size: min(15.4vw, 9vh); }
-    #heroA { top: calc(var(--top-h) + 18px); }
-    #heroA .display { font-size: min(20vw, 13vh); margin: 8px 0 12px; }
-    #heroB, #heroC { top: calc(var(--top-h) + 26px); }
-    .readout { bottom: calc(var(--dock-h) + 12px); grid-template-columns: auto; }
-    .readout dt { display: none; }
-    .bib { bottom: calc(var(--dock-h) + 10px); }
-    .world { bottom: calc(var(--dock-h) + 6px); }
-    .mus-btn { right: 12px; padding: 8px 11px; bottom: calc(6px + env(safe-area-inset-bottom)); } .mus-btn span { display: none; }
-    #heroA .lede { margin-left: -8px; padding: 6px 8px; background: rgba(1, 35, 58, .8); }
-    .find { padding-left: 16px; padding-right: 16px; }
-    .find-grid { grid-template-columns: 1fr; }
-    .quick a { font-size: 17px; min-height: 70px; padding: 10px 14px; } .quick a small { font-size: 15px; }
+  @media (max-width: 820px) and (max-height: 600px) {
+    .lede { font-size: 1.0625rem; }
+    #heroA .display { font-size: min(21vw, 13.5vh); }
+    .big22 { font-size: 46vw; }
+    .vets .display { font-size: min(11.2vw, 7.6vh); }
   }
-  @media (max-width: 820px) and (max-height: 620px) {
-    .results .stick { padding-top: calc(var(--top-h) + 14px); }
-    .results .display { font-size: 15vw; }
-    .inst .n { font-size: 9vw; } .inst, .inst:nth-child(3n + 1) { padding: 5px 10px; }
-    .inst .l, .stat .l { font-size: 11px !important; }
-    .season-head { top: calc(var(--top-h) + 16px); }
-    .world { height: 31vh; }
-  }
-  @media (max-width: 1280px) { .wind { display: none; } }
-  @media (max-width: 820px) { .results .shade { background: linear-gradient(0deg, rgba(1, 35, 58, .95) 0, rgba(1, 35, 58, .84) 62%, rgba(1, 35, 58, .4) 90%) !important; } }
 </style>
 </head>
 <body data-page="home">
@@ -592,205 +212,76 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <a class="t-brand" href="index.html" aria-label="Project Echelon, home"><svg viewBox="0 0 150 88" aria-hidden="true" focusable="false"><polygon id="b0" points="14.44,0 145,0 135.56,14 5,14"/><polygon id="b1" points="14.44,24.67 145,24.67 135.56,38.67 5,38.67"/><polygon id="b2" points="14.44,49.33 145,49.33 135.56,63.33 5,63.33"/><polygon id="b3" points="14.44,74 145,74 135.56,88 5,88"/></svg><span aria-hidden="true">Project<br>Echelon</span></a>
-  <nav class="t-nav" aria-label="Main"><ul><li><a href="team.html">Team</a></li><li><a href="calendar.html">Races</a></li><li><a href="veterans.html">Veterans</a></li><li><a href="partners.html">Partners</a></li><li><a href="news.html">News</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  <nav class="t-nav" aria-label="Main"><ul><li><a href="team.html">Team</a></li><li><a href="calendar.html">Races</a></li><li><a href="veterans.html">Veterans</a></li><li><a href="partners.html">Partners</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="give.html">Give</a></li></ul></nav>
   <div class="t-act">
-    <a class="t-find" href="find.html">Find</a>
-    <a class="t-give" href="give.html">Give</a>
     <a class="t-crisis" href="tel:988" aria-label="Veterans Crisis Line. Dial 988, then press 1">Crisis Line&nbsp;988<span class="lg">, press&nbsp;1</span></a>
     <button class="t-menu" type="button" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 18 14" aria-hidden="true"><path d="M3 0h15l-1.6 2.6H1.4zM3 5.7h15l-1.6 2.6H1.4zM3 11.4h15L16.400 14H1.4z"/></svg><span>Menu</span></button>
   </div>
 </header>
 <nav class="menu" id="menu" aria-label="All pages" hidden>
+  <form class="menu-find" action="find.html" method="get" role="search"><label class="sr" for="menuQ">Search the site</label><input id="menuQ" type="search" name="q" placeholder="Search"><button type="submit">Search</button></form>
   <div class="menu-grid"><div><h2>Team</h2><ul><li><a href="team.html">2027 roster</a></li><li><a href="calendar.html">Race calendar</a></li><li><a href="results.html">Results</a></li><li><a href="team.html#staff">Staff</a></li><li><a href="fondo.html">Project Echelon Fondo</a></li></ul></div><div><h2>Veterans</h2><ul><li><a href="veterans.html#joining">How joining works</a></li><li><a href="veterans.html#support">What support covers</a></li><li><a href="veterans.html#muster">Monthly Muster</a></li><li><a href="resources.html">Resources</a></li></ul></div><div><h2>Partners</h2><ul><li><a href="partners.html">Our partners</a></li><li><a href="codes.html">Partner codes</a></li><li><a href="codes.html#store">Team store</a></li><li><a href="partners.html#propose">Become a partner</a></li></ul></div><div><h2>About</h2><ul><li><a href="about.html">Our mission</a></li><li><a href="about.html#board">Board of directors</a></li><li><a href="about.html#documents">Reports and documents</a></li><li><a href="about.html#film">The film</a></li></ul></div><div><h2>In touch</h2><ul><li><a href="contact.html">Contact</a></li><li><a href="news.html">News</a></li><li><a href="give.html">Give</a></li><li><a href="find.html">Find it, A to Z</a></li><li><a href="accessibility.html">Accessibility</a></li></ul></div></div>
   <div class="menu-foot"><span><strong>Veterans Crisis Line:</strong> <a href="tel:988">dial 988, then press 1</a>, or <a href="sms:838255">text 838255</a></span><span class="settings"><button class="set" type="button" data-set="large" aria-pressed="false">Larger text</button><button class="set" type="button" data-set="motion">Turn motion off</button></span></div>
 </nav>
-<div class="rail" id="rail" aria-hidden="true">01 / Crosswind</div>
-<div class="wind" id="wind" aria-hidden="true">WIND 270&deg; 06 MPH</div>
-<div class="concept-tag" aria-hidden="true">Concept. Not the live site</div>
-<div class="dock" role="region" aria-label="Home page controls">
-  <a class="d-skip" href="#find">Skip&nbsp;<span class="lg">the&nbsp;</span>story</a>
-  <button type="button" data-set="motion"><span class="ml">Turn motion off</span></button>
-  <a class="d-here" id="dHere" href="find.html">Find what you need</a>
-</div>
-
-<button class="mus-btn" id="musBtn" type="button" aria-haspopup="dialog" aria-controls="musette">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9.5 C8 3.5 16 3.5 16 9.5"/><path d="M4.5 9.5 H19.5 L18.3 20.5 H5.7 Z"/><path d="M8.5 14 H15.5"/></svg>
-  <span>Musette</span><b class="cnt" id="musCount" hidden>0</b>
-</button>
-<p class="mus-toast" id="musToast" role="status" aria-live="polite"></p>
-<div class="mus-back" id="musBack" hidden></div>
-<aside class="musette" id="musette" role="dialog" aria-modal="true" aria-labelledby="musTitle" hidden>
-  <div class="mus-head"><p class="tag">Partner codes</p><button class="mus-x" id="musX" type="button" aria-label="Close the musette">&times;</button></div>
-  <h2 id="musTitle">The musette</h2>
-  <p class="mus-intro">In a race, the musette is the cotton bag of food handed up to riders. Ours holds our partners' codes, so you can ride what the team rides.</p>
-  <ul class="mus-list" id="musList"></ul>
-  <a class="chip road" href="codes.html#store">Shop the team store</a>
-  <p class="fine">Codes are placeholders in this concept.</p>
-</aside>
-
-<div class="rider-back" id="riderBack" hidden></div>
-<section class="rider" id="rider" role="dialog" aria-modal="true" aria-labelledby="riderName" hidden>
-  <div class="rider-bar">
-    <p class="tag">Rider profile <i>/</i> 2027 roster</p>
-    <div class="rider-nav">
-      <button id="riderPrev" type="button" aria-label="Previous rider">&larr;</button>
-      <span class="tag" id="riderCount">01 / 13</span>
-      <button id="riderNext" type="button" aria-label="Next rider">&rarr;</button>
-      <button id="riderX" type="button" aria-label="Close the rider profile">&times;</button>
-    </div>
-  </div>
-  <div class="rider-grid">
-    <figure class="rider-photo">
-      <div class="duo"><img id="riderImg" alt=""></div>
-      <span class="rider-num" id="riderNum" aria-hidden="true">01</span>
-      <figcaption class="tag">Indicative photo. New headshots come from the January media camp.</figcaption>
-    </figure>
-    <div class="rider-body">
-      <h2 class="display" id="riderName"></h2>
-      <p class="rider-line" id="riderLine"></p>
-      <dl class="rider-facts" id="riderFacts"></dl>
-      <h3 class="tag">Career highlights</h3>
-      <ol class="rider-res" id="riderRes"></ol>
-      <p class="rider-note" id="riderNote"></p>
-      <div class="rider-cta">
-        <button class="chip road" type="button" data-open-musette>Ride what the team rides</button>
-        <a class="chip" id="riderPage" href="team.html">Open as a page</a>
-      </div>
-      <p class="fine">Results checked against ProCyclingStats and race reports, November 2026.</p>
-    </div>
-  </div>
-</section>
 
 <main id="main" tabindex="-1">
 
-<!-- 01 HERO -->
-<section class="sec pin hero" id="hero" data-ps="Find it" data-page="find.html" data-pl="Find what you need" data-label="Crosswind" data-theme="dark" style="--len:520vh">
-  <div class="stick grid-bg">
+<!-- 01 OPENING -->
+<section class="sec pin hero" id="hero" style="--len:340vh">
+  <div class="stick">
     <canvas id="field" aria-hidden="true"></canvas>
-    <div class="hero-copy" id="heroA">
-      <p class="tag">UCI Continental team <i>/</i> 501(c)(3) <i>/</i> Waukesha, Wisconsin</p>
+    <div class="hero-copy on" id="heroA">
       <h1 class="display">Racing<br>for<br><em>veterans</em></h1>
-      <p class="lede">A UCI Continental pro team and a veteran non-profit, run as one. The racing brings in the partners who back our veterans.</p>
-      <p class="hint">Scroll</p>
+      <p class="lede">A pro cycling team and a veteran non-profit, run as one.</p>
+      <div class="choice"><a class="btn road" href="#find">Find what you need</a><span>or scroll for our story</span></div>
     </div>
-    <div class="hero-copy" id="heroB">
-      <p class="tag">Fig. 01 <i>/</i> Crosswind</p>
-      <h2 class="display">In a crosswind, riders form a diagonal line.</h2>
-      <p class="lede">It's called an echelon.</p>
-    </div>
-    <div class="hero-copy" id="heroC">
-      <h2 class="display">Each one shelters <em>the next.</em></h2>
-      <p class="lede">The four bars on the jersey are cut to that angle.</p>
-    </div>
-    <dl class="readout" aria-hidden="true">
-      <dt>Formation</dt><dd id="rState">Bunch</dd>
-      <dt>Crosswind</dt><dd id="rWind">From right 00 mph</dd>
-      <dt>Speed</dt><dd>28 mph</dd>
-      <dt>Line</dt><dd id="rLine">90&deg;</dd>
-      <dt>Riders</dt><dd>13</dd>
-    </dl>
+    <div class="hero-copy" id="heroB"><h2 class="display">In a crosswind,<br>riders form<br>an echelon.</h2></div>
+    <div class="hero-copy" id="heroC"><h2 class="display">Each one<br>shelters<br><em>the next.</em></h2></div>
+    <button class="still-btn" type="button" data-set="motion">Turn motion off</button>
   </div>
 </section>
 
-<!-- 02 ROSTER -->
-<section class="sec pin roster cut" id="roster" data-ps="Roster page" data-page="team.html" data-pl="Roster as a page" data-label="2027 roster" data-theme="dark" style="--len:640vh">
-  <div class="stick grid-bg">
-    <div class="roster-head">
-      <p class="tag">Fig. 02 <i>/</i> The 2027 roster</p>
+<!-- 02 TEAM -->
+<section class="sec pin roster cut" id="roster" aria-labelledby="rosterH" style="--len:380vh">
+  <div class="stick">
+    <h2 class="display" id="rosterH">The 2027 team</h2>
+    <div class="names-wrap"><ol class="names" id="names"><li class="name" style="--n:0" data-name="Garrett Beshore" data-line="New for 2027, from Meridian Racing"><a href="rider-garrett-beshore.html" aria-label="Garrett Beshore">Beshore</a></li><li class="name" style="--n:1" data-name="Ben Boroff" data-line="Stage winner, Tucson Bicycle Classic"><a href="rider-ben-boroff.html" aria-label="Ben Boroff">Boroff</a></li><li class="name" style="--n:2" data-name="Luke Elphingstone" data-line="USPro criterium champion"><a href="rider-luke-elphingstone.html" aria-label="Luke Elphingstone">Elphingstone</a></li><li class="name" style="--n:3" data-name="Dylan Fluckiger" data-line="New for 2027. Collegiate team time trial silver"><a href="rider-dylan-fluckiger.html" aria-label="Dylan Fluckiger">Fluckiger</a></li><li class="name" style="--n:4" data-name="Jérôme Gauthier" data-line="Canadian road champion"><a href="rider-jerome-gauthier.html" aria-label="Jérôme Gauthier">Gauthier</a></li><li class="name" style="--n:5" data-name="Kade Kreikemeier" data-line="New for 2027. US U23 time trial champion"><a href="rider-kade-kreikemeier.html" aria-label="Kade Kreikemeier">Kreikemeier</a></li><li class="name" style="--n:6" data-name="Arnaud Lajoie" data-line="New for 2027, from Team Skyline"><a href="rider-arnaud-lajoie.html" aria-label="Arnaud Lajoie">Lajoie</a></li><li class="name" style="--n:7" data-name="Colby Lange" data-line="Five years with the team"><a href="rider-colby-lange.html" aria-label="Colby Lange">Lange</a></li><li class="name" style="--n:8" data-name="Jesse Maris" data-line="New for 2027. Third overall, Volta a Portugal do Futuro"><a href="rider-jesse-maris.html" aria-label="Jesse Maris">Maris</a></li><li class="name" style="--n:9" data-name="Tim McBirney" data-line="Third overall, 2026 Tour de Beauce"><a href="rider-tim-mcbirney.html" aria-label="Tim McBirney">McBirney</a></li><li class="name" style="--n:10" data-name="Brendan Rhim" data-line="Four years with the team"><a href="rider-brendan-rhim.html" aria-label="Brendan Rhim">Rhim</a></li><li class="name" style="--n:11" data-name="Jacob Roy" data-line="Back after a 2026 stagiaire spell"><a href="rider-jacob-roy.html" aria-label="Jacob Roy">Roy</a></li><li class="name" style="--n:12" data-name="Noah Shelton" data-line="Stage podium, Tour of Istanbul"><a href="rider-noah-shelton.html" aria-label="Noah Shelton">Shelton</a></li></ol></div>
+    <div class="card">
+      <div class="duo" id="cardPhoto"><img id="cardImg" src="img/p02.jpg" alt=""></div>
+      <small>Placeholder photo</small>
+      <p id="cardText" aria-hidden="true"></p>
+      <a class="btn road" href="team.html">Meet the team</a>
     </div>
-    <ol class="names" id="names"></ol>
-    <aside class="bib" id="bib" aria-label="Rider on screen">
-      <div class="bib-photo duo" id="bibPhoto"><img id="bibImg" alt=""><span class="bib-cap">Indicative photo</span></div>
-      <div class="tag"><span>Project Echelon</span><span id="bibNat">USA</span></div>
-      <div class="bib-row"><div class="bn" id="bibNum">01</div><div class="bh" id="bibLine"></div></div>
-      <div class="bs" id="bibScale" aria-hidden="true"></div>
-      <button class="chip bib-go" id="bibGo" type="button">Rider profile <span aria-hidden="true">&rarr;</span></button>
-    </aside>
   </div>
 </section>
 
 <!-- 03 RESULTS -->
-<section class="sec pin results cut" id="results" data-ps="All results" data-page="results.html" data-pl="All results" data-label="Results" data-theme="dark" style="--len:300vh">
-  <div class="stick">
-    <div class="bgphoto duo" id="resultsBg"><img src="img/p00.jpg" alt="Riders raise their arms crossing a finish line at night in the rain."></div>
-    <div class="shade"></div>
-    <div class="results-top">
-      <h2 class="display"><small>Fig. 03 / North America's top-ranked team, 2022 to 2025</small>Results</h2>
-    </div>
-    <div class="board" id="board">
-      <div class="inst"><span class="n roll" data-v="63">63</span><span class="l">Pro wins, 2023 to 2025</span></div>
-      <div class="inst"><span class="n roll" data-v="150">150</span><span class="l">Top-10 finishes, 2024 to 2025</span></div>
-      <div class="inst"><span class="n roll" data-v="160">160</span><span class="l">Race days, North America and Europe</span></div>
-      <div class="inst"><span class="n roll" data-v="9">9</span><span class="l">National champions</span></div>
-      <div class="inst"><span class="n roll" data-v="9">9</span><span class="l">Pan American champions</span></div>
-      <div class="inst"><span class="n roll" data-v="2">2</span><span class="l">Para Olympic champions</span></div>
-    </div>
-  </div>
+<section class="sec results cut" id="results">
+  <div class="duo"><img src="img/p00.jpg" alt="Riders raise their arms crossing a finish line at night in the rain."></div>
+  <div class="shade"></div>
+  <h2 class="display">Results</h2>
+  <p class="lede">63 pro wins from 2023 to 2025.</p>
+  <a class="btn road" href="results.html">See all results</a>
 </section>
 
-<!-- 04 KIT. Partners reach fans through the riders, not through pop-ups. -->
-<section class="sec pin kit cut" id="kit" data-ps="All codes" data-page="codes.html" data-pl="All partner codes" data-label="Kit" data-theme="road" style="--len:320vh">
-  <div class="stick">
-    <div class="kit-copy">
-      <p class="tag">Fig. 04 <i>/</i> Kit and equipment</p>
-      <h2 class="display">What the team rides</h2>
-      <p class="lede">Every partner on the kit has a tag. Tap one and its code drops into your musette, ready for when you shop.</p>
-    </div>
-    <ol class="kit-list" id="kitList" aria-label="Partners on the kit"></ol>
-    <figure class="kit-fig">
-      <div class="kit-frame" id="kitFrame">
-        <div class="kit-photo duo"><img src="img/p01.jpg" alt="A Project Echelon rider high-fives fans at the barriers. Partner logos are visible on the helmet and jersey."></div>
-        <div class="hots" id="hots"></div>
-      </div>
-      <figcaption class="tag"><span>Fig. 04A <i>/</i> Race kit, logos as worn</span><span id="kitCount">0 / 6 tagged</span></figcaption>
-    </figure>
+<!-- 04 KIT -->
+<section class="sec kit cut" id="kit">
+  <div class="kit-copy">
+    <h2 class="display">What the team rides</h2>
+    <p class="lede">Fans get codes from our partners.</p>
+    <a class="btn" href="codes.html">Get the codes</a>
   </div>
+  <div class="duo"><img src="img/p01.jpg" alt="A Project Echelon rider high-fives fans at the barriers. Partner logos are visible on the helmet and jersey." loading="lazy"></div>
 </section>
 
-<!-- 05 SEASON -->
-<section class="sec pin season cut" id="season" data-ps="Calendar" data-page="calendar.html" data-pl="Race calendar" data-label="2027 season" data-theme="light" style="--len:600vh">
-  <div class="stick">
-    <div class="season-head">
-      <div>
-        <p class="tag">Fig. 05 <i>/</i> Stage profile, schematic</p>
-        <h2 class="display">The 2027 season</h2>
-      </div>
-      <div class="now" aria-live="polite"><span class="tag"><span id="nowNum">01 / 11</span><span class="fr" id="nowFocus" hidden>Focus race</span></span><b id="nowName">Southern California</b><span class="meta" id="nowMeta"></span><p id="nowText"></p></div>
-    </div>
-    <div class="world" id="world">
-      <svg id="profile" aria-hidden="true"></svg>
-      <i class="cursor"></i>
-    </div>
-    <ol class="sr" id="seasonList"></ol>
-  </div>
-</section>
-
-<!-- 06 HOW AN ECHELON WORKS -->
-<section class="sec pin cut fig2" id="fig2" data-ps="The name" data-page="about.html#name" data-pl="About the name" data-label="The echelon" data-theme="light" style="--len:380vh">
-  <div class="stick">
-    <div>
-      <p class="tag">Fig. 06 <i>/</i> The name</p>
-      <h2 class="display">How an echelon works</h2>
-      <div class="caps">
-        <p class="cap" data-cap="0">Leaving the service can feel like riding into a crosswind on your own.</p>
-        <p class="cap" data-cap="1">In an echelon, riders line up on a diagonal across the road. Each rider's front wheel sits beside the back wheel ahead, out of the wind.</p>
-        <p class="cap" data-cap="2"><strong>New members start in the shelter of the line,</strong> matched with one of our pro riders. In time, they take their own turn at the front.</p>
-      </div>
-    </div>
-    <div class="fig2-stage"><canvas id="fig2cv" role="img" aria-label="Diagram, seen from above. A rider alone in the gutter, out of the shelter, joins the back of a rotating echelon of five pro riders. Riders move up the sheltered line, pull off into the wind at the front, then drop back on the windward side. The new rider follows one pro up the line and takes a turn at the front."></canvas></div>
-  </div>
-</section>
-
-<!-- 07 THE 22. Nothing on this section moves, on purpose. -->
-<section class="sec cut why" id="why" data-ps="Get help" data-page="veterans.html#help" data-pl="Help for veterans" data-label="Twenty-two" data-theme="dark" data-still="1">
+<!-- 05 THE 22. Nothing on this section moves, on purpose. -->
+<section class="sec cut why" id="why">
   <div class="why-grid">
     <div class="big22" aria-hidden="true">22</div>
     <div>
       <h2>Why every jersey carries 22</h2>
-      <p>When Project Echelon was founded in 2016, an average of 22 veterans a day died by suicide. Today that number has fallen to 17.</p>
-      <p>Progress has been made. The work is far from over. The 22 on every jersey reminds us why we ride.</p>
+      <p>When Project Echelon was founded in 2016, an average of 22 veterans a day died by suicide. Today that number has fallen to 17. The 22 on every jersey reminds us why we ride.</p>
       <div class="help">
-        <span class="tag">If you or a veteran you know is in crisis</span>
         <strong>Veterans Crisis Line</strong>
         <a href="tel:988">Dial 988, then press 1</a>. Or <a href="sms:838255">text 838255</a>. Free and confidential, 24 hours a day.
       </div>
@@ -798,145 +289,48 @@
   </div>
 </section>
 
-<!-- 08 VETERANS -->
-<section class="sec pin vets cut" id="vets" data-ps="Veterans" data-page="veterans.html" data-pl="For veterans" data-label="Veterans" data-theme="dark" style="--len:480vh">
-  <div class="stick grid-bg" style="background-color:var(--navy)">
-    <div class="vets-title">
-      <p class="tag">Fig. 07 <i>/</i> What we do for veterans</p>
-    </div>
-    <div class="track" id="track">
-      <i class="track-line" id="trackLine"></i>
-      <article class="panel" style="--i:0">
-        <div class="duo"><img src="img/p02.jpg" alt="A smiling Project Echelon rider at the start, with Racing for Veterans across the jersey." loading="lazy"></div>
-        <div class="panel-body">
-          <h3>Educate</h3>
-          <p>We're expanding coach training to better support veterans, including suicide prevention training with certified medical professionals.</p>
-          <div class="stats">
-            <div class="stat"><span class="n roll" data-v="13">13</span><span class="l">Veteran non-profit partners</span></div>
-            <div class="stat"><span class="n roll" data-v="32">32</span><span class="l">States active</span></div>
-          </div>
-        </div>
-      </article>
-      <article class="panel" style="--i:1;--lo:var(--burgundy)">
-        <div class="duo"><img src="img/p03.jpg" alt="The team riding in a line along a mountain road." loading="lazy"></div>
-        <div class="panel-body">
-          <h3>Equip</h3>
-          <p>Bikes and scholarships get veterans started. Miles on a Mission brings them to international cycling events.</p>
-          <div class="stats">
-            <div class="stat"><span class="n roll" data-v="$800K">$800K</span><span class="l">In grants and equipment</span></div>
-            <div class="stat"><span class="n roll" data-v="25">25</span><span class="l">Bikes donated to veterans</span></div>
-          </div>
-        </div>
-      </article>
-      <article class="panel" style="--i:2">
-        <div class="duo"><img src="img/p04.jpg" alt="A rider in a Project Echelon helmet embraces someone at a race." loading="lazy"></div>
-        <div class="panel-body">
-          <h3>Empower</h3>
-          <p>Cycling gives veterans a routine. The team gives them people to ride with.</p>
-          <div class="stats">
-            <div class="stat"><span class="n roll" data-v="7,200">7,200</span><span class="l">Veterans supported since 2016</span></div>
-            <div class="stat"><span class="n roll" data-v="913">913</span><span class="l">Active members today</span></div>
-          </div>
-        </div>
-      </article>
-      <article class="panel quote" style="--i:3">
-        <div class="panel-body">
-          <blockquote>"As soon as I completed the initial contact form, Hugo, one of the professional riders, called me."<cite>Allison</cite></blockquote>
-          <div><a class="chip" href="veterans.html#joining">How joining works</a></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 09 HOW JOINING WORKS. Each step sits in the shelter of the one before. -->
-<section class="sec join cut" id="join" data-ps="Joining" data-page="veterans.html#joining" data-pl="How joining works" data-label="Joining" data-theme="light">
-  <div class="join-grid">
-    <div class="join-head">
-      <p class="tag">Fig. 08 <i>/</i> The first month</p>
-      <h2 class="display">How joining works</h2>
-      <p class="lede">Every new member starts in the shelter of the line. Here's the first month, step by step.</p>
-      <a class="chip" href="contact.html">Start with the contact form</a>
-    </div>
-    <ol class="steps">
-      <li class="step reveal" style="--k:0"><span class="sn">01</span><div><b>Contact form</b><p>Tell us a little about yourself.</p></div></li>
-      <li class="step reveal" style="--k:1"><span class="sn">02</span><div><b>Welcome email</b><p>You get resources to read and a few first tasks.</p></div></li>
-      <li class="step reveal" style="--k:2"><span class="sn">03</span><div><b>Goal setting</b><p>Work through our goal-setting course. Then fill in a reflective survey and an interest inventory.</p></div></li>
-      <li class="step reveal" style="--k:3"><span class="sn">04</span><div><b>Meet your rider</b><p>We put you in touch with one of our pro riders, based on where you live.</p></div></li>
-      <li class="step reveal" style="--k:4"><span class="sn">05</span><div><b>Onboarding</b><p>You and your rider meet and plan the next steps around your goals.</p></div></li>
-      <li class="step reveal" style="--k:5"><span class="sn">06</span><div><b>The community</b><p>You get our Google Classroom and member benefits from our partners. You're also invited to our private Facebook group.</p></div></li>
-      <li class="step reveal" style="--k:6"><span class="sn">07</span><div><b>Monthly Muster</b><p>Your first group call will likely be our Monthly Muster, held online.</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<!-- 10 PARTNERS -->
-<section class="sec partners" id="partners" data-ps="Partners" data-page="partners.html" data-pl="Our partners" data-label="Partners" data-theme="road">
-  <div class="partners-grid">
+<!-- 06 VETERANS -->
+<section class="sec pin cut vets" id="vets" style="--len:320vh">
+  <div class="stick">
     <div>
-      <p class="tag">Fig. 09 <i>/</i> Partners <i>/</i> Winning beyond sport</p>
-      <h2 class="display">Partnering with <em>the team</em></h2>
-      <p class="lede">Our partners put their names on a team with 160 race days across North America and Europe, in 29 states and 8 countries. All of it is for veterans.</p>
+      <h2 class="display">How we support veterans</h2>
+      <div class="caps">
+        <p class="cap" data-cap="0">Leaving the service can feel like riding into a crosswind on your own.</p>
+        <p class="cap" data-cap="1">New members join the line in the shelter of one of our pro riders.</p>
+        <p class="cap" data-cap="2">In time, they take their own turn at the front.</p>
+      </div>
+      <a class="btn" href="veterans.html#joining">How joining works</a>
     </div>
-    <div class="thanks duo" id="thanks"><img src="img/p05.jpg" alt="A race number pinned to a jersey, printed with the words Thank You." loading="lazy"></div>
-  </div>
-  <div class="seen">
-    <p class="tag">Race coverage, 2026</p>
-    <ul>
-      <li>FloSports</li><li>Eurosport</li><li>Peacock</li><li>ABC</li><li>Cyclingnews</li><li>American Cycling Report</li><li>Criterium Nation</li><li>Riding with Kaplan</li>
-    </ul>
-  </div>
-  <div class="marquee" aria-hidden="true">
-    <div class="mrow" id="m0"></div>
-    <div class="mrow" id="m1"></div>
-  </div>
-  <ul class="sr">
-    <li>Team partners: Milliman, VCP Foundation, Retevis.</li>
-    <li>Kit and equipment: Duke Cannon, Shimano, SiS, Wahoo, MP Systems, Jakroo, Lazer, Birdworx.</li>
-  </ul>
-  <div class="partner-facts">
-    <div class="reach"><b class="roll" data-v="23,000">23,000</b><span>Social reach</span></div>
-    <div class="mus-note">
-      <p>Fans find every partner's code in the musette, one tap away on every page.</p>
-      <button class="chip dark" type="button" data-open-musette>Open the musette</button>
-    </div>
-    <div class="right">
-      <a class="chip dark" href="partners.html#propose">Request the 2027 proposal</a>
-      <p class="tag">Sponsorship and donations are separate routes</p>
-    </div>
+    <div class="fig2-stage"><canvas id="fig2cv" role="img" aria-label="Seen from above, a new member rides alone in the wind, joins the back of a line of pro riders and moves up to the front."></canvas></div>
   </div>
 </section>
 
-<!-- 11 GET INVOLVED. The four bars of the mark, at page scale. -->
-<section class="sec routes" id="routes" data-ps="Contact" data-page="contact.html" data-pl="Contact us" data-label="Get involved" data-theme="dark">
-  <p class="tag">Fig. 10 <i>/</i> Find your place in the line</p>
+<!-- 07 GET INVOLVED -->
+<section class="sec routes cut" id="routes">
   <h2 class="display">Get involved</h2>
-  <div class="bars" id="bars">
-    <a class="bar" style="--r:4" href="veterans.html"><span><span class="tag">For veterans</span><b>Join as a member</b></span><span class="go" aria-hidden="true">&rarr;</span></a>
-    <a class="bar" style="--r:3" href="partners.html"><span><span class="tag">For sponsors</span><b>Partner with the team</b></span><span class="go" aria-hidden="true">&rarr;</span></a>
-    <a class="bar" style="--r:2" href="give.html"><span><span class="tag">For donors</span><b>Give</b></span><span class="go" aria-hidden="true">&rarr;</span></a>
-    <button class="bar" style="--r:1" type="button" data-open-musette><span><span class="tag">For fans</span><b>Codes and the team store</b></span><span class="go" aria-hidden="true">&rarr;</span></button>
-    <a class="bar" style="--r:0" href="https://www.youtube.com/watch?v=jt0iduuo7B4" rel="noopener"><span><span class="tag">The film</span><b>Outride the Darkness</b></span><span class="go" aria-hidden="true">&rarr;</span></a>
+  <div class="bars">
+    <a class="bar" style="--r:3" href="veterans.html#joining">Join as a veteran</a>
+    <a class="bar" style="--r:2" href="partners.html#propose">Become a partner</a>
+    <a class="bar" style="--r:1" href="give.html">Give</a>
+    <a class="bar" style="--r:0" href="about.html#film">Watch the film</a>
   </div>
 </section>
 
-<!-- 12 FIND. Where "Skip the story" lands. Nothing here moves. -->
-<section class="sec find" id="find" data-ps="A to Z" data-page="find.html" data-pl="Everything, A to Z" data-label="Find it" data-theme="light" data-still="1" aria-labelledby="findH" tabindex="-1">
+<!-- 08 FIND. Where the opening's button lands. Nothing here moves. -->
+<section class="sec find" id="find" aria-labelledby="findH" tabindex="-1">
   <h2 id="findH">Find what you need</h2>
-  <p>Search the whole site, or go straight to a page.</p>
-  <form class="find-form" action="find.html" method="get" role="search"><label class="sr" for="homeQ">Search the site</label><input id="homeQ" type="search" name="q" placeholder="Try fondo, board or Shimano"><button type="submit">Search</button></form>
-  <div class="find-grid">
-    <div><h3>Most visited</h3><div class="quick"><a href="team.html">Roster<small>All 13 riders</small></a><a href="contact.html">Contact<small>Forms and email</small></a><a href="codes.html">Partner codes<small>Plus the team store</small></a><a href="news.html">News<small>All 81 posts</small></a><a href="calendar.html">Race calendar<small>2027 dates</small></a><a href="veterans.html">For veterans<small>Joining and support</small></a><a href="resources.html">Resources<small>Links and downloads</small></a><a href="about.html#board">Board and reports<small>Who runs it</small></a><a href="fondo.html">Fondo<small>Ride with the team</small></a><a href="give.html">Give<small>Online or by check</small></a></div></div>
-    <div><h3>First races of 2027</h3><ul class="latest"><li><a href="calendar.html#valley-of-the-sun-stage-race">Valley of the Sun Stage Race<small>Feb 12 to 14, Phoenix, Arizona</small></a></li><li><a href="calendar.html#tucson-bicycle-classic">Tucson Bicycle Classic<small>Feb 18 to 21, Tucson, Arizona</small></a></li></ul><h3>Latest news</h3><ul class="latest"><li><a href="https://www.projectechelon.org/news/project-echelon-shake-up-in-2027-with-young-roster">Project Echelon Shake Up in 2027 With Young Roster<time datetime="2026-11-02">Nov 2, 2026</time></a></li><li><a href="news-us-pro-criterium-2026.html">Project Echelon Racing Wins 2026 Men’s US Pro Criterium National Championship with Luke Elphingstone<time datetime="2026-06-19">June 19, 2026</time></a></li><li><a href="https://www.projectechelon.org/news/luke-elphingstone-project-echelon-claim-the-2026-pro-men-criterium-national-championship">Luke Elphingstone &amp; Project Echelon Claim the 2026 Pro Men Criterium National Championship<time datetime="2026-06-19">June 19, 2026</time></a></li></ul></div>
-  </div>
+  <form class="find-form" action="find.html" method="get" role="search"><label class="sr" for="homeQ">Search the site</label><input id="homeQ" type="search" name="q" placeholder="Search"><button type="submit">Search</button></form>
+  <div class="quick"><a href="team.html">Team</a><a href="calendar.html">Race calendar</a><a href="results.html">Results</a><a href="codes.html">Partner codes</a><a href="veterans.html">For veterans</a><a href="resources.html">Resources</a><a href="news.html">News</a><a href="contact.html">Contact</a></div>
+  <a class="all" href="find.html">Everything, A to Z</a>
 </section>
+<section class="backers" aria-labelledby="backersH"><h2 id="backersH">Our partners</h2><ul><li>Milliman</li><li>Duke Cannon</li><li>Shimano</li><li>VCP Foundation</li><li>SiS</li><li>Wahoo</li><li>Retevis</li><li>MP Systems</li><li>Jakroo</li><li>Lazer</li><li>Birdworx</li></ul></section>
 
 </main>
 
 <footer class="site-foot">
   <div class="crisis-line"><strong>Veterans Crisis Line</strong><a href="tel:988">Dial 988, then press 1</a><a href="sms:838255">Text 838255</a><span>Free and confidential, 24 hours a day.</span></div>
   <nav aria-label="All pages, footer"><div class="menu-grid"><div><h2>Team</h2><ul><li><a href="team.html">2027 roster</a></li><li><a href="calendar.html">Race calendar</a></li><li><a href="results.html">Results</a></li><li><a href="team.html#staff">Staff</a></li><li><a href="fondo.html">Project Echelon Fondo</a></li></ul></div><div><h2>Veterans</h2><ul><li><a href="veterans.html#joining">How joining works</a></li><li><a href="veterans.html#support">What support covers</a></li><li><a href="veterans.html#muster">Monthly Muster</a></li><li><a href="resources.html">Resources</a></li></ul></div><div><h2>Partners</h2><ul><li><a href="partners.html">Our partners</a></li><li><a href="codes.html">Partner codes</a></li><li><a href="codes.html#store">Team store</a></li><li><a href="partners.html#propose">Become a partner</a></li></ul></div><div><h2>About</h2><ul><li><a href="about.html">Our mission</a></li><li><a href="about.html#board">Board of directors</a></li><li><a href="about.html#documents">Reports and documents</a></li><li><a href="about.html#film">The film</a></li></ul></div><div><h2>In touch</h2><ul><li><a href="contact.html">Contact</a></li><li><a href="news.html">News</a></li><li><a href="give.html">Give</a></li><li><a href="find.html">Find it, A to Z</a></li><li><a href="accessibility.html">Accessibility</a></li></ul></div></div></nav>
-  <div class="legal"><p>Project Echelon Ltd is a 501(c)(3) non-profit, EIN 81-2114278, based in Waukesha, Wisconsin. Figures from Project Echelon's 2027 proposal and Eric Hill's answers of November 8, 2026. Partner codes are placeholders. Photography from the same proposal. Concept for discussion. This is not the live site.</p><div class="settings"><button class="set" type="button" data-set="large" aria-pressed="false">Larger text</button><button class="set" type="button" data-set="motion">Turn motion off</button></div></div>
+  <div class="legal"><p>Project Echelon Ltd is a 501(c)(3) non-profit, EIN 81-2114278, based in Waukesha, Wisconsin. Figures from Project Echelon's 2027 proposal and Eric Hill's answers of November 8, 2026. Rider photos are placeholders until media camp. Photography from the same proposal. Concept for discussion. This is not the live site.</p><div class="settings"><button class="set" type="button" data-set="large" aria-pressed="false">Larger text</button><button class="set" type="button" data-set="motion">Turn motion off</button></div></div>
 </footer>
 
 <script>
@@ -949,191 +343,8 @@
   const ease = (t) => t * t * (3 - 2 * t);
   const lerp = (a, b, t) => a + (b - a) * t;
   const band = (p, a, b, c, d) => (p < b ? map(p, a, b) : 1 - map(p, c, d));
-  const setText = (el, v) => { if (el.textContent !== v) el.textContent = v; };
-  const NS = 'http://www.w3.org/2000/svg';
-  const svg = (tag, attrs = {}, parent) => {
-    const n = document.createElementNS(NS, tag);
-    for (const k in attrs) n.setAttribute(k, attrs[k]);
-    if (parent) parent.appendChild(n);
-    return n;
-  };
   /* The crosswind angle. Bar ends are cut parallel to an echelon at 56 degrees. */
   const SKEW = 1 / Math.tan(56 * Math.PI / 180);
-
-  /* ---------- Rolling digits ---------- */
-  document.querySelectorAll('.roll').forEach((el) => {
-    const v = el.dataset.v;
-    el.setAttribute('aria-label', v); el.setAttribute('role', 'img');
-    el.textContent = '';
-    let i = 0;
-    for (const ch of v) {
-      if (/\d/.test(ch)) {
-        const col = document.createElement('span');
-        col.className = 'col';
-        col.setAttribute('aria-hidden', 'true');
-        col.style.setProperty('--d', ch);
-        col.style.setProperty('--i', i++);
-        const inner = document.createElement('span');
-        for (let d = 0; d < 10; d++) { const b = document.createElement('b'); b.textContent = d; inner.appendChild(b); }
-        col.appendChild(inner);
-        el.appendChild(col);
-      } else {
-        const s = document.createElement('span');
-        s.setAttribute('aria-hidden', 'true');
-        s.textContent = ch;
-        el.appendChild(s);
-      }
-    }
-  });
-
-  /* ---------- The musette ---------- */
-  const CODES = [
-    { n: 'Lazer', c: 'Helmets', code: 'LAZER-PE27', x: .777, y: .089 },
-    { n: 'Jakroo', c: 'Team kit', code: 'JAKROO-PE27', x: .853, y: .335, l: 1 },
-    { n: 'Duke Cannon', c: 'Grooming', code: 'DUKE-PE27', x: .708, y: .465, l: 1 },
-    { n: 'Shimano', c: 'Components', code: 'SHIMANO-PE27', x: .887, y: .471, l: 1 },
-    { n: 'SiS', c: 'Nutrition', code: 'SIS-PE27', x: .893, y: .543, l: 1 },
-    { n: 'Wahoo', c: 'Bike computers', code: 'WAHOO-PE27', x: .809, y: .686, l: 1 },
-  ];
-  const got = new Set();
-  const order = [];
-  const mus = $('musette'), musBack = $('musBack'), musBtn = $('musBtn'), musList = $('musList'), toast = $('musToast');
-  let lastFocus = null, toastT = 0;
-
-  function copyCode(text, btn) {
-    const done = () => { btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 1400); };
-    const fallback = () => {
-      const t = document.createElement('textarea');
-      t.value = text; t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;opacity:0;left:0;top:0';
-      document.body.appendChild(t); t.select();
-      try { document.execCommand('copy'); } catch (e) { /* the code stays visible to copy by hand */ }
-      t.remove(); done();
-    };
-    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
-    else fallback();
-  }
-  function renderMus() {
-    musList.textContent = '';
-    const idx = [...order, ...CODES.map((_, i) => i).filter((i) => !got.has(i))];
-    idx.forEach((i) => {
-      const c = CODES[i];
-      const li = document.createElement('li');
-      li.className = 'mi' + (got.has(i) ? ' got' : '');
-      const who = document.createElement('div');
-      const b = document.createElement('b'); b.textContent = c.n;
-      const s = document.createElement('span'); s.textContent = c.c;
-      who.append(b, s);
-      const code = document.createElement('code'); code.textContent = c.code;
-      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'copy'; btn.textContent = 'Copy';
-      btn.setAttribute('aria-label', `Copy the ${c.n} code`);
-      btn.addEventListener('click', () => copyCode(c.code, btn));
-      li.append(who, code, btn);
-      musList.appendChild(li);
-    });
-    const cnt = $('musCount');
-    cnt.hidden = got.size === 0;
-    cnt.textContent = got.size;
-    musBtn.setAttribute('aria-label', got.size ? `Open the musette, ${got.size} partner codes picked up` : 'Open the musette of partner codes');
-  }
-  function openMus() {
-    lastFocus = document.activeElement;
-    mus.hidden = false; musBack.hidden = false;
-    requestAnimationFrame(() => { mus.classList.add('open'); musBack.classList.add('open'); });
-    $('musX').focus({ preventScroll: true });
-  }
-  function closeMus() {
-    mus.classList.remove('open'); musBack.classList.remove('open');
-    setTimeout(() => { if (!mus.classList.contains('open')) { mus.hidden = true; musBack.hidden = true; } }, 340);
-    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
-  }
-  function showToast(msg) {
-    setText(toast, msg);
-    toast.classList.add('show');
-    clearTimeout(toastT);
-    toastT = setTimeout(() => toast.classList.remove('show'), 1900);
-  }
-  function addCode(i, from) {
-    const c = CODES[i];
-    const fresh = !got.has(i);
-    if (fresh) { got.add(i); order.unshift(i); }
-    document.querySelectorAll(`[data-k="${i}"]`).forEach((el) => el.classList.add('got'));
-    const row = document.querySelector(`.kit-row[data-k="${i}"] .add`);
-    if (row) row.textContent = 'In musette';
-    setText($('kitCount'), `${got.size} / ${CODES.length} tagged`);
-    renderMus();
-    showToast(fresh ? `${c.n} code is in your musette` : `${c.n} is already in your musette`);
-    if (!fresh) return;
-    const a = from.getBoundingClientRect(), z = musBtn.getBoundingClientRect();
-    const fly = document.createElement('span');
-    fly.className = 'fly'; fly.textContent = c.code;
-    document.body.appendChild(fly);
-    const fw = fly.offsetWidth, fh = fly.offsetHeight;
-    const x0 = a.left + a.width / 2 - fw / 2, y0 = a.top + a.height / 2 - fh / 2;
-    fly.style.transform = `translate(${x0}px, ${y0}px)`;
-    fly.getBoundingClientRect();
-    fly.style.transform = `translate(${z.left + z.width / 2 - fw / 2}px, ${z.top + z.height / 2 - fh / 2}px) scale(.4)`;
-    fly.style.opacity = '.2';
-    setTimeout(() => { fly.remove(); musBtn.classList.remove('bump'); void musBtn.offsetWidth; musBtn.classList.add('bump'); }, calm ? 0 : 760);
-  }
-  musBtn.addEventListener('click', openMus);
-  $('musX').addEventListener('click', closeMus);
-  musBack.addEventListener('click', closeMus);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mus.hidden) closeMus(); });
-  document.querySelectorAll('[data-open-musette]').forEach((b) => b.addEventListener('click', openMus));
-  renderMus();
-
-  /* ---------- 04 Kit: tags on the photo, rows in the list ---------- */
-  const IMG = { w: 1500, h: 843, fx: .78, fy: .4 };
-  const kitList = $('kitList'), hots = $('hots'), kitFrame = $('kitFrame');
-  const rowEls = [], hotEls = [];
-  CODES.forEach((c, i) => {
-    const li = document.createElement('li');
-    const row = document.createElement('button');
-    row.type = 'button'; row.className = 'kit-row'; row.dataset.k = i;
-    row.innerHTML = `<span class="num">${String(i + 1).padStart(2, '0')}</span><span class="nm"></span><span class="add">+ Code</span>`;
-    const nm = row.querySelector('.nm'); nm.textContent = c.n;
-    const sm = document.createElement('small'); sm.textContent = c.c; nm.appendChild(sm);
-    row.setAttribute('aria-label', `${c.n}, ${c.c}. Add the code to your musette`);
-    row.addEventListener('click', () => addCode(i, row));
-    row.addEventListener('mouseenter', () => hotEls[i].classList.add('hl'));
-    row.addEventListener('mouseleave', () => hotEls[i].classList.remove('hl'));
-    li.appendChild(row); kitList.appendChild(li); rowEls.push(row);
-
-    const h = document.createElement('button');
-    h.type = 'button'; h.className = 'hot' + (c.l ? ' l' : ''); h.dataset.k = i;
-    h.innerHTML = `<i class="ring"></i><b class="hn">${i + 1}</b><span class="pill"><b></b><span></span> +</span>`;
-    h.querySelector('.pill b').textContent = c.n;
-    h.querySelector('.pill span').textContent = c.c;
-    h.setAttribute('aria-label', `${c.n} tag. Add the code to your musette`);
-    h.addEventListener('click', () => addCode(i, h));
-    hots.appendChild(h); hotEls.push(h);
-  });
-  const kitImg = kitFrame.querySelector('img');
-  function layoutKit() {
-    const cw = kitFrame.clientWidth, ch = kitFrame.clientHeight;
-    if (!cw || !ch) return;
-    /* Narrow frames crop hard, so slide the photo left to keep every tag in view */
-    const fx = cw / ch < 1.3 ? .9 : IMG.fx;
-    kitImg.style.objectPosition = `${fx * 100}% ${IMG.fy * 100}%`;
-    const s = Math.max(cw / IMG.w, ch / IMG.h), dw = IMG.w * s, dh = IMG.h * s;
-    const ox = (cw - dw) * fx, oy = (ch - dh) * IMG.fy;
-    hotEls.forEach((h, i) => {
-      const x = ox + CODES[i].x * dw, y = oy + CODES[i].y * dh;
-      h.style.left = `${x.toFixed(1)}px`; h.style.top = `${y.toFixed(1)}px`;
-      h.hidden = x < 10 || x > cw - 10 || y < 10 || y > ch - 10;
-    });
-  }
-  let kitActive = -2;
-  function drawKit(p) {
-    const k = map(p, .1, .78) * CODES.length;
-    const act = p > .86 ? -1 : Math.min(CODES.length - 1, Math.floor(k));
-    hotEls.forEach((h, i) => h.classList.toggle('vis', k > i));
-    if (act !== kitActive) {
-      kitActive = act;
-      hotEls.forEach((h, i) => h.classList.toggle('on', i === act && k > i));
-      rowEls.forEach((r, i) => r.classList.toggle('on', i === act && k > i));
-    }
-  }
 
   /* ---------- Riders and wind, shared by the hero and Fig. 06 ----------
      Worked out in metres in the riders' own frame. They face up, the road runs under them at
@@ -1491,15 +702,13 @@
     c.beginPath(); c.moveTo(x2, y2); c.lineTo(x2 - Math.cos(a - .42) * hl, y2 - Math.sin(a - .42) * hl); c.lineTo(x2 - Math.cos(a + .42) * hl, y2 - Math.sin(a + .42) * hl); c.closePath(); c.fill();
   }
 
-  /* ---------- 01 Hero: the field ---------- */
+  /* ---------- 01 Opening ---------- */
   const field = $('field');
   const g = field.getContext('2d');
   let W = 0, H = 0, DPR = 1, wide = true, PPM = 40, shadows = null, heroSmoke = null, heroPlume = null, heroBox = null, heroPat = null, riders = [];
   const heroLayer = document.createElement('canvas').getContext('2d');
   const heroView = makeView();
-  let heroMask = null, heroN = 0;
-  let phi = 0, heroT = 0, roadRun = 0;
-  const pointer = { x: -9999, y: -9999, t: -1e9 };
+  let heroMask = null, heroN = 0, phi = 0, heroT = 0, roadRun = 0, airSide = 0;
   const heroFlow = makeFlow();
   const HERO_KIT = { tyre: '#0b1a26', glint: 'rgba(226,217,203,.4)', frame: '#517493', bar: 'rgba(226,217,203,.8)', shorts: '#2c4d6b', shoe: '#EDE6DA', jersey: '#E2D9CB', bars: '#022E4C', shade: 'rgba(1,35,58,.34)', glove: '#01233A', helmet: '#F6F1E8', vent: '#022E4C' };
   const SUN = [.1, .16];
@@ -1514,11 +723,11 @@
     setView(heroView, TILT, PPM, W, H);
     heroBox = worldBox(heroView, W, H);
     shadows = shadowSprites(PPM, 'rgba(0,8,16,.7)');
-    heroSmoke = makeSmoke((wide ? 26 : 19) / PPM, .18, heroBox);
+    heroSmoke = makeSmoke((wide ? 46 : 34) / PPM, .18, heroBox);
     heroPlume = plumeLayer(W, H, wide ? 9 : 7);
     heroPat = heroLayer.createPattern(grain([[COL.stone, 900, .09], [[0, 0, 0], 700, .16]]), 'repeat');
     const cw = field.width, ch = field.height;
-    heroMask = wide ? heroLayer.createLinearGradient(cw * .3, 0, cw * .56, 0) : heroLayer.createLinearGradient(0, ch * .32, 0, ch * .5);
+    heroMask = wide ? heroLayer.createLinearGradient(cw * .3, 0, cw * .56, 0) : heroLayer.createLinearGradient(0, ch * .46, 0, ch * .7);
     heroMask.addColorStop(0, 'rgba(0,0,0,.88)'); heroMask.addColorStop(1, 'rgba(0,0,0,0)');
   }
   /* Thirteen riders, one for each on the 2027 roster. Each is also a source of wake. */
@@ -1528,9 +737,7 @@
     const counts = [3, 3, 3, 4]; let c = 0;
     counts.forEach((n, row) => { for (let k = 0; k < n; k++) { riders[c].row = row; riders[c].k = k; riders[c].n = n; c++; } });
     riders.forEach((rd) => heroFlow.src.push(rd.q = { x: 0, y: 0, s: 1 }));
-    heroFlow.src.push(pointer.q = { x: -99, y: -99, s: 1, ghost: true });
   })();
-
   function drawField(p, now, dt) {
     if (!heroSmoke) return { a: 0, f: 0, b: 0, th: 0 };
     const sec = Math.min(dt, 48) / 1000;
@@ -1543,11 +750,15 @@
     const roadA = 1 - b;
     setWind(heroFlow, YAW * a);
     const F = heroFlow, v = heroView, V = SPEED * TS;
+    /* The smoke fades out while the wind swings round, then comes back already running the new way */
+    const side = a > .9 ? 1 : a < .08 ? 0 : airSide;
+    if (side !== airSide) { airSide = side; heroSmoke.primed = false; }
     if (!heroSmoke.primed) primeSmoke(heroSmoke, F);
+    const airVis = airSide ? map(a, .9, 1) : 1 - map(a, 0, .08);
     roadRun += V * sec;
 
     /* The group rides a little to the windward side of the middle of the road */
-    const [fwx, fwy] = toW(v, wide ? W * .71 : W * .56, wide ? H * .52 : H * .86);
+    const [fwx, fwy] = toW(v, wide ? W * .71 : W * .56, wide ? H * .52 : H * lerp(1.13, .86, f));
     const rcw = fwx - .9;
 
     /* The group going round. Up the sheltered line, back down the windward one. */
@@ -1582,10 +793,6 @@
       const [qx, qy] = toW(v, r.sx, r.sy);
       r.q.x = qx; r.q.y = qy; r.q.s = lerp(1, 3.4, r.bi);
     }
-    /* The pointer is a rider too, as far as the air is concerned */
-    const live = now - pointer.t < 1800 && pointer.x > 0 && pointer.x < W && pointer.y > 0 && pointer.y < H;
-    if (live) { const [px, py] = toW(v, pointer.x, pointer.y); pointer.q.x = px; pointer.q.y = py; }
-    else { pointer.q.x = -999; pointer.q.y = -999; }
     for (const r of riders) r.e += (shelter(F, r.q, r.q.x, r.q.y) - r.e) * .08;
 
     /* Road, shelter and smoke go on one layer, so the words can be cleared out of it */
@@ -1601,56 +808,13 @@
     drawPlume(L, heroPlume, DPR);
     stepSmoke(heroSmoke, F, sec, heroT);
     worldOn(L, v, DPR);
-    drawSmoke(L, heroSmoke, COL.stone, lerp(.3, .5, a) * lerp(1, .8, b), 1.25 / PPM);
+    drawSmoke(L, heroSmoke, COL.stone, lerp(.2, .34, a) * lerp(1, .5, b) * airVis, 1.25 / PPM);
     L.setTransform(1, 0, 0, 1, 0, 0);
     L.globalCompositeOperation = 'destination-out';
     L.fillStyle = heroMask; L.fillRect(0, 0, cw, ch);
     L.globalCompositeOperation = 'source-over';
     g.drawImage(L.canvas, 0, 0, W, H);
 
-    /* The echelon line, along the sheltered side */
-    const gl = f * roadA;
-    if (gl > .02) {
-      const [x1, y1] = toS(v, ax - 1.6 * ldx - .55 * lnx, ay - 1.6 * ldy - .55 * lny);
-      const [x2, y2] = toS(v, ax + (Lp + 1.8) * ldx - .55 * lnx, ay + (Lp + 1.8) * ldy - .55 * lny);
-      g.strokeStyle = rgb(COL.road, .6 * gl); g.lineWidth = 1.2; g.setLineDash([4, 6]);
-      g.beginPath(); g.moveTo(x1, y1); g.lineTo(x2, y2); g.stroke(); g.setLineDash([]);
-      g.font = `400 ${wide ? 10 : 9}px "Martian Mono", Menlo, monospace`;
-      const lt = `ECHELON LINE ${Math.round(90 - th / DEG)}° TO THE ROAD`, ltw = g.measureText(lt).width;
-      g.fillStyle = rgb(COL.road, .9 * gl);
-      if (wide) { g.textAlign = 'right'; g.fillText(lt, x2 - 6, Math.min(y2 + 16, H - 40)); g.textAlign = 'left'; }
-      else g.fillText(lt, clamp(x1 - ltw - 6, 12, W - ltw - 12), clamp(y1 - 10, 120, H - 90));
-    }
-    /* What the riders feel. Their own speed plus the crosswind brings the air in off the nose. */
-    if (wide && a > .02 && roadA > .01) {
-      const al = a * roadA, k = 2.7, top = Math.max(H * .26, 210), ox = W - 70, oy = top + 60;
-      const hx = Math.sin(TILT), hy = -Math.cos(TILT);
-      const c1 = [-Math.cos(TILT) * 19 * a * k, -Math.sin(TILT) * 19 * a * k], r1 = [-hx * 28 * k, -hy * 28 * k];
-      const ex = ox + c1[0] + r1[0], ey = oy + c1[1] + r1[1];
-      g.font = '400 9px "Martian Mono", Menlo, monospace'; g.textAlign = 'right';
-      g.fillStyle = rgb(COL.stone, .6 * al); g.fillText('THE WIND THEY FEEL', ox, top);
-      arrow(g, ox, oy, ox + c1[0], oy + c1[1], rgb(COL.stone, .55 * al), 1.2);
-      arrow(g, ox + c1[0], oy + c1[1], ex, ey, rgb(COL.stone, .55 * al), 1.2);
-      arrow(g, ox, oy, ex, ey, rgb(COL.road, .95 * al), 2.2);
-      g.fillStyle = rgb(COL.stone, .75 * al);
-      g.fillText(`CROSSWIND ${String(Math.round(19 * a)).padStart(2, '0')}`, ox + c1[0] - 4, oy + c1[1] - 10);
-      g.fillText('RIDING 28', ox + c1[0] + r1[0] * .5 - 8, oy + c1[1] + r1[1] * .5 + 3);
-      g.fillStyle = rgb(COL.road, .95 * al);
-      g.fillText(`${Math.round(Math.hypot(28, 19 * a))} MPH`, ex - 6, ey + 16);
-      g.textAlign = 'left';
-    }
-
-    /* Wind pressure on whoever is taking it */
-    let lead = riders[0];
-    for (const r of riders) {
-      if (r.e > lead.e) lead = r;
-      const al = .5 * map(r.e, .42, 1) * (1 - r.bi) * roadA;
-      if (al < .01) continue;
-      const [ex, ey] = toS(v, r.wx - F.dx * .5, r.wy - F.dy * .5);
-      const gr = g.createRadialGradient(ex, ey, 0, ex, ey, .85 * PPM);
-      gr.addColorStop(0, rgb(COL.road, al)); gr.addColorStop(1, rgb(COL.road, 0));
-      g.fillStyle = gr; g.beginPath(); g.arc(ex, ey, .85 * PPM, 0, Math.PI * 2); g.fill();
-    }
 
     /* Riders, back to front so the shadows fall the right way, settling into the bars */
     const order = riders.slice().sort((m, n) => m.sy - n.sy);
@@ -1666,47 +830,9 @@
       g.fillRect(-r.segW / 2 - .4, -bh / 2, (r.segW + .8) * t, bh);
       g.restore();
     }
-
-    /* Technical callouts on the mark */
-    if (b > .05) {
-      const al = ease(map(p, .8, .92));
-      if (al > 0) {
-        g.font = `400 ${wide ? 10 : 8}px "Martian Mono", Menlo, monospace`;
-        g.textAlign = 'left';
-        /* The bottom bar's cut, extended down past the mark */
-        const fx = bx0 + bw - bh / 2 * SKEW, fy = by0 + totalH;
-        const Lc = wide ? 64 : 34, n = Math.hypot(SKEW, 1);
-        const ex = fx - Lc * SKEW / n, ey = fy + Lc / n;
-        g.strokeStyle = rgb(COL.road, .85 * al); g.lineWidth = 1; g.setLineDash([3, 5]);
-        g.beginPath(); g.moveTo(fx, fy); g.lineTo(ex, ey); g.stroke(); g.setLineDash([]);
-        /* The angle itself */
-        g.strokeStyle = rgb(COL.stone, .7 * al);
-        g.beginPath(); g.moveTo(fx, fy); g.lineTo(fx + (wide ? 34 : 22), fy); g.stroke();
-        g.beginPath(); g.arc(fx, fy, wide ? 22 : 15, -56 * Math.PI / 180, 0); g.stroke();
-        g.fillStyle = rgb(COL.road, .95 * al);
-        g.fillText(wide ? '56° / ECHELON ANGLE' : '56°', fx + (wide ? 30 : 19), fy - (wide ? 12 : 8));
-        if (wide) { g.fillStyle = rgb(COL.stone, .6 * al); g.fillText('4 BARS / LEVEL / CUT TO THE WIND', bx0, fy + 26); }
-      }
-    }
-
-    /* Effort, from how much air each rider is taking */
-    const eff = 1 - ease(map(p, .55, .66));
-    if (eff > .01) {
-      const sw = wide ? 150 : 104, sh = wide ? 34 : 24, sx = wide ? W - sw - 64 : 16, sy = wide ? H - 74 : H - 66;
-      g.font = '400 9px "Martian Mono", Menlo, monospace'; g.textAlign = 'left';
-      g.fillStyle = rgb(COL.stone, .7 * eff);
-      g.fillText('EFFORT, BY RIDER', sx, sy - sh - 8);
-      const barW = sw / 13;
-      for (const r of riders) {
-        const hh = sh * (.12 + .88 * map(r.e, .2, 1));
-        g.fillStyle = rgb(r === lead ? COL.road : COL.stone, .85 * eff);
-        g.fillRect(sx + r.i * barW, sy - hh, barW - 2, hh);
-      }
-    }
-    return { a, f, b, th };
   }
 
-  /* ---------- 06 How an echelon works ---------- */
+  /* ---------- 06 Veterans ---------- */
   const fig2 = $('fig2cv'), f2 = fig2.getContext('2d');
   const F2 = { W: 0, H: 0, dpr: 1, ppm: 100, view: makeView(), box: null, smoke: null, plume: null, pat: null, sh: null, t: 0, run: 0, n: 0, flow: makeFlow(), layer: document.createElement('canvas').getContext('2d') };
   const PRO_KIT = { tyre: '#0b1a26', glint: 'rgba(226,217,203,.45)', frame: '#517493', bar: '#01233A', shorts: '#01233A', shoe: '#EDE6DA', jersey: '#022E4C', bars: '#E2D9CB', shade: 'rgba(0,0,0,.3)', glove: '#01233A', helmet: '#F6F1E8', vent: '#022E4C' };
@@ -1725,7 +851,7 @@
     setView(F2.view, TILT, F2.ppm, F2.W, F2.H);
     F2.box = worldBox(F2.view, F2.W, F2.H);
     F2.sh = shadowSprites(F2.ppm, 'rgba(1,20,34,.42)');
-    F2.smoke = makeSmoke((F2.narrow ? 17 : 22) / F2.ppm, .14, F2.box);
+    F2.smoke = makeSmoke((F2.narrow ? 26 : 38) / F2.ppm, .14, F2.box);
     F2.plume = plumeLayer(F2.W, F2.H, F2.narrow ? 6 : 8);
     F2.pat = F2.layer.createPattern(grain([[COL.white, 700, .1], [[0, 0, 0], 900, .1]]), 'repeat');
   }
@@ -1780,51 +906,13 @@
     drawPlume(L, F2.plume, F2.dpr);
     stepSmoke(F2.smoke, F, sec, F2.t);
     worldOn(L, v, F2.dpr);
-    drawSmoke(L, F2.smoke, COL.navy, .42, 1.3 / ppm);
+    drawSmoke(L, F2.smoke, COL.navy, .28, 1.3 / ppm);
     fadeEdges(L, cw, ch, Math.min(cw, ch) * .12);
     c.drawImage(L.canvas, 0, 0, F2.W, F2.H);
 
-    /* Where the new rider's label sits, so the other labels can make way for it */
-    const sz = innerWidth < 820 ? 10 : 12;
-    const vet = F2.riders[5], pro = F2.riders[0];
-    const state = j < .8 ? 'IN THE WIND' : vs < Lp - .25 ? 'SHELTERED' : 'ON THE FRONT';
-    c.font = `500 ${sz}px "Martian Mono", Menlo, monospace`;
-    const vtw = c.measureText(state).width + sz * 1.4;
-    const vy = vet.sy - .95 * ppm, roomLeft = vet.sx - .35 * ppm - vtw > 4;
-    const vcx = roomLeft ? vet.sx - .35 * ppm - vtw / 2 : vet.sx + .35 * ppm + vtw / 2;
-    const clear = (x, y, tw) => clamp((Math.max(Math.abs(x - vcx) - (tw + vtw) / 2 - 16, Math.abs(y - vy) - sz * 3.4)) / 40);
-
-    /* The rotation, drawn as its track with chevrons showing which way riders go */
-    const tk = map(p, .2, .32);
-    if (tk > .01) {
-      c.strokeStyle = rgb(COL.navy, .45 * tk); c.lineWidth = 1.4; c.setLineDash([4, 6]);
-      c.beginPath();
-      for (let s = 0; s <= P; s += .06) { const lp = loopPos(Math.min(s, P - .001), Lp, w), [x, y] = atS(lp.u, lp.v); s ? c.lineTo(x, y) : c.moveTo(x, y); }
-      c.closePath(); c.stroke(); c.setLineDash([]);
-      c.fillStyle = rgb(COL.navy, .7 * tk);
-      for (let s = .55; s < P; s += P / 7) {
-        const l1 = loopPos(s, Lp, w), l2 = loopPos(Math.min(P - .001, s + .05), Lp, w);
-        const [x1, y1] = atS(l1.u, l1.v), [x2, y2] = atS(l2.u, l2.v);
-        c.save(); c.translate(x1, y1); c.rotate(Math.atan2(y2 - y1, x2 - x1));
-        c.beginPath(); c.moveTo(6, 0); c.lineTo(-4, -5); c.lineTo(-1, 0); c.lineTo(-4, 5); c.closePath(); c.fill();
-        c.restore();
-      }
-      c.font = `400 ${sz}px "Martian Mono", Menlo, monospace`;
-      const [ux, uy] = atS(Lp * .45, -.85), [dx2, dy2] = atS(Lp * .55, w + .85);
-      const tw1 = c.measureText('MOVING UP').width, tw2 = c.measureText('DROPPING BACK').width;
-      const k1 = tk * clear(ux - tw1 / 2, uy + sz * .7, tw1), k2 = tk * clear(dx2 + tw2 / 2, dy2 + sz * .7, tw2);
-      c.textAlign = 'right';
-      c.fillStyle = rgb(COL.navy, .9 * k1); c.fillText('MOVING UP', ux, uy);
-      c.fillStyle = rgb(COL.navy, .65 * k1); c.fillText('SHELTERED', ux, uy + sz * 1.4);
-      c.textAlign = 'left';
-      const dxp = Math.min(dx2, F2.W - tw2 - 4);
-      c.fillStyle = rgb(COL.navy, .9 * k2); c.fillText('DROPPING BACK', dxp, dy2);
-      c.fillStyle = rgb(COL.navy, .65 * k2); c.fillText('WINDWARD', dxp, dy2 + sz * 1.4);
-    }
-
     /* Pressure on whoever is taking the wind */
     for (const r of F2.riders) {
-      const al = .62 * map(r.e, .42, 1) * r.op;
+      const al = .4 * map(r.e, .42, 1) * r.op;
       if (al < .01) continue;
       const [ex, ey] = toS(v, r.wx - F.dx * .5, r.wy - F.dy * .5);
       const gr = c.createRadialGradient(ex, ey, 0, ex, ey, .8 * ppm);
@@ -1834,439 +922,80 @@
     const order = F2.riders.slice().sort((m, n) => m.sy - n.sy);
     for (const r of order) drawRider(c, r, ppm, F2.sh, SUN, 1, r.op);
 
-    /* Labels. The pro is ahead of the new rider, so theirs goes on the open, windward side. */
-    chip(c, state, roomLeft ? vet.sx - .35 * ppm : vet.sx + .35 * ppm, vy, '#56061D', '#E2D9CB', roomLeft ? 'right' : 'left', sz);
-    if (j > .85 && pro.op > .5) {
-      const pt = F2.narrow ? 'PRO RIDER' : 'THEIR PRO RIDER';
-      c.font = `500 ${sz}px "Martian Mono", Menlo, monospace`;
-      const pw = c.measureText(pt).width + sz * 1.4;
-      chip(c, pt, Math.min(pro.sx + .38 * ppm, F2.W - pw - 4), pro.sy - .55 * ppm, '#022E4C', '#E2D9CB', 'left', sz);
-    }
-    /* Which way the air comes, as the riders feel it */
-    c.font = `400 ${sz}px "Martian Mono", Menlo, monospace`;
-    const l1 = 'WIND ON THE RIDERS 34 MPH', l2 = '19 MPH CROSSWIND, RIDING AT 28';
-    c.textAlign = 'right'; c.fillStyle = rgb(COL.navy, .8);
-    c.fillText(l1, F2.W - 8, sz + 6);
-    c.fillStyle = rgb(COL.navy, .6);
-    c.fillText(l2, F2.W - 8, sz * 2.5 + 6);
-    c.textAlign = 'left';
-    const ang = Math.atan2(F.uy, F.ux) + TILT, mx = F2.W - 8 - c.measureText(l2).width - 30, my = sz * 1.3 + 6;
-    arrow(c, mx - Math.cos(ang) * 20, my - Math.sin(ang) * 20, mx + Math.cos(ang) * 20, my + Math.sin(ang) * 20, rgb(COL.navy, .8), 1.8);
+    /* One label, so the new member is easy to follow */
+    const sz = innerWidth < 820 ? 13 : 16, vet = F2.riders[5];
+    c.font = `700 ${sz}px Archivo, Helvetica, sans-serif`;
+    const tw = c.measureText('New member').width + sz * 1.6, hh = sz * 2;
+    let lx = vet.sx - .4 * ppm - tw; if (lx < 6) lx = Math.min(vet.sx + .4 * ppm, F2.W - tw - 6);
+    const ly = clamp(vet.sy - .8 * ppm - hh, 6, F2.H - hh - 6);
+    c.fillStyle = '#56061D'; c.fillRect(lx, ly, tw, hh);
+    c.fillStyle = '#E2D9CB'; c.textBaseline = 'middle'; c.textAlign = 'left'; c.fillText('New member', lx + sz * .8, ly + hh / 2 + 1); c.textBaseline = 'alphabetic';
 
-    if (!calm) document.querySelectorAll('.cap').forEach((cp) => {
-      const k = +cp.dataset.cap;
-      const o = k === 0 ? 1 - map(p, .26, .32) : k === 1 ? band(p, .3, .36, .62, .68) : map(p, .68, .76);
-      cp.style.opacity = o;
-      cp.style.transform = `translateY(${(1 - o) * 10}px)`;
-    });
+    if (!calm) document.querySelectorAll('.cap').forEach((cp, k) => cp.classList.toggle('on', k === (p < .3 ? 0 : p < .66 ? 1 : 2)));
   }
 
-  /* ---------- 08 Veterans: diagonal track ---------- */
-  const track = $('track'), trackLine = $('trackLine');
-  let sx = 0, sy = 0;
-  function sizeTrack() {
-    const vets = $('vets');
-    const probe = getComputedStyle(vets);
-    const toPx = (v, base) => parseFloat(v) * base / 100;
-    sx = toPx(probe.getPropertyValue('--sx'), innerWidth);
-    sy = toPx(probe.getPropertyValue('--sy'), innerHeight);
-    const len = Math.hypot(sx * 3, sy * 3);
-    const panel = track.querySelector('.panel');
-    const r = panel.offsetTop + panel.offsetHeight * .5;
-    trackLine.style.left = panel.offsetLeft + 'px';
-    trackLine.style.top = r + 'px';
-    trackLine.style.width = len + 'px';
-    trackLine.style.transform = `rotate(${-Math.atan2(sy, sx)}rad)`;
-  }
-  function drawTrack(p) {
-    const e = p < .02 ? 0 : (p - .02) / .96;
-    const x = clamp(e) * 3 * sx, y = clamp(e) * 3 * sy;
-    track.style.transform = `translate3d(${-x}px, ${y}px, 0)`;
-    $('vets').querySelector('.stick').style.setProperty('--gx', `${-x * .35}px`);
-    $('vets').querySelector('.stick').style.setProperty('--gy', `${y * .35}px`);
-  }
-
-  /* ---------- 02 Roster ----------
-     Results checked against ProCyclingStats, USA Cycling, Cycling Canada and Cyclingnews in
-     November 2026. Each rider: first, last, nation, card line, home, born, with the team,
-     came from, rides as, results [year, race, place, detail], and a line about them. */
-  const ROSTER = [
-    { f: 'Garrett', l: 'Beshore', nat: 'USA', card: 'New for 2027, from Meridian Racing', home: 'Longmont, Colorado', born: 2007, since: 'New for 2027', from: 'Meridian Racing',
-      res: [[2026, 'Tucson Bicycle Classic', '3rd', 'Overall'], [2026, 'US U23 time trial championship', '7th', ''], [2025, "Tour of America's Dairyland", '1st', 'Overall, junior race, with two stage wins'], [2025, 'Junior Tour of Ireland', '3rd', 'Overall']],
-      note: "Garrett rode the 2026 Tour de l'Avenir for the US national team. His junior win at the Tour of America's Dairyland came on roads around Milwaukee, close to the team's home in Waukesha." },
-    { f: 'Ben', l: 'Boroff', nat: 'USA', card: 'Stage winner, Tucson Bicycle Classic', born: 2005, since: 'Stagiaire, July 2026', from: 'Velovit Elite', type: 'Road, with cyclocross in winter',
-      res: [[2026, 'Tucson Bicycle Classic', '1st', 'Stage 4'], [2026, 'American Criterium Cup', 'Led', 'Points competition, for several weeks'], [2026, 'Tour of Saint Louis', '2nd', 'Carondelicious Circuit Race'], [2026, 'US U23 road race', '9th', '']],
-      note: 'Ben joined as a stagiaire in July 2026. He returns for 2027 on a one-year deal.' },
-    { f: 'Luke', l: 'Elphingstone', nat: 'USA', card: 'USPro criterium champion', home: 'Boulder, Colorado', born: 2003, since: '2026', from: 'Kelly Benefits Cycling', type: 'Sprinter',
-      res: [[2026, 'USPro criterium championship', '1st', 'Elite men'], [2026, 'Tucson Bicycle Classic', '1st', 'Stage 2'], [2026, 'Tour de Bloom', '1st', 'Stage 2'], [2026, 'Tour of Samsun', '3rd', 'Stage 4'], [2025, 'Collegiate road nationals', '1st', 'Varsity criterium'], [2025, 'US U23 criterium championship', '3rd', '']],
-      note: 'Luke studies at Colorado Mesa University. The national criterium title was his main goal for 2026. Eric Hill calls him "a Michael Matthews kind of rider."' },
-    { f: 'Dylan', l: 'Fluckiger', nat: 'USA', card: 'New for 2027. Collegiate team time trial silver', home: 'Kimberly, Idaho', born: 2002, since: 'New for 2027', from: 'Colorado Mesa University',
-      res: [[2026, 'Collegiate road nationals', '2nd', 'Varsity team time trial, with Luke Elphingstone'], [2025, 'Collegiate road nationals', '7th', 'Varsity criterium']],
-      note: 'Dylan joins from the Colorado Mesa University team, where he raced alongside Luke Elphingstone. The two took silver together in the 2026 collegiate team time trial.' },
-    { f: 'Jérôme', l: 'Gauthier', nat: 'CAN', card: 'Canadian road champion', home: 'Amos, Quebec', born: 2004, since: '2026', from: "Team Marni-N'side",
-      res: [[2026, 'Canadian road championship', '1st', 'Elite and U23 titles'], [2026, 'Gran Premio New York City', '2nd', ''], [2026, 'Tour of Samsun', '2nd', 'Overall'], [2026, 'Tour de Beauce', '1st', 'Best young rider. 2nd on stage 5'], [2025, 'Canadian U23 road championship', '1st', '']],
-      note: 'Jérôme won the 2026 national title in rain and wind strong enough to bring the finish banners down. He was picked for Canada at the 2026 Worlds in Montréal. Eric Hill calls him "an absolute grinder."' },
-    { f: 'Kade', l: 'Kreikemeier', nat: 'USA', card: 'New for 2027. US U23 time trial champion', home: 'Fort Collins, Colorado', born: 2004, since: 'New for 2027', from: 'Meridian Racing', type: 'Time trialist',
-      res: [[2026, 'US U23 time trial championship', '1st', ''], [2025, 'US U23 time trial championship', '5th', ''], [2025, 'Vuelta a Guatemala', '4th', 'Stage 5'], [2024, 'Vuelta a Zamora', '2nd', 'Overall'], [2024, 'Vuelta a Ávila', '6th', 'Overall']],
-      note: 'Kade raced two seasons with Spanish clubs before Meridian Racing. He called his 2026 title "a childhood dream."' },
-    { f: 'Arnaud', l: 'Lajoie', nat: 'CAN', card: 'New for 2027, from Team Skyline', born: 2007, since: 'New for 2027', from: 'Team Skyline',
-      res: [[2026, "L'Enfer des Patriotes", '4th', ''], [2026, 'Tour de Beauce', '25th', 'Overall'], [2025, 'Classique des Bois Francs', '1st', 'Junior'], [2025, 'GP Cycliste Sainte-Martine', '1st', 'Junior']],
-      note: 'Arnaud is one of the youngest riders on the 2027 roster. He came up through Quebec clubs, then joined Team Skyline as a trainee in August 2026.' },
-    { f: 'Colby', l: 'Lange', nat: 'USA', card: 'Five years with the team', born: 1999, since: '2023', from: 'Hagens Berman Axeon', type: 'Road and track endurance',
-      res: [[2026, 'Pan American Track Championships', '1st', 'Madison, with Brendan Rhim'], [2026, 'Pan American Track Championships', '2nd', 'Team pursuit'], [2024, 'GP de la ville de Pérenchies', '7th', ''], [2023, 'Pan American Games', '3rd', 'Team pursuit'], [2023, 'Pan American Games', '3rd', 'Madison']],
-      note: 'Colby goes into his fifth season with the team. He was in the early breakaway at the 2026 Philadelphia Cycling Classic.' },
-    { f: 'Jesse', l: 'Maris', nat: 'USA', card: 'New for 2027. Third overall, Volta a Portugal do Futuro', home: 'Washington state', born: 2004, since: 'New for 2027', from: 'Technosylva Bembibre',
-      res: [[2026, 'Volta a Portugal do Futuro', '3rd', 'Overall'], [2025, 'Volta a Galicia', '1st', 'Stage 3'], [2025, 'Gorlako Igoera', '1st', ''], [2022, 'Aubel-Thimister-Stavelot', '3rd', 'Overall, junior']],
-      note: 'Jesse has spent the last few seasons racing in Europe. He rode for the Israel Premier Tech Academy, then a Spanish team.' },
-    { f: 'Tim', l: 'McBirney', nat: 'USA', card: 'Third overall, 2026 Tour de Beauce', born: 1998, since: '2026', from: "Mike's Bikes", type: 'Diesel',
-      res: [[2026, 'Tour de Beauce', '3rd', 'Overall'], [2025, 'Tour de Bloom', '2nd', 'Overall. Won the stage 4 time trial'], [2025, 'Valley of the Sun Stage Race', '3rd', 'Overall'], [2022, 'Redlands Bicycle Classic', '3rd', 'Stage 3 time trial']],
-      note: 'Eric Hill calls Tim "a big diesel rider." Around the team he goes by Tractor Tim.' },
-    { f: 'Brendan', l: 'Rhim', nat: 'USA', card: 'Four years with the team', home: 'Norwich, Vermont', born: 1995, since: '2024', from: 'American Cycling', type: 'All-rounder, road and track',
-      res: [[2026, 'Pan American Track Championships', '1st', 'Madison, with Colby Lange'], [2024, 'Tucson Bicycle Classic', '1st', 'Overall'], [2024, 'Tour de Beauce', '1st', 'Stage 4'], [2024, 'Kreiz Breizh Elites', '1st', 'Stage 1'], [2024, 'USPro criterium championship', '2nd', ''], [2019, 'Tour de Beauce', '1st', 'Overall']],
-      note: 'Brendan won the Tour de Beauce overall in 2019. He went back in 2024 to win a stage with Project Echelon.' },
-    { f: 'Jacob', l: 'Roy', nat: 'CAN', card: 'Back after a 2026 stagiaire spell', born: 2006, since: 'Stagiaire, July 2026', from: 'Les Régis',
-      res: [[2026, 'Tour de Beauce', '1st', 'Stage 4 time trial, with Les Régis'], [2026, 'Canadian U23 time trial', '8th', ''], [2025, 'Canada Summer Games', '1st', 'Time trial'], [2025, 'GP Cycliste de Charlevoix', '1st', 'Overall, U21']],
-      note: 'Jacob won a time trial at the Tour de Beauce a few weeks before he joined as a stagiaire. He returns for 2027 on a one-year deal.' },
-    { f: 'Noah', l: 'Shelton', nat: 'USA', card: 'Stage podium, Tour of Istanbul', home: 'Mill Valley, California', born: 2006, since: 'Stagiaire, July 2026', from: 'Kelly Benefits Cycling', type: 'Road, with cyclocross in winter',
-      res: [[2026, 'Tour of Istanbul', '3rd', 'Stage 3'], [2026, 'Tour of Kahramanmaraş', '1st', 'Best young rider'], [2026, 'Dorletako Amaren Sari Nagusia', '1st', 'With Kelly Benefits Cycling'], [2026, 'US U23 road race', '8th', '']],
-      note: 'Noah made the decisive six-rider move at the 2026 US U23 road race. He returns for 2027 on a one-year deal.' },
-  ];
-  /* Placeholder photos until the January media camp, taken from the team's own pictures */
-  const SHOTS = [
-    { img: document.querySelector('.panel .duo img'), pos: '50% 18%' },
-    { img: document.querySelector('.kit-photo img'), pos: '74% 26%' },
-    { img: document.querySelectorAll('.panel .duo img')[2], pos: '40% 30%' },
-  ];
-  const shot = (i) => SHOTS[i % SHOTS.length];
-  const names = $('names');
-  ROSTER.forEach((r, i) => {
-    const li = document.createElement('li');
-    li.className = 'name';
-    li.style.setProperty('--n', i);
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'nmb';
-    b.setAttribute('aria-label', `${r.f} ${r.l}, ${r.nat}. ${r.card}. Open rider profile`);
-    const small = document.createElement('small'); small.textContent = r.f;
-    const span = document.createElement('span'); span.textContent = r.l;
-    b.append(small, span);
-    b.addEventListener('click', () => openRider(i));
-    li.append(b);
-    names.appendChild(li);
-  });
-  const nameEls = [...names.children];
-  for (let i = 0; i < 13; i++) $('bibScale').appendChild(document.createElement('i'));
-  const scaleEls = [...$('bibScale').children];
+  /* ---------- 02 Team ---------- */
+  const SHOTS = [['img/p02.jpg', '50% 18%'], ['img/p01.jpg', '74% 26%'], ['img/p04.jpg', '40% 30%']];
+  const names = $('names'), nameEls = [...names.children];
   let rosterIdx = -1;
-  function showBib(idx) {
-    const r = ROSTER[idx], s = shot(idx);
+  function showRider(idx) {
+    const s = SHOTS[idx % SHOTS.length], d = nameEls[idx].dataset;
     nameEls.forEach((n, i) => n.classList.toggle('on', i === idx));
-    $('bibNum').textContent = String(idx + 1).padStart(2, '0');
-    $('bibNat').textContent = r.nat;
-    $('bibLine').textContent = r.f + ' ' + r.l + '. ' + r.card;
-    $('bibImg').src = s.img.src; $('bibPhoto').style.setProperty('--pos', s.pos);
-    const ph = $('bibPhoto'); ph.classList.remove('swap'); void ph.offsetWidth; ph.classList.add('swap');
-    $('bib').style.setProperty('--tilt', (idx % 2 ? 1.6 : -1.8) + 'deg');
-    scaleEls.forEach((e, i) => e.classList.toggle('on', i === idx));
+    $('cardImg').src = s[0]; $('cardPhoto').style.setProperty('--pos', s[1]);
+    const b = document.createElement('b'); b.textContent = d.name;
+    $('cardText').replaceChildren(b, d.line);
   }
   function drawRoster(p) {
-    const f = clamp(p * 1.04 - .02) * 12;
-    const row = nameEls[0].offsetHeight;
-    const step = row * (innerWidth < 820 ? .09 : .34);
+    const f = clamp(p * 1.04 - .02) * 12, row = nameEls[0].offsetHeight, step = row * (innerWidth <= 820 ? .09 : .34);
     names.style.transform = `translate3d(${f * step}px, ${-f * row}px, 0)`;
     const idx = Math.round(f);
-    if (idx !== rosterIdx) { rosterIdx = idx; showBib(idx); }
+    if (idx !== rosterIdx) { rosterIdx = idx; showRider(idx); }
   }
 
-  /* A rider's page. It slides up over the roster and keeps your place in the scroll. */
-  const rider = $('rider'), riderBack = $('riderBack');
-  let riderIdx = 0, riderFrom = null;
-  function fillRider(i) {
-    riderIdx = (i + ROSTER.length) % ROSTER.length;
-    const r = ROSTER[riderIdx], s = shot(riderIdx);
-    $('riderCount').textContent = `${String(riderIdx + 1).padStart(2, '0')} / ${ROSTER.length}`;
-    $('riderNum').textContent = String(riderIdx + 1).padStart(2, '0');
-    $('riderImg').src = s.img.src; $('riderImg').parentNode.style.setProperty('--pos', s.pos);
-    const h = $('riderName'); h.textContent = '';
-    const sm = document.createElement('small'); sm.textContent = r.f;
-    h.append(sm, document.createTextNode(r.l));
-    $('riderLine').textContent = r.card + '.';
-    $('riderPage').href = 'rider-' + `${r.f} ${r.l}`.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.html';
-    const facts = [['Rides for', r.nat === 'CAN' ? 'Canada' : 'USA'], ['Home', r.home], ['Born', r.born], ['With the team', r.since], ['Came from', r.from], ['Rides as', r.type]];
-    const dl = $('riderFacts'); dl.textContent = '';
-    for (const [k, v] of facts) {
-      if (!v) continue;
-      const d = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
-      dt.textContent = k; dd.textContent = v; d.append(dt, dd); dl.appendChild(d);
-    }
-    const ol = $('riderRes'); ol.textContent = '';
-    for (const [y, race, place, detail] of r.res) {
-      const li = document.createElement('li');
-      const ys = document.createElement('span'); ys.className = 'y'; ys.textContent = y;
-      const rs = document.createElement('span'); rs.className = 'r'; rs.textContent = race;
-      if (detail) { const sm2 = document.createElement('small'); sm2.textContent = detail; rs.appendChild(sm2); }
-      const ps = document.createElement('span'); ps.className = 'p'; ps.textContent = place;
-      li.append(ys, rs, ps); ol.appendChild(li);
-    }
-    $('riderNote').textContent = r.note;
-    rider.scrollTop = 0;
-  }
-  function openRider(i) {
-    riderFrom = document.activeElement;
-    fillRider(i);
-    rider.hidden = false; riderBack.hidden = false;
-    root.classList.add('locked');
-    requestAnimationFrame(() => { rider.classList.add('open'); riderBack.classList.add('open'); });
-    $('riderX').focus({ preventScroll: true });
-  }
-  function closeRider() {
-    rider.classList.remove('open'); riderBack.classList.remove('open');
-    root.classList.remove('locked');
-    setTimeout(() => { if (!rider.classList.contains('open')) { rider.hidden = true; riderBack.hidden = true; } }, 460);
-    if (riderFrom && riderFrom.focus) riderFrom.focus({ preventScroll: true });
-  }
-  $('bibGo').addEventListener('click', () => openRider(Math.max(0, rosterIdx)));
-  $('riderX').addEventListener('click', closeRider);
-  riderBack.addEventListener('click', closeRider);
-  $('riderPrev').addEventListener('click', () => fillRider(riderIdx - 1));
-  $('riderNext').addEventListener('click', () => fillRider(riderIdx + 1));
-  document.addEventListener('keydown', (e) => {
-    if (rider.hidden || !$('musette').hidden) return;
-    if (e.key === 'Escape') closeRider();
-    else if (e.key === 'ArrowLeft') fillRider(riderIdx - 1);
-    else if (e.key === 'ArrowRight') fillRider(riderIdx + 1);
-  });
+  /* Tabbing to a name scrolls the story to that rider, so focus is never off screen */
+  if (!calm) nameEls.forEach((n, i) => n.firstElementChild.addEventListener('focus', () => {
+    n.closest('.names-wrap').scrollTop = 0;
+    if (i === rosterIdx) return;
+    const sec = $('roster'); scrollTo(0, sec.offsetTop + (i / 12 + .02) / 1.04 * (sec.offsetHeight - innerHeight));
+    rosterIdx = -1;
+  }));
 
-  /* ---------- 03 Results ---------- */
-  const resultsBg = $('resultsBg');
-  const insts = [...$('board').children];
-  function drawResults(p) {
-    resultsBg.style.transform = `scale(${lerp(1.22, 1, ease(map(p, 0, .8)))})`;
-    insts.forEach((el, i) => el.classList.toggle('in', p > .14 + i * .07));
-  }
-
-  /* ---------- 05 Season: stage profile ----------
-     Order and dates from the Cyclingnews preview of October 30, 2026 and the ProCyclingStats
-     2027 program. The European spring races aren't named yet, so those stops say so. */
-  const STOPS = [
-    { n: 'Southern California', m: 'California / Team camp / Late January', h: .26,
-      t: 'The season starts with a training camp at the end of January. It is the new roster\'s first block of riding together.' },
-    { n: 'Valley of the Sun', m: 'Phoenix, Arizona / 3 stages / Feb 12 to 14', h: .4,
-      t: 'The 35th edition opens the American season. A time trial in Buckeye comes first, then a road race on a flat loop south of Phoenix. A criterium settles it on overall time.' },
-    { n: 'Tucson Bicycle Classic', m: 'Tucson, Arizona / 4 stages / Feb 18 to 21', h: .52,
-      t: 'Four days of racing around Tucson, with a time trial on standard road bikes. Brendan Rhim won it overall for the team in 2024. Luke Elphingstone and Ben Boroff each won a stage in 2026.' },
-    { n: 'Croatia', m: 'Istria, Croatia / Spring in Europe / March', h: .58,
-      t: 'In 2025 the European spring began in Istria, at the Poreč Classic and the Istrian Spring Tour. The 2027 race is still to be confirmed.' },
-    { n: 'Spain', m: 'Spain / Spring in Europe / Race to be confirmed', h: .5,
-      t: 'Earlier seasons took the team to Challenge Mallorca and the Volta a la Comunitat Valenciana. The 2027 race in Spain is still to be named.' },
-    { n: 'Portugal', m: 'Portugal / Spring in Europe / Race to be confirmed', h: .38,
-      t: 'The team has raced the Volta ao Alentejo, a five-day UCI stage race across the south of the country. The 2027 race is still to be confirmed.' },
-    { n: 'Redlands Bicycle Classic', m: 'Redlands, California / 5 stages / April', h: .55,
-      t: 'First held in 1985, a year after the Los Angeles Olympics. Project Echelon won it three years running, with Tyler Stites from 2022 to 2024.' },
-    { n: 'Battenkill', m: 'Cambridge, New York / UCI 1.2 / May 22', h: .84, f: 1,
-      t: 'A one-day race in Washington County with about a fifth of it on dirt roads. Its organizers compare it to the Belgian classics. In 2027 it returns to the UCI calendar for the first time since 2012.' },
-    { n: 'Tour of Norway', m: 'Norway / 4 stages, UCI ProSeries / May 27 to 30', h: .7,
-      t: 'The highest-ranked race on the team\'s calendar. The 2026 edition was cancelled. The 2027 race depends on state funding coming back.' },
-    { n: 'Armed Forces Cycling Classic', m: 'Washington, DC / Arlington, Virginia / UCI 1.2 / June 5 to 6', h: .78, f: 1,
-      t: 'Saturday\'s Capitol Cup in Washington joins the UCI calendar in 2027. Sunday is the Clarendon Cup criterium in Arlington, held since 1998. Stephen Vogel won it for the team in 2021.' },
-    { n: 'Philadelphia Cycling Classic', m: 'Philadelphia, Pennsylvania / UCI 1.1 / August 22', h: .92, f: 1,
-      t: 'Laps of a 14-mile circuit that climbs the Manayunk Wall, which hits 17 percent. The race began in 1985 as the US pro championship. It came back in 2026 after nine years away, with Colby Lange in the early break.' },
-  ];
-  STOPS.forEach((st) => { const li = document.createElement('li'); li.textContent = `${st.n}${st.f ? ', a focus race' : ''}. ${st.m.replace(/ \/ /g, ', ')}. ${st.t}`; $('seasonList').appendChild(li); });
-  const prof = { el: $('profile'), W: 0, H: 0, unit: 0, pts: [], labels: [] };
-  function buildProfile() {
-    const box = $('world').getBoundingClientRect();
-    const unit = innerWidth < 820 ? 250 : Math.max(360, innerWidth * .26);
-    const H = box.height, pad = innerWidth * .34;
-    const Wt = pad + unit * (STOPS.length - 1) + innerWidth * .7;
-    prof.W = Wt; prof.H = H; prof.unit = unit; prof.pad = pad;
-    const el = prof.el;
-    el.innerHTML = '';
-    el.setAttribute('width', Wt); el.setAttribute('height', H); el.setAttribute('viewBox', `0 0 ${Wt} ${H}`);
-    const defs = svg('defs', {}, el);
-    const pat = svg('pattern', { id: 'hatch', width: 9, height: 9, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(34)' }, defs);
-    svg('line', { x1: 0, y1: 0, x2: 0, y2: 9, stroke: '#022E4C', 'stroke-width': 1.3, opacity: .34 }, pat);
-    const clip = svg('clipPath', { id: 'reveal' }, defs);
-    prof.clip = svg('rect', { x: 0, y: -40, width: 0, height: H + 80 }, clip);
-
-    const r = seeded(17);
-    const base = H * .9;
-    const peak = (x) => {
-      let y = 0;
-      STOPS.forEach((st, i) => { const px = pad + i * unit; const w = unit * .3; y = Math.max(y, st.h * Math.exp(-((x - px) ** 2) / (2 * w * w))); });
-      return y;
-    };
-    const noise = Array.from({ length: 12 }, (_, i) => [.004 + i * i * .00042 + r() * .002, r() * 6.28, .14 / (1 + i * .34)]);
-    const yAt = (x) => {
-      const n = noise.reduce((acc, [f, o, a]) => acc + Math.sin(x * f + o) * a, 0);
-      return base - (peak(x) * .86 + .07 + n * (.28 + peak(x) * .5)) * H * .78;
-    };
-    prof.yAt = yAt;
-    let d = `M 0 ${yAt(0).toFixed(1)}`;
-    for (let x = 8; x <= Wt; x += 8) d += ` L ${x} ${yAt(x).toFixed(1)}`;
-    /* A light band behind each focus race */
-    STOPS.forEach((st, i) => { if (st.f) svg('rect', { x: pad + i * unit - unit * .22, y: 0, width: unit * .44, height: H, fill: 'rgba(86, 6, 29, .07)' }, el); });
-    svg('path', { d, fill: 'none', stroke: '#022E4C', 'stroke-width': 1.4, 'stroke-dasharray': '2 6', opacity: .55 }, el);
-    svg('path', { d: `${d} L ${Wt} ${H} L 0 ${H} Z`, fill: 'url(#hatch)', 'clip-path': 'url(#reveal)' }, el);
-    prof.line = svg('path', { d, fill: 'none', stroke: '#022E4C', 'stroke-width': 3, 'clip-path': 'url(#reveal)' }, el);
-    svg('line', { x1: 0, x2: Wt, y1: H - 1, y2: H - 1, stroke: '#022E4C', 'stroke-width': 1 }, el);
-    for (let x = 0; x < Wt; x += unit / 4) svg('line', { x1: x, x2: x, y1: H - 1, y2: H - (Math.round(x / (unit / 4)) % 4 === 0 ? 12 : 6), stroke: '#022E4C', 'stroke-width': 1 }, el);
-
-    prof.labels = STOPS.map((st, i) => {
-      const x = pad + i * unit, y = yAt(x);
-      const lg = svg('g', { opacity: .82 }, el);
-      const top = Math.max(16, y - (i % 2 ? 62 : 38));
-      svg('line', { x1: x, x2: x, y1: top + 4, y2: y - 8, stroke: st.f ? '#56061D' : '#022E4C', 'stroke-width': 1 }, lg);
-      svg('circle', { cx: x, cy: y, r: st.f ? 7 : 5, fill: st.f ? '#FFC72C' : '#EDE6DA', stroke: st.f ? '#56061D' : '#022E4C', 'stroke-width': 2 }, lg);
-      const num = svg('text', { x: x + 6, y: top + 2, 'font-size': 11, 'letter-spacing': 1, fill: st.f ? '#56061D' : '#022E4C' }, lg);
-      num.textContent = `${String(i + 1).padStart(2, '0')} ${st.n.toUpperCase()}`;
-      if (st.f) { const ft = svg('text', { x: x + 6, y: top - 12, 'font-size': 10, 'letter-spacing': 1.2, fill: '#56061D' }, lg); ft.textContent = 'FOCUS RACE'; }
-      return { lg, x };
-    });
-    prof.marker = svg('circle', { r: 8, fill: '#56061D', stroke: '#EDE6DA', 'stroke-width': 3 }, el);
-  }
-  let nowIdx = -1;
-  function showStop(idx) {
-    const st = STOPS[idx];
-    $('nowNum').textContent = `${String(idx + 1).padStart(2, '0')} / ${STOPS.length}`;
-    $('nowFocus').hidden = !st.f;
-    $('nowName').textContent = st.n; $('nowMeta').textContent = st.m; $('nowText').textContent = st.t;
-  }
-  showStop(0);
-  function drawSeason(p) {
-    if (!prof.W) return;
-    const cursor = innerWidth * .34;
-    const e = ease(map(p, .02, .98)) * .35 + map(p, .02, .98) * .65;
-    const camX = e * (prof.pad + prof.unit * (STOPS.length - 1) - cursor);
-    const x = camX + cursor;
-    prof.el.style.transform = `translate3d(${-camX}px, 0, 0)`;
-    prof.clip.setAttribute('width', x);
-    prof.marker.setAttribute('cx', x); prof.marker.setAttribute('cy', prof.yAt(x));
-    prof.labels.forEach((l) => l.lg.setAttribute('opacity', .82 + .18 * clamp((x - l.x + 26) / 26)));
-    const idx = clamp(Math.round((x - prof.pad) / prof.unit), 0, STOPS.length - 1);
-    if (idx !== nowIdx) { nowIdx = idx; showStop(idx); }
-  }
-
-  /* ---------- 10 Partners marquee ---------- */
-  const PARTNERS = ['Milliman', 'Duke Cannon', 'Shimano', 'VCP Foundation', 'SiS', 'Wahoo', 'Retevis', 'MP Systems', 'Jakroo', 'Lazer', 'Birdworx'];
-  const fillRow = (el, list) => { for (let i = 0; i < 4; i++) list.forEach((n) => { const s = document.createElement('span'); s.textContent = n; el.appendChild(s); }); };
-  fillRow($('m0'), PARTNERS); fillRow($('m1'), [...PARTNERS].reverse());
-  let mx = 0;
-
-  /* ---------- 11 Get involved ---------- */
-  const barEls = [...$('bars').children];
-  function drawBars() {
-    const r = $('bars').getBoundingClientRect();
-    const p = map(innerHeight - r.top, 0, innerHeight * .8);
-    barEls.forEach((b, i) => b.style.setProperty('--in', ease(map(p, i * .1, .6 + i * .1)).toFixed(3)));
-  }
-
-  /* ---------- Page furniture ---------- */
-  const sections = [...document.querySelectorAll('[data-label]')];
-  const bars = ['b3', 'b2', 'b1', 'b0'].map($);
-  const hereEl = $('dHere'), skipEl = document.querySelector('.d-skip'), skipText = skipEl.textContent;
-  function furniture(y) {
-    const docH = document.documentElement.scrollHeight - innerHeight;
-    const pct = docH > 0 ? y / docH : 0;
-    bars.forEach((b, i) => b.setAttribute('opacity', (.3 + .7 * map(pct, i * .25, (i + 1) * .25)).toFixed(2)));
-    let cur = sections[0];
-    for (const s of sections) { if (s.getBoundingClientRect().top <= 44) cur = s; }
-    if (root.dataset.hud !== cur.dataset.theme) root.dataset.hud = cur.dataset.theme;
-    root.classList.toggle('still', !!cur.dataset.still);
-    root.classList.toggle('at-hero', cur === sections[0]);
-    const label = `${String(sections.indexOf(cur) + 1).padStart(2, '0')} / ${cur.dataset.label}`;
-    setText($('rail'), label);
-    if (cur.dataset.page && hereEl.dataset.k !== cur.id) { hereEl.dataset.k = cur.id; hereEl.href = cur.dataset.page; hereEl.textContent = innerWidth <= 820 ? cur.dataset.ps : cur.dataset.pl; hereEl.setAttribute('aria-label', cur.dataset.pl); const atFind = cur.id === 'find'; skipEl.href = atFind ? '#hero' : '#find'; skipEl.textContent = atFind ? 'Back to top' : skipText; }
-  }
-
-  /* ---------- Reveal on view ---------- */
-  const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 }) : null;
-  document.querySelectorAll('.reveal, .panel .stat, .reach').forEach((el) => (io ? io.observe(el) : el.classList.add('in')));
-
-  /* ---------- Static versions for reduced motion ---------- */
   if (calm) {
     /* Let the air settle round the riders before the one still frame */
-    sizeField(); for (let i = 0; i < 200; i++) drawField(.5, i * 16, 16);
-    sizeFig2(); for (let i = 0; i < 200; i++) drawFig2(1, i * 16, 16);
-    drawSeasonStatic();
-    layoutKit(); hotEls.forEach((h) => h.classList.add('vis'));
-    window.addEventListener('resize', layoutKit);
-    document.querySelectorAll('.roll').forEach((r) => r.classList.add('in'));
-    drawBars();
-    barEls.forEach((b) => b.style.setProperty('--in', 1));
-    const still = () => furniture(scrollY);
-    window.addEventListener('scroll', still, { passive: true }); still();
-    function drawSeasonStatic() { buildProfile(); const w = $('world'); w.tabIndex = 0; w.setAttribute('role', 'region'); w.setAttribute('aria-label', 'Season profile. Scroll sideways.'); prof.el.style.position = 'static'; prof.clip.setAttribute('width', prof.W); prof.labels.forEach((l) => l.lg.setAttribute('opacity', 1)); prof.marker.setAttribute('r', 0); $('world').style.overflowX = 'auto'; }
+    const draw = () => { sizeField(); for (let i = 0; i < 200; i++) drawField(.5, i * 16, 16); sizeFig2(); for (let i = 0; i < 200; i++) drawFig2(1, i * 16, 16); };
+    draw(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
     return;
   }
 
   /* ---------- The loop ---------- */
+  const show = (el, on) => el.classList.toggle('on', on);
   const pins = {
-    hero: { run: (p, now, dt) => {
-      const { a, th } = drawField(p, now, dt);
-      const A = 1 - map(p, .05, .13);
-      $('heroA').style.opacity = A; $('heroA').style.transform = `translateY(${(1 - A) * -28}px)`;
-      const B = band(p, .15, .22, .52, .58);
-      $('heroB').style.opacity = B; $('heroB').style.transform = `translateY(${(1 - B) * 22}px)`;
-      const C = map(p, .74, .84);
-      $('heroC').style.opacity = C; $('heroC').style.transform = `translateY(${(1 - C) * 22}px)`;
-      setText($('rState'), p < .12 ? 'Bunch' : p < .4 ? 'Forming' : p < .6 ? 'Rotating echelon' : 'The mark');
-      setText($('rWind'), `From right ${String(Math.round(19 * a)).padStart(2, '0')} mph`);
-      setText($('rLine'), `${Math.round(90 - th / DEG)}°`);
-    } },
-    roster: { run: drawRoster },
-    results: { run: drawResults },
-    kit: { run: drawKit },
-    season: { run: drawSeason },
-    fig2: { run: drawFig2 },
-    vets: { run: drawTrack },
+    hero: (p, now, dt) => {
+      drawField(p, now, dt);
+      /* One message at a time. Each is fully on or fully off, never half faded. */
+      show($('heroA'), p < .1); show($('heroB'), p > .2 && p < .54); show($('heroC'), p > .74);
+    },
+    roster: drawRoster,
+    vets: drawFig2,
   };
-  const list = Object.entries(pins).map(([id, o]) => ({ el: $(id), run: o.run, s: 0 }));
-
-  let lastY = scrollY, lastT = performance.now(), vel = 0, lean = 0, windNow = 6, lastLean = '0.0';
+  const list = Object.entries(pins).map(([id, run]) => ({ el: $(id), run, s: 0 }));
+  let lastT = performance.now();
   function frame(now) {
-    const dt = Math.min(48, now - lastT); lastT = now;
-    const y = scrollY;
-    vel += ((y - lastY) - vel) * .18; lastY = y;
-    const target = clamp(vel * -.22, -7, 7);
-    lean += (target - lean) * .12;
-    const vh = innerHeight;
+    const dt = Math.min(48, now - lastT), vh = innerHeight; lastT = now;
     for (const o of list) {
-      const r = o.el.getBoundingClientRect();
-      const len = r.height - vh;
-      const p = len > 0 ? clamp(-r.top / len) : 0;
+      const r = o.el.getBoundingClientRect(), len = r.height - vh, p = len > 0 ? clamp(-r.top / len) : 0;
       o.s += (p - o.s) * .16;
       if (r.bottom > -120 && r.top < vh + 120) o.run(o.s, now, dt);
     }
-    furniture(y);
-    /* Partners marquee and the thank-you bib */
-    const pr = $('partners').getBoundingClientRect();
-    if (pr.bottom > 0 && pr.top < vh) {
-      mx += (1.1 + Math.abs(vel) * .35) * dt * .06;
-      const w = $('m0').scrollWidth / 4 || 1;
-      $('m0').style.transform = `translate3d(${-(mx % w)}px, 0, 0)`;
-      $('m1').style.transform = `translate3d(${-w + (mx % w)}px, 0, 0)`;
-      $('thanks').style.setProperty('--ty', `${(pr.top * -.05).toFixed(1)}px`);
-    }
-    const br = $('bars').getBoundingClientRect();
-    if (br.top < vh) drawBars();
-    windNow += ((6 + Math.min(Math.abs(vel) * .8, 34)) - windNow) * .1;
-    setText($('wind'), `WIND 270° ${String(Math.round(windNow)).padStart(2, '0')} MPH`);
-    /* Written last and only on change, so the reads above stay cheap */
-    const leanStr = lean.toFixed(1);
-    if (leanStr !== lastLean) { root.style.setProperty('--lean', leanStr); lastLean = leanStr; }
     requestAnimationFrame(frame);
   }
-
   let lastW = innerWidth, lastH = innerHeight;
   function sizeAll(force) {
     /* Phones fire resize as the address bar hides, so ignore small height changes */
     if (!force && innerWidth === lastW && Math.abs(innerHeight - lastH) < 120) return;
-    sizeField(); sizeTrack(); buildProfile(); layoutKit(); sizeFig2();
-    nowIdx = -1; rosterIdx = -1; kitActive = -2;
-    lastW = innerWidth; lastH = innerHeight;
+    sizeField(); sizeFig2(); rosterIdx = -1; lastW = innerWidth; lastH = innerHeight;
   }
   window.addEventListener('resize', () => sizeAll(false));
-  window.addEventListener('pointermove', (e) => { const r = field.getBoundingClientRect(); pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.t = performance.now(); }, { passive: true });
   sizeAll(true);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => sizeAll(true));
   requestAnimationFrame(frame);

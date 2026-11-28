@@ -312,7 +312,7 @@
         { key: 'logo', label: 'Logo', kind: 'image', hint: 'A PNG or SVG from the sponsor works best.' },
         { key: 'tier', label: 'Tier', kind: 'select', options: TIERS.map((t) => [t, t]), hint: 'Sets which group the logo sits in. You choose the tier names.' },
         { key: 'url', label: 'Website', kind: 'text', hint: 'Where the logo links to.', check: (v) => v && !/^[^\s]+\.[^\s]{2,}$/.test(v) ? 'That doesn\'t look like a web address.' : '' },
-        { key: 'showCode', label: 'Has a code for fans', kind: 'switch', hint: 'Puts the code on the codes page and in the musette.' },
+        { key: 'showCode', label: 'Has a code for fans', kind: 'switch', hint: 'Puts the code on the codes page.' },
         { key: 'code', label: 'Code', kind: 'text', when: 'showCode', check: (v, d) => (d.showCode && !v.trim() ? 'Add the code, or turn the code off.' : '') },
         { key: 'offer', label: 'What it gets', kind: 'text', when: 'showCode', hint: 'Such as 15% off.', max: 40 },
         { key: 'codeEnds', label: 'Last day', kind: 'date', when: 'showCode', hint: 'The code comes off the site by itself the next day.' },
